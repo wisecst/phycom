@@ -1,0 +1,3 @@
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
+/* One shared Jua declaration for existing display headings and device header labels. */
+.dashboard-hero h1,.curriculum,.robot-message,.dashboard-tabs button,.device-panel>h2,.device-card h3,.assignment-title,.empty-unit h2,.unit-description strong,.device-concept-meta,.device-explanation .device-concept-title h1,.device-concept-subtitle{font-family:"Jua","Malgun Gothic",sans-serif;font-weight:400}

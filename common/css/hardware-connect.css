@@ -1,0 +1,346 @@
+/* Shared hardware connection page; all additions are scoped to this component. */
+.hardware-connect-slide .hc-workspace {
+  height: 100%;
+  width: 100%;
+}
+.hc-content {
+  position: absolute;
+  left: 145px;
+  right: 25px;
+  top: 95px;
+  bottom: 30px;
+  background-image: radial-gradient(#c9e4f3 1.15px, transparent 1.15px);
+  background-size: 14px 14px;
+}
+.hc-content h2 {
+  margin: 0 0 28px;
+}
+.hc-usb {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 65px;
+}
+.hc-usb > div {
+  width: 36%;
+  text-align: center;
+}
+.hc-usb img {
+  width: 100%;
+}
+.hc-usb > svg {
+  width: 22%;
+  order: 2;
+}
+.hc-usb strong {
+  display: block;
+  font-size: 25px;
+  margin-top: 20px;
+}
+.hc-usb > div > svg {
+  width: 90%;
+}
+.hc-entry {
+  height: 440px;
+  position: relative;
+}
+.hc-connect-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  width: 380px;
+  margin: 25px 0;
+}
+.hc-connect-buttons button {
+  background: white;
+  border: 3px solid #5484fb;
+  border-radius: 12px;
+  color: #426cf0;
+  padding: 20px;
+  font-size: 30px;
+  font-weight: 800;
+}
+.hc-focus {
+  outline: 6px solid #ffd535;
+  outline-offset: 5px;
+}
+.hardware-connect-slide .hc-program-shot {
+  height: auto;
+  width: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: left;
+  display: block;
+}
+.hc-install {
+  font-size: 23px;
+  font-weight: 800;
+  line-height: 1.6;
+  margin: 15px 0;
+}
+.hc-block-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 22px;
+  padding: 25px;
+  width: 54%;
+  background: #f7fcff;
+  height: auto;
+  overflow: visible;
+}
+.hardware-connect-slide .hc-block-list .entry-block {
+  font-size: 23px;
+  position: relative;
+  opacity: 1 !important;
+  visibility: visible;
+  max-width: 100%;
+  filter: none !important;
+}
+.hc-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(19, 39, 56, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 160;
+}
+
+.hardware-connect-slide .hc-result{
+  position: relative !important;
+  inset: auto !important;
+  transform: none !important;
+  width: min(940px, calc((900px - 160px) * 1.353)) !important;
+  max-width: 92%;
+  background: white;
+  padding: 30px !important;
+  border-radius: 24px;
+}
+.hardware-connect-slide .hc-board {
+  position: relative;
+  width: 100%;
+  line-height: 0;
+  pointer-events: none;
+}
+.hc-board img {
+  width: 100%;
+  height: auto;
+}
+.hardware-connect-slide .hc-result p {
+  font-size: 30px !important;
+  font-weight: 900;
+  text-align: center;
+  margin: 20px 0 0;
+  margin-top: 20px !important;
+}
+.hc-led {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 3.3%;
+  height: 2%;
+  border-radius: 3px;
+}
+.hc-on {
+  left: 82.5%;
+  top: 26.1%;
+  background: #36a5ff;
+  box-shadow: 0 0 15px 8px #168fff;
+}
+.hc-rx {
+  left: 38.6%;
+  top: 46.4%;
+  background: #ff3b34;
+  box-shadow: 0 0 15px 8px #ff312d;
+}
+.hc-blinking {
+  animation: hc-rx-data 0.65s steps(1) infinite;
+}
+.hardware-connect-slide [hidden] {
+  display: none !important;
+}
+.hardware-connect-slide .entry-tabs {
+  width: 96px;
+  position: absolute;
+  left: 0;
+  top: 52px;
+  bottom: 0;
+}
+.hardware-connect-slide .entry-tab {
+  width: 96px;
+  height: 96px;
+  padding: 0;
+  border: 0;
+  position: relative;
+}
+.hardware-connect-slide .entry-tab-image {
+  width: 96px;
+  height: 96px;
+  display: block;
+}
+.hardware-connect-slide .entry-tab-image-selected {
+  display: none;
+}
+.hardware-connect-slide .active-tab .entry-tab-image-selected {
+  display: block;
+}
+.hardware-connect-slide .active-tab .entry-tab-image-unselected {
+  display: none;
+}
+body:has(.hardware-connect-slide.active) .slide-nav {
+  z-index: 180 !important;
+}
+.hardware-connect-slide .hc-result .entry-result-close {
+  z-index: 3;
+  top: 8px;
+  right: 8px;
+}
+.hc-usb > div:first-child {
+  order: 3;
+}
+.hc-usb > div:last-child {
+  order: 1;
+}
+@keyframes hc-rx-data {
+  0%,
+  60% {
+    opacity: 1;
+  }
+  30%,
+  85% {
+    opacity: 0.08;
+  }}
+
+.hc-program-window {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 43%;
+  padding: 28px 10px 10px;
+  background: #fff;
+  border: 2px solid #cfe1ee;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px #18364a35;
+  z-index: 2;
+}
+.hc-install { width: 54%; }
+.hc-connected .hc-connect-buttons { margin: 0 0 15px; }
+.hc-connected .hc-connect-buttons button { padding: 10px; font-size: 24px; }
+.pin13-board-view .hc-pin-status { width: 2.8%; height: 1.8%; }
+.pin13-board-view .hc-on { box-shadow: 0 0 6px 3px #168fff; }
+.pin13-board-view .hc-rx { box-shadow: 0 0 6px 3px #ff312d; animation: none; }
+[aria-hidden="false"] .pin13-board-view .hc-rx,
+.ec-popup[data-running="true"] .pin13-board-view .hc-rx { animation: hc-rx-data 0.65s steps(1) infinite; }
+
+.hardware-connect-slide.hc-success-rx .hc-program-shot{height:115px;object-position:center}
+.hardware-connect-slide.hc-success-rx .hc-overlay{inset:335px 25px auto auto;width:calc(43% - 73.1px);background:transparent}
+.hardware-connect-slide.hc-success-rx .hc-result{width:100%!important;padding:12px!important;max-width:100%;box-shadow:0 6px 18px #18364a35}
+
+.hardware-connect-slide.hc-success-rx .hc-result p{font-size:clamp(18px,28.8px,25px)!important;line-height:1.35}
+.hardware-connect-slide .hc-workspace{height:100%!important}
+.hardware-connect-slide .hc-content{left:145px;top:95px}
+.hardware-connect-slide .hc-usb{margin-top:20px}
+.hardware-connect-slide .hc-usb strong{font-size:22px;margin-top:12px}
+.hardware-connect-slide .hc-connect-buttons{margin:15px 0;gap:18px}
+.hardware-connect-slide .hc-block-list{width:56%;padding:16px;gap:14px}
+.hardware-connect-slide .hc-block-list .entry-block{font-size:18px;gap:8px;padding:8px 12px;white-space:nowrap}
+.hardware-connect-slide.hc-success-rx .hc-overlay{inset:290px 25px auto auto;width:26%}
+.hardware-connect-slide.hc-success-rx .hc-result p{font-size:20px!important}
+
+.hardware-connect-slide .hc-content h2{margin-bottom:16px}
+.hardware-connect-slide.hc-success-rx .hc-program-shot{height:75px}
+.hardware-connect-slide.hc-success-rx .hc-result p{font-size:18px!important}
+
+/* Preserve the existing Entry UI; align connection and board views. */
+.hardware-connect-slide .entry-scene-tabs{background:#00c400;color:#fff}
+.hardware-connect-slide .hc-usb{width:54%;gap:0;align-items:center;margin-top:100px}
+.hardware-connect-slide .hc-usb>div{width:39%;flex-shrink:0}
+.hardware-connect-slide .hc-usb>svg{width:22%;flex-shrink:0}
+.hardware-connect-slide .hc-usb>div>svg{width:100%}
+.hardware-connect-slide .hc-usb strong{font-size:18px;line-height:1.4}
+.hardware-connect-slide .hc-board-panel{position:absolute;right:0;top:210px;width:43%;text-align:center}
+.hardware-connect-slide .hc-usb-phase .hc-board-panel{top:90px}
+.hardware-connect-slide .hc-board-status{font-size:23px;font-weight:800;margin:18px 0}
+.hardware-connect-slide .hc-entry{width:100%}
+.hardware-connect-slide .hc-block-list{box-sizing:border-box;width:56%;gap:18px;padding:18px;align-items:flex-start}
+.hardware-connect-slide .hc-program-window{width:43%;box-sizing:border-box}
+.hardware-connect-slide.hc-usb-phase .hc-overlay,
+.hardware-connect-slide.hc-success-rx .hc-overlay{inset:185px 25px auto auto;width:calc((100% - 170px)*.43);background:transparent}
+.hardware-connect-slide.hc-usb-phase .hc-result,
+.hardware-connect-slide.hc-success-rx .hc-result{box-sizing:border-box;width:100%!important;padding:16px!important;max-width:100%;box-shadow:0 6px 18px #18364a35}
+.hardware-connect-slide.hc-usb-phase .hc-result p,
+.hardware-connect-slide.hc-success-rx .hc-result p{font-size:23px!important;line-height:1.4}
+.hardware-connect-slide.hc-success-rx .hc-program-shot{height:100px}
+
+.hardware-connect-slide .hc-usb>svg{transform:translate(-68px,-55px) scaleX(1.45);transform-origin:left center;overflow:visible}
+.hardware-connect-slide:has(.hc-overlay:not([hidden])) .hc-board-panel{visibility:hidden}
+
+/* First action: one connected PC and one powered board, before the tab appears. */
+.hardware-connect-slide.hc-usb-phase .hc-usb{width:100%;margin-top:100px}
+.hardware-connect-slide.hc-usb-phase .hc-usb>div{width:39%}
+.hardware-connect-slide.hc-usb-phase .hc-usb>svg{width:22%;transform:translate(-68px,-55px) scaleX(1.45)}
+.hardware-connect-slide.hc-usb-phase .hc-content{left:50px}
+
+.hardware-connect-slide.hc-usb-phase .hc-usb{position:relative;justify-content:space-between}
+.hardware-connect-slide.hc-usb-phase .hc-usb>svg{position:absolute;inset:0;width:100%;height:100%;transform:none}
+
+.hardware-connect-slide.hc-usb-phase .hc-usb{display:flex!important;gap:0!important}
+.hardware-connect-slide.hc-usb-phase .hc-usb>div{width:39%!important}
+.hardware-connect-slide.hc-usb-phase .hc-usb>div>svg{width:100%!important;height:auto!important}
+.hardware-connect-slide.hc-usb-phase .hc-usb>svg{width:100%!important;height:100%!important}
+.hardware-connect-slide.hc-success-rx .hc-overlay{inset:290px 25px auto auto!important;width:calc((100% - 170px)*.43)!important}
+
+/* Hardware page only: keep the real board unobscured at the right in every action. */
+.hardware-connect-slide .hc-board-panel{display:block;right:0;top:145px!important;width:35%!important;visibility:visible!important}
+.hardware-connect-slide .hc-board-panel .hc-board{width:100%}
+.hardware-connect-slide .hc-board-status{font-size:23px}
+.hardware-connect-slide.hc-usb-phase .hc-usb{width:56%!important;margin-top:115px!important}
+.hardware-connect-slide.hc-usb-phase .hc-usb>.hc-laptop{width:80%!important;margin-left:0}
+.hardware-connect-slide .hc-laptop img{width:100%!important;max-width:100%!important;height:auto!important}
+.hardware-connect-slide .hc-usb>svg{overflow:visible!important;pointer-events:none}
+.hardware-connect-slide .hc-program-window{left:0!important;right:auto!important;top:110px!important;width:56%!important;z-index:3}
+.hardware-connect-slide .hc-program-shot{height:auto!important;max-height:430px;object-fit:contain}
+.hardware-connect-slide .hc-connect-buttons{width:56%;gap:16px}
+.hardware-connect-slide .hc-block-list{width:56%!important;height:535px;box-sizing:border-box;overflow:auto!important;padding:12px;display:block;position:relative}
+.hardware-connect-slide .hc-palette-canvas.ec-program{display:block!important;width:max-content!important;max-width:none!important;zoom:.62}
+.hardware-connect-slide .hc-palette-canvas .ec-script{margin-bottom:16px}
+.hardware-connect-slide .hc-palette-canvas .ec-output-status{display:none}
+
+/* Requested UI polish only; the existing connection sequence and palette are unchanged. */
+.hardware-connect-slide.hc-usb-phase .hc-board-panel{width:50%!important;top:140px!important}
+.hardware-connect-slide .hc-usb>svg path{stroke:#fff;filter:drop-shadow(0 1px 1px #a0a9b4)}
+.hardware-connect-slide .hc-connect-buttons{width:360px!important;max-width:100%;align-items:flex-start}
+.hardware-connect-slide .hc-connect-buttons button{width:100%;box-sizing:border-box;text-align:left;padding-left:18px}
+.hardware-connect-slide .hc-program-window{left:16%!important;top:195px!important;width:40%!important;height:250px!important;box-sizing:border-box;overflow:hidden}
+.hardware-connect-slide.hc-select-phase .hc-program-window{background:transparent!important;border:0!important;box-shadow:none!important;padding:0!important;border-radius:0}
+.hardware-connect-slide.hc-select-phase .hc-program-shot{width:100%!important;height:auto!important;max-height:none!important;object-fit:initial;mix-blend-mode:multiply}
+.hardware-connect-slide .hc-orange-choice{position:absolute;border:4px solid #ffae00;border-radius:9px;box-shadow:0 0 0 2px #fff8,0 0 14px #ffae0080;box-sizing:border-box;pointer-events:none}
+.hardware-connect-slide.hc-success-rx .hc-program-window{background:#fff!important;padding:8px!important;border:2px solid #cfe1ee!important;border-radius:14px;box-shadow:0 6px 18px #18364a35}
+.hardware-connect-slide.hc-success-rx .hc-program-shot{width:100%!important;height:100%!important;max-height:none!important;object-fit:contain;mix-blend-mode:normal}
+
+/* Keep the approved first-screen board geometry throughout this page. */
+.hardware-connect-slide:not(.hc-usb-phase) .hc-board-panel{width:50%!important;top:140px!important}
+.hardware-connect-slide .hc-usb>svg path{stroke:#586b80;filter:drop-shadow(0 1px 1px #fff)}
+.hardware-connect-slide .hc-usb>svg rect{fill:#f8fafc;stroke:#b8c4d0;stroke-width:1}
+.hardware-connect-slide .hc-connect-buttons{width:300px!important}
+.hardware-connect-slide .hc-connect-buttons button{text-align:center;padding-left:6px;padding-right:6px}
+.hardware-connect-slide.hc-success-rx .hc-program-window{background:transparent!important;padding:0!important;border:0!important;border-radius:0;box-shadow:none!important}
+.hardware-connect-slide.hc-success-rx .hc-program-shot{object-fit:contain;object-position:center;transform:scale(1.12);mix-blend-mode:multiply}
+
+.hardware-connect-slide .hc-board-panel{z-index:4}
+.hardware-connect-slide .hc-program-window{width:34%!important}
+
+/* Full captured UI, displayed directly without HTML text overlays. */
+.hardware-connect-slide .hc-program-close{display:none!important}
+.hardware-connect-slide .hc-program-window{left:0!important;top:200px!important;width:570px!important;height:auto!important;overflow:visible!important;z-index:5}
+.hardware-connect-slide .hc-program-shot{width:100%!important;height:auto!important;max-height:none!important;object-fit:contain!important;transform:none!important;mix-blend-mode:normal!important}
+.hardware-connect-slide.hc-success-rx .hc-program-window{top:95px!important}
+.hardware-connect-slide.hc-success-rx .hc-program-shot{height:auto!important;transform:none!important}
+
+.hardware-connect-slide.hc-success-rx .hc-program-window{width:610px!important}
+
+
+/* Popup-only finishing: primary selection labels and visible palette behind success. */
+.hardware-connect-slide.hc-success-rx .hc-program-window{left:24%!important;top:110px!important;width:440px!important}
+
+

@@ -1,0 +1,28 @@
+/* Only the appended textbook code page; existing lesson geometry is unchanged. */
+.textbook-page:not(.active){display:none}
+.textbook-page.active{display:block}
+.textbook-page .entry-stage{padding:58px 28px 18px!important}
+.textbook-page .tb-object-info{font-size:22px}
+.textbook-page .tb-script{width:max-content;max-width:100%;margin:0 0 16px}
+.textbook-page .entry-block{display:flex;min-width:0;min-height:42px;height:42px;box-sizing:border-box;font-size:22px;line-height:1;gap:8px;padding:4px 14px;white-space:nowrap;margin:0;width:max-content;max-width:100%}
+.textbook-page .start-block{height:48px;padding-left:8px;min-width:0}
+.textbook-page .start-block:after{bottom:-8px;border-width:8px}
+.textbook-page .play-dot{width:34px;height:34px;flex-basis:34px;font-size:20px}
+.textbook-page .field,.textbook-page .number-field{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;font-size:21px;min-height:28px;box-sizing:border-box}
+.textbook-page .tb-looks{background:#d91d70}
+.textbook-page .tb-data{background:#c22db5}
+.textbook-page .tb-motion{background:#a535ed}
+.textbook-page .tb-flow{background:#22b8df;border-color:#0798bf;border-radius:0 24px 24px 0}
+.textbook-page .tb-if{border-left:18px solid #22b8df;padding-bottom:12px;position:relative;width:max-content}
+.textbook-page .tb-if:after{content:"";position:absolute;left:-18px;bottom:0;width:270px;height:12px;background:#22b8df;border-radius:0 0 14px 0}
+.textbook-page .tb-if>.tb-flow{margin-left:-18px;padding-left:22px}
+.textbook-page .tb-body{padding-left:14px}
+.textbook-page .tb-variable{display:inline-flex;align-items:center;gap:5px;border-radius:18px;background:#c22db5;color:white;padding:3px 9px;white-space:nowrap;font-size:21px}
+.textbook-page .tb-condition{display:inline-flex;align-items:center;gap:7px;border-radius:20px;background:#5375ee;padding:3px 8px}
+.textbook-page .tb-product{display:inline-flex;align-items:center;gap:7px;border-radius:22px;background:#eea521;padding:2px 7px}
+.textbook-page .tb-looks .field{background:#b61958;border-color:#ab184f}.textbook-page .tb-data .field{background:#ad1caa;border-color:#921593}
+.textbook-page .entry-code-page-label{font-size:22px}
+.textbook-page .entry-tab .entry-tab-image{width:100%;height:100%;object-fit:contain;display:block}
+.textbook-page .tb-hidden{display:none!important}
+.dc-page5-slide .dc5-prep:not(.show),.dc-page5-slide .dc5-block:not(.show),.dc-page5-slide .dc5-cblock:not(.show){display:none!important}
+.dc-page5-slide .dc5-prep-list{display:none!important}

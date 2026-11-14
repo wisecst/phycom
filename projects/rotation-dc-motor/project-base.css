@@ -1,0 +1,304 @@
+/* Project-only layouts within the original 1600x900 Stage. */
+.fan-project h1{font-size:34px}.fan-project .slide{padding:24px;background:#fff;border-radius:18px}.fan-project .slide:not(.active){display:none!important}.fan-project .slide.active{display:block}.fan-project .slide h2{font-size:30px;margin:0 0 20px}.fan-project .slide-sidebar h2{font-size:20px}.fan-project .project-flow{display:grid;grid-template-columns:1fr 50px 1fr 50px 1fr;align-items:center;gap:20px;height:450px;margin-top:35px}.project-flow figure{margin:0;text-align:center}.project-flow figure img{width:100%;height:290px;object-fit:contain}.project-flow figcaption{font-size:30px;font-weight:800;margin-top:22px}.flow-arrow{font-size:48px;color:#248c7a}.steps-card{padding:30px 12px;border-radius:20px;background:#e9f6ef;text-align:center;font-size:28px}.step-chips{display:flex;justify-content:center;gap:8px;margin:25px 0}.step-chips span{display:grid;place-items:center;width:42px;height:48px;background:white;border-radius:10px;font-weight:900}.steps-card p{line-height:1.7;font-size:24px}.project-summary{font-size:24px;font-weight:700;text-align:center;margin:32px 0 0}.materials{font-size:19px;margin:0 0 10px}.fan-project #projectCircuit{display:block;width:100%;height:500px}.circuit-labels{font:700 20px Arial,sans-serif;fill:#243447}.cable-note{font-size:18px;line-height:1.4;background:#fff7dd;border-left:5px solid #e2ab2f;padding:8px 12px;margin:0}.guide-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:28px 0}.guide-card{background:#edf5fa;border-radius:18px;padding:22px;text-align:center}.guide-card h3{font-size:27px;margin:0 0 20px}.guide-card p{font-size:26px;margin:18px}.guide-card>span{font-size:28px;color:#238b7c}.output-table{display:grid;grid-template-columns:180px repeat(6,1fr);font-size:25px;text-align:center;gap:2px}.output-table>*{padding:12px;background:#e9f6ef}.output-table b{background:#d2eae0}
+/* Reuse common Entry puzzle blocks, category images and C-loop construction. */
+.fan-project .project-code{width:max-content;padding:0;margin:0;transform:none}.fan-project .project-code .repeat-block{width:320px}.fan-project .project-code .data-block{background:#c22db5;border-color:#961990}.fan-project .project-code .looks-block{background:#d91d70;border-color:#ad1454}.fan-project .project-code .data-block>.field{background:#a82099;border-color:#94178d}.project-variable{display:inline-flex;align-items:center;padding:3px 8px;border-radius:20px;background:#c22db5;color:#fff;gap:5px}.project-variable .field{background:#a51e99;border-color:#97188b}.project-map{display:inline-flex;align-items:center;gap:5px;background:#00b6b2;border:2px solid #008f94;border-radius:24px;padding:4px 9px;font-size:18px}.project-map .number-field{background:white;color:#1e3f49;border-color:#a8d2d3;font-size:18px!important}.project-product{display:inline-flex;align-items:center;gap:8px;border-radius:26px;background:#eea521;border:2px solid #dc8a07;padding:2px 8px}.project-number{position:absolute;right:35px;bottom:45px;display:grid;place-items:center;width:170px;height:180px;background:#f0b439;color:white;border-radius:25px;box-shadow:0 6px 0 #c38e23}.project-number b{font-size:95px}.project-number span{font-size:19px}.project-result{position:absolute;inset:65px 45px 55px;background:#fff;border:2px solid #cfe0e9;border-radius:20px;z-index:90;padding:30px;box-shadow:0 12px 36px #173a5540}.project-result[hidden]{display:none}.project-result h2{font-size:32px!important}.result-layout{display:grid;grid-template-columns:1fr 1fr;gap:40px;height:calc(100% - 70px)}.dial-area{text-align:center;background:#edf7f2;border-radius:18px;padding:25px}.dial-area img{width:300px;height:220px;object-fit:contain;transform-origin:40% 35%}.dial-area input{display:block;width:100%;height:44px;accent-color:#278d7b;margin:25px 0}.dial-area p{font-size:23px}.readouts p{font-size:27px;margin:15px}.fan-area{display:flex;flex-direction:column;align-items:center;justify-content:center;background:#edf4f9;border-radius:18px}.fan-area svg{width:420px;height:380px;overflow:visible}.fan-area strong{font-size:29px;margin-top:15px}.fan-project .motor-motion-fan{transform-box:view-box;transform-origin:53% 62%;animation:project-fan-spin var(--fan-period,1s) linear infinite;animation-play-state:paused}.fan-project .project-result.running .motor-motion-fan{animation-play-state:running}@keyframes project-fan-spin{to{transform:rotate(360deg)}}
+
+.rotation-dial{position:relative;width:300px;height:220px;margin:auto}.dial-knob{position:absolute;left:73px;top:-5px;width:80px;height:80px;border-radius:50%;border:0;background:transparent;cursor:grab;touch-action:none}.dial-knob:focus-visible{outline:4px solid #218a7a}.dial-pointer{position:absolute;left:38px;top:12px;height:23px;width:5px;border-radius:4px;background:#fff;box-shadow:0 0 3px #000;transform-origin:50% 28px}
+
+.readouts{display:grid;grid-template-columns:1fr 95px;align-items:center;gap:0 12px}.readouts p{grid-column:1;margin:10px 0}.live-number{grid-column:2;grid-row:1/span 2;display:grid;place-items:center;height:100px;background:#f0b439;color:white;border-radius:15px;box-shadow:0 4px 0 #c38e23}.live-number b{font-size:58px}.live-number span{font-size:14px}
+
+/* Five-page assignment: scoped additions preserve common lesson styles. */
+.fan-project .intro-demo{position:relative;inset:auto;margin:12px auto 0;width:100%;height:555px;padding:10px 35px;box-shadow:none;border:0;background:transparent}
+.intro-demo .result-layout{height:100%;align-items:center}.intro-demo .rotation-dial{margin:0 auto}.intro-demo .fan-area .dc-fan-view{height:340px}.intro-demo .readouts{font-size:24px}
+.intro-demo input,.project-result input{display:none}.intro-demo .dial-knob{pointer-events:none}
+.fan-project .project-circuit #projectCircuit{height:575px}.circuit-progress{font-size:24px;margin:0;text-align:center;font-weight:700}
+.project-guide .guide-card p{font-size:28px}.project-guide .output-table{font-size:28px}
+
+.project-entry .project-code{padding-bottom:30px}.project-entry .project-palette{margin:22px 0 0;padding:10px 14px;width:max-content;max-width:100%;border:2px dashed #b4bdcb;border-radius:12px;background:#fff}
+
+
+
+.project-entry #pin13Modal{z-index:50}.project-entry .project-result{z-index:51}
+
+.fan-project [hidden]{display:none!important}
+
+
+/* One execution layout for pages 1 and 5; the six-level controller is unchanged. */
+.fan-demo .result-layout{width:1050px;height:500px!important;margin:0 auto;align-items:stretch;gap:40px}
+.fan-demo .fan-area .dc-fan-view{height:340px;width:420px}
+.fan-demo .dial-knob{left:73px;top:14px;width:100px;height:100px;background:#252525;box-shadow:inset 0 0 0 3px #161616}
+.fan-demo .dial-pointer{left:48px;top:16px;height:30px;transform-origin:50% 34px}
+.fan-project .live-number,.fan-project .project-number{border-radius:50%;background:#fb0232;box-shadow:none;aspect-ratio:1;width:100px;height:100px;color:white}
+.fan-project .live-number b{font:800 64px Arial,sans-serif}.fan-project .live-number span,.fan-project .project-number span{display:none}
+.fan-project .project-number{width:150px;height:150px}.fan-project .project-number b{font:800 95px Arial,sans-serif}
+/* Reuse the normal DC lesson's Entry looks category and darker dropdown. */
+.fan-project .project-code .looks-block{background:#fb0232;border-color:#cf0028}
+.fan-project .project-code .looks-block #taskShape>.field{background:#cf0028;border-color:#b90023;color:#fff;border-radius:6px}
+/* The value reporter uses the common hardware category rather than another palette. */
+.fan-project .project-map.hardware-block{display:inline-flex!important;position:relative;min-width:0;width:max-content;height:auto;min-height:0;margin:0;padding:4px 9px;border-radius:24px;font-size:18px;box-shadow:inset 0 -3px rgba(0,0,0,.12)}
+.fan-project .project-map.hardware-block:before,.fan-project .project-map.hardware-block:after{display:none}
+.fan-project .project-map .field{background:#008e8b;border-color:#007b78}
+
+/* Shared continuous-input demonstration on pages 1 and 5. */
+.fan-demo .demo-levels{display:flex;justify-content:center;gap:12px;margin-top:12px}
+.fan-demo .demo-levels span{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:#fb0232;color:#fff;font:bold 28px Arial;opacity:.4}
+.fan-demo .demo-levels span.active{opacity:1;outline:3px solid #50293a;outline-offset:3px}
+.fan-demo .readouts p{font-size:23px}.fan-demo .readouts small{display:block;font-size:17px;font-weight:400;color:#536b63}
+.fan-demo .conversion-note{font-size:19px;margin:12px 0}
+
+/* Page 5 uses the normal motor lesson workspace and inline run controls. */
+
+
+.fan-project .project-code.motor-program .entry-block{width:max-content;max-width:none;white-space:nowrap}
+.fan-project .project-code.motor-program .repeat-block{width:320px}
+
+
+.fan-project .project-entry .project-number{top:4px;bottom:auto;right:110px;width:84px;height:84px;z-index:40}
+.fan-project .project-entry .project-number b{font-size:46px}
+
+
+/* Data and looks puzzle connectors copied from the normal DC code page. */
+.fan-project .project-code .data-block,.fan-project .project-code .looks-block{border-radius:0 29px 29px 0;padding-left:28px}
+.fan-project .project-code .data-block:before,.fan-project .project-code .looks-block:before{content:"";position:absolute;left:16px;top:-2px;width:20px;height:9px;background:inherit;clip-path:polygon(0 0,100% 0,75% 100%,25% 100%)}
+.fan-project .project-code .data-block:after,.fan-project .project-code .looks-block:after{content:"";position:absolute;left:16px;bottom:-9px;width:20px;height:10px;background:inherit;clip-path:polygon(25% 0,75% 0,100% 100%,0 100%);z-index:2}
+
+/* Both code pages inherit the normal lesson toolbar, stage and C-block geometry. */
+.project-entry .entry-save-btn:disabled,.project-entry .entry-complete-btn:disabled{opacity:.35;cursor:default}
+.project-entry .entry-save-btn.enabled,.project-entry .entry-complete-btn.enabled{outline:4px solid #ffd22f;outline-offset:2px}
+.project-entry .project-palette [hidden]{display:none!important}
+.project-entry .project-map.hardware-block{color:#fff}
+.project-entry .project-map .number-field{background:#ffca36;color:#1e3f49;border-color:#a8d2d3}
+.study-result input{display:block;width:100%;accent-color:#278d7b}
+.study-result .dial-knob{left:73px;top:14px;width:100px;height:100px;background:#252525;box-shadow:inset 0 0 0 3px #161616}
+.study-result .dial-pointer{left:48px;top:16px;height:30px;transform-origin:50% 34px}
+.study-output{display:flex;align-items:center;justify-content:center;gap:20px}
+.study-entrybot{position:relative;text-align:center}.study-entrybot img{width:150px}
+.study-speech{display:block;padding:12px 22px;margin-bottom:15px;border:2px solid #cfe0e9;border-radius:18px;background:white;color:#243447;font-size:32px;font-weight:800}
+.study-result .fan-area{width:280px;height:280px}.study-result .fan-area svg{width:260px;height:230px}
+
+/* Existing Entry yellow value color, restricted to the requested input boxes. */
+.project-entry .looks-block .study-greeting{background:#ffca36}
+/* Study output only: the existing dial, Entrybot and fan fill two equal halves. */
+.study-result .result-layout{display:block}
+.study-result .study-input-panel{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:40px;height:100%}
+.study-result.motor-check .result-layout{display:grid;grid-template-columns:1fr 1fr;gap:30px;height:calc(100% - 70px)}
+.study-result.motor-check .study-input-panel{display:flex;flex-direction:column;gap:8px;background:#edf7f2;border-radius:18px;padding:12px;box-sizing:border-box}
+.study-result.motor-check .dial-area{padding:0;width:100%;background:transparent}
+.study-result.motor-check .dial-area input{height:22px;margin:8px 0}
+.study-result.motor-check .dial-area p{font-size:19px;margin:5px 0}
+.study-result.motor-check .study-entrybot{display:flex;align-items:center;gap:16px}
+.study-result.motor-check .study-entrybot img{width:100px}
+.study-result.motor-check .study-speech{margin:0;font-size:27px}
+.study-result.motor-check .fan-area{width:100%;height:100%}
+.study-result.motor-check .fan-area svg{width:100%;height:100%;max-height:440px}
+
+
+.study-panel-title{display:none}.motor-check>h2{visibility:hidden}.motor-check .study-panel-title{display:block;font-size:28px;margin:0 0 16px;text-align:center;color:#183653}.motor-check #studyFan{position:relative}.motor-check #studyFan .study-panel-title{position:absolute;top:0;left:0;width:100%}
+
+/* Connection checks stay beside the unchanged code workspace. */
+.project-study #studyPinModal,
+.project-study #studyResult{
+  left:auto;right:2%;top:110px;bottom:56px;width:40%;
+  box-sizing:border-box;padding:24px 20px;
+}
+.project-study #studyResult .result-layout{width:100%;gap:20px}
+.project-study #studyResult .study-input-panel{gap:20px}
+.project-study #studyResult .dial-area{padding:12px}
+.project-study #studyResult .rotation-dial{zoom:.7}
+.project-study #studyResult .study-panel-title{font-size:22px}
+.project-study #studyResult.motor-check .dial-area{padding:0}
+
+/* Use the task's upper-right whitespace without changing any code geometry. */
+.fan-project #projectResult{
+  left:auto;right:2%;top:60px;bottom:auto;width:40%;height:270px;
+  box-sizing:border-box;padding:12px;
+}
+.fan-project #projectResult h2{
+  font-size:20px!important;margin:0 28px 8px 0;
+}
+.fan-project #projectResult .result-layout{zoom:.43}
+
+
+/* Page 3 conditions remain visible while the existing Entry blocks are revealed. */
+.project-guide .guide-conditions{display:grid;grid-template-columns:1fr 2fr;gap:30px;align-items:center;margin:12px 0 18px}
+.project-guide .guide-conditions p{font-size:25px;line-height:1.5;margin:8px 0}
+.project-guide .guide-object-condition{display:flex;align-items:center;gap:24px}
+.project-guide #guideNumberObject .live-number{display:grid}
+.project-guide .guide-output-condition{font-size:25px;margin:0 0 8px}
+.project-guide .output-table{font-size:24px}
+.project-guide .output-table>*{padding:8px}
+.fan-project .project-guide .guide-hint{margin-top:20px;width:max-content;max-width:100%}
+.project-guide .guide-motor-relation{font-size:25px;font-weight:800;margin:0 0 10px}
+
+/* Only pages 2 and 3 share page 1's compact title height. */
+.fan-project .project-header-subtitle{display:none}
+.fan-project:has(.project-circuit.active) main.wrap>header h1,
+.fan-project:has(.project-guide.active) main.wrap>header h1{font-size:34px!important}
+.fan-project:has(.project-circuit.active) .circuit-subtitle,
+.fan-project:has(.project-guide.active) .guide-subtitle{display:block;position:absolute;right:24px;top:46px;margin:0;font-size:30px;font-weight:800;line-height:1.3;color:inherit}
+.fan-project .project-circuit>h2,.fan-project .project-guide>h2{display:none!important}
+.fan-project .project-circuit #projectCircuit{height:650px}
+.project-circuit .project-cable-note{top:4px!important;font-size:19px!important}
+.project-guide .guide-conditions{display:block;margin:0}
+.project-guide .guide-conditions p{font-size:30px;line-height:1.4;margin:12px 0}
+.project-guide .guide-conditions b,.project-guide .guide-conditions strong{font-weight:800}
+.project-guide .guide-object-condition{gap:30px;min-height:100px}
+.project-guide .guide-output-condition{font-size:30px;font-weight:800;margin:18px 0 10px}
+.project-guide .output-table{font-size:30px;font-weight:800}
+.project-guide .output-table>*{padding:10px}
+.fan-project .project-guide .guide-hint{margin-top:16px}
+.project-guide .guide-motor-relation{font-size:30px;font-weight:800;margin:0 0 12px}
+
+.fan-project:has(.project-circuit.active) main.wrap>header,.fan-project:has(.project-guide.active) main.wrap>header{height:106px!important;box-sizing:border-box}
+
+.project-guide .guide-shape-order{font-size:23px;line-height:1.4;margin:8px 0 10px}
+.project-guide .guide-conditions p{margin:8px 0}
+
+.fan-project .project-guide-subtitle{display:none}
+
+.project-study #studyMotorResult{left:auto;right:2%;top:110px;bottom:56px;width:40%;box-sizing:border-box;padding:24px 20px}
+.project-study #studyMotorResult .fan-area{width:100%;height:calc(100% - 55px)}
+.project-study #studyMotorResult .fan-area svg{width:100%;height:85%}
+.project-study #studyMotorResult.running .motor-motion-fan{animation-play-state:running}
+
+.fan-project #studySayBlock[hidden]{display:none!important}
+
+.fan-project .project-study #studyCode[hidden],.fan-project .project-study #studyMotorCode[hidden]{display:none!important}
+
+/* Page 4: retain both independent repeat sets for comparison. */
+.project-study #studyA1Set>.repeat-block,.project-study #studyMotorCode>.repeat-block{margin-left:22px!important}
+.fan-project .project-study #studyMotorCode[hidden]{display:none!important}
+.project-study.study-compare #studyResult,.project-study.study-compare #studyMotorResult{
+ top:380px;bottom:auto;height:300px;width:43%;box-sizing:border-box;padding:14px 18px
+}
+.project-study.study-compare #studyResult{left:auto;right:2%}
+.project-study.study-compare #studyMotorResult{left:8%;right:auto}
+.project-study.study-compare .study-result h2{font-size:24px!important;margin:0 28px 8px 0}
+.project-study.study-compare #studyResult .result-layout{height:calc(100% - 40px)}
+.project-study.study-compare #studyResult .study-input-panel{gap:12px}
+.project-study.study-compare #studyResult .rotation-dial{zoom:.55}
+.project-study.study-compare #studyResult .dial-area{padding:4px}
+.project-study.study-compare #studyResult .dial-area p{font-size:18px;margin:4px}
+.project-study.study-compare #studyResult .study-entrybot img{width:100px}
+.project-study.study-compare #studyResult .study-speech{font-size:26px;padding:8px;margin:4px}
+.project-study #studyMotorStatus{font-size:18px;margin:0 0 4px}
+.project-study.study-compare #studyMotorResult .fan-area{height:calc(100% - 60px)}
+.project-study.study-compare #studyMotorResult .fan-area svg{height:100%;width:100%}
+
+/* Page 5: the same number object with Entry shape indices. */
+.project-guide #guideNumberObject{display:flex;align-items:center;gap:24px;padding:10px 0 0 8px}
+.project-guide .guide-number-shape{position:relative}
+.project-guide #guideNumberObject .live-number{width:84px;height:84px}
+.project-guide #guideNumberObject .live-number b{font-size:54px}
+.project-guide .guide-shape-number{position:absolute;left:-10px;top:-12px;color:#2786e8;font:bold 20px Arial,sans-serif;z-index:1}
+
+/* Page 5 only: larger guide with the completed output table beside its code. */
+.fan-project .project-guide{padding:22px 26px}
+.project-guide .guide-topline{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.project-guide .guide-topline p{font-size:36px;line-height:1.25;margin:0 0 18px}
+.project-guide .guide-topline .guide-shape-order{font-size:36px;margin-right:18px}
+.project-guide .guide-variable-input{display:grid;grid-template-columns:1.1fr 1fr;align-items:center;gap:24px;margin:0 0 12px}
+.project-guide .guide-variable-row{display:flex;align-items:center;gap:18px;font-size:36px;white-space:nowrap}
+.project-guide .guide-variable-input p{font-size:34px;line-height:1.3;margin:0}
+.project-guide #guideVariable{margin:0}
+.project-guide #guideVariable .entry-block{display:flex!important;font-size:26px;min-height:50px;margin:0;white-space:nowrap}
+.project-guide #guideVariable .field,.project-guide #guideVariable .project-variable{font-size:26px}
+.project-guide #guideNumberObject{margin:8px 0 12px;padding-top:18px;gap:30px}
+.project-guide .guide-shape-number{font-size:30px;font-weight:900;color:#0648a8;left:-10px;top:-20px}
+.project-guide .guide-conversion-note{font-size:34px;line-height:1.3;margin:12px 0}
+.fan-project .project-guide #guideInputHint{margin-top:10px;margin-bottom:18px}
+.project-guide #guideInputHint .entry-block{font-size:28px;white-space:nowrap}
+.project-guide #guideInputHint .project-map,.project-guide #guideInputHint .field,.project-guide #guideInputHint .number-field{font-size:24px!important}
+.project-guide .guide-output-condition{font-size:36px;line-height:1.3;margin:12px 0}
+.project-guide .guide-output-row{display:grid;grid-template-columns:560px minmax(0,1fr);align-items:center;gap:24px}
+.project-guide .output-table{grid-template-columns:170px repeat(6,1fr);font-size:34px;font-weight:800}
+.project-guide .output-table>*{padding:14px 3px}
+.fan-project .project-guide #guideOutputHint{margin:0;max-width:none}
+.project-guide #guideOutputHint .entry-block{font-size:28px;white-space:nowrap}
+.project-guide #guideOutputHint .field,.project-guide #guideOutputHint .number-field,.project-guide #guideOutputHint .project-variable{font-size:26px}
+
+/* Requested changes limited to circuit page, guide page and task page. */
+.fan-project .project-circuit #projectCircuit .circuit-labels{font:900 36px Arial,sans-serif}
+.project-guide .guide-topline{justify-content:flex-start;gap:18px;min-height:112px;margin-bottom:16px}
+.project-guide .guide-topline>p{font-size:32px;white-space:nowrap;margin:0}
+.project-guide .guide-topline .guide-shape-order{font-size:30px;margin:0}
+.project-guide .guide-topline #guideNumberObject{gap:18px;padding:20px 0 0 8px;margin:0}
+.project-guide .guide-variable-input{margin-bottom:20px}
+.project-guide #guideVariable .project-variable{font-size:30px}
+.project-guide .guide-input-slot{height:108px}
+.project-guide .guide-output-slot{min-height:100px;display:flex;align-items:center}
+.project-guide #guideOutputEquation{font-size:32px;font-weight:800}
+.project-guide #guideInputHint .number-field{background:#ffca36!important}
+.fan-project .project-entry:not(.project-study) #projectCode{padding-right:0!important}
+.fan-project .project-entry:not(.project-study) #projectCode .entry-block{font-size:26px!important;min-height:52px!important;height:auto!important;padding-top:6px!important;padding-bottom:6px!important;gap:9px!important}
+.fan-project .project-entry:not(.project-study) #projectCode .field,.fan-project .project-entry:not(.project-study) #projectCode .number-field{font-size:25px!important;padding:5px 10px!important;min-height:34px!important}
+.fan-project .project-entry:not(.project-study) #projectCode .repeat-block{width:350px}
+.fan-project .project-entry:not(.project-study) #taskMap{width:max-content;max-width:none;flex-wrap:nowrap;white-space:nowrap;font-size:22px;line-height:1.4}
+.fan-project .project-entry:not(.project-study) #taskMap .field,.fan-project .project-entry:not(.project-study) #taskMap .number-field{font-size:22px!important}
+.fan-project .project-entry:not(.project-study) #projectResult{top:108px;bottom:24px;height:auto;width:32%;right:2%;padding:14px}
+.fan-project .project-entry:not(.project-study) #projectResult h2{font-size:23px!important;line-height:1.35;margin:0 28px 10px 0}
+.fan-project .project-entry:not(.project-study) #projectResult .result-layout{zoom:1;display:grid;grid-template-columns:1fr;grid-template-rows:1.25fr 1fr;width:100%;height:calc(100% - 70px)!important;gap:12px;margin:0}
+.fan-project .project-entry:not(.project-study) #projectResult .dial-area{padding:8px}
+.fan-project .project-entry:not(.project-study) #projectResult .rotation-dial{zoom:.65}
+.fan-project .project-entry:not(.project-study) #projectResult .readouts{grid-template-columns:1fr 84px;gap:0 8px}
+.fan-project .project-entry:not(.project-study) #projectResult .readouts p{font-size:22px;margin:5px 0}
+.fan-project .project-entry:not(.project-study) #projectResult .readouts small{font-size:17px}
+.fan-project .project-entry:not(.project-study) #projectResult .live-number{width:84px;height:84px}
+.fan-project .project-entry:not(.project-study) #projectResult .live-number b{font-size:54px}
+.fan-project .project-entry:not(.project-study) #projectResult .conversion-note{font-size:17px;margin:7px 0}
+.fan-project .project-entry:not(.project-study) #projectResult .demo-levels{gap:9px;margin-top:8px}
+.fan-project .project-entry:not(.project-study) #projectResult .demo-levels span{width:36px;height:36px;font-size:24px}
+.fan-project .project-entry:not(.project-study) #projectResult .fan-area{min-height:0;overflow:hidden}
+.fan-project .project-entry:not(.project-study) #projectResult .fan-area svg{width:100%;height:210px}
+.fan-project .project-entry:not(.project-study) #projectResult .fan-area strong{font-size:24px;margin:6px 0}
+
+.fan-project .project-entry:not(.project-study) .project-number{right:37%}
+.fan-project .project-entry:not(.project-study) #projectResult h2{word-break:keep-all}
+
+/* Guide emphasis and the task's wide code above two existing result panes. */
+.project-guide .guide-topline>p>b,.project-guide .guide-variable-row>b,.project-guide .guide-variable-input p>b,.project-guide .guide-conversion-note>b,.project-guide .guide-output-condition>b{color:#134e75;background:#e7f2fb;border-radius:7px}
+.project-guide .guide-shape-order b,.project-guide #guideOutputEquation{color:#8a4600;background:#fff1c9;border-radius:7px;font-weight:900}
+.project-guide .guide-variable-input strong,.project-guide .guide-conversion-note strong{color:#075b51;background:#e4f5eb;border-radius:5px;font-weight:900}
+.project-guide .guide-topline>p,.project-guide .guide-variable-input p,.project-guide .guide-conversion-note{color:#354b5d}
+.fan-project .project-entry:not(.project-study) #projectResult{left:96px;right:22px;top:550px;bottom:16px;width:auto;height:auto;padding:10px 14px}
+.fan-project .project-entry:not(.project-study) #projectResult h2{font-size:23px!important;line-height:1.2;margin:0 28px 8px 0}
+.fan-project .project-entry:not(.project-study) #projectResult .result-layout{grid-template-columns:1fr 1fr;grid-template-rows:1fr;height:calc(100% - 38px)!important;gap:18px}
+.fan-project .project-entry:not(.project-study) #projectResult .dial-area{display:grid;grid-template-columns:200px 1fr;align-content:center;align-items:center;gap:5px 10px;padding:8px}
+.fan-project .project-entry:not(.project-study) #projectResult .rotation-dial{zoom:.65;grid-column:1;grid-row:1}
+.fan-project .project-entry:not(.project-study) #projectResult .readouts{grid-column:2;grid-row:1;grid-template-columns:1fr 84px}
+.fan-project .project-entry:not(.project-study) #projectResult .conversion-note{grid-column:1 / -1;margin:0;font-size:18px}
+.fan-project .project-entry:not(.project-study) #projectResult .demo-levels{grid-column:1 / -1;margin:2px 0 0}
+.fan-project .project-entry:not(.project-study) #projectResult .fan-area{flex-direction:row;gap:14px}
+.fan-project .project-entry:not(.project-study) #projectResult .fan-area svg{width:230px;height:220px}
+.fan-project .project-entry:not(.project-study) .project-number{right:24px}
+
+/* Task blocks retain their original size throughout construction. */
+.fan-project .project-entry:not(.project-study) #projectCode{transform:none!important;zoom:1}
+
+/* Connection-check blocks use the task page's fixed size. */
+.fan-project .project-study #studyCode{transform:none!important;zoom:1;padding-right:0!important}
+.fan-project .project-study #studyCode .entry-block{font-size:26px!important;min-height:52px!important;height:auto!important;padding-top:6px!important;padding-bottom:6px!important;gap:9px!important}
+.fan-project .project-study #studyCode .field,.fan-project .project-study #studyCode .number-field{font-size:25px!important;padding:5px 10px!important;min-height:34px!important}
+.fan-project .project-study #studyCode .repeat-block{width:350px}
+.fan-project .project-study #studySensor{width:max-content;max-width:none;flex-wrap:nowrap;white-space:nowrap;font-size:22px;line-height:1.4}
+.fan-project .project-study #studySensor .field{font-size:22px!important}
+
+
+/* Keep the source-marked code visible beside the final execution. */
+.fan-project .project-entry.fan-source-stage #projectResult:not([hidden]){display:grid}
+.fan-project .project-entry.fan-source-stage #projectResult{left:auto;right:22px;top:450px;bottom:16px;width:420px;grid-template-rows:auto minmax(0,1fr);gap:8px}
+.fan-project .project-entry.fan-source-stage #projectResult .result-layout{grid-template-columns:1fr;grid-template-rows:minmax(0,1.7fr) minmax(0,1fr);gap:8px;height:100%!important}
+.fan-project .project-entry.fan-source-stage #projectResult .dial-area{grid-template-columns:130px 1fr;gap:3px;padding:4px;min-height:0}
+.fan-project .project-entry.fan-source-stage #projectResult .rotation-dial{zoom:.4}
+.fan-project .project-entry.fan-source-stage #projectResult .fan-area svg{width:100px;height:100px}
+.fan-project .project-entry.fan-source-stage #projectResult h2{font-size:20px!important;margin:0 28px 0 0}
+.fan-project .project-entry.fan-source-stage #projectResult .readouts{grid-template-columns:1fr 66px}
+.fan-project .project-entry.fan-source-stage #projectResult .readouts p{font-size:18px;margin:2px 0}
+.fan-project .project-entry.fan-source-stage #projectResult .readouts small{font-size:14px}
+.fan-project .project-entry.fan-source-stage #projectResult .live-number{width:66px;height:66px}
+.fan-project .project-entry.fan-source-stage #projectResult .live-number b{font-size:40px}
+.fan-project .project-entry.fan-source-stage #projectResult .conversion-note{font-size:14px}
+.fan-project .project-entry.fan-source-stage #projectResult .demo-levels span{width:28px;height:28px;font-size:20px}
+.fan-project .project-entry.fan-source-stage #projectResult .fan-area strong{font-size:20px}
+
+.fan-project .project-entry #projectResult.input-only .result-layout{grid-template-columns:1fr;grid-template-rows:1fr}

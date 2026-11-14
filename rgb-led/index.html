@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RGB LED</title>
+<script src="../common/js/page-numbers.js"></script><script src="../common/js/module-navigation.js"></script><script src="../common/js/stage-fit.js"></script>
+<link rel="stylesheet" href="../common/css/slides.css"><link rel="stylesheet" href="../common/css/motor-lesson.css"><link rel="stylesheet" href="../common/css/stage-layout.css"><link rel="stylesheet" href="../common/css/hardware-connect.css"><link rel="stylesheet" href="../common/css/entry-engine.css"><link rel="stylesheet" href="../common/css/entry-objects.css"><link rel="stylesheet" href="../common/css/device-concept.css"><link rel="stylesheet" href="../common/css/coding-setup.css"><link rel="stylesheet" href="module.css"></head>
+<body class="phycom-lesson"><button id="fullscreenBtn" class="fullscreen-btn" aria-label="전체화면">⛶</button><aside class="slide-sidebar" id="slideSidebar" aria-label="페이지 목록"><div class="slide-sidebar-title">출력장치 : RGB LED</div><nav id="slideSidebarList"></nav></aside><main class="wrap"><header><span class="course-label">중학교 피지컬 컴퓨팅</span><span class="device-label">출력장치</span><div class="title-row"><h1>RGB LED</h1><span class="slide-subtitle" id="slideSubtitle"></span></div></header>
+<section class="slide active device-concept" id="concept"><div class="concept-grid"><div class="concept-image"><button class="concept-image-button" data-device-pins aria-haspopup="dialog"><img class="module-photo" src="../assets/RGB_LED.png" alt="공통 GND와 R·G·B 단자가 있는 RGB LED 모듈"><span class="pin-open-hint">RGB LED 핀 연결 방법 보기 ⓘ</span></button></div><div class="concept-uses rgb-uses"><img src="../assets/RGB_LED_4examples.png" alt="RGB LED 활용 사례 4컷"></div></div></section>
+<dialog id="rgbPinRoles" class="phycom-pin-window" data-module-name="RGB LED" data-module-image="../assets/RGB_LED.png" data-pin-signals='[{"label":"R","description":"빨강 빛 출력","pin":"D9"},{"label":"G","description":"초록 빛 출력","pin":"D10"},{"label":"B","description":"파랑 빛 출력","pin":"D11"}]' data-voltage-label="공통 단자" data-voltage-role="이 수업은 전원 +에 연결하지 않습니다" data-lesson-voltage="GND 공통" data-ground-label="GND (−)" data-ground-role="공통 캐소드의 접지 단자"></dialog>
+<section class="slide non-entry-slide" id="circuit"><h2>회로 연결</h2><div class="circuit-demo workspace" id="workspace"><div id="module" class="circuit-component module-component"><img class="component-image" src="../assets/RGB_LED.png" alt="GND·R·G·B 실제 단자"><div class="pin-layer"></div></div><div id="board" class="circuit-component"><img class="component-image" src="../assets/OrangeBoard.png" alt="오렌지보드"><div class="pin-layer"></div></div><svg id="wireLayer" xmlns="http://www.w3.org/2000/svg"></svg><div id="wireLabelLayer"></div></div></section>
+<section class="slide entry-slide entry-code-slide" id="basic"><div class="entry-workspace"><div class="entry-scene-tabs entry-code-toolbar"><button class="entry-scene-tab active">장면 1</button><span class="entry-brand">entry</span><b class="entry-lesson-title">RGB LED · 기본코드</b><div class="entry-top-actions"><button class="entry-complete-btn" disabled>학습 완료</button><button class="entry-save-btn" disabled>저장하기</button></div></div><aside class="entry-tabs"></aside><div class="entry-stage"><div class="entry-program"></div></div></div></section><section class="slide entry-slide entry-scene-slide entry-setup-slide" id="setup"></section>
+<section class="slide entry-slide entry-code-slide" id="mix"><div class="entry-workspace"><div class="entry-scene-tabs entry-code-toolbar"><button class="entry-scene-tab active">장면 1</button><span class="entry-brand">entry</span><b class="entry-lesson-title">RGB LED · 가산 혼합 탐구</b><div class="entry-top-actions"><button class="entry-complete-btn" disabled>학습 완료</button><button class="entry-save-btn" disabled>저장하기</button></div></div><aside class="entry-tabs"></aside><div class="entry-stage"><div class="entry-program"></div></div></div></section></main><div class="slide-nav"><button id="prev" aria-label="이전">‹</button><span id="slides"></span><button id="next" aria-label="다음">›</button></div><script id="deviceConceptData" type="application/json"></script>
+<script src="../common/js/lesson-ui.js"></script>
+<script src="../common/js/entry-engine/grammar.js"></script>
+<script src="../common/js/entry-engine/tabs.js"></script>
+<script src="../common/js/entry-engine/renderer.js"></script>
+<script src="../common/js/entry-engine/execution.js"></script>
+<script src="../common/js/entry-engine/steps.js"></script>
+<script src="../common/js/entry-engine/objects.js"></script>
+<script src="../common/js/device-concept.js"></script>
+<script src="../common/js/pin-info.js"></script>
+<script src="../common/js/coding-setup.js"></script>
+<script src="textbook-data.js"></script>
+<script src="circuit.js"></script>
+<script src="../common/js/circuit.js"></script>
+<script src="simulation.js"></script>
+<script src="../common/js/entry.js" data-entry-api-only></script>
+<script src="code.js"></script>
+<script src="concept.js"></script>
+<script src="../common/js/hardware-connect.js"></script>
+</body></html>

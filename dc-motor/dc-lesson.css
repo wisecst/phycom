@@ -1,0 +1,117 @@
+/* Only DC pages 4/5 and their result windows. The established stage stays intact. */
+.dc-page5-slide:not(.active){display:none}
+.dc-page5-slide.active{display:flex}
+.dc5-workspace{position:relative}
+.dc-page5-slide .entry-tab{width:78px;height:78px;padding:0}
+.dc-page5-slide .entry-tab .entry-tab-image{width:100%;height:100%;object-fit:contain}
+.dc-page5-slide .entry-tab .entry-tab-image-selected{display:none}
+.dc-page5-slide .entry-tab.active-tab .entry-tab-image-unselected{display:none}
+.dc-page5-slide .entry-tab.active-tab .entry-tab-image-selected{display:block}
+
+.dc5-block{display:none!important;width:max-content;margin:0!important}
+.dc5-block.show{display:flex!important}
+
+.dc5-flow{background:#fb0232}
+
+.dc5-data{background:#c22db5}
+.dc5-control,.dc5-else{background:#22b8df}
+
+.dc5-field{display:inline-flex;align-items:center;gap:5px;background:#07898d;border-radius:15px;padding:3px 10px}
+.dc5-flow .dc5-field{background:#cf0028}
+.dc5-block .entry-run-btn{display:block}
+.dc5-data .dc5-field{background:#ad1caa}
+.dc5-condition{display:inline-flex;align-items:center;gap:6px;background:#5375ee;clip-path:polygon(16px 0,calc(100% - 16px) 0,100% 50%,calc(100% - 16px) 100%,16px 100%,0 50%);padding:3px 20px}
+.dc5-variable{display:inline-flex;align-items:center;gap:4px;border-radius:20px;background:#c22db5;color:#fff;padding:3px 9px}
+.dc5-formula{display:inline-flex;align-items:center;gap:6px;background:#eea521;border-radius:20px;padding:2px 8px}
+.dc5-cblock{margin-left:22px;display:none;border-left:18px solid #22b8df;width:max-content;padding-bottom:0;border-radius:0 0 14px 0;border-bottom:12px solid #22b8df}
+.dc5-cblock.show{display:block}
+.dc5-cblock>.dc5-block{margin-left:-18px!important;padding-left:22px;width:calc(100% + 18px);border-radius:0 24px 24px 0}
+.dc5-indent{padding-left:0;min-height:44px}
+.dc5-indent.has-code{min-height:0}.dc5-indent .dc5-block.show{margin-top:-2px!important}
+.dc5-true{background:#5375ee;padding:6px 20px;clip-path:polygon(12% 0,88% 0,100% 50%,88% 100%,12% 100%,0 50%)}
+.dc5-true[hidden],.dc5-condition[hidden]{display:none!important}
+.dc5-click-script{margin-top:16px}
+.dc5-object-button{position:absolute;z-index:60;right:110px;top:4px;width:84px;height:84px;border:5px solid #e55c3d;border-radius:50%;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer}
+.dc5-number{font-size:46px;font-weight:900;color:#e55c3d;line-height:1}
+.dc5-object-button small{font-size:16px;font-weight:900;color:#31566a}
+.dc5-data-tab{font-size:18px;font-weight:900;color:#c22db5}
+.dc5-save,.dc5-complete{opacity:.35;pointer-events:none}
+.dc5-save.enabled,.dc5-complete.enabled{opacity:1;pointer-events:auto;outline:4px solid #ffd22f}
+.dc5-result-title{font-size:27px;font-weight:900;color:#14506a}
+.dc5-live-value{font-size:25px}
+.dc5-result-hint{font-size:19px;font-weight:800;color:#31566a}
+body[data-motor="dc"] .motor-motion{position:relative!important;right:auto!important;top:auto!important;flex-shrink:0;width:300px;height:265px;border:0;background:transparent}
+.dc-fan-view{display:block;width:100%;height:100%;overflow:visible}
+body[data-motor="dc"] .motor-motion-fan{transform-box:view-box;transform-origin:53% 62%;translate:none;animation:none}
+body[data-motor="dc"] .motor-motion-fan.running{animation:dcFanSpin .42s linear infinite}
+.dc5-result .motor-motion{width:240px!important;height:212px!important}
+.dc-principle-overlay[hidden] .dc-current-wire,.dc-principle-overlay[hidden] .dc-current-dot,.dc-principle-overlay[hidden] .dc-rotor,.dc-principle-overlay[hidden] .dc-axis-arrow{animation-play-state:paused}
+
+.dc5-condition.entry-current{outline:4px solid #ffd400;outline-offset:2px}
+
+
+.dc5-data,.dc5-flow{border-radius:0 29px 29px 0;padding-left:28px}
+.dc5-data:before,.dc5-flow:before{content:"";position:absolute;left:16px;top:-2px;width:20px;height:9px;background:inherit;clip-path:polygon(0 0,100% 0,75% 100%,25% 100%)}
+.dc5-data:after,.dc5-flow:after{content:"";position:absolute;left:16px;bottom:-9px;width:20px;height:10px;background:inherit;clip-path:polygon(25% 0,75% 0,100% 100%,0 100%);z-index:2}
+
+
+/* Select an existing Entry judgment/variable block, then place it in the slot. */
+.dc5-condition-palette{position:absolute;right:34px;top:90px;z-index:30;padding:22px 26px;background:#eef8ff;border:2px solid #c7dde9;border-radius:12px;color:#31566a;max-width:420px}
+.dc5-condition-palette[hidden]{display:none}
+.dc5-condition-palette h3{font-size:25px;margin:0 0 18px}.dc5-condition-palette p{font-size:21px;margin:18px 0 0;font-weight:800}
+.dc5-condition-palette .dc5-condition,.dc5-condition-palette .dc5-variable{font-size:24px;color:#fff;min-height:36px}
+.dc5-condition-palette .number-field{color:#31566a;background:white;border-radius:18px;padding:5px 12px}
+.dc5-condition.entry-current{outline:0;filter:drop-shadow(0 3px 0 #ffd400) drop-shadow(0 -3px 0 #ffd400) drop-shadow(3px 0 0 #ffd400) drop-shadow(-3px 0 0 #ffd400)}
+.dc5-condition .entry-current,.dc5-condition-palette .dc5-variable.entry-current{outline:4px solid #ffd400;outline-offset:1px}
+.dc5-condition.condition-inserting{animation:dcConditionInsert .35s ease-out}
+@keyframes dcConditionInsert{from{transform:translate(150px,-30px);opacity:.3}to{transform:none;opacity:1}}
+
+/* The shared renderer owns all code block silhouettes and nesting. */
+.motor-program.ec-program .ec-block{display:flex!important;opacity:1!important;visibility:visible!important}
+.motor-lesson .entry-tabs .entry-tab{display:flex!important}
+.motor-lesson .entry-tab-image{width:100%;height:auto}
+.motor-lesson .entry-tab-image-selected{display:none!important}
+.motor-lesson .active-tab .entry-tab-image-unselected{display:none!important}
+.motor-lesson .active-tab .entry-tab-image-selected{display:block!important}
+.dc-condition-help{position:absolute;bottom:4px;left:auto;right:24px;width:490px;line-height:1.4;font-size:18px;color:#31566a;font-weight:800}
+.dc-flow-explanation{position:absolute;right:24px;top:88px;width:490px;box-sizing:border-box;padding:16px;background:#fff;border:2px solid #c7dde9;border-radius:14px;z-index:5;color:#31566a}
+.dc-flow-explanation[hidden]{display:none}
+.dc-flow-caption{font-size:22px;font-weight:800;margin:0 0 12px;line-height:1.4}
+.dc-flow-table{width:100%;border-collapse:collapse;color:#31566a;font-size:20px;text-align:center;table-layout:auto}
+.dc-flow-table th,.dc-flow-table td{padding:8px 7px;border:1px solid #c7dde9;white-space:nowrap}
+.dc-flow-table th{background:#eaf5fc}
+.dc-flow-table .current-state{background:#fff0b3;font-weight:900;color:#914c00}
+#dc5Code .trace-current>.ec-silhouette{stroke:#ffd400;stroke-width:5}
+#dc5Code .trace-played>.ec-silhouette{stroke:#f4c640;stroke-width:3}
+#dc5Result{display:flex;flex-direction:column;gap:8px;padding:32px 18px 16px;box-sizing:border-box}
+#dc5Result[hidden]{display:none!important}
+#dc5Result .dc5-result-title{font-size:24px}
+#dc5Result .motor-motion{width:250px!important;height:221px!important}
+#dc5Result .dc5-live-value,#dc5Result #dc5LiveMotor,#dc5Result .dc5-result-hint{display:none!important}
+#dc5Result .dc-final-button{position:relative;top:auto;right:auto;width:66px;height:66px;flex-shrink:0}
+#dc5Result .dc-final-button .dc5-number{font-size:36px}
+#dc5Result .dc-final-button small{display:none}
+
+/* Page 5 explanation/result only: larger state table and one active code event. */
+.dc-flow-explanation{width:600px;padding:20px;top:88px}
+.dc-flow-table{font-size:24px;font-weight:800;line-height:1.35}
+.dc-flow-table th,.dc-flow-table td{padding:11px 12px}
+.dc-flow-table tbody th{background:transparent;font-weight:850}
+.dc-flow-table strong{font-weight:950}
+.dc-flow-table .changed-value{background:#ffd54d;color:#7a3100;outline:3px solid #e99700;outline-offset:-3px}
+.dc-flow-table .changed-value small{font-size:17px;font-weight:800;white-space:nowrap}
+.dc-flow-table .current-state th{background:#fff0b3}
+#dc5Result{width:46%;top:64px;bottom:24px;justify-content:flex-start;padding:30px 20px 12px;gap:8px}
+#dc5Result .motor-motion{width:220px!important;height:195px!important}
+#dc5Result .dc-final-button{display:none}
+.dc-condition-help{width:600px}
+
+/* Non-layout overlays keep the Entry block positions and connections intact. */
+#dc5Code .dc-code-group{position:relative;--dc-group-color:#8c9bab}
+#dc5Code .dc-code-group::before{content:"";position:absolute;pointer-events:none;inset:-3px -7px -3px 17px;border:1.5px solid var(--dc-group-color);border-radius:9px;background:#e6edf51a;z-index:0}
+#dc5Code .dc-code-group::after{content:attr(data-group-label);position:absolute;pointer-events:none;right:18px;top:24px;padding:5px 9px;border-radius:6px;font-size:23px;font-weight:850;line-height:1.2;color:var(--dc-group-color);background:#f7fafded;z-index:3}
+#dc5Code .dc-code-group[data-code-group="stop"]::before{right:-172px}
+#dc5Code .dc-code-group[data-code-group="stop"]::after{right:-156px}
+#dc5Code .dc-code-group.dc-group-active{--dc-group-color:#d28600}
+#dc5Code .dc-code-group.dc-group-active::before{border-width:3px;background:#ffd54d16}
+#dc5Code .dc-code-group.dc-group-active::after{background:#fff0b3;font-weight:950}

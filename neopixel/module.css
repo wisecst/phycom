@@ -1,0 +1,44 @@
+/* Only Neopixel lesson content; Stage, dialogs and Entry geometry remain shared. */
+.neo-examples{display:block;width:100%;height:100%;object-fit:contain}
+#circuit #module{left:3%;top:28%;min-width:600px;min-height:400px;max-width:none;max-height:none}
+#circuit #board{left:53%;top:8%}
+.neo-result{display:flex;flex-direction:column;align-items:center;gap:16px}
+.neo-result h3{margin:0;font-size:30px}
+.neo-result svg{display:block;width:min(100%,380px);height:440px;max-height:55vh;font:700 13px sans-serif;fill:#244153}
+.neo-result p{margin:0;font-size:24px;font-weight:700;line-height:1.5}
+.neo-result .neo-explanation{max-width:1050px;font-size:28px}
+.neo-rgb-operation{width:100%;box-sizing:border-box;display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:10px 32px;align-items:center;padding:0 28px}
+.neo-rgb-operation h3{grid-column:1/-1;text-align:center}
+.device-concept .neo-rgb-operation svg{grid-column:1;grid-row:2/4;width:100%;height:400px;max-height:none}
+.neo-rgb-operation [data-neo-status]{grid-column:2;text-align:center}
+.neo-rgb-panel{grid-column:2;grid-row:3}
+.neo-rgb-panel h4{font-size:28px;margin:0 0 12px}
+.neo-rgb-channel{display:grid;grid-template-columns:1fr auto;gap:8px;margin:6px 0;padding:8px;border-radius:12px;background:#f1f5f9;color:#1f2937;font-size:28px;font-weight:700}
+.neo-rgb-channel.changed{outline:3px solid #475569;background:#fff3b0}
+.neo-rgb-channel output{font-variant-numeric:tabular-nums;font-size:36px}
+.neo-rgb-channel meter{grid-column:1/-1;width:100%;height:28px}
+.neo-rgb-channel[data-channel="0"] meter{accent-color:#dc2626}
+.neo-rgb-channel[data-channel="1"] meter{accent-color:#16a34a}
+.neo-rgb-channel[data-channel="2"] meter{accent-color:#2563eb}
+.neo-rgb-channel meter::-webkit-meter-optimum-value{background:#64748b}
+.neo-rgb-channel[data-channel="0"] meter::-webkit-meter-optimum-value{background:#dc2626}
+.neo-rgb-channel[data-channel="1"] meter::-webkit-meter-optimum-value{background:#16a34a}
+.neo-rgb-channel[data-channel="2"] meter::-webkit-meter-optimum-value{background:#2563eb}
+.neo-rgb-operation .neo-rgb-caption{grid-column:1/-1;text-align:center;font-size:28px}
+.neo-rgb-operation .neo-explanation{grid-column:1/-1;grid-row:6;font-size:20px;font-weight:400}
+#basic .entry-program,#rotation .entry-program{overflow:auto;overscroll-behavior:contain;touch-action:pan-x pan-y}
+
+.neo-pixel-inside{grid-column:1;grid-row:2/4;align-self:center;justify-self:center;z-index:1;width:190px;display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:0;font-size:20px}
+.neo-pixel-inside span{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;color:#fff}
+.neo-pixel-inside .neo-primary-r{background:#b91c1c}.neo-pixel-inside .neo-primary-g{background:#15803d}.neo-pixel-inside .neo-primary-b{background:#1d4ed8}
+.neo-pixel-inside b{padding:4px 10px;border:2px solid #475569;border-radius:6px;background:#e2e8f0}
+.neo-pixel-inside small{width:100%;font-size:18px;font-weight:400}
+.neo-data-flow{grid-column:1/-1;grid-row:5;padding:10px 14px;background:#f1f5f9;border-radius:12px;text-align:left}
+.neo-data-flow h4{font-size:24px;line-height:1.3;margin:0 0 10px}
+.neo-data-chain{display:flex;align-items:center;gap:12px;font-size:22px;line-height:1.25}
+.neo-data-chain>div{flex:1;min-width:0;padding:8px;border:2px solid #94a3b8;border-radius:8px;background:#fff}
+.neo-data-chain b,.neo-data-chain small,.neo-data-chain em{display:block}
+.neo-data-chain b{font-size:21px}.neo-data-chain small{font-size:18px}.neo-data-chain em{font-size:18px;font-style:normal;color:#475569}
+.neo-data-chain [data-ready="true"]{border-color:#15803d}.neo-data-chain .receiving{outline:3px solid #a16207;background:#fef3c7}
+.neo-data-path path{fill:none;stroke:#64748b;stroke-width:10;stroke-dasharray:20 14;opacity:.3}
+.neo-data-path path.active{stroke:#a16207;stroke-width:16;opacity:1}

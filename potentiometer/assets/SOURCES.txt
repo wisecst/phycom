@@ -1,0 +1,6 @@
+Entry standard assets, retrieved 2026-10-20 from entrylabs/entry-offline:
+https://github.com/entrylabs/entry-offline/tree/master/src/renderer/resources
+The db/sprites.json entries are 쓰레기통, 쓰레기, 우주(3), and 소리 (six costumes).
+The db/sounds.json entry is 대포발사음1 (filename xliv3oeillupfg6f00sv7ec049coxsum).
+Original PNG/MP3 bytes are retained. The module reuses the existing RotationSensor.png visualization.
+Textbook block structures and settings were read directly from printed pages 48,49,52,53 of the supplied 2022 physical computing textbook.

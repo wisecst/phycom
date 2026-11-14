@@ -1,0 +1,31 @@
+/* The existing lesson owns progression/results; shared Entry owns block geometry. */
+.fan-project .fan-entry-source{display:none!important}
+.fan-project .fan-common-code{position:absolute;left:22px;top:60px;right:20px;transform-origin:top left}
+.fan-project .fan-common-code .ec-block{font-size:26px}
+.fan-project .fan-common-code .ec-row{min-height:52px;padding-top:6px;padding-bottom:6px}
+.fan-project .fan-common-code .ec-dropdown,.fan-project .fan-common-code .ec-number{font-size:25px;min-height:34px;padding:5px 10px}
+.fan-project .fan-common-code .ec-reporter>.ec-row{height:auto;min-height:38px;padding:2px 9px}
+.fan-project .fan-common-code .ec-reporter{font-size:22px}
+.fan-project .fan-common-code .ec-reporter .ec-dropdown,.fan-project .fan-common-code .ec-reporter .ec-number{font-size:22px}
+.fan-project .fan-common-guide{position:relative;width:max-content;max-width:100%;transform:none!important}
+.fan-project .fan-common-guide .ec-block{font-size:28px}
+.fan-project .fan-common-guide .ec-reporter{font-size:24px}
+.fan-project .fan-common-guide .ec-reporter>.ec-row{height:auto;min-height:38px}
+.fan-project #guideVariable+.fan-common-guide .ec-block{font-size:30px}
+
+/* Keep the completed slot height stable throughout construction. */
+.fan-project .fan-common-code .ec-row{box-sizing:border-box;height:58px;min-height:58px}
+.fan-project .fan-common-code .ec-reporter>.ec-row{height:40px;min-height:40px}
+.fan-project .fan-common-code .ec-reporter[data-category="calculation"]>.ec-row{height:46px;min-height:46px}
+
+.fan-project .fan-source-layer{position:absolute;inset:0;pointer-events:none;z-index:0}
+.fan-project .fan-source-layer[hidden]{display:none}
+.fan-project .fan-source-stage .fan-common-code{z-index:1}
+.fan-project .fan-source-box{position:absolute;box-sizing:border-box;border:3px solid #b97800;border-radius:10px;background:#fff0bb}
+.fan-project .fan-source-box[data-source-page="81"]{border-color:#176ba0;background:#d7efff}
+.fan-project .fan-source-stage:not(.fan-source-page81) .fan-source-box[data-source-page="81"]{display:none}
+.fan-project .fan-source-label{position:absolute;z-index:3;padding:6px 12px;border-radius:8px;background:#fff0bb;color:#3f2800;font-size:42px;line-height:1;font-weight:900;letter-spacing:-1.5px;white-space:nowrap}
+/* p.49: inside the yellow box, on the same row as the repeat header, at the far-right empty edge. */
+.fan-project .fan-source-box[data-source-page="49"] .fan-source-label{left:auto;right:14px;top:7px;transform:none}
+/* p.81: inside the blue box at its right-side empty edge. */
+.fan-project .fan-source-box[data-source-page="81"] .fan-source-label{left:auto;right:14px;top:50%;transform:translateY(-50%);background:#d7efff;color:#083a59}

@@ -1,0 +1,10 @@
+{
+  "name": "중학교 피지컬 컴퓨팅 · LED 수업",
+  "short_name": "LED 수업",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#eef5f9",
+  "theme_color": "#153f58"
+}

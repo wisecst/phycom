@@ -1,0 +1,16 @@
+.ec-object-toolbar{position:absolute;left:80px;right:12px;top:52px;min-height:46px;display:flex;align-items:center;gap:12px;z-index:601;color:#355b70;font-size:20px}
+.ec-object-tabs{display:flex;align-items:center;gap:6px;min-width:0;overflow-x:auto}
+.ec-object-tabs button{display:flex;align-items:center;gap:6px;flex-shrink:0;border:2px solid #b5ccd8;border-radius:9px;background:#fff;padding:4px 8px;color:inherit;font:inherit;white-space:nowrap}
+.ec-object-tabs button[aria-selected=true]{border-color:#12a54d;background:#e9faee;font-weight:800}
+.ec-object-tabs button:disabled{opacity:.4;cursor:default}
+.ec-object-tabs img{width:32px;height:32px;object-fit:contain}
+.ec-object-run{flex-shrink:0;width:36px;height:36px;font-size:23px;line-height:36px;border:2px solid #43817b;background:#fff}
+.ec-object-source{margin-left:auto;flex-shrink:0;font-size:19px;white-space:nowrap}
+.ec-object-page .entry-program{left:8px!important;top:56px}
+.ec-object-guide{position:absolute;left:22px;right:20px;top:60px;margin:0;color:#355b70;font-size:21px;line-height:1.3}
+.ec-code-menu{position:absolute;z-index:1000;padding:5px;background:white;border:1px solid #8ca6b5;border-radius:5px;box-shadow:0 3px 10px #25435744;min-width:190px}
+.ec-code-menu[hidden],.ec-code-menu button[hidden]{display:none}
+.ec-code-menu button{display:block;width:100%;border:0;background:white;padding:10px 16px;text-align:left;font:22px sans-serif;color:#244153}
+.ec-code-menu button:hover{background:#e9f7ff}
+
+.ec-object-guide:empty{display:none}

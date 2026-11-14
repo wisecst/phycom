@@ -1,0 +1,11 @@
+{
+  "id": "led-module",
+  "name": "LED Module",
+  "category": "modules",
+  "image": "LED_white.png",
+  "pins": [
+    {"name":"IN","x":0.77279,"y":0.39963},
+    {"name":"VCC","x":0.77538,"y":0.51097},
+    {"name":"GND","x":0.77675,"y":0.62098}
+  ]
+}

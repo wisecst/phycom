@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LCD</title>
+<script src="../common/js/page-numbers.js"></script>
+<script src="../common/js/module-navigation.js"></script><script src="../common/js/stage-fit.js"></script>
+<link rel="stylesheet" href="../common/css/slides.css">
+<link rel="stylesheet" href="../common/css/motor-lesson.css">
+<link rel="stylesheet" href="../common/css/stage-layout.css">
+<link rel="stylesheet" href="../common/css/hardware-connect.css">
+<link rel="stylesheet" href="../common/css/entry-engine.css">
+<link rel="stylesheet" href="../common/css/entry-objects.css">
+<link rel="stylesheet" href="../common/css/device-concept.css">
+<link rel="stylesheet" href="../common/css/coding-setup.css">
+<link rel="stylesheet" href="lesson.css">
+</head>
+<body class="phycom-lesson">
+<button id="fullscreenBtn" class="fullscreen-btn" aria-label="전체화면">⛶</button>
+<aside class="slide-sidebar" id="slideSidebar" aria-label="페이지 목록"><div class="slide-sidebar-title">출력장치 : LCD</div><nav id="slideSidebarList"></nav></aside>
+<main class="wrap">
+<header><span class="course-label">중학교 피지컬 컴퓨팅</span><span class="device-label">출력 장치</span><div class="title-row"><h1>LCD</h1><span class="slide-subtitle" id="slideSubtitle"></span></div></header>
+<section class="slide active device-concept" id="concept">
+<div class="concept-grid">
+<div class="concept-image"><button type="button" class="concept-image-button" data-device-pins aria-haspopup="dialog" aria-label="LCD 모듈 핀 연결 방법 보기"><img class="module-photo" src="../assets/LCD.png" alt="I2C LCD 모듈"><span class="pin-open-hint">LCD 모듈 핀 연결 방법 보기 ⓘ</span></button></div>
+<div class="concept-uses"><img class="lcd-examples" src="../assets/LCD_4examples.png" alt="LCD 활용 예 4컷">
+</div>
+</div>
+<template id="lcdConceptAnimation">
+<section class="lcd-signal-animation" aria-label="문자 A의 I2C 전송 개념도">
+<h3>문자 A가 LCD에 표시되는 과정 · 보조 설명</h3>
+<p class="lcd-data"><span data-character hidden>A</span><span data-decimal hidden> → 65</span><span data-binary hidden> → <span data-bits></span></span><span data-bit-status></span></p>
+<svg viewBox="0 0 660 190" role="img" aria-label="오렌지보드에서 LCD로 전달되는 데이터와 클록">
+<image href="../assets/OrangeBoard.png" x="4" y="30" width="145" height="110"/>
+<text x="76" y="18" text-anchor="middle">오렌지보드</text>
+<path data-sda-wave d="M155 72H423"/><path data-scl-wave d="M155 111H423"/>
+<text data-sda-label x="165" y="30">SDA · 데이터</text><text x="165" y="46" class="lcd-small">Serial Data · 데이터 전달</text><text data-scl-label x="165" y="151">SCL · 클록</text><text x="165" y="168" class="lcd-small">Serial Clock · 데이터 읽기 타이밍</text>
+<text data-sda-level x="320" y="30"></text><text data-scl-level x="320" y="151"></text>
+<circle data-data-token r="6" cy="72" cx="155" hidden/>
+<rect class="lcd-display-frame" x="430" y="26" width="224" height="101" rx="8"/>
+<text class="lcd-display-title" x="542" y="19" text-anchor="middle">LCD</text>
+<rect class="lcd-display-screen" x="443" y="41" width="198" height="67" rx="3"/>
+<g data-dot-cell></g><g data-dot-zoom transform="translate(611 130)"></g>
+<text x="654" y="188" text-anchor="end" class="lcd-small lcd-dot-label">첫 번째 칸 · 5×8 확대</text>
+<rect data-converter class="lcd-process" x="430" y="137" width="78" height="40" rx="5"/>
+<text x="469" y="153" text-anchor="middle" class="lcd-small">I2C 변환</text><text x="469" y="169" text-anchor="middle" class="lcd-small">회로</text>
+<path class="lcd-process-arrow" d="M512 157H530m-6-5 6 5-6 5"/>
+<rect data-controller class="lcd-process" x="535" y="137" width="67" height="40" rx="5"/>
+<text x="568" y="153" text-anchor="middle" class="lcd-small">LCD 제어</text><text x="568" y="169" text-anchor="middle" class="lcd-small">회로</text>
+</svg>
+<p class="lcd-transfer-state"><span data-signal-phase></span><span>수신 데이터: <output data-received>—</output></span></p>
+<div class="lcd-transfer-controls" hidden><button type="button" data-play-all>▶ 전체 재생</button></div>
+<p class="lcd-animation-caption" data-animation-caption></p>
+<p class="lcd-animation-note">개념적 시각화입니다. 실제 I²C 통신에는 START·STOP, 장치 주소·ACK·제어 정보 등이 포함됩니다. 문자 코드가 LCD에 직접 전달되는 실제 통신 전체를 재현한 것은 아닙니다.</p>
+</section>
+</template>
+</section>
+<dialog id="lcdPinRoles" class="phycom-pin-window" data-module-name="LCD" data-module-image="../assets/LCD.png" data-pin-signals='[{"label":"SDA","description":"디지털 핀 영역 최상단 전용 핀","pin":"SDA"},{"label":"SCL","description":"디지털 핀 영역 최상단 전용 핀","pin":"SCL"}]' data-voltage-label="VCC" data-voltage-role="전원 연결" data-lesson-voltage="5V" data-ground-label="GND" data-ground-role="GND에 연결"></dialog>
+<section class="slide non-entry-slide" id="circuit">
+<h2>회로 연결</h2>
+<div class="circuit-demo workspace" id="workspace"><div id="module" class="circuit-component module-component"><img class="component-image" src="../assets/LCD.png" alt="I2C LCD 모듈"><div class="pin-layer"></div></div><div id="board" class="circuit-component lcd-board"><img class="component-image" src="../assets/OrangeBoard.png" alt="오렌지보드"><div class="pin-layer"></div></div><svg id="wireLayer" xmlns="http://www.w3.org/2000/svg"></svg><div id="wireLabelLayer"></div></div>
+</section>
+<section class="slide entry-slide entry-code-slide" id="basic">
+<div class="entry-workspace"><div class="entry-scene-tabs entry-code-toolbar"><button class="entry-scene-tab active">장면 1</button><span class="entry-brand">entry</span><b class="entry-lesson-title">LCD · 기본코드</b><div class="entry-top-actions"><button class="entry-complete-btn" disabled>학습 완료</button><button class="entry-save-btn" disabled>저장하기</button></div></div><aside class="entry-tabs"></aside><div class="entry-stage"><div class="entry-program"></div></div></div>
+</section>
+<section class="slide entry-slide entry-scene-slide entry-setup-slide" id="setup" aria-label="사전 설정"></section>
+<section class="slide entry-slide entry-code-slide" id="ai-code">
+<div class="entry-workspace"><div class="entry-scene-tabs entry-code-toolbar"><button class="entry-scene-tab">장면 1</button><button class="entry-scene-tab active">장면 2</button><span class="entry-brand">entry</span><b class="entry-lesson-title">LCD · 인공지능 코드 완성</b><div class="entry-top-actions"><button class="entry-complete-btn" disabled>학습 완료</button><button class="entry-save-btn" disabled>저장하기</button></div></div><aside class="entry-tabs"></aside><div class="entry-stage"><div class="entry-program"></div></div></div>
+</section>
+<template id="lcdAiImport">
+<div class="lcd-ai-import">
+<button type="button" data-ai-open>인공지능 블록 불러오기</button>
+<p data-ai-summary hidden>번역 · 읽어주기 블록을 불러왔습니다.</p>
+<aside data-ai-data hidden aria-label="자료 탭"></aside>
+<div class="entry-setup-dialog" data-ai-dialog role="dialog" aria-label="인공지능 블록 불러오기" hidden>
+ <div class="entry-setup-dialog-card">
+  <div class="entry-setup-dialog-head"><b>인공지능 블록 불러오기</b><button type="button" data-ai-close aria-label="인공지능 설정창 닫기">×</button></div>
+  <div class="lcd-ai-options"><label><input type="checkbox" data-ai-translation> 번역</label><label><input type="checkbox" data-ai-speech> 읽어주기</label></div>
+  <div class="entry-variable-form-actions"><button type="button" data-ai-load>불러오기</button></div>
+ </div>
+</div>
+</div>
+</template>
+
+<div class="slide-nav"><button id="prev" aria-label="이전">‹</button><button id="next" aria-label="다음">›</button></div><div class="count" id="slides"></div>
+</main>
+<script src="../common/js/lesson-ui.js"></script>
+<script type="application/json" id="deviceConceptData">{"name":"LCD","type":"출력장치","page":178,"concept":"LCD(액정 표시 장치)는 전기 신호를 이용해 문자나 숫자 등의 정보를 화면에 표시하는 출력 장치입니다.","subtitle":"개념","paragraphs":["<mark data-key=\"1\">LCD(Liquid Crystal Display, 액정 표시 장치)</mark>를 사용하면 원하는 자료를 쉽게 출력할 수 있다. 피지컬 컴퓨팅 실습용으로 가장 많이 사용하는 LCD는 <mark data-key=\"2\">16*2 Character LCD</mark>로서 <mark data-key=\"2\">1줄</mark>에 <mark data-key=\"2\">16개</mark>의 <mark data-key=\"2\">문자</mark>씩 총 <mark data-key=\"2\">2줄 32개 문자</mark>를 표기할 수 있다. 사용하기 위해서는 매우 <mark data-key=\"3\">많은 핀</mark>을 연결해야 하므로 <mark data-key=\"3\">회로 구성</mark>이 어렵다는 단점이 있다. 이를 개선하기 위해 <mark data-key=\"4\">I2C 컨버터 모듈</mark>을 기존의 16*2 Character LCD에 결합하여 사용하면 <mark data-key=\"4\">4개</mark>의 <mark data-key=\"4\">배선</mark>만으로 사용할 수 있어 회로 구성이 매우 쉬워진다. <mark data-key=\"5\">I2C 인터페이스</mark>를 사용하여 LCD를 제어하기 때문에 <mark data-key=\"5\">SDA, SCL 핀</mark>은 반드시 해당 기능을 지원하는 <mark data-key=\"5\">A4, A5 핀</mark>에 연결해야 한다."],"notes":["LCD(액정 표시 장치)는 전기 신호를 이용해 문자나 숫자 등의 정보를 화면에 표시하는 출력 장치입니다.","한 줄에 16개씩 두 줄, 총 32개 문자를 표시합니다.","많은 핀을 연결하면 회로 구성이 어려워집니다.","I2C 컨버터 모듈을 결합하면 4개의 배선을 사용합니다.","교과서는 SDA를 A4, SCL을 A5에 연결하도록 설명합니다.","오렌지보드 연결 방법\nSDA → 디지털 핀 영역 최상단 SDA\nSCL → 디지털 핀 영역 최상단 SCL"],"noteDisplay":[false,false,false,false,false,false],"noteHighlights":[[],[],[],[],[],["디지털 핀 영역 최상단 SDA","디지털 핀 영역 최상단 SCL"]],"supplements":[null,null,null,null,{"title":"I2C(I2C, Inter-Intergrated Circuit, 아이스퀘어드시)","design":"plain","side":"right","paragraphs":["필립스에서 개발한 통신 방식이다. 칩셋과 제어 칩셋 간 사운드 데이터를 전송하기 위한 통신용으로 사용하는 통신 규격이다.","현재는 IC 간 통신으로 많이 쓰이며, 여러 장비를 연결할 수 있다는 장점 때문에 센서류에 많이 활용한다."],"highlights":[],"links":["I2C 인터페이스"]}]}</script>
+<script src="../common/js/device-concept.js"></script>
+<script src="../common/js/entry-engine/grammar.js"></script>
+<script src="../common/js/entry-engine/tabs.js"></script>
+<script src="../common/js/entry-engine/renderer.js"></script>
+<script src="../common/js/entry-engine/execution.js"></script>
+<script src="../common/js/entry-engine/steps.js"></script>
+<script src="../common/js/entry-engine/objects.js"></script>
+<script>window.lessonCircuitConfig={
+board:{labelInsets:{top:.02},pins:[{name:'GND',x:.62169,y:.925},{name:'5V',x:.55263,y:.925},{name:'SDA',x:481/1454,y:72/1082},{name:'SCL',x:434.5/1454,y:72/1082}]},
+module:{pins:[{name:'GND',x:.018,y:.334},{name:'VCC',x:.018,y:.441},{name:'SDA',x:.018,y:.546},{name:'SCL',x:.018,y:.651}]},
+layout:{mode:'separated',labelPlacement:'on-wire',labelDirection:'auto',labelMargin:2,labelGap:6},
+connections:[
+ {from:'GND',to:'GND',route:{exitDistance:64,via:[{x:'exit',y:'start'},{x:'exit',y:.895},{x:'end',y:.895}]},label:{position:.78}},
+ {from:'VCC',to:'5V',route:{exitDistance:48,via:[{x:'exit',y:'start'},{x:'exit',y:.985},{x:.07,y:.985},{x:.07,y:.928},{x:'end',y:.928}]},label:{position:.85}},
+ {from:'SDA',to:'SDA',color:'#1976d2',route:{exitDistance:7,via:[{x:'exit',y:'start'},{x:'exit',y:.016},{x:.364,y:.016},{x:.364,y:.055},{x:'end',y:.055}]},label:{position:.65}},
+ {from:'SCL',to:'SCL',color:'#43a047',route:{exitDistance:14,via:[{x:'exit',y:'start'},{x:'exit',y:.077},{x:.364,y:.077},{x:.364,y:.125},{x:'end',y:.125}]},label:{position:.5}}
+]
+};</script>
+<script src="../common/js/circuit.js"></script>
+<script src="../common/js/pin-info.js"></script>
+<script src="concept-animation.js"></script>
+<script src="../common/js/entry.js" data-entry-api-only></script>
+<script src="../common/js/coding-setup.js"></script>
+<script src="lesson.js"></script>
+<script src="../common/js/hardware-connect.js"></script>
+</body>
+</html>

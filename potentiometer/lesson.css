@@ -1,0 +1,136 @@
+.pot-lesson .entry-program:before{display:none}.pot-lesson .entry-object-info{position:absolute;top:12px;left:22px;display:flex;align-items:center;gap:18px;font-size:24px;font-weight:800;color:#506b7e}.pot-lesson .entry-object-info svg{width:42px;height:42px}.pot-lesson .entry-top-actions{margin-left:auto;display:flex;gap:10px}.pot-lesson .entry-top-actions button{font:inherit}.pot-lesson .entry-lesson-title{white-space:nowrap}.pot-lesson .pot-data{color:#ad1caa}.pot-run{display:flex;flex-direction:column;gap:16px;align-items:center;font-size:24px}.pot-run h3{font-size:28px;margin:0}.pot-dial{width:200px;height:200px;max-width:100%;margin:auto;display:grid;place-items:center}.pot-dial svg{display:block;width:100%;height:160px;touch-action:none;cursor:grab}.pot-pointer{pointer-events:none}.pot-pins h3{font-size:30px}.pot-pins svg{display:block;width:100%;height:auto}.pot-run input[type=range]{width:90%;accent-color:#169a88}.pot-readouts{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}.pot-readouts span{padding:10px 16px;border-radius:12px;background:#e9f7ff}.pot-sound{width:180px;height:180px}.pot-run .pot-sound{width:170px;height:170px}.pot-note{font-size:20px;text-align:center}.pot-lesson .entry-setup-led .entry-led-icon{width:100%;height:100%}.pot-lesson .ec-popup-card{overflow:auto}.pot-lesson .entry-object-info .pot-scene{font-size:18px}.pot-lesson .entry-save-btn:disabled,.pot-lesson .entry-complete-btn:disabled{opacity:.4}
+
+.pot-photo-example{margin:10px 0;display:flex;align-items:center;gap:18px;background:white;border-radius:16px;padding:10px}.pot-photo-example svg{width:230px;height:140px;border-radius:12px}.pot-photo-example figcaption{font-size:24px;font-weight:800}.pot-lesson .device-concept-copy p{margin:10px 0;font-size:24px}.pot-lesson .device-concept-examples>p{font-size:22px}.pot-mechanism{width:100%}.pot-run:has(.pot-divider) .pot-mechanism{display:grid;grid-template-columns:220px 1fr;align-items:center;gap:20px}.pot-divider svg{width:100%;display:block;font-size:22px;fill:#284c61}.pot-divider .pot-resistance-note{font-size:18px}.pot-supply{margin:0;font-size:22px;font-weight:700}.pot-lesson #concept .ec-popup-card{width:84%;right:8%;}.pot-lesson #concept .pot-run{gap:12px}.pot-lesson #concept .pot-note{margin:4px 0;line-height:1.6}
+.pot-lesson #concept .pot-divider svg{height:230px}.pot-lesson #concept .pot-mechanism{grid-template-columns:220px minmax(0,1fr)}
+.pot-lesson #concept .ec-popup-card{padding:24px}.pot-lesson #concept .pot-run{gap:8px}.pot-lesson #concept .pot-divider svg{height:200px}
+.pot-run{gap:10px}.pot-run .pot-note{margin:4px 0}
+
+/* The two principle views share one value; execution pages keep their existing dial. */
+.pot-lesson #concept .pot-mechanism{grid-template-columns:1fr 1fr;gap:26px;align-items:start}.pot-lesson #concept .pot-mechanism h4{font-size:22px;margin:0 0 4px;text-align:center}.pot-lesson #concept .pot-rotary{display:grid;grid-template-columns:200px minmax(0,1fr);align-items:center;gap:4px}.pot-lesson #concept .pot-rotary h4{grid-column:1/-1}.pot-rotary-inside{display:block;width:100%;height:265px;font-size:15px;fill:#284c61}.pot-lesson #concept .pot-divider svg{height:265px;font-size:20px}.pot-lesson #concept .pot-divider p{font-size:16px;text-align:center;margin:3px 0}.pot-lesson #concept .pot-note{font-size:18px;line-height:1.5}
+.pot-lesson #concept .ec-popup-card{top:24px;max-height:calc(100% - 48px);padding:20px}.pot-lesson #concept .pot-run{gap:6px}.pot-lesson #concept .pot-divider svg,.pot-rotary-inside{height:245px}
+/* Circuit uses the original horizontal board asset and its native pin coordinates. */
+.pot-lesson #workspace .board-component{left:44%;transform:none!important}.pot-lesson #circuit #board>.component-image{transform:none;transform-origin:50% 50%}
+.pot-lesson #volume .ec-popup-card{left:24px;right:24px;width:auto;padding:18px}.pot-volume-panels{display:grid;grid-template-columns:1fr 60px 1fr;gap:22px;align-items:center;width:100%;text-align:center}.pot-volume-panels .pot-dial{height:140px}.pot-volume-panels .pot-dial svg{height:140px}.pot-volume-panels .pot-sound{height:110px;width:110px}.pot-volume-panels p{font-size:21px;margin:6px}.pot-volume-arrow{font-size:40px;color:#159b87}.pot-lesson #volume .pot-run{gap:4px}.pot-lesson #volume .ec-popup-toggle{margin-top:6px}.pot-game .entry-object-info{max-width:70%;font-size:20px}.pot-game .ec-popup-card{width:44%;right:18px;top:90px;padding:18px}.pot-game-result h3{font-size:24px;margin:0 0 10px}.pot-game-monitor{display:flex;justify-content:space-between;font-size:22px;font-weight:800}.pot-game-result canvas{display:block;width:100%;height:auto;max-height:310px;background:#17163f;border-radius:10px;object-fit:contain}.pot-game-input{display:flex;align-items:center;gap:10px;font-size:20px}.pot-game-input .pot-dial{width:145px;height:115px;flex-shrink:0}.pot-game-input .pot-dial svg{height:115px}.pot-game-input p{font-size:18px;margin:4px}.pot-game-input input{display:block;width:100%}
+html[data-lesson-stage] body .pot-game:has(.ec-popup:not([hidden])) .entry-stage{width:54%}.pot-game .entry-stage{transition:none}.pot-game .ec-popup-card{z-index:5}#spaceSetup .coding-setup-extension{max-height:530px;overflow:auto}
+.pot-game .ec-popup-card{right:56px}html[data-lesson-stage] body .pot-game:has(.ec-popup:not([hidden])) .entry-stage{width:calc(56% - 80px)}
+.pot-lesson .entry-object-info .pot-sound{width:42px;height:42px;object-fit:contain}
+
+.pot-game-monitor{gap:8px;flex-wrap:wrap;font-size:19px}.pot-hardware-status{color:#157c49}
+.pot-lesson #workspace #board{left:44%;top:14%}.pot-lesson #workspace #module{left:14%;top:28%}.pot-game .ec-popup-card{top:112px}.pot-game-result canvas{max-height:270px}.pot-game .entry-object-info{max-width:calc(100% - 30px);font-size:18px;white-space:nowrap}.pot-game .entry-object-info strong{flex-shrink:0}.pot-game .entry-object-info span{overflow:hidden;text-overflow:ellipsis}
+
+/* Potentiometer sidebar: icon → page number → title. */
+.pot-lesson #slideSidebarList>button{display:flex;align-items:center;gap:9px}
+.pot-lesson #slideSidebarList .pot-sidebar-icon{display:inline-flex;align-items:center;justify-content:center;flex:0 0 32px;width:32px;height:32px;line-height:1}.pot-lesson #slideSidebarList .pot-sidebar-icon svg{display:block;width:24px;height:24px}
+.pot-lesson #slideSidebarList .sidebar-page-no{flex:0 0 24px;width:24px;height:24px;display:grid;place-items:center;border:1px solid #a9bbd2;border-radius:6px;background:#f8fbff;color:#17294c;font-weight:800;text-align:center}
+.pot-lesson .slide-sidebar{background:#eef3f6}
+.pot-lesson #slideSidebarList>button{background:#e7f1fc;border:1px solid #dce8f6;border-radius:12px;box-shadow:none;color:#17264b}
+.pot-lesson #slideSidebarList>button.active{background:#fff;border-color:#2468d9;box-shadow:0 1px 4px #1a4e9215;color:#1354b8}
+.pot-lesson #slideSidebarList>button.active .sidebar-page-no{background:#f8fbff;border-color:#9db5d6;color:#17294c}
+
+/* Page-one reference: original module/usage images and shared dialog actions. */
+@font-face{font-family:PotConceptJua;src:url('../projects/activities/assets/Jua-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+.pot-lesson #concept{border:1px solid #ceddf3;border-radius:24px;background:linear-gradient(135deg,#e7f3ff,#e3edff);box-shadow:0 6px 20px #29477612}
+#concept>.pot-concept-heading{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:24px;padding:12px 18px;border:0;border-radius:20px;background:transparent}
+#concept .pot-concept-heading .device-concept-title{display:flex;flex-direction:column;align-items:flex-start;gap:12px;margin:0;min-width:0}
+#concept .pot-device-kind{padding:5px 12px;border-radius:12px;background:#dff0ff;color:#235c8e;font-family:PotConceptJua,'Malgun Gothic',sans-serif;font-size:20px;line-height:1.5}
+#concept .pot-concept-heading h1{margin:0;color:#080d38;font-family:PotConceptJua,'Malgun Gothic',sans-serif;font-size:46px;line-height:1.15;white-space:nowrap}
+#concept .pot-title-context{display:flex;flex-direction:column;align-items:flex-end;gap:12px;text-align:right;color:#102c59}
+#concept .pot-textbook-page{display:inline-flex;align-items:center;gap:10px;padding:8px 18px;border:1px solid #a9cce4;border-radius:999px;background:#eaf5ff;color:#123b61;font-size:25px;line-height:1.3;font-weight:800;white-space:nowrap}
+#concept .pot-textbook-page::before{content:'📖';font-size:24px;line-height:1}
+#concept .pot-concept-heading .device-concept-subtitle{margin:0;font-family:PotConceptJua,'Malgun Gothic',sans-serif;font-size:26px;line-height:1.3;white-space:nowrap;color:#102c59}
+.pot-lesson #concept>.pot-concept-main{position:relative;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:18px;align-items:stretch;padding:18px;border-radius:26px;background:#fff;box-shadow:0 4px 12px #25477512}
+.pot-lesson #concept .pot-concept-module,.pot-lesson #concept .pot-concept-uses{display:grid;min-height:0;min-width:0;gap:18px}
+.pot-lesson #concept .pot-concept-module{grid-template-rows:auto minmax(0,1fr)}
+.pot-lesson #concept .pot-concept-uses{grid-template-rows:auto minmax(0,1fr);gap:10px;align-self:stretch;box-sizing:border-box;padding:12px;border:1px solid #cbd2dd;border-radius:22px;background:#fff}
+#concept .pot-concept-main .pot-concept-definition-title{justify-self:start;margin:0;padding:8px 24px;border-radius:30px;background:linear-gradient(#00adef,#0078db);color:#fff;font-family:PotConceptJua,'Malgun Gothic',sans-serif;font-size:30px;font-weight:400;line-height:1.2}
+#concept .pot-concept-uses>h3{display:flex;align-items:center;gap:12px;margin:0;padding:0;color:#102c59;font-family:PotConceptJua,'Malgun Gothic',sans-serif;font-size:30px;font-weight:400;line-height:1.3}
+#concept .pot-concept-explanation{display:block;margin:0;color:#0d143a;font-size:30px;font-weight:800;line-height:1.55;word-break:keep-all}
+#concept .pot-concept-explanation mark{padding:2px 4px;border-radius:8px;background:#ffe85f;color:inherit}
+#concept .pot-concept-devices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;align-items:center;min-height:0}
+.pot-lesson #concept .pot-concept-device{display:grid;grid-template-rows:minmax(0,1fr) auto;gap:12px;min-height:0;max-height:100%;margin:0}
+.pot-lesson #concept .pot-concept-device figcaption{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:10px 8px;border:2px solid #77a8ee;border-radius:38px;background:linear-gradient(#fff,#e5f1ff);color:#0066ca;font-family:PotConceptJua,'Malgun Gothic',sans-serif;font-size:29px;line-height:1.15;box-shadow:0 3px 5px #1b72c224}
+#concept .pot-concept-device figcaption small{font-family:'Malgun Gothic',sans-serif;font-size:20px;font-weight:700;color:#0c163c}
+.pot-lesson #concept .pot-concept-device>[data-device-pins]{display:grid;place-items:center;min-height:0;width:100%;aspect-ratio:1;height:auto;padding:10px;border:0;border-radius:50%;background:radial-gradient(circle at 35% 25%,#e3f1ff,#c5defe);cursor:pointer}
+.pot-lesson #concept .pot-concept-device>[data-device-pins]>img{display:block;width:100%;height:100%;min-height:0;object-fit:contain}
+#concept .pot-usage-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:12px;min-height:0}
+#concept .pot-usage-card{display:grid;grid-template-rows:auto minmax(0,1fr);gap:8px;min-width:0;min-height:0;padding:10px;border:1px solid #cbd2dd;border-radius:20px;background:#fff}
+#concept .pot-usage-card h4{display:flex;align-items:center;gap:8px;justify-self:start;margin:0;padding:5px 12px 5px 5px;border:1px solid currentColor;border-radius:999px;background:transparent;color:#9e1952;--usage-icon-color:#e64c88;font:400 26px/1.2 PotConceptJua,'Malgun Gothic',sans-serif;white-space:nowrap}
+#concept .pot-usage-card:nth-child(2) h4{color:#168c34;--usage-icon-color:#49bc65}
+#concept .pot-usage-card:nth-child(3) h4{color:#1169b5;--usage-icon-color:#49a8ed}
+#concept .pot-usage-card:nth-child(4) h4{color:#873c78;--usage-icon-color:#c77ab8}
+#concept .pot-usage-icon{box-sizing:border-box;flex:none;width:32px;height:32px;padding:3px;border-radius:50%;background:var(--usage-icon-color)}
+#concept .pot-usage-card img{display:block;width:100%;height:100%;min-height:0;object-fit:cover;border-radius:12px}
+
+#concept .pot-concept-definition{display:grid;justify-items:start;gap:18px;width:100%;padding:0;border:0;background:transparent;text-align:left;font:inherit;color:inherit;cursor:pointer;border-radius:18px}
+#concept .pot-click-target{position:relative;cursor:pointer;transition:box-shadow .15s,filter .15s}
+#concept .pot-click-target:not(.pot-concept-definition)::after,#concept .pot-concept-definition-title::after{content:'✦';position:absolute;right:9px;top:6px;color:#ffd029;font:900 23px/1 sans-serif;pointer-events:none;text-shadow:0 1px 1px #ab790044}
+#concept .pot-concept-main .pot-concept-definition-title{position:relative;padding-right:40px}
+#concept .pot-concept-device>.pot-click-target::after{right:17%;top:17%}
+#concept .pot-click-target:hover{box-shadow:0 0 0 3px #72b5ef55;filter:brightness(1.025)}
+#concept .pot-click-target:focus-visible{outline:3px solid #f0bd32;outline-offset:3px}
+#concept .pot-textbook-page{padding-right:35px}
+
+.pot-lesson #concept>.pot-concept-main:has(>.pot-principle){display:block;min-height:0;overflow:auto}
+
+#spaceSetup [data-setup-score]{top:96px;left:10px;width:270px;height:52px;box-sizing:border-box;padding:8px 12px;font-size:26px}#spaceSetup [data-setup-score] b{font-size:26px}.pot-random-palette{position:absolute;right:24px;top:110px;font:inherit;font-size:26px;z-index:610;border:2px solid #f5a623;border-radius:10px;background:white;padding:12px;cursor:pointer;color:inherit;text-align:left}.pot-random-palette[hidden]{display:none}.pot-random-palette .ec-block{pointer-events:none}
+
+/* Reference 2: linked diagrams, one shared state table and three calculation cards. */
+#concept .pot-principle{--pot-ground-bg:#c6e6ff;--pot-output-bg:#daf7bb;--pot-analog-bg:#ffd4ea;--pot-vcc-bg:#ffe5bf;--pot-current-bg:#fff1a5;--pot-supply-bg:#d8eaff;--pot-total-resistance-bg:#e4d8ff;width:100%;gap:18px;color:#102647}
+#concept .pot-principle-heading{display:flex;align-items:center;gap:20px;width:100%;padding:0;background:linear-gradient(100deg,#d5eaff,#f7faff);border-radius:26px;box-shadow:none;border:0}
+#concept .pot-principle-heading h3{margin:0;padding:16px 24px;border-radius:28px;background:linear-gradient(130deg,#318fe3,#092d58);color:#fff;white-space:nowrap;font-size:32px}
+#concept .pot-principle-heading p{margin:0;padding:8px 12px;color:#102647;font-size:22px;font-weight:800;line-height:1.5}
+#concept .pot-principle .pot-mechanism{display:grid;grid-template-columns:1.1fr .9fr 1.2fr;gap:14px;align-items:stretch}
+#concept .pot-principle .pot-rotary,#concept .pot-principle .pot-divider{display:flex;flex-direction:column;align-items:center;justify-content:space-between;min-width:0;padding:12px;border:2px solid #d3def1;border-radius:24px;background:linear-gradient(135deg,#f6f8ff,#f1f7fd)}
+#concept .pot-principle .pot-mechanism h4{margin:-4px 0 6px;padding:8px 20px;border-radius:18px;background:linear-gradient(#6069c4,#29338c);color:#fff;font-size:25px;text-align:center}
+#concept .pot-rotary-view{position:relative;width:100%;height:245px;display:grid;place-items:center}
+#concept .pot-principle .pot-dial{width:350px;height:245px}
+#concept .pot-principle .pot-dial svg{height:245px;cursor:default}
+#concept .pot-dial-scale{font-size:30px;font-weight:900;pointer-events:none}
+#concept .pot-dial-scale path{stroke:#3b5476;stroke-width:4;stroke-linecap:round}
+#concept .pot-dial-scale rect{fill:#fff;stroke:#a4c6e8;stroke-width:1.5}
+#concept .pot-dial-scale text{fill:#18334e}
+#concept .pot-dial-scale .active rect{fill:#0783ff;stroke:#0783ff}
+#concept .pot-dial-scale .active text{fill:#fff}
+#concept .pot-slider-scale{font-size:32px;font-weight:900}
+#concept .pot-slider-scale .active{fill:#007dff;font-weight:900;text-decoration:underline}
+#concept .pot-position-badge{margin:2px 0;padding:6px 22px;border:2px solid #a1bce8;border-radius:22px;background:#fff;font-size:22px;font-weight:800}
+#concept .pot-divider-circuit{position:relative;min-width:0}
+#concept .pot-divider-circuit svg{display:block;width:100%;height:330px;font-size:22px;font-weight:800;fill:#142b4b}
+#concept .pot-circuit-output{box-sizing:border-box;width:100%;height:100%;display:grid;grid-template-rows:36px 1fr;text-align:center;border:2px solid #67c58c;border-radius:18px;overflow:hidden;background:#eaffeb}
+#concept .pot-circuit-output b{background:#0c9d49;color:#fff;padding:6px 10px;font-size:19px}
+#concept .pot-principle .pot-divider svg{height:245px;font-size:22px;width:100%;display:block}
+#concept .pot-principle .pot-divider p{font-size:15px;margin:4px 0;text-align:center}
+#concept .pot-state-table{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));width:100%;gap:8px}
+#concept .pot-state-table>div{display:grid;text-align:center;overflow:hidden;border:2px solid #c7d5ed;border-radius:14px;background:#f7f9ff}
+#concept .pot-state-table b{padding:8px 4px;background:#e5e7ff;font-size:19px;white-space:nowrap}
+#concept .pot-state-table>div:nth-child(1) b{background:var(--pot-supply-bg)}#concept .pot-state-table>div:nth-child(2) b{background:var(--pot-total-resistance-bg)}
+#concept .pot-state-table>div:nth-child(3) b{background:var(--pot-vcc-bg)}#concept .pot-state-table>div:nth-child(4) b{background:var(--pot-ground-bg)}#concept .pot-state-table>div:nth-child(5) b{background:var(--pot-current-bg)}#concept .pot-state-table>div:nth-child(6) b{background:var(--pot-output-bg)}#concept .pot-state-table>div:nth-child(7) b{background:var(--pot-analog-bg)}
+#concept .pot-principle .pot-value{display:inline-block;padding:3px 9px;border-radius:10px;color:#15243a;font-weight:900;background:var(--pot-value-bg)}
+#concept .pot-value-ground{--pot-value-bg:var(--pot-ground-bg)}#concept .pot-value-output{--pot-value-bg:var(--pot-output-bg)}#concept .pot-value-analog{--pot-value-bg:var(--pot-analog-bg)}#concept .pot-value-vcc{--pot-value-bg:var(--pot-vcc-bg)}#concept .pot-value-current{--pot-value-bg:var(--pot-current-bg)}#concept .pot-value-supply{--pot-value-bg:var(--pot-supply-bg)}#concept .pot-value-total-resistance{--pot-value-bg:var(--pot-total-resistance-bg)}
+#concept .pot-state-table .pot-value{font-size:28px;padding:8px 3px;border-radius:0}
+#concept .pot-circuit-output .pot-value{font-size:29px;padding:6px}
+#concept .pot-principle-footer{width:100%;min-height:150px}
+#concept .pot-principle-calculation:not([hidden]){display:grid;grid-template-columns:1.05fr 1.15fr 1.15fr;gap:14px;width:100%;height:150px;text-align:center}
+#concept .pot-principle-calculation>section{border:2px solid #ccd9e7;border-radius:18px;overflow:hidden;background:#fff}
+#concept .pot-principle-calculation h4{margin:0;padding:7px 6px;font-size:23px;background:var(--pot-current-bg);color:#14243d}
+#concept .pot-principle-calculation>section:nth-child(2) h4{background:var(--pot-output-bg)}#concept .pot-principle-calculation>section:nth-child(3) h4{background:var(--pot-analog-bg)}
+#concept .pot-principle-calculation p{margin:8px 0 0;font-size:25px;line-height:1.1;font-weight:900;color:#14243d;white-space:nowrap}
+#concept .pot-principle-calculation [data-output]{font-size:17px;margin-top:5px}
+#concept .pot-principle-calculation small{display:block;margin:4px 0;font-size:12px;color:#3e5875}
+#concept .pot-fraction{display:inline-grid;vertical-align:middle;text-align:center;line-height:1.05;margin:0 4px}
+#concept .pot-fraction>span{padding:1px 7px}
+#concept .pot-fraction>span:first-child{border-bottom:2px solid currentColor}
+#concept .pot-principle-summary:not([hidden]){box-sizing:border-box;display:grid;grid-template-columns:180px 1fr;align-items:center;gap:8px 16px;min-height:150px;padding:14px 18px;border-radius:22px;background:linear-gradient(110deg,#fff9e1,#fffdf0)}
+#concept .pot-principle-summary h4{display:flex;align-items:center;justify-content:center;gap:8px;margin:0;padding:6px 10px;border-radius:24px;background:#13547c;color:white;font-size:26px;white-space:nowrap}
+#concept .pot-principle-summary h4 svg{width:40px;height:50px;flex-shrink:0}
+#concept .pot-principle-summary ol{display:grid;grid-template-columns:1.15fr 1fr 1.1fr;gap:12px;list-style:none;counter-reset:principle;margin:0;padding:0}
+#concept .pot-principle-summary li{position:relative;counter-increment:principle;padding:2px 9px 2px 37px;font-size:20px;line-height:1.5;font-weight:700;border-left:1px solid #ead9a6}
+#concept .pot-principle-summary li:before{content:counter(principle);position:absolute;left:5px;top:2px;display:grid;place-items:center;width:27px;height:27px;border-radius:50%;background:#155d8c;color:#fff;font-weight:900}
+#concept .pot-principle-summary li:first-child strong{color:#6d08b8}
+#concept .pot-principle-summary>p{grid-column:1/-1;margin:0;font-size:14px;text-align:center;color:#3a5675}
+#concept .pot-total-arrow-label{font-size:24px;font-weight:900;fill:#233e65}
+
+#concept .pot-observation-progress{display:flex;justify-content:center;gap:38px;width:100%;margin:0 0 18px}
+#concept .pot-observation-progress span{display:grid;place-items:center;box-sizing:border-box;width:49px;height:49px;border:2px solid #b2c4dd;border-radius:50%;background:#eef5ff;font-size:18px;font-weight:900}
+#concept .pot-observation-progress .active{background:#0683ff;color:white;border-color:#0683ff}
+.pot-lesson:has(.device-operation-popup:not([hidden])) .slide-nav button{top:auto!important;bottom:20px;transform:none!important;width:auto;min-width:100px;height:43px;padding:6px 18px;font-size:21px;font-weight:800;border:2px solid #9bbadd;border-radius:24px;background:#eff6ff;color:#184b78}

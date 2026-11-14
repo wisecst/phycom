@@ -1,0 +1,129 @@
+/* Only the appended textbook code page; existing lesson geometry is unchanged. */
+.textbook-page:not(.active){display:none}
+.textbook-page.active{display:block}
+.textbook-page .entry-stage{padding:58px 28px 18px!important}
+.textbook-page .tb-object-info{font-size:22px}
+.textbook-page .tb-script{width:max-content;max-width:100%;margin:0 0 16px}
+.textbook-page .entry-block{display:flex;width:max-content;max-width:none;margin:0}
+
+
+.textbook-page .play-dot{width:34px;height:34px;flex-basis:34px;font-size:20px}
+.textbook-page .field,.textbook-page .number-field{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;font-size:21px;min-height:28px;box-sizing:border-box}
+.textbook-page .tb-looks{background:#d91d70}
+.textbook-page .tb-data{background:#c22db5}
+.textbook-page .tb-motion{background:#a535ed}
+.textbook-page .tb-flow{background:#22b8df;border-color:#0798bf;border-radius:0 24px 24px 0}
+.textbook-page .tb-if{margin-left:22px;border-left:18px solid #22b8df;padding-bottom:12px;position:relative;width:max-content}
+.textbook-page .tb-if:after{content:"";position:absolute;left:-18px;bottom:0;width:270px;height:12px;background:#22b8df;border-radius:0 0 14px 0}
+.textbook-page .tb-if>.tb-flow{margin-left:-18px;padding-left:22px}
+.textbook-page .tb-body{padding-left:14px}
+.textbook-page .tb-variable{display:inline-flex;align-items:center;gap:5px;border-radius:18px;background:#c22db5;color:white;padding:3px 9px;white-space:nowrap;font-size:21px}
+.textbook-page .tb-condition{display:inline-flex;align-items:center;gap:7px;background:#5375ee;padding:3px 20px;clip-path:polygon(16px 0,calc(100% - 16px) 0,100% 50%,calc(100% - 16px) 100%,16px 100%,0 50%)}
+.textbook-page .tb-product{display:inline-flex;align-items:center;gap:7px;border-radius:22px;background:#eea521;padding:2px 7px}
+.textbook-page .tb-looks .field{background:#b61958;border-color:#ab184f}.textbook-page .tb-data .field{background:#ad1caa;border-color:#921593}
+.textbook-page .entry-code-page-label{font-size:22px}
+.textbook-page .entry-tab .entry-tab-image{width:100%;height:100%;object-fit:contain;display:block}
+.textbook-page .tb-hidden{display:none!important}
+.textbook-page .entry-stage{position:relative;overflow:auto}
+.textbook-page .tb-script{transition:opacity .18s ease}
+/* Servo lesson overlays and guided scene/code states use the existing 16:9 canvas. */
+.servo5-code{width:max-content;transform-origin:top left}
+.servo-page5 .entry-stage{overflow:hidden;padding-top:58px!important}
+.servo-page5 .tb-if[hidden],.servo-page5 .tb-script[hidden],.servo5-code[hidden],.servo-scene2[hidden],.servo-scene-add[hidden],.servo-scene-hint[hidden]{display:none!important}
+.servo-page5 .tb-body{min-height:44px;padding-left:0}.servo-page5 .tb-body:has(.entry-block:not(.tb-hidden)){min-height:0}
+.servo-page5 .entry-tab{width:78px;height:78px;padding:0}
+.servo-page5 .entry-tab .entry-tab-image-selected{display:none}
+.servo-page5 .entry-tab.active-tab .entry-tab-image-unselected{display:none}
+.servo-page5 .entry-tab.active-tab .entry-tab-image-selected{display:block}
+.servo-page5 .entry-block-run-btn{position:static;width:32px;height:32px;font-size:22px;flex-shrink:0}
+.servo-scene-hint{margin:100px 40px;text-align:center;font-size:30px;font-weight:900;color:#31566a}
+.servo-running{outline:4px solid #ffce36;outline-offset:1px}
+.servo-result-title,.servo-angle-value{font-size:30px;font-weight:900;color:#153f58}
+.servo-result-module{width:170px;height:110px;object-fit:contain}
+.servo-arrow-view,.servo-horn-view{width:230px;height:135px;position:relative;flex-shrink:0}
+.servo-horn-view{position:relative;right:auto;bottom:auto;transform:none;width:120px;height:85px}
+.servo-roulette-arrow,.servo-horn{position:absolute;left:50%;bottom:18px;height:118px;width:12px;border-radius:8px;background:#e8482d;transform-origin:50% 100%;transition:transform .1s linear}
+.servo-roulette-arrow:after{content:"";position:absolute;top:-8px;left:-11px;border-left:17px solid transparent;border-right:17px solid transparent;border-bottom:26px solid #e8482d}
+.servo-arrow-pivot,.servo-horn-pivot{position:absolute;left:calc(50% - 6px);bottom:8px;width:24px;height:24px;border-radius:50%;background:#ffc739;border:5px solid #e8482d;box-sizing:border-box}
+.servo-horn{height:70px;width:10px;background:#173d52}
+.servo-horn-pivot{background:#fff;border-color:#173d52}
+.servo-key-status{font-size:26px;font-weight:900;color:#14506a}
+#servo5Result p{font-size:21px;font-weight:800;text-align:center;margin:0}
+.servo-principle-overlay{position:fixed;inset:0;z-index:120;display:grid;place-items:center;padding:32px;background:#123b50e8}
+.servo-principle-overlay[hidden]{display:none!important}
+.servo-principle-dialog{position:relative;width:1180px;max-width:100%;padding:34px 40px;border:4px solid #b9d8e7;border-radius:24px;background:#fff;box-sizing:border-box;text-align:center}
+.servo-principle-dialog h2{font-size:38px;color:#173d52;margin:0 0 14px}
+.servo-principle-layout{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}
+.servo-principle-motion svg{display:block;width:100%;height:280px}
+.servo-principle-motion text{font-size:32px;font-weight:900;fill:#173d52}
+.servo-principle-horn{transform-origin:250px 240px;transform:rotate(-90deg);transition:transform .08s linear}
+.servo-principle-steps p{font-size:26px;font-weight:800;line-height:1.35;text-align:left;margin:8px 0;padding:8px 12px;border-radius:10px;color:#173d52}
+.servo-principle-steps b{color:#127b95}
+.servo-principle-key{font-size:27px;font-weight:900;color:#173d52;margin:10px 0}
+.servo-principle-note{font-size:20px;font-weight:700;color:#536a76}
+#servoPrincipleTrigger{display:inline-flex;margin-left:.45em;padding:.2em .65em;border:0;border-radius:999px;background:#ffd45a;color:#173d52;font:inherit;font-weight:900;cursor:pointer}
+#motorResult .motor-motion{position:relative;right:auto;top:auto;width:220px;height:130px;flex-shrink:0;border:0;background:transparent}
+#motorResult .motor-motion-pointer{width:12px;height:105px;left:104px;bottom:14px;border-radius:8px;transition:transform .15s linear}
+#motorResult .motor-motion:after{content:"";position:absolute;left:98px;bottom:5px;width:26px;height:26px;border:6px solid #ef9900;border-radius:50%;box-sizing:border-box;background:white}
+#motorResult .motor-result-module{height:45%;max-height:250px}
+
+.servo-page5 .entry-run-btn{display:block}
+body[data-motor="servo"]:has(#servoPrincipleOverlay:not([hidden])) .slide-nav{z-index:130!important}
+.servo-principle-steps p{word-break:keep-all}
+
+
+.servo-page5 .tb-script.motor-program{padding:0!important;margin-bottom:16px}
+.servo-page5 .entry-block:not(.start-block){margin-top:-2px}
+.servo-page5 .tb-data,.servo-page5 .tb-motion{border-radius:0 29px 29px 0;padding-left:28px}
+.servo-page5 .tb-data:after,.servo-page5 .tb-motion:after{content:"";position:absolute;left:16px;bottom:-9px;width:20px;height:10px;background:inherit;clip-path:polygon(25% 0,75% 0,100% 100%,0 100%);z-index:2}
+.servo-examples{width:100%;min-height:0;flex:1;object-fit:contain}
+.servo-principle-comparison{display:grid;grid-template-columns:1fr 1fr;gap:20px;text-align:left}
+.servo-principle-comparison p{font-size:22px;line-height:1.4;background:#eaf6fd;border-radius:12px;padding:14px;margin:8px 0 0}
+.servo-principle-comparison b{display:block;color:#127b95}
+.servo-actual-view{width:100%;height:250px;flex-shrink:0;overflow:visible;background:#e5edf2;border:2px solid #c4d2dc;border-radius:16px}
+.servo-actual-horn{transform-box:view-box;transform-origin:230px 536px;transition:transform .1s linear}
+#servo5Result .servo-actual-view{height:170px}
+#servo5Result{gap:8px}
+.servo-keyboard{display:grid;grid-template-columns:repeat(3,44px);gap:5px}
+.servo-keyboard kbd{height:40px;display:grid;place-items:center;background:#edf3f7;border:2px solid #b4c5cf;border-bottom-width:5px;border-radius:7px;font:900 26px Arial;color:#31566a}
+.servo-keyboard kbd:first-child{grid-column:2}
+.servo-keyboard kbd:nth-child(2){grid-column:1}
+.servo-keyboard kbd.pressed{background:#ffd43b;border-color:#d69b10;color:#173d52;box-shadow:0 0 0 3px #ffdf6e}
+
+
+[data-motor="servo"] .motor-module{gap:10px}
+[data-motor="servo"] .motor-module .motor-comparison{width:100%;flex-shrink:0;gap:10px}
+[data-motor="servo"] .motor-module .motor-comparison>div{padding:12px}
+[data-motor="servo"] .motor-module .motor-comparison strong,[data-motor="servo"] .motor-module .motor-comparison b{font-size:22px}
+[data-motor="servo"] .motor-module .motor-comparison p{font-size:18px}
+[data-motor="servo"] .motor-module .pin-open-button{height:auto;flex:0 0 auto;min-height:0;aspect-ratio:1536/800;overflow:hidden}
+[data-motor="servo"] .motor-module .pin-open-button img{object-fit:cover}
+[data-motor="servo"] .motor-module figcaption{margin-top:0}
+.servo-principle-target,.servo-principle-status{font-size:25px;font-weight:900;color:#173d52;margin:6px 0}
+.servo-principle-steps .active-phase{background:#fff1bf;outline:3px solid #ffd400}
+.servo-page5 .tb-true{background:#5375ee;padding:6px 20px;clip-path:polygon(12% 0,88% 0,100% 50%,88% 100%,12% 100%,0 50%)}
+.servo-page5 .tb-true[hidden],.servo-page5 .tb-condition[hidden]{display:none!important}
+.servo-condition-palette{position:absolute;right:34px;top:90px;z-index:30;padding:22px 26px;background:#eef8ff;border:2px solid #c7dde9;border-radius:12px;color:#31566a;max-width:420px}
+.servo-condition-palette[hidden]{display:none}
+.servo-condition-palette h3{font-size:25px;margin:0 0 18px}.servo-condition-palette p{font-size:21px;margin:18px 0 0;font-weight:800}
+.servo-condition-palette .tb-condition,.servo-condition-palette .tb-variable{font-size:24px;color:#fff;min-height:36px}
+.servo-condition-palette .number-field{color:#31566a;background:white;border-radius:18px;padding:5px 12px}
+.servo-page5 .tb-condition.entry-current{outline:0;filter:drop-shadow(0 3px 0 #ffd400) drop-shadow(0 -3px 0 #ffd400) drop-shadow(3px 0 0 #ffd400) drop-shadow(-3px 0 0 #ffd400)}
+.servo-page5 .tb-condition .entry-current,.servo-condition-palette .tb-variable.entry-current{outline:4px solid #ffd400;outline-offset:1px}
+.servo-page5 .tb-condition.condition-inserting{animation:servoConditionInsert .35s ease-out}
+@keyframes servoConditionInsert{from{transform:translate(150px,-30px);opacity:.3}to{transform:none;opacity:1}}
+
+.servo-horn-outline{fill:none;stroke:#768d9d;stroke-width:5;stroke-linejoin:round}
+.servo-horn-axis{fill:#e5edf2;stroke:#536e81;stroke-width:6}
+
+/* Shared renderer owns silhouettes, colors and slots; only workspace placement lives here. */
+.servo-entry-source{display:none!important}
+.servo-common-basic{position:relative;margin:16px 16px 8px;transform-origin:top left}
+.servo-common-task.ec-program{position:absolute;left:20px;top:60px;right:16px;transform-origin:top left}
+.servo-common-task .ec-block{font-size:23px}
+.servo-common-task .ec-row{min-height:44px;padding:5px 14px 5px 20px;gap:6px}
+.servo-common-task .ec-reporter>.ec-row{min-height:32px;height:32px;padding:0 10px}
+.servo-common-palette{position:absolute;right:28px;top:90px;z-index:30;display:flex!important;flex-direction:column;gap:12px!important;padding:18px;background:#eef8ff;border:2px solid #c7dde9;border-radius:12px}
+.servo-common-palette[hidden],.servo-common-task[hidden]{display:none!important}
+.servo-common-palette h3,.servo-common-palette p{margin:0;font-size:21px;color:#31566a}
+.servo-common-task .ec-script.servo-running{outline:4px solid #ffce36}
