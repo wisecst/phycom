@@ -1,0 +1,2 @@
+/* Shared key-phrase emphasis; retain the question text size. */
+body .question-keyword{font-size:inherit;line-height:inherit;font-weight:900;color:#8f2ca3;background:#f2e8fa;border-radius:.18em;box-decoration-break:clone;-webkit-box-decoration-break:clone}

@@ -1,0 +1,13 @@
+/* Fan object sizing and inline costume demonstration; shared frame stays unchanged. */
+.entry-setup-slide[data-setup-kind="fan"] .entry-setup-led{width:260px!important;height:260px!important;max-width:65%;max-height:75%;left:50%!important;top:50%!important;transform:translate(-50%,-50%);align-items:center;justify-content:center}
+.entry-setup-slide[data-setup-kind="fan"] .entry-setup-led>.live-number{width:100%!important;height:100%!important;aspect-ratio:1}
+.entry-setup-slide[data-setup-kind="fan"] .entry-setup-led>.live-number b{font-size:160px}
+.entry-setup-slide[data-setup-kind="fan"] .coding-setup-extension:not([hidden]){height:calc(100% - 54px);display:flex;flex-direction:column;overflow:hidden;padding:10px 20px}
+.entry-setup-slide[data-setup-kind="fan"] .coding-setup-costume-tools{flex:0 0 auto}
+.entry-setup-slide[data-setup-kind="fan"] .coding-setup-costumes{flex:1;min-height:0;display:flex;flex-direction:column}
+.entry-setup-slide[data-setup-kind="fan"] .coding-setup-costume{flex:1 1 0;min-height:0;height:auto;font-size:22px}
+.entry-setup-slide[data-setup-kind="fan"] .coding-setup-costume-icon{flex-basis:48px!important;width:48px!important;height:48px!important;font-size:34px!important}
+.entry-setup-slide[data-setup-kind="fan"] .coding-setup-costume small{font-size:14px}
+.entry-setup-slide[data-setup-kind="fan"] .coding-setup-costume[data-costume="0"]{z-index:2}
+.fan-costume-hand{position:absolute;right:18px;font-size:32px;opacity:0}
+.fan-costume-done-index{position:absolute;top:3px;left:6px;min-width:22px;background:#5085ff;color:white;border-radius:12px;text-align:center;font-size:15px;opacity:0}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>피지컬 컴퓨팅 회로 편집기</title>
+
+  <link
+    rel="stylesheet"
+    href="./css/editor.css"
+  >
+</head>
+
+<body>
+
+  <header>
+
+    <h1>피지컬 컴퓨팅 회로 편집기</h1>
+
+    <div class="header-right">
+
+      <div class="module-selector">
+
+        <label for="moduleSelect">
+          부품
+        </label>
+
+        <select id="moduleSelect">
+
+          <option value="led">
+            LED Module
+          </option>
+
+        </select>
+
+      </div>
+
+      <div id="status">
+        핀을 선택하세요.
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <section class="connection-settings" aria-label="단계별 배선 설정">
+    <strong>단계별 연결</strong>
+    <div id="connectionPanel">부품을 불러오는 중입니다.</div>
+  </section>
+
+  <main
+    id="workspace"
+    class="workspace"
+  >
+
+    <!-- 센서 / 모듈 -->
+    <div
+      id="module"
+      class="component module-component"
+    ></div>
+
+    <!-- OrangeBoard -->
+    <div
+      id="board"
+      class="component board-component"
+    ></div>
+
+    <!-- 배선 -->
+    <svg
+      id="wireLayer"
+      xmlns="http://www.w3.org/2000/svg"
+    ></svg>
+
+    <!-- 배선 라벨 -->
+    <div id="wireLabelLayer"></div>
+
+    <!-- 조작 버튼 -->
+    <div class="controls">
+
+      <button
+        id="clearButton"
+        type="button"
+      >
+        배선 전체 삭제
+      </button>
+
+    </div>
+
+  </main>
+
+
+  <!-- 공통 설정 -->
+  <script src="./js/config.js"></script>
+
+  <!-- 부품 관리 -->
+  <script src="./js/components.js"></script>
+
+  <!-- 핀 관리 -->
+  <script src="./js/pins.js"></script>
+
+  <!-- 배선 경로 -->
+  <script src="./js/routing.js"></script>
+
+  <!-- 배선 관리 -->
+  <script src="./js/wires.js"></script>
+
+  <!-- 배선 라벨 -->
+  <script src="./js/labels.js"></script>
+
+  <script src="./js/connection-panel.js"></script>
+
+  <!-- 실행 및 초기화 -->
+  <script src="./js/app.js"></script>
+
+</body>
+
+</html>

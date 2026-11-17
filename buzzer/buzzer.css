@@ -1,0 +1,285 @@
+
+/* Scoped layout; Entry block geometry and colours come from the shared stylesheet. */
+body.buzzer-lesson{display:flex;overflow:hidden;background:#eaf3f9}
+
+.buzzer-lesson .wrap{display:flex;flex-direction:column;overflow:hidden}
+
+.buzzer-lesson header{flex:0 0 var(--buzzer-header-size,14%);padding:var(--buzzer-header-padding,1.2% 2%);border-radius:16px}
+
+.buzzer-lesson h1{font-size:var(--buzzer-title-size,clamp(20px,51.2px,46px));margin:var(--buzzer-title-margin,0)}
+
+.buzzer-lesson #subtitle{margin-left:auto;font-size:clamp(14px,28.8px,28px);font-weight:800}
+
+.buzzer-lesson .course-label{font-size:clamp(10px,16px,18px)}
+
+.buzzer-lesson .slide{padding:1.5% 2%!important;overflow:hidden;border-radius:12px}.buzzer-lesson .slide.active{display:block}
+
+.buzzer-lesson h2{margin:0 0 1%;font-size:clamp(18px,35.2px,34px)}
+
+.buzzer-lesson p:not(.device-concept-reading p){font-size:clamp(13px,25.6px,25px);line-height:1.5;margin:1% 0}
+/* Page 1 follows the LED introduction: definition beside title, module left, photographs right. */
+body.buzzer-lesson:has([data-page="0"].active){--buzzer-align:flex-start;--buzzer-wrap-margin:0 auto;--buzzer-header-size:auto;--buzzer-header-padding:12px 22px;--buzzer-title-size:clamp(2rem,80px,3rem);--buzzer-title-margin:6px 0}
+.buzzer-lesson:has([data-page="0"].active) #subtitle{display:none}
+.buzzer-definition{display:none}
+
+.buzzer-lesson:has([data-page="0"].active) .buzzer-definition{display:block;font-size:clamp(.88rem,24px,1.05rem);line-height:1.45;font-weight:500}
+.buzzer-principle-anchor{position:relative;display:inline-block}
+.buzzer-principle-word{padding:0;border:0;background:transparent;color:#ffd86b;font:inherit;cursor:pointer;text-decoration:underline dotted;text-underline-offset:4px}
+.buzzer-principle-hint{position:absolute;bottom:calc(100% + .35em);left:50%;transform:translateX(-50%);white-space:nowrap;background:#fff9df;border:1px solid #e3d592;border-radius:.55em;padding:.25em .65em;color:#655b45;font-size:.72em}
+.buzzer-principle-hint:after{content:"";position:absolute;top:100%;left:50%;border:.35em solid transparent;border-top-color:#e3d592;transform:translateX(-50%)}
+
+.buzzer-lesson .slide[data-page="0"]{padding:14px 20px!important}
+.buzzer-lesson .buzzer-concept{height:100%;margin-top:8px;grid-template-columns:52% 48%;gap:2px;align-items:stretch}
+.buzzer-concept .concept-image{min-height:0;display:flex;align-items:center}
+.buzzer-concept .module-button{display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%;min-height:0;padding:0;border:0;background:transparent;color:#205f83;cursor:pointer}
+.buzzer-module-visual{display:flex;align-items:center;justify-content:center;flex-shrink:1;min-height:0;width:100%;aspect-ratio:1563/1006;position:relative}
+.buzzer-module-visual img{display:block;width:100%;height:100%;object-fit:contain;object-position:center}
+.buzzer-module-caption{display:flex;align-items:center;justify-content:center;gap:3%;padding-top:1.15em;position:relative;white-space:nowrap}
+
+.buzzer-module-label{position:relative;font-size:clamp(16px,35.2px,32px);font-weight:900}
+.buzzer-module-label:before{content:"";position:absolute;left:50%;bottom:calc(100% + .2em);width:2px;height:.8em;background:#2476a1}
+.buzzer-module-label:after{content:"";position:absolute;left:calc(50% - .2em);bottom:calc(100% + .95em);border:.2em solid transparent;border-bottom-color:#2476a1}
+
+.buzzer-pin-hint{display:inline-block;padding:.55em .85em;border-radius:2em;background:#153f58;color:#fff;font-size:clamp(12px,20.8px,18px);font-weight:800}
+.buzzer-concept .buzzer-uses{display:flex;flex-direction:column;min-height:0;align-items:flex-end}
+.buzzer-concept .usage-grid{flex:1;min-height:0;width:92%;height:auto;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:18px 20px;padding:6px}
+.buzzer-concept .usage-item{margin:0;min-width:0;min-height:0;overflow:hidden;text-align:center;padding:1px;display:flex;flex-direction:column;justify-content:center}
+.buzzer-concept .buzzer-use-photo{display:block;width:100%;height:0;min-height:0;flex:1;object-fit:contain;border-radius:8px}
+.buzzer-concept figcaption{flex-shrink:0;display:flex;flex-direction:column}
+
+.buzzer-concept figcaption strong{font-size:clamp(17px,36.8px,32px);font-weight:900;line-height:1.1;color:#205f83;margin-top:1px}
+
+
+
+
+.module-button:focus-visible,.buzzer-principle-word:focus-visible{outline:3px solid #1c79c5;outline-offset:3px}
+.buzzer-lesson #workspace{position:relative;height:81%;width:100%;min-height:0;margin:0}.buzzer-lesson #module{left:3%;top:26%;transform:none!important}.buzzer-lesson #board{left:39%;top:8%;transform:none!important}.buzzer-lesson .pin{visibility:hidden}.buzzer-lesson .lesson-guide{text-align:center;font-weight:bold}.buzzer-lesson #wireLayer{height:100%;width:100%}
+
+.buzzer-lesson.entry-page .wrap{display:block}
+.buzzer-lesson #triadPage,#birthdayPage,#scoreActivityPage,#canonPage{padding:0!important}
+:is(#triadPage,#birthdayPage,#scoreActivityPage,#canonPage) .entry-program{padding-right:0!important;width:100%;max-width:100%;overflow:visible}
+/* Reuse LED page 3's final result geometry: left 43%, right 2%, top 12%. */
+.buzzer-overlay.code-result{position:absolute;inset:0;display:grid;grid-template-columns:43% 55% 2%;grid-template-rows:12% minmax(0,1fr) 2%;padding:0;background:#15394c55;z-index:80}
+.code-result .buzzer-dialog{grid-area:2/2;align-self:start;box-sizing:border-box;width:100%;max-height:100%;padding:20px 24px;border:2px solid #cbdce7;border-radius:15px;overflow:auto;box-shadow:0 8px 24px #183b5633}
+.code-result .buzzer-dialog h2{font-size:21px;margin:0 35px 8px 0}
+.code-result.pin13-image-result .buzzer-dialog{padding:20px 24px}
+.pin13-image-result .pin13-board-view{width:100%;margin:8px auto}
+.pin13-image-result .buzzer-close{z-index:1}
+.code-result .buzzer-dialog p{font-size:17px}
+.birthday-code-grid{display:flex;gap:42px;width:max-content;align-items:flex-start}
+.birthday-melody .entry-block{width:max-content}
+.birthday-melody .code-playing{outline:5px solid #ffd400;outline-offset:-3px}
+.birthday-cake-code{width:max-content}
+.birthday-cake-code .looks-block{display:flex;width:max-content;background:#ec1960;border-color:#c91250}
+.birthday-cake-code .looks-block .field{background:#ce0f4c;border-color:#b30d40}
+.birthday-cake-code .looks-block .speech-field{background:#ffda69;border-color:#e7ac24;color:#573c15}
+#birthdayPage .play-dot svg{width:32px;height:24px}
+.hardware-symbol{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:#009b9b;color:#a5eeec;font-size:22px}
+.companion-code{margin-top:32px}
+.birthday-run{border:0;border-radius:8px;padding:10px 20px;background:#244b67;color:#fff;font:inherit;cursor:pointer;margin-top:12px}
+.birthday-object{display:flex;align-items:center;justify-content:center;gap:12px}
+.birthday-object img{width:80px;height:85px;object-fit:contain}
+
+.buzzer-overlay{position:fixed;inset:0 0 0 var(--lesson-left,0px);z-index:90;background:#15394ce0;display:grid;place-items:center;padding:18px 48px}.buzzer-overlay[hidden]{display:none!important}
+
+.buzzer-dialog{background:#fff;border-radius:20px;box-sizing:border-box;width:min(100%,1350px);max-height:846px;overflow:auto;padding:3%;position:relative;text-align:center;box-shadow:0 20px 80px #0004}
+
+.buzzer-dialog h2{font-size:clamp(22px,48px,44px);margin:0 0 2%;color:#195e83}.buzzer-close{position:absolute;right:1%;top:1%;border:0;background:#dbeaf1;width:44px;height:44px;border-radius:50%;font-size:30px;cursor:pointer}
+
+.buzzer-dialog p{font-size:clamp(18px,36.8px,36px);line-height:1.6;font-weight:bold}/* One shared cycle connects the signal, diaphragm and travelling sound waves. */
+.buzzer-dialog:has(.principle-demo){padding:20px 24px}
+.principle-demo{--vibration-cycle:.48s;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px 24px}
+.principle-sound{min-width:0}
+.principle-demo .principle-flow-labels{grid-column:1/-1}
+
+.principle-flow-labels{display:flex;align-items:center;justify-content:center;gap:1.2%;font-size:clamp(18px,38.4px,34px);font-weight:900;color:#254a61}
+.principle-flow-labels span:nth-of-type(1){color:#995b00}.principle-flow-labels span:nth-of-type(2){color:#80500b}.principle-flow-labels span:nth-of-type(3){color:#167694}.principle-flow-labels span:nth-of-type(4){color:#5c3c78}
+.principle-flow-labels b{color:#e38b12;font-size:1.35em}
+
+.principle-stage{display:block;width:100%;height:auto;max-height:207px;margin:1% auto}
+.principle-stage .diagram-label{font-size:30px;font-weight:800;fill:#27465b}
+.principle-stage .signal-label{fill:#995b00}.principle-stage .air-label{fill:#167694}
+.principle-stage .diaphragm-label{font-size:34px;font-weight:900;fill:#80500b}
+.principle-stage .diagram-note{font-size:24px;font-weight:700;fill:#596d7b}
+.principle-stage .signal-on,.principle-stage .signal-off{font-size:43px;font-weight:900;fill:#9e5f00;animation:signalToggle var(--vibration-cycle) steps(1,end) infinite}
+.principle-stage .signal-off{animation-name:signalToggleOff;fill:#596d7b}
+.principle-stage .signal-pulse{animation:signalTravel var(--vibration-cycle) linear infinite}
+.principle-stage .diaphragm{animation:diaphragmMove var(--vibration-cycle) ease-in-out infinite}
+.principle-stage .sound-wave{fill:none;stroke:#2a91ba;stroke-width:7;stroke-linecap:round;animation:soundTravel var(--vibration-cycle) linear infinite}
+.principle-stage .wave-two{animation-delay:calc(var(--vibration-cycle) / 3)}
+.principle-stage .wave-three{animation-delay:calc(var(--vibration-cycle) * 2 / 3)}
+@keyframes signalToggle{0%,100%{opacity:1}50%{opacity:0}}
+@keyframes signalToggleOff{0%,100%{opacity:0}50%{opacity:1}}
+@keyframes signalTravel{0%{transform:translateX(0);opacity:0}15%{opacity:1}50%{transform:translateX(125px);opacity:1}51%,100%{transform:translateX(125px);opacity:0}}
+@keyframes diaphragmMove{0%,100%{transform:translateY(-5px)}50%{transform:translateY(5px)}}
+@keyframes soundTravel{0%{transform:translateX(0);opacity:0}15%{opacity:.9}100%{transform:translateX(245px);opacity:0}}
+
+.principle-key{color:#254a61;font-size:clamp(18px,28.8px,26px)!important;font-weight:650!important;line-height:1.35!important;margin:1% 0!important}
+/* Simultaneous equal-amplitude comparison: only cycle time and wave spacing differ. */
+.pitch-comparison{display:grid;grid-template-columns:1fr;gap:16px;align-content:start}
+.pitch-panel{padding:12px 16px;background:#edf6fc;border:1px solid #c4dce9;border-radius:14px;min-width:0}
+.pitch-high{background:#f4eff9;border-color:#d7c8e4}.pitch-high .pitch-result{color:#5c3c78}
+
+.pitch-result{font-size:clamp(25px,42.4px,38px);font-weight:900;line-height:1.2;color:#183e56;white-space:nowrap}
+
+.pitch-stage{display:block;width:100%;height:auto;max-height:153px;margin:8px 0}
+.pitch-stage .signal-on,.pitch-stage .signal-off{font-size:26px;font-weight:800;fill:#9e5f00;animation:signalToggle var(--vibration-cycle) steps(1,end) infinite}
+.pitch-stage .signal-off{animation-name:signalToggleOff;fill:#596d7b}
+.pitch-stage .diaphragm{animation:diaphragmMove var(--vibration-cycle) ease-in-out infinite}
+.pitch-diaphragm-label{font-size:19px;font-weight:700;fill:#80500b}
+.pitch-signal-pattern{fill:none;stroke:#e38b12;stroke-width:3}
+.pitch-wave{fill:none;stroke:#2a91ba;stroke-width:4;stroke-linecap:round;animation:pitchWaveTravel 2.4s linear infinite}
+@keyframes pitchWaveTravel{0%{transform:translateX(0);opacity:0}5%,85%{opacity:.85}100%{transform:translateX(190px);opacity:0}}
+
+.pitch-details{display:flex;justify-content:space-between;gap:8px;font-size:clamp(15px,25.6px,22px);line-height:1.4;margin:0}
+.pitch-details dt{color:#617482;font-weight:400}
+.pitch-details dd{margin:0;color:#254a61}
+.pitch-details strong{font-weight:800}
+.pitch-note{display:block;font-size:11px;font-weight:400;line-height:1.4;color:#78858d;margin-top:12px;text-align:right}
+.chord-concept{margin-top:20px;color:#254a61}
+
+.chord-concept h3{font-size:clamp(20px,28.8px,28px);line-height:1.35;margin:0 0 12px}
+.chord-comparison{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+.chord-comparison article{display:grid;gap:6px;padding:12px;background:#edf6fc;border:1px solid #c4dce9;border-radius:14px;font-size:clamp(18px,24px,24px);line-height:1.35}
+.chord-comparison article:nth-child(2){background:#f4eff9;border-color:#d7c8e4;color:#5c3c78}
+
+.chord-notes{font-size:clamp(30px,44.8px,40px);font-weight:900}
+/* Stationary treble staff: C4 ledger line, E4 bottom line, G4 next line. */
+.triad-score{display:block;width:100%;height:auto;max-height:477px;margin:0 auto}
+.triad-score .staff-line{stroke:#687f8d;stroke-width:2}
+.triad-score .triad-note{fill:#243447;stroke:#243447}
+.triad-score .note-halo{fill:transparent;stroke:none}
+.triad-score .note-label{stroke:none;font-size:48px;font-weight:900}
+.triad-score .playing{fill:#c34100;stroke:#c34100}
+.triad-score .playing .note-halo{fill:#ffda59;stroke:#e5ab16;stroke-width:3}
+
+.score{display:block;width:100%;height:auto;max-height:495px}.score .score-note{fill:#243447;stroke:#243447}.score .score-note.playing{fill:#e55c0c;stroke:#e55c0c;filter:drop-shadow(0 0 7px #ffc336)}.score .note-halo{fill:transparent;stroke:none}.score .playing .note-halo{fill:#ffdc65aa}
+#canonPage .canon-progress{font-size:23px;width:420px;white-space:normal;color:#294e66}
+.canon-source{font-size:17px;color:#557383}
+#canonPage .canon-omission{margin:6px 0;padding:10px 16px;border-left:4px dashed #7295a6;color:#294e66;font-size:24px;font-weight:800}#canonPage .canon-omission small{font-size:18px;font-weight:500}
+#canonPage .entry-complete-btn.complete-focus{box-shadow:0 0 0 4px #ffd800!important}
+
+
+/* Student example 2 keeps the shared Entry UI but uses its own readable two-column stage. */
+#canonPage .entry-top-actions button:disabled{opacity:.45}
+
+
+
+
+
+
+.activity-layout{height:100%;display:grid;grid-template-rows:34% minmax(0,1fr);gap:8px;padding:8px 22px;color:#294e66}
+.activity-score{min-height:0;display:flex;flex-direction:column}
+
+.activity-score h3{font-size:clamp(18px,27.2px,26px);margin:0;line-height:1.1}
+
+.activity-score svg{display:block;width:100%;height:100%;max-height:234px;fill:currentColor}
+.activity-score .canon-source{font-size:11px;flex-shrink:0}
+.activity-score .activity-current{color:#ce5900;fill:#ce5900}
+.activity-explanation{min-height:0;background:#fff;border:2px solid #cbdce7;border-radius:15px;padding:14px 24px;overflow:auto}
+
+.activity-explanation h3{font-size:clamp(24px,43.2px,40px);line-height:1.2;margin:0 0 12px;font-weight:900}
+
+.activity-explanation p{font-size:clamp(22px,38.4px,36px);font-weight:800;margin:8px 0}
+
+.activity-explanation .activity-basis{font-size:clamp(22px,35.2px,34px);margin:0 0 8px;color:#205f83}
+
+.duration-row{display:grid;grid-template-columns:190px max-content max-content;align-items:center;gap:16px;font-size:clamp(24px,38.4px,36px);margin:8px 0;font-weight:800}
+.duration-row>b{font-weight:900}.duration-row>strong{color:#b84c00;font-size:1.18em;font-weight:900}
+.duration-bar{display:flex;gap:4px;height:36px;align-items:stretch}
+
+.duration-bar i{display:block;width:clamp(24px,48px,44px);height:36px;flex:none;box-sizing:border-box;background:#d9efff;border:3px solid #457b9d;border-radius:4px}
+
+.activity-times{width:100%;border-collapse:collapse;font-size:clamp(20px,28.8px,30px);line-height:1.15}
+.activity-times th,.activity-times td{padding:6px 12px;text-align:left;border-bottom:1px solid #cbdce7}.activity-times thead{color:#205f83}
+#triadPage .code-playing{outline:5px solid #ffd400;outline-offset:-3px}
+/* Only the buzzer's success action observes data while Entry stays visible. */
+.direct-play{display:block}.birthday-run:disabled{opacity:.4;cursor:default}
+
+
+/* Student work: notation above a readable, independently scrolling original. */
+#studentWorkPage.active{top:12px!important;bottom:42px!important;height:auto!important;min-height:0!important;margin:0!important;padding:12px 28px!important}
+.student-work{height:100%;min-height:0;display:grid;grid-template-rows:auto minmax(0,48%) minmax(0,1fr);gap:10px;color:#294e66}
+.student-heading{display:flex;justify-content:space-between;align-items:center;gap:20px}
+
+.student-heading h2{margin:0;font-size:clamp(24px,38.4px,36px);line-height:1.1}
+
+.student-heading p{margin:4px 0 0;font-size:clamp(20px,28.8px,28px);font-weight:800}
+.student-run{margin:0;min-width:80px;min-height:54px;font-size:32px;font-weight:900}
+.student-score-card,.student-code-card{min-height:0;min-width:0;background:#fff;border:2px solid #cbdce7;border-radius:14px;padding:10px 16px;box-sizing:border-box}
+.student-score-card{display:flex;flex-direction:column}
+
+.student-score-tools,
+.student-code-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:clamp(18px,25.6px,25px);font-weight:800;flex:none}
+.student-score-tools>div{display:flex;align-items:center;gap:14px}
+.student-score-tools button{border:0;background:#dbeaf1;color:#205f83;border-radius:8px;width:40px;height:34px;font-size:27px;cursor:pointer}
+.student-score-tools button:disabled{opacity:.35;cursor:default}
+.student-score-view{flex:1;min-height:0}
+.student-score{display:block;width:100%;height:100%;color:#243447}
+.student-halo{fill:transparent;stroke:none}
+.student-note.playing{color:#ba4e00}
+.student-note.playing .student-halo{fill:#ffda5980;stroke:#e5ab16;stroke-width:2}
+.student-code-card{display:flex;flex-direction:column;gap:8px}
+.student-code-scroll{overflow:auto;overscroll-behavior:contain;min-height:0;flex:1;border-radius:8px;background:#f4fbff;scrollbar-gutter:stable}
+.student-code-scroll:focus-visible{outline:3px solid #ffd400;outline-offset:-3px}
+.student-code-program{position:relative;width:max-content;min-width:100%;padding:12px 16px 24px;box-sizing:border-box}
+.student-code-program .entry-block{display:flex!important;visibility:visible!important;opacity:1!important;width:max-content;margin:0;font-size:22px}
+.student-code-program .code-playing{outline:5px solid #ffd400;outline-offset:-3px}
+
+.student-current{font-size:clamp(17px,24px,23px);color:#b84c00}
+
+.student-heading .student-credit{display:inline-block;margin-left:14px;font-size:16px;font-weight:600;vertical-align:middle;white-space:nowrap;color:#547080}
+
+.student-heading h2{display:inline-block}
+/* Note symbols beside durations; linked notes in the unused right column. */
+.activity-explanation{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:18px;padding:14px 18px}
+.activity-duration{min-width:0}
+.activity-explanation .duration-row{grid-template-columns:44px 168px max-content max-content;gap:8px;font-size:27px;margin:2px 0}
+.duration-symbol{width:42px;height:56px;color:#243447;display:block}
+.activity-explanation .duration-bar{height:27px;gap:3px}
+.activity-explanation .duration-bar i{width:27px;height:27px;border-width:2px}
+.activity-explanation h3{font-size:29px}
+.activity-explanation p,.activity-explanation .activity-basis{font-size:25px}
+.activity-linked{border-left:2px solid #cbdce7;padding-left:18px;min-width:0}
+.activity-linked h4{font-size:24px;margin:5px 0 0}
+.activity-linked svg{display:block;width:100%;height:90px;color:#243447}
+.activity-linked p{font-size:22px!important;line-height:1.45;margin:0 0 12px}
+
+
+/* Cumulative quarter-note comparison, confined to the final activity. */
+#scoreActivityPage .activity-layout{grid-template-rows:26% minmax(0,1fr)}
+#scoreActivityPage .activity-explanation{grid-template-columns:minmax(0,2.4fr) minmax(0,1fr);gap:14px;padding:10px 16px}
+#scoreActivityPage .duration-row{grid-template-columns:94px 140px minmax(0,1fr) 170px;font-size:22px;gap:8px;margin:0;padding:2px 6px;border-bottom:1px solid #dbe6ec;min-height:51px}
+#scoreActivityPage .duration-variants{display:flex;align-items:center;height:47px}
+#scoreActivityPage .duration-symbol{width:45px;height:47px}
+#scoreActivityPage .duration-equation{white-space:nowrap;font-size:23px}
+#scoreActivityPage .duration-equation strong{color:#b84c00}
+#scoreActivityPage .duration-ratio{font-size:20px;color:#205f83;white-space:nowrap}
+#scoreActivityPage .duration-current{background:#fff2c2;border-radius:7px}
+#scoreActivityPage .activity-explanation h3{font-size:25px;margin-bottom:7px}
+#scoreActivityPage .activity-basis{font-size:26px}
+#scoreActivityPage .activity-linked p{font-size:18px!important;line-height:1.35;margin:5px 0}
+#scoreActivityPage .activity-linked h4{font-size:20px}
+#scoreActivityPage .activity-linked>svg{height:60px}
+#scoreActivityPage .beam-example{display:flex;align-items:center;gap:8px}
+#scoreActivityPage .beam-example b{font-size:18px;width:140px}
+#scoreActivityPage .beam-example svg{width:66px;height:58px}
+
+/* Shared Entry renderer owns silhouettes, spacing and category colors. */
+.buzzer-common-entry .ec-block{background:none!important;border:0!important;border-radius:0!important;padding:0!important;gap:0!important;margin:0!important;transform:none!important;display:flex!important;opacity:1!important;visibility:visible!important}
+.buzzer-common-entry .ec-program{gap:0!important;transform-origin:top left}
+.buzzer-common-entry .student2-code-list{gap:0}
+.buzzer-common-entry .ec-block.code-playing>.ec-silhouette{stroke:#ffdc35;stroke-width:4}
+.buzzer-common-entry .ec-popup-content .score,.buzzer-common-entry .ec-popup-content .triad-score{width:100%;height:auto}
+.buzzer-common-entry .entry-tabs{z-index:5}
+
+.buzzer-common-entry .student-image-work .entry-tabs{position:absolute;left:0;top:64px;bottom:0;width:90px}
+.buzzer-common-entry .student-image-layout{padding-left:90px;box-sizing:border-box}
+.buzzer-common-entry .ec-popup-content svg{max-width:100%;height:auto}
+body:has(.buzzer-common-entry) .slide-nav{z-index:650!important}
+.buzzer-common-entry .entry-tabs{display:flex!important}
+.buzzer-common-entry .entry-tab-image{width:100%;height:auto}
+.buzzer-common-entry .entry-tab-image-selected{display:none!important}
+.buzzer-common-entry .entry-tab.active-tab .entry-tab-image-unselected{display:none!important}
+.buzzer-common-entry .entry-tab.active-tab .entry-tab-image-selected{display:block!important}

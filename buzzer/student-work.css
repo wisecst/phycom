@@ -1,0 +1,156 @@
+/* Student examples keep the same code and score cards on a shared 16:9 stage. */
+.buzzer-lesson :is(#studentWorkPage,#studentWorkPage2){padding:16px 24px!important;overflow:hidden}
+.buzzer-lesson #studentWorkPage.active{top:12px!important;bottom:42px!important;height:auto!important;padding:16px 24px!important}
+.student-work{display:grid;grid-template-columns:minmax(0,56%) minmax(0,44%);grid-template-rows:auto minmax(0,1fr);gap:14px;height:100%;color:#294e66}
+.student-heading{grid-area:1/1/2/3;min-height:68px}
+.student-heading .student-credit{display:block;margin:8px 0 0;font-size:25px;font-weight:800;color:#294e66}
+.student-heading p{font-size:24px}
+.student-code-card{grid-area:2/1;overflow:hidden}
+.student-score-card{grid-area:2/2;overflow:hidden}
+.student-code-heading{flex-direction:column;align-items:flex-start;font-size:23px}
+.student-current{font-size:20px}
+.student-code-program .entry-block{font-size:19px}
+.student-score-tools{flex-direction:column;align-items:flex-start;font-size:21px}
+#studentWorkPage2 .student2-workspace{height:100%;display:flex;flex-direction:column;background:#eaf3f9}
+#studentWorkPage2 .entry-code-toolbar{position:relative;flex:0 0 56px}
+#studentWorkPage2 .student2-layout{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,56%) minmax(0,44%);gap:14px;padding:14px 0 0}
+.student2-code-scroll,.student2-score-panel{min-width:0;min-height:0;box-sizing:border-box;background:#fff;border:2px solid #cbdce7;border-radius:14px;padding:12px 16px;color:#294e66}
+.student2-code-scroll{overflow:auto;background:#f4fbff}
+.student2-code-main h3,.student2-code-group h3{font-size:24px;margin:8px 0;color:#205f83}
+.student2-code-list{display:flex;flex-direction:column;gap:3px}
+#studentWorkPage2 .entry-block{display:flex!important;opacity:1!important;visibility:visible!important;position:relative!important;transform:none!important;width:max-content!important;font-size:19px;white-space:nowrap;margin:0;color:#fff}
+#studentWorkPage2 .entry-block .field{color:#fff}
+#studentWorkPage2 .entry-block .number-field{color:#173d52}
+.student2-score-panel{display:flex;flex-direction:column;gap:8px;overflow:hidden}
+.student2-student{font-size:25px;font-weight:800}
+.student2-song{font-size:24px!important;font-weight:800;margin:0!important}
+.student2-score{flex:1;min-height:0;width:100%;height:100%;color:#243447}
+.student2-run{align-self:flex-start;margin:0;font-size:24px}
+.student2-meta{font-size:18px!important;margin:0!important}
+.student2-score-note.playing{color:#e55c0c}
+.student2-code-scroll .code-playing{outline:5px solid #ffd400;outline-offset:-3px}
+
+.student2-score-view{flex:1;min-height:0;display:flex;align-items:center}
+.student2-score-view .student2-score{flex:initial;height:auto;max-height:100%}
+.student2-score-panel .student-score-tools button{font-size:28px;border:1px solid #adc4d3;border-radius:8px;background:#f4fbff;color:#294e66;padding:2px 12px}
+/* Compact the fields so full note blocks fit beside the score. */
+:is(#studentWorkPage,#studentWorkPage2) .entry-block{gap:5px;padding:8px 12px 8px 20px}
+:is(#studentWorkPage,#studentWorkPage2) .entry-block .field{padding:5px 8px}
+.student-code-program{zoom:.82}
+.student2-code-main,.student2-code-group{zoom:.9}
+/* All finished programs use code left and playback right. */
+.canon-unified-layout,.student-image-layout{display:grid;grid-template-columns:minmax(0,56%) minmax(0,44%);gap:14px;height:100%;min-height:0}
+#canonPage .entry-object-info{display:none}
+#canonPage .entry-program{position:static!important;height:100%;width:100%;transform:none!important;overflow:hidden;padding:12px!important;box-sizing:border-box}
+#canonPage .entry-stage{min-height:0;flex:1;overflow:hidden;padding:0!important}
+#canonPage .entry-workspace{display:flex;flex-direction:column;height:100%}
+#canonPage .entry-tabs{display:none}
+#canonPage .entry-code-toolbar{position:relative;flex:0 0 56px}
+#canonPage .student-code-card,#canonPage .student-score-card{display:flex;flex-direction:column;gap:8px;min-width:0;min-height:0;padding:12px 16px;background:#fff;border:2px solid #cbdce7;border-radius:14px;color:#294e66;box-sizing:border-box}
+#canonPage h3{font-size:24px;margin:0}
+#canonPage .student-code-scroll{flex:1;overflow:auto;min-height:0}
+#canonPage .canon-code-program{zoom:.82}
+#canonPage .entry-block{font-size:19px;width:max-content;white-space:nowrap;gap:5px;padding:8px 12px 8px 20px}
+#canonPage .entry-block .field{padding:5px 8px}
+#canonPage .canon-score-view{flex:1;min-height:0;display:flex;align-items:center}
+#canonPage .canon-score-view svg{width:100%;max-height:100%}
+#canonPage .canon-progress{font-size:20px;line-height:1.4;margin:0}
+.student-image-work{height:100%;min-height:0;display:flex;flex-direction:column;gap:12px;padding:14px;box-sizing:border-box;color:#294e66}
+.student-image-work h2{font-size:27px;margin:0}
+.student-image-layout{flex:1}
+.student-image-code,.student-image-result{background:#fff;border:2px solid #cbdce7;border-radius:14px;padding:14px;min-height:0;min-width:0;box-sizing:border-box}
+.student-image-code{overflow:auto;display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+.student-image-code img{width:100%;height:auto;flex-shrink:0;display:block}
+.student-image-result h3{font-size:26px;margin:0 0 12px}
+.student-image-result p{font-size:25px;line-height:1.6}
+#studentWorkPage2 .student2-layout{position:relative}
+.student2-code-group{display:none}
+.student2-function-popup{position:absolute;z-index:5;top:94px;bottom:14px;left:12px;width:calc(56% - 40px);box-sizing:border-box;padding:14px 16px;background:#fff7e9;border:4px solid #ec8b16;border-radius:14px;box-shadow:0 8px 24px #294e6640;display:flex;flex-direction:column;color:#294e66}
+.student2-function-popup[hidden]{display:none}
+.student2-function-popup h3{font-size:26px;margin:0 0 12px;color:#a95400}
+.student2-function-body{overflow:auto;min-height:0;flex:1;zoom:.85;padding:4px 0}
+.student2-function-position{font-size:22px!important;margin:10px 0 0!important;font-weight:800}
+.student2-function-popup .code-playing{outline:5px solid #ffd400;outline-offset:-3px}
+.student2-score-label{font-size:18px!important;margin:0!important;color:#205f83}
+.student1-workspace{height:100%;display:flex;flex-direction:column;gap:14px}
+.student1-workspace .entry-code-toolbar,.student-image-work .entry-code-toolbar{position:relative;flex:0 0 56px;background:#00b51e}
+.student1-workspace .student-work{flex:1;min-height:0;grid-template-rows:minmax(0,1fr)}
+.student1-workspace .student-code-card{grid-area:1/1}
+.student1-workspace .student-score-card{grid-area:1/2;display:flex;flex-direction:column;gap:8px;padding:12px 16px}
+.student-image-result{display:flex;flex-direction:column;gap:10px;overflow:hidden}
+.student-image-score{flex:1;min-height:0;display:flex;align-items:center;color:#243447}
+.student-image-score svg{width:100%;height:auto;max-height:100%}
+.student-image-score .playing{color:#e55c0c}
+.student-image-frame{position:relative;width:100%;margin:0;flex:none}
+.student-image-line{position:absolute;left:0;right:0;border:4px solid #ffd400;border-radius:8px;box-sizing:border-box;pointer-events:none;background:#ffd40022}
+:is(#canonPage,#studentWorkPage,#studentWorkPage2,#studentWorkPage3,#studentWorkPage4) .birthday-run{align-self:flex-start;font-size:24px;margin:0}
+#canonPage{padding:16px 24px!important}
+#canonPage .entry-stage{position:static!important;display:block!important;height:auto!important;width:100%!important;margin:0!important}
+#canonPage .entry-workspace{position:relative!important;width:100%!important;min-height:0!important}
+#canonPage .entry-code-toolbar{top:auto!important;left:auto!important;width:100%!important}
+.buzzer-lesson :is(#canonPage,#studentWorkPage,#studentWorkPage2,#studentWorkPage3,#studentWorkPage4).active{top:12px!important;bottom:42px!important;height:auto!important;min-height:0!important;margin:0!important;padding:16px 24px!important;overflow:hidden}
+:is(#canonPage,#studentWorkPage2) .entry-workspace{position:static!important;min-height:0!important;height:100%!important;width:100%!important}
+.student-image-work{padding:0}
+
+
+.activity-explanation{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:18px;padding:14px 18px}
+.activity-duration{min-width:0}
+.activity-explanation .duration-row{grid-template-columns:44px 168px max-content max-content;gap:8px;font-size:27px;margin:2px 0}
+.duration-symbol{width:42px;height:56px;color:#243447;display:block}
+.activity-explanation .duration-bar{height:27px;gap:3px}
+.activity-explanation .duration-bar i{width:27px;height:27px;border-width:2px}
+.activity-explanation h3{font-size:29px}
+.activity-explanation p,.activity-explanation .activity-basis{font-size:25px}
+.activity-linked{border-left:2px solid #cbdce7;padding-left:18px;min-width:0}
+.activity-linked h4{font-size:24px;margin:5px 0 0}
+.activity-linked svg{display:block;width:100%;height:90px;color:#243447}
+.activity-linked p{font-size:22px!important;line-height:1.45;margin:0 0 12px}
+/* Crisp student blocks share the canonical block geometry and audio cursor. */
+#canonPage .code-playing,.student-image-code .code-playing{outline:5px solid #ffd400;outline-offset:-3px}
+.student-image-code{display:block;background:#f4fbff}
+.student-image-code h3{font-size:24px;margin:0 0 12px}
+.student-image-code-program{zoom:.82;padding-bottom:34px}
+:is(#studentWorkPage3,#studentWorkPage4) .entry-block{display:flex!important;opacity:1!important;visibility:visible!important;position:relative!important;transform:none!important;width:max-content!important;font-size:19px;white-space:nowrap;margin:0;gap:5px;padding:8px 12px 8px 20px;color:#fff}
+:is(#studentWorkPage3,#studentWorkPage4) .entry-block .field{padding:5px 8px;color:#fff}
+:is(#studentWorkPage3,#studentWorkPage4) .entry-block .number-field{color:#173d52}
+.student-image-halo{fill:transparent}
+.student-image-score .playing .student-image-halo{fill:#fff2c7}
+
+
+/* Work title first; student credits stay visible without competing with the score. */
+.buzzer-lesson .student2-song{font-size:30px!important;font-weight:800;color:#243447;line-height:1.25!important;margin:0 0 8px!important}
+.buzzer-lesson .student2-student{font-size:12px!important;font-weight:400;color:#89939b;line-height:1.3;margin:2px 0 8px;order:10}
+.student2-score-label,.student2-meta,.student-current,.canon-source{color:#73808a!important}
+.buzzer-lesson .student2-score-label{font-size:17px!important;line-height:1.4!important}
+.student-score-card,.student-image-result{color:#243447}
+#canonPage .canon-score-view{overflow:auto;display:block;scrollbar-width:thin}
+#canonPage .canon-score-view svg{width:100%;height:auto;max-height:none;display:block}
+#canonPage .student-score-card>h3{font-size:30px;color:#243447}
+#canonPage .canon-demo-note{font-size:14px;color:#73808a;margin:0;line-height:1.35}
+#canonPage .canon-progress{font-size:16px;color:#73808a}
+:is(#canonPage,#studentWorkPage,#studentWorkPage2,#studentWorkPage3,#studentWorkPage4) :is(.entry-run-btn,.entry-loop-run-btn){flex-shrink:0;width:30px;height:28px;min-width:30px;padding:0;margin:0 0 0 10px;font-size:18px;line-height:1;align-self:center}
+
+:is(#canonPage,#studentWorkPage,#studentWorkPage2,#studentWorkPage3,#studentWorkPage4) .start-block:has([data-direct-play])>.play-dot{display:none}
+
+:is(#birthdayPage,#canonPage,#studentWorkPage,#studentWorkPage2,#studentWorkPage3,#studentWorkPage4) .start-block:has([data-direct-play],[data-buzzer-result="birthday"])>.play-dot{display:none}
+:is(#birthdayPage,#canonPage,#studentWorkPage,#studentWorkPage2,#studentWorkPage3,#studentWorkPage4) :is(.entry-run-btn,.entry-loop-run-btn){position:relative!important;left:auto!important;top:auto!important;transform:none!important;align-self:center}
+
+/* Finished songs: keep the existing tabs, code and score alongside each other. */
+:is(#canonPage,#studentWorkPage2).buzzer-common-entry .entry-workspace{position:relative!important;padding-left:90px;box-sizing:border-box}
+:is(#canonPage,#studentWorkPage2).buzzer-common-entry .entry-tabs{position:absolute!important;left:0;top:56px;bottom:0;width:90px}
+#canonPage .canon-unified-layout>.student-code-card{grid-area:1/1}
+#canonPage .canon-unified-layout>.student-score-card{grid-area:1/2}
+:is(#canonPage,#studentWorkPage,#studentWorkPage2,#studentWorkPage3,#studentWorkPage4) :is(.canon-score-view,.student-score-view,.student2-score-view,.student-image-score){display:block!important;overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;min-height:0;flex:1}
+:is(#canonPage,#studentWorkPage,#studentWorkPage2,#studentWorkPage3,#studentWorkPage4) :is(.canon-score-view,.student-score-view,.student2-score-view,.student-image-score) svg{display:block;width:100%;max-height:none!important;flex:none}
+:is(#studentWorkPage,#studentWorkPage2,#studentWorkPage3,#studentWorkPage4) .student-score-tools>div{display:none}
+
+#studentWorkPage.buzzer-common-entry .student1-workspace{position:relative;padding-left:90px;box-sizing:border-box}
+#studentWorkPage.buzzer-common-entry .entry-tabs{position:absolute!important;left:0;top:56px;bottom:0;width:90px}
+
+/* Keep time calculations compact and reserve a readable width for the guide. */
+#scoreActivityPage .activity-explanation{grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);gap:14px}
+#scoreActivityPage .duration-row{grid-template-columns:94px 140px max-content max-content;column-gap:8px}
+#scoreActivityPage .duration-equation,#scoreActivityPage .duration-ratio{white-space:nowrap}
+#scoreActivityPage .beam-example b{width:auto;flex:none;white-space:nowrap}
+#scoreActivityPage .beam-example svg{flex:none}
+#canonPage .canon-time-basis{font-size:18px;line-height:1.4;margin:0;color:#205f83;font-weight:700}

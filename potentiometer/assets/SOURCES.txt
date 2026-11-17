@@ -1,0 +1,11 @@
+Entry standard assets, retrieved 2026-10-20 from entrylabs/entry-offline:
+https://github.com/entrylabs/entry-offline/tree/master/src/renderer/resources
+The db/sprites.json entries are 쓰레기통, 쓰레기, 우주(3), and 소리 (six costumes).
+The db/sounds.json entry is 대포발사음1 (filename xliv3oeillupfg6f00sv7ec049coxsum).
+Original PNG/MP3 bytes are retained. The module reuses the existing RotationSensor.png visualization.
+Textbook block structures and settings were read directly from printed pages 48,49,52,53 of the supplied 2022 physical computing textbook.
+
+Moon assignment assets (2026-11-15): original Entry offline PNGs, unchanged.
+Source: entrylabs/entry-offline/src/renderer/resources/uploads/{first 2 filename characters}/{next 2}/image/{filename}.png
+날씨_밤: 06793970e2e425a86248209bb4279dc8 → weather-night.png
+달_1..달_8: 22edf87c2ee80052f1942b18c0f904d1, 2a95324355606800a420db30ddece5b1, 70bbaaa68e1e3052a20cb492d23a6e0b, c11668f45635af1f4ee51e8ab0cd88b5, d1cd45c2b66026cde2ae507ee091d2b2, 1d102c38e5bcc4d34b4a0532001c5a66, b21b66962cf8fc11d5df3d41aef03d76, 1f897b0cea1c2bb88779bf4b9349403c → moon-1.png..moon-8.png.

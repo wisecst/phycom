@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="ko">
+<head><script src="../common/js/page-numbers.js?v=20261014-number2"></script>
+<script src="../common/js/stage-fit.js?v=20261009-bottom-nav1"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>LED - 중학교 피지컬 컴퓨팅</title>
+<link rel="manifest" href="./manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="LED 수업">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#153f58">
+<link rel="stylesheet" href="../common/css/slides.css?v=20261005-stage1">
+<link rel="stylesheet" href="../common/css/question-keywords.css?v=20261015-question2">
+<link rel="stylesheet" href="./page8.css?v=20261015-step-guide-off">
+<link rel="stylesheet" href="./diode-dialog.css?v=20261006-3">
+<link rel="stylesheet" href="../common/css/hardware-connect.css?v=20261014-hardware15">
+<link rel="stylesheet" href="../common/css/stage-layout.css?v=20261009-final-stage3"><link rel="stylesheet" href="../common/css/entry-engine.css?v=20261020-insert1"><link rel="stylesheet" href="../common/css/coding-setup.css?v=20261019-setup2"><link rel="stylesheet" href="../common/css/device-concept.css?v=20261023-persistent1">
+</head>
+<body class="phycom-lesson">
+<div id="iosInstallTip" class="ios-install-tip" role="status" hidden><span>아이폰에서 주소창 없이 보려면 Safari의 공유 메뉴에서 <b>홈 화면에 추가</b>를 선택한 뒤, 홈 화면의 LED 수업 아이콘으로 여세요.</span><button type="button" id="iosInstallTipClose" aria-label="안내 닫기">×</button></div>
+<div id="mobileOrientationHint" hidden>가로로 돌리면 더 크게 볼 수 있어요</div>
+<button id="fullscreenBtn" class="fullscreen-btn" type="button" aria-label="전체화면으로 보기" title="전체화면">⛶</button>
+<aside class="slide-sidebar" id="slideSidebar" aria-label="페이지 목록">
+  <div class="slide-sidebar-title">출력장치 : LED</div>
+  <nav id="slideSidebarList"></nav>
+</aside>
+<main class="wrap">
+<header>
+<span class="course-label">중학교 피지컬 컴퓨팅</span>
+<span class="device-label">출력 장치</span>
+<div class="title-row"><h1>LED</h1><span class="slide-subtitle" id="slideSubtitle"></span><div class="title-desc">(Light Emitting Diode, 발광 <span class="diode-anchor"><span class="diode-bubble">전류를 한쪽 방향으로만 흐르게 하는 반도체 소자</span><button type="button" class="diode-word" data-open-dialog="diodeDialog" aria-haspopup="dialog" aria-label="다이오드 확대 설명 열기">다이오드</button></span>)는 전류가 흐르면 빛을 내는 반도체 소자.</div></div>
+</header>
+<section class="slide active">
+<div class="concept-grid">
+  <div class="concept-image">
+    <button type="button" class="concept-image-button" data-open-dialog="pinDialog" aria-haspopup="dialog" aria-label="LED 모듈 핀 역할 보기"><img class="module-photo" src="../assets/LED_WBGY.png" alt="흰색, 파란색, 초록색, 노란색 LED 모듈"><span class="pin-open-hint">LED 모듈 핀 역할 보기 ⓘ</span></button>
+  </div>
+  <div class="concept-uses">
+    <div class="usage-grid">
+      <div class="usage-item"><span class="usage-photo usage-photo--traffic" role="img" aria-label="초록색 신호등 사진"></span><strong>신호등</strong><span>진행 상태 표시</span></div>
+      <div class="usage-item"><span class="usage-photo usage-photo--brake" role="img" aria-label="빨간 브레이크등 사진"></span><strong>브레이크등</strong><span>멈춤 상태 표시</span></div>
+      <div class="usage-item"><span class="usage-photo usage-photo--power" role="img" aria-label="파란 전원 표시등 사진"></span><strong>전원 표시등</strong><span>전원 상태 표시</span></div>
+      <div class="usage-item"><span class="usage-photo usage-photo--display" role="img" aria-label="LED 전광판 사진"></span><strong>전광판</strong><span>문자와 그림 표시</span></div>
+    </div>
+  </div>
+</div>
+</section>
+<section class="slide non-entry-slide" data-explanation-subtitle="회로 연결" data-textbook-page="63">
+<h2 class="header-page-title">2. LED 회로 연결</h2>
+<div class="circuit-demo workspace" id="workspace">
+  <div id="module" class="circuit-component module-component">
+    <img class="component-image" src="../assets/LED_white.png" alt="LED Module">
+    <div class="pin-layer"></div>
+  </div>
+  <div id="board" class="circuit-component board-component">
+    <img class="component-image" src="../assets/OrangeBoard.png" alt="OrangeBoard">
+    <div class="pin-layer"></div>
+  </div>
+  <svg id="wireLayer" xmlns="http://www.w3.org/2000/svg"></svg>
+  <div id="wireLabelLayer"></div>
+</div>
+</section>
+<section class="slide entry-slide entry-page3-slide">
+
+<div class="entry-workspace">
+  <div class="entry-scene-tabs entry-code-toolbar"><button type="button" class="entry-scene-tab active">장면 1</button><button type="button" class="entry-scene-add" aria-label="장면 추가">＋</button><span class="entry-brand">entry</span><b class="entry-lesson-title">[피컴09] 출력장치-LED1</b><div class="entry-top-actions"><button type="button" class="entry-goal-btn">목표 작품</button><button type="button" class="entry-complete-btn">학습 완료</button><div class="entry-save-wrap"><button type="button" class="entry-save-btn" aria-label="저장 메뉴"><span class="entry-save-icon">▣</span><span class="entry-save-caret">⌃</span></button><div class="entry-save-menu" aria-hidden="true"><button type="button" class="entry-save-item">저장하기</button><button type="button" class="entry-save-item">내 작품으로 저장하기</button></div></div></div></div>
+  <aside class="entry-tabs">
+    <div class="entry-tab start-tab" data-tab="start" aria-label="시작"><img class="entry-tab-image entry-tab-image-unselected" src="../assets/tab01_start_unselected.png" alt=""><img class="entry-tab-image entry-tab-image-selected" src="../assets/tab01_start_selected.png" alt=""></div>
+    <div class="entry-tab flow-tab" data-tab="flow" aria-label="흐름"><img class="entry-tab-image entry-tab-image-unselected" src="../assets/tab02_flow_unselected.png" alt=""><img class="entry-tab-image entry-tab-image-selected" src="../assets/tab02_flow_selected.png" alt=""></div>
+    <div class="entry-tab hardware-tab" data-tab="hardware" aria-label="하드웨어"><img class="entry-tab-image entry-tab-image-unselected" src="../assets/tab14_hardware_unselected.png" alt=""><img class="entry-tab-image entry-tab-image-selected" src="../assets/tab14_hardware_selected.png" alt=""></div>
+  </aside>
+  <div class="entry-stage">
+    <div class="entry-object-info">
+      <span class="entrybot-thumb"><img src="../assets/entrybot.png" alt="엔트리봇"></span>
+      <strong>엔트리봇</strong>
+      <span class="entry-block-count">블록 <b id="entryBlockCount">0</b>개</span><span class="entry-code-page-label">LED 기본코드</span>
+    </div>
+    <div class="entry-program">
+      <div class="entry-block start-block" data-entry-step="1"><span class="play-dot">▶</span><b>시작하기 버튼을 클릭했을 때</b></div>
+      <div class="entry-block hardware-block indent-0" data-entry-step="2"><b>디지털</b><span class="field">13<span class="select-arrow">▼</span></span><b>번 핀</b><span class="field">켜기<span class="select-arrow">▼</span></span><button type="button" class="entry-run-btn" id="runPin13" aria-label="실행">▶</button></div>
+      <div class="entry-block repeat-block" data-entry-step="3"><b>계속 반복하기</b><button type="button" class="entry-loop-run-btn" id="runLoop" aria-label="실행">▶</button></div>
+      <div class="repeat-body basic-repeat-body" data-repeat-body>
+        <div class="entry-basic-four" id="entryBasicFour">
+          <div class="entry-block hardware-block indent-1" data-entry-step="4"><b>디지털</b><span class="field">3<span class="select-arrow">▼</span></span><b>번 핀</b><span class="field">켜기<span class="select-arrow">▼</span></span><button type="button" class="entry-block-run-btn" data-led-state="on" aria-label="실행">▶</button><span class="entry-block-state on" aria-hidden="true">ON</span></div>
+          <div class="entry-block wait-block indent-1" data-entry-step="5"><span class="number-field">0.2</span><b>초 기다리기</b></div>
+          <div class="entry-block hardware-block indent-1" data-entry-step="6"><b>디지털</b><span class="field">3<span class="select-arrow">▼</span></span><b>번 핀</b><span class="field">끄기<span class="select-arrow">▼</span></span><button type="button" class="entry-block-run-btn" data-led-state="off" aria-label="실행">▶</button><span class="entry-block-state off" aria-hidden="true">OFF</span></div>
+          <div class="entry-block wait-block indent-1" data-entry-step="7"><span class="number-field">0.2</span><b>초 기다리기</b></div>
+        </div>
+        <div class="entry-compare-four" id="entryCompareFour">
+          <div class="entry-block hardware-block pwm-set-block" data-entry-step="8"><b>디지털</b><span class="field">3<span class="select-arrow">▼</span></span><b>번 핀을</b><span class="number-field">255</span><b>(으)로 정하기</b><button type="button" class="entry-block-run-btn" data-led-state="on" aria-label="실행">▶</button></div>
+          <div class="entry-block wait-block" data-entry-step="9"><span class="number-field">0.2</span><b>초 기다리기</b></div>
+          <div class="entry-block hardware-block pwm-set-block" data-entry-step="10"><b>디지털</b><span class="field">3<span class="select-arrow">▼</span></span><b>번 핀을</b><span class="number-field">0</span><b>(으)로 정하기</b><button type="button" class="entry-block-run-btn" data-led-state="off" aria-label="실행">▶</button></div>
+          <div class="entry-block wait-block" data-entry-step="11"><span class="number-field">0.2</span><b>초 기다리기</b></div>
+        </div>
+      </div>
+    </div>
+    <div class="entry-guide">
+      <strong id="entryGuideTitle">다음 블록을 눌러 시작하세요.</strong>
+      <span id="entryGuideText">블록이 추가될 때 왼쪽에서 해당 블록의 탭이 함께 강조됩니다.</span>
+    </div>
+  </div>
+</div>
+<div class="nav entry-controls">
+<button id="back" disabled>이전 블록</button>
+<button id="forward">다음 블록</button>
+</div>
+<div class="count" id="step">0 / 11</div>
+<div class="entry-final-result" id="entryFinalResult" aria-hidden="true">
+  <strong>실행 결과</strong>
+  <div class="final-led-module">
+    <img src="../assets/LED_white.png" alt="흰색 LED 모듈">
+    <span class="final-led-light" aria-hidden="true"></span>
+  </div>
+  <b>LED가 0.2초 간격으로 깜빡입니다.</b>
+</div>
+<div class="entry-result-modal" id="pin13Modal" aria-hidden="true">
+  <div class="entry-result-card" role="dialog" aria-modal="true" aria-label="실행 결과">
+    <button type="button" class="entry-result-close" id="pin13Close" aria-label="닫기">×</button>
+    <strong>실행 결과</strong>
+    <div class="pin13-board-view">
+      <img src="../assets/OrangeBoard.png" alt="오렌지보드">
+      <span class="pin13-led-glow" aria-hidden="true"></span>
+      <span class="pin13-led-dot" aria-hidden="true"></span>
+    </div>
+    <p>오렌지보드의 <b>13번 핀</b>이 켜졌습니다.</p>
+  </div>
+</div>
+<div class="entry-led-test-modal" id="entryLedTestModal" aria-hidden="true">
+  <div class="entry-led-test-card" role="dialog" aria-modal="true" aria-label="LED 실행 결과">
+    <strong>실행 결과</strong>
+    <div class="entry-led-test-module">
+      <img src="../assets/LED_white.png" alt="LED 모듈">
+      <span class="entry-led-test-light" aria-hidden="true"></span>
+    </div>
+    <p id="entryLedTestText">LED가 켜졌습니다.</p>
+  </div>
+</div>
+</section>
+<section class="slide entry-slide entry-compare-slide entry-page4-slide">
+
+
+<div class="entry-workspace">
+  <div class="entry-scene-tabs entry-code-toolbar"><button type="button" class="entry-scene-tab active">장면 1</button><button type="button" class="entry-scene-add" aria-label="장면 추가">＋</button><span class="entry-brand">entry</span><b class="entry-lesson-title">[피컴09] 출력장치-LED1</b><div class="entry-top-actions"><button type="button" class="entry-goal-btn">목표 작품</button><button type="button" class="entry-complete-btn">학습 완료</button><div class="entry-save-wrap"><button type="button" class="entry-save-btn" aria-label="저장 메뉴"><span class="entry-save-icon">▣</span><span class="entry-save-caret">⌃</span></button><div class="entry-save-menu" aria-hidden="true"><button type="button" class="entry-save-item">저장하기</button><button type="button" class="entry-save-item">내 작품으로 저장하기</button></div></div></div></div>
+  <aside class="entry-tabs">
+    <div class="entry-tab hardware-tab active-tab" data-tab="hardware" aria-label="하드웨어"><img class="entry-tab-image entry-tab-image-unselected" src="../assets/tab14_hardware_unselected.png" alt=""><img class="entry-tab-image entry-tab-image-selected" src="../assets/tab14_hardware_selected.png" alt=""></div>
+  </aside>
+  <div class="entry-stage compare-stage">
+    <div class="entry-object-info">
+      <span class="entrybot-thumb"><img src="../assets/entrybot.png" alt="엔트리봇"></span>
+      <strong>엔트리봇</strong><span class="entry-block-count">블록 비교</span><span class="entry-code-page-label">디지털 출력 블록 비교</span>
+    </div>
+    <div class="pin-block-compare">
+      <div class="pin-compare-item">
+        <div class="entry-block hardware-block compare-sample"><b>디지털</b><span class="field compare-pin-field">3<span class="select-arrow">▼</span></span><b>번 핀</b><span class="field">켜기<span class="select-arrow">▼</span></span></div>
+        <div class="pin-dropdown digital-pins"><span>0</span><span>1</span><span>2</span><span class="selected">3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span></div>
+      </div>
+      <div class="pin-compare-item">
+        <div class="entry-block hardware-block pwm-set-block compare-sample"><b>디지털</b><span class="field compare-pin-field">3<span class="select-arrow">▼</span></span><b>번 핀을</b><span class="number-field">255</span><b>(으)로 정하기</b></div>
+        <div class="pin-dropdown pwm-pins"><span class="selected">3</span><span>5</span><span>6</span><span>9</span><span>10</span><span>11</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="pwm-pin-board-popup" id="pwmPinBoardPopup" aria-hidden="true">
+    <div class="pwm-pin-board-card">
+      <strong>PWM 사용 가능 핀</strong>
+      <div class="pwm-pin-board-image">
+        <img src="../assets/OrangeBoard.png" alt="오렌지보드 PWM 핀">
+        <span class="pwm-tilde-mark m3" data-pwm-pin="3">~3</span><span class="pwm-tilde-mark m5" data-pwm-pin="5">~5</span><span class="pwm-tilde-mark m6" data-pwm-pin="6">~6</span>
+        <span class="pwm-tilde-mark m9" data-pwm-pin="9">~9</span><span class="pwm-tilde-mark m10" data-pwm-pin="10">~10</span><span class="pwm-tilde-mark m11" data-pwm-pin="11">~11</span>
+      </div>
+      <p><b>3, 5, 6, 9, 10, 11</b>번 핀 옆에는 <b>~</b> 표시가 있습니다.</p>
+    </div>
+  </div>
+</div>
+</section>
+<section class="slide pwm-slide non-entry-slide" data-explanation-subtitle="PWM" data-textbook-page="65">
+<h2 class="header-page-title">5. 한 걸음 더: 깜빡임의 마술, PWM</h2>
+<div class="pwm-intro pwm-intro-lines"><div><b>PWM</b> : <mark>디지털 신호</mark>를 아주 빠르게 켰다 껐다 하면서 <b>켜져 있는 시간의 비율</b>을 조절하는 방법.</div><div>PWM 기능을 지원하는 디지털 핀은 ON/OFF 시간을 조절하여 <mark>아날로그 출력과 비슷한 효과</mark>를 만들 수 있다.</div></div>
+<div class="pwm-demo">
+  <div class="pwm-visual">
+    <div class="pwm-status"><span class="entry-value-label">엔트리 설정값</span><strong class="entry-value-text" id="pwmEntryValue">0</strong><span class="pwm-map-arrow">→</span><span class="duty-label">켜져 있는 시간</span><strong class="duty-value-text" id="pwmDuty">0%</strong></div>
+    <svg id="pwmGraph" class="pwm-graph" viewBox="0 0 760 300" aria-label="PWM 파형 그래프">
+      <line x1="58" y1="28" x2="58" y2="260" class="axis"/><line x1="58" y1="260" x2="735" y2="260" class="axis"/>
+      <text x="12" y="68">5V</text><text x="14" y="264">0V</text>
+      <g class="pwm-grid"></g><path id="pwmWave" class="pwm-wave" d=""/>
+    </svg>
+    <div class="pwm-ratio" id="pwmRatio">켜는 시간 1 : 끄는 시간 3</div>
+  </div>
+  <div class="pwm-lamp-panel">
+    <div class="pwm-bulb-wrap"><div id="pwmGlow" class="pwm-glow"></div><div id="pwmBulb" class="pwm-bulb">💡</div></div>
+    <strong id="pwmBrightness">밝기 0%</strong>
+    <span>빠른 깜빡임이 평균 밝기로 느껴져요.</span>
+  </div>
+</div>
+<div class="pwm-controls">
+  <button type="button" data-duty="0"><b class="entry-value-text">0</b><i>→</i><span class="duty-value-text">0%</span></button><button type="button" data-duty="25"><b class="entry-value-text">64</b><i>→</i><span class="duty-value-text">25%</span></button><button type="button" data-duty="50"><b class="entry-value-text">128</b><i>→</i><span class="duty-value-text">50%</span></button><button type="button" data-duty="75"><b class="entry-value-text">191</b><i>→</i><span class="duty-value-text">75%</span></button><button type="button" data-duty="100"><b class="entry-value-text">255</b><i>→</i><span class="duty-value-text">100%</span></button>
+  <button type="button" id="pwmPlay">▶ 자동 재생</button>
+</div>
+<div class="pwm-note">엔트리 설정값 0~255가 PWM의 켜져 있는 시간 0~100%에 대응합니다. ← / → 키로 단계별로 확인해 보세요.</div>
+</section>
+<section class="slide entry-slide entry-scene-slide entry-setup-slide" aria-label="코딩 전 설정"></section>
+<section class="slide entry-slide entry-code-slide" aria-label="7. PWM 코드 작성">
+<div class="entry-workspace">
+<div class="entry-scene-tabs entry-code-toolbar"><button type="button" class="entry-scene-tab">장면 1</button><button type="button" class="entry-scene-tab active">장면 2</button><span class="entry-brand">entry</span><b class="entry-lesson-title">[피컴09] 출력장치-LED1</b><div class="entry-top-actions"><button type="button" class="entry-complete-btn" id="page7CompleteBtn">학습 완료<span class="page7-final-hint" id="page7FinalHint" hidden>학습완료 눌러서 스터디 제출하기!</span></button><div class="entry-save-wrap"><button type="button" class="entry-save-btn" aria-label="저장 메뉴"><span class="entry-save-icon">▣</span><span class="entry-save-caret">⌃</span></button><div class="entry-save-menu" aria-hidden="true"><button type="button" class="entry-save-item">저장하기</button><button type="button" class="entry-save-item">내 작품으로 저장하기</button></div></div></div></div>
+<aside class="entry-tabs"><div class="entry-tab start-tab" data-tab="start" aria-label="시작"><img class="entry-tab-image entry-tab-image-unselected" src="../assets/tab01_start_unselected.png" alt=""><img class="entry-tab-image entry-tab-image-selected" src="../assets/tab01_start_selected.png" alt=""></div><div class="entry-tab flow-tab" data-tab="flow" aria-label="흐름"><img class="entry-tab-image entry-tab-image-unselected" src="../assets/tab02_flow_unselected.png" alt=""><img class="entry-tab-image entry-tab-image-selected" src="../assets/tab02_flow_selected.png" alt=""></div><div class="entry-tab data-tab" data-tab="data" aria-label="자료"><img class="entry-tab-image entry-tab-image-unselected" src="../assets/tab09_data_unselected.png" alt=""><img class="entry-tab-image entry-tab-image-selected" src="../assets/tab09_data_selected.png" alt=""></div><div class="entry-tab hardware-tab" data-tab="hardware" aria-label="하드웨어"><img class="entry-tab-image entry-tab-image-unselected" src="../assets/tab14_hardware_unselected.png" alt=""><img class="entry-tab-image entry-tab-image-selected" src="../assets/tab14_hardware_selected.png" alt=""></div></aside>
+<div class="entry-stage">
+  <div class="page7-variable-display" id="page7VariableDisplay" aria-label="LED밝기 변수 슬라이더를 눌러 실행 결과 보기" tabindex="0"><div class="page7-variable-heading"><span>LED밝기</span><output id="page7VariableValue" for="page7VariableSlider">0</output></div><input id="page7VariableSlider" type="range" min="0" max="255" value="0" aria-label="LED밝기"></div>
+  <div class="entry-object-info"><span class="page7-object-thumb"><svg class="entry-code-yellow-led entry-led-icon" viewBox="0 0 86 100" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M43 4v8M15 17l7 7M71 17l-7 7M5 47h8M73 47h8M12 28l7 4M74 28l-7 4"/></g><path d="M26 71V43a17 17 0 0 1 34 0v28Z" fill="currentColor" opacity=".84"/><path d="M31 66V43a12 12 0 0 1 21-8" fill="none" stroke="#fff" stroke-width="4" opacity=".78"/><path d="M24 70Q43 80 62 70v10Q43 90 24 80Z" fill="currentColor"/><path d="M23 79Q43 89 63 79v7Q43 96 23 86Z" fill="currentColor" opacity=".72"/></svg></span><strong>노란LED</strong><span class="entry-block-count">블록 <b id="pwmCodeBlockCount">0</b>개</span><span class="entry-code-page-label">변수: LED밝기</span></div>
+  <div class="entry-program" id="pwmCodeProgram" aria-label="LED 코드 작업 영역">
+    <div class="entry-block start-block" data-pwm-code-step="1"><span class="play-dot">▶</span><b>시작하기 버튼을 클릭했을 때</b></div>
+    <div class="entry-block hardware-block indent-0" data-pwm-code-step="2"><b>디지털</b><span class="field">13<span class="select-arrow">▼</span></span><b>번 핀</b><span class="field">켜기<span class="select-arrow">▼</span></span><button type="button" class="entry-run-btn" id="page7RunPin13" aria-label="13번 핀 실행">▶</button></div>
+    <div class="page7-code-pair" id="page7CodePair">
+    <div class="page7-loop-compare" id="page7LoopCompare">
+      <div class="entry-block repeat-block" data-pwm-code-step="4"><b>계속 반복하기</b><button type="button" class="entry-loop-run-btn page7-loop-run-btn" id="page7RunLoop" aria-label="반복 코드 실행" hidden disabled>▶</button></div>
+      <div class="repeat-body page7-repeat-body" data-pwm-repeat-body hidden>
+        <div class="entry-block hardware-block pwm-set-block page7-brightness-block" data-pwm-code-step="5"><b>디지털</b><span class="field">3<span class="select-arrow">▼</span></span><b>번 핀을</b><span class="number-field page7-literal-value" id="page7LiteralValue">255</span><span class="page7-variable-reporter" id="page7VariableReporter" hidden><span class="page7-variable-name">LED밝기<span class="page7-variable-arrow">▼</span></span><span class="page7-variable-value">값</span></span><b>(으)로 정하기</b></div>
+        <div class="entry-block hardware-block pwm-set-block page7-pwm-added-block" data-pwm-code-step="9"><b>디지털</b><span class="field">3<span class="select-arrow">▼</span></span><b>번 핀을</b><span class="number-field">0</span><b>(으)로 정하기</b></div>
+        <div class="entry-block wait-block page7-pwm-added-block" data-pwm-code-step="10"><span class="number-field">0.5</span><b>초 기다리기</b></div>
+        <div class="entry-block hardware-block pwm-set-block page7-pwm-added-block" data-pwm-code-step="11"><b>디지털</b><span class="field">3<span class="select-arrow">▼</span></span><b>번 핀을</b><span class="number-field">100</span><b>(으)로 정하기</b></div>
+        <div class="entry-block wait-block page7-pwm-added-block" data-pwm-code-step="12"><span class="number-field">0.5</span><b>초 기다리기</b></div>
+        <div class="entry-block hardware-block pwm-set-block page7-pwm-added-block" data-pwm-code-step="13"><b>디지털</b><span class="field">3<span class="select-arrow">▼</span></span><b>번 핀을</b><span class="number-field">200</span><b>(으)로 정하기</b></div>
+        <div class="entry-block wait-block page7-pwm-added-block" data-pwm-code-step="14"><span class="number-field">0.5</span><b>초 기다리기</b></div>
+        <div class="entry-block hardware-block pwm-set-block page7-pwm-added-block" data-pwm-code-step="15"><b>디지털</b><span class="field">3<span class="select-arrow">▼</span></span><b>번 핀을</b><span class="number-field">255</span><b>(으)로 정하기</b></div>
+        <div class="entry-block wait-block page7-pwm-added-block" data-pwm-code-step="16"><span class="number-field">0.5</span><b>초 기다리기</b></div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="entry-guide"><strong id="pwmCodeGuideTitle">다음 블록을 눌러 시작하세요.</strong><span id="pwmCodeGuideText">시작하기 → 디지털 13번 핀 켜기 → 실행 결과 확인 → 계속 반복하기</span></div>
+  <div class="entry-result-modal page7-pin13-modal" id="page7Pin13Result" aria-hidden="true">
+    <div class="entry-result-card" role="dialog" aria-modal="true" aria-label="13번 핀 실행 결과">
+      <button type="button" class="entry-result-close" id="page7Pin13Close" aria-label="실행 결과 닫기">×</button>
+      <strong>실행 결과</strong>
+      <div class="pin13-board-view"><img src="../assets/OrangeBoard.png" alt="오렌지보드"><span class="pin13-led-glow" aria-hidden="true"></span><span class="pin13-led-dot" aria-hidden="true"></span></div>
+      <p>오렌지보드의 <b>13번 핀</b>이 켜졌습니다.</p>
+    </div>
+  </div>
+  <div class="page7-pwm-result-modal" id="page7PwmResult" aria-hidden="true">
+    <div class="page7-pwm-result-card" role="dialog" aria-modal="true" aria-label="LED 밝기 실행 결과">
+      <button type="button" class="entry-result-close" id="page7PwmClose" aria-label="실행 결과 닫기">×</button>
+      <strong>실행 결과</strong>
+      <div class="page7-pwm-module">
+        <img src="../assets/LED_white.png" alt="흰색 LED 모듈">
+        <span class="page7-pwm-light" id="page7PwmLight" aria-hidden="true"></span>
+      </div>
+      <p>LED 밝기 <b id="page7PwmResultValue">0</b> / 255</p>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+
+<section class="slide entry-slide entry-code-slide pwm-range-slide" aria-label="8. PWM 코드 살펴보기">
+  <div class="entry-workspace">
+    <div class="entry-scene-tabs entry-code-toolbar"><button type="button" class="entry-scene-tab active">장면 2</button><span class="entry-brand">entry</span><b class="entry-lesson-title">[피컴09] 출력장치-LED1</b></div>
+    <aside class="entry-tabs" aria-label="엔트리 블록 탭"><div class="entry-tab start-tab active-tab" data-tab="start" aria-label="시작"><img class="entry-tab-image entry-tab-image-unselected" src="../assets/tab01_start_unselected.png" alt=""><img class="entry-tab-image entry-tab-image-selected" src="../assets/tab01_start_selected.png" alt=""></div><div class="entry-tab flow-tab" data-tab="flow" aria-label="흐름"><img class="entry-tab-image entry-tab-image-unselected" src="../assets/tab02_flow_unselected.png" alt=""><img class="entry-tab-image entry-tab-image-selected" src="../assets/tab02_flow_selected.png" alt=""></div><div class="entry-tab hardware-tab" data-tab="hardware" aria-label="하드웨어"><img class="entry-tab-image entry-tab-image-unselected" src="../assets/tab14_hardware_unselected.png" alt=""><img class="entry-tab-image entry-tab-image-selected" src="../assets/tab14_hardware_selected.png" alt=""></div></aside>
+    <div class="entry-stage page8-stage">
+      <div class="entry-object-info"><span class="page7-object-thumb"><svg class="entry-code-yellow-led entry-led-icon" viewBox="0 0 86 100" aria-hidden="true"><path d="M26 71V43a17 17 0 0 1 34 0v28Z" fill="currentColor"/><path d="M24 70Q43 80 62 70v10Q43 90 24 80Z" fill="currentColor"/></svg></span><strong>노란LED</strong><span class="entry-code-page-label">변수: LED밝기</span></div>
+      <div class="entry-program page8-program" id="page8Program" aria-label="LED PWM 코드 묶음">
+        <div class="entry-block repeat-block entry-show"><b>계속 반복하기</b></div>
+        <div class="repeat-body repeat-show">
+          <div class="page8-value-pairs">
+            <div class="page8-code-pair" data-value="0"><div class="entry-block hardware-block pwm-set-block entry-show"><b>디지털</b><span class="field">3<span class="select-arrow">▼</span></span><b>번 핀을</b><span class="number-field">0</span><b>(으)로 정하기</b></div><div class="entry-block wait-block entry-show"><span class="number-field">0.5</span><b>초 기다리기</b></div></div>
+            <div class="page8-code-pair" data-value="100"><div class="entry-block hardware-block pwm-set-block entry-show"><b>디지털</b><span class="field">3<span class="select-arrow">▼</span></span><b>번 핀을</b><span class="number-field">100</span><b>(으)로 정하기</b></div><div class="entry-block wait-block entry-show"><span class="number-field">0.5</span><b>초 기다리기</b></div></div>
+            <div class="page8-code-pair" data-value="200"><div class="entry-block hardware-block pwm-set-block entry-show"><b>디지털</b><span class="field">3<span class="select-arrow">▼</span></span><b>번 핀을</b><span class="number-field">200</span><b>(으)로 정하기</b></div><div class="entry-block wait-block entry-show"><span class="number-field">0.5</span><b>초 기다리기</b></div></div>
+            <div class="page8-code-pair" data-value="255"><div class="entry-block hardware-block pwm-set-block entry-show"><b>디지털</b><span class="field">3<span class="select-arrow">▼</span></span><b>번 핀을</b><span class="number-field">255</span><b>(으)로 정하기</b></div><div class="entry-block wait-block entry-show"><span class="number-field">0.5</span><b>초 기다리기</b></div></div>
+          </div>
+        </div>
+      </div>
+      <aside class="entry-guide page8-guide">
+        <h2 class="page8-title">PWM 코드 살펴보기</h2>
+        <strong class="page8-question" id="page8Prompt"><span class="question-keyword">코드</span>가 어떻게 <span class="question-keyword">구성</span>되어 있는지 살펴볼까?</strong>
+        <strong class="page8-question page8-second-question" id="page8SecondPrompt" hidden>각 <span class="question-keyword">코드 묶음</span>에서 <span class="question-keyword">달라지는 것</span>은 무엇일까?</strong>
+        <svg class="page8-scale" id="page8Scale" viewBox="0 0 500 170" role="img" aria-label="0부터 255까지 밝기값 간격" hidden>
+          <line x1="25" y1="92" x2="446" y2="92" class="page8-scale-line" />
+          <line x1="25" y1="80" x2="25" y2="104" class="page8-scale-tick" /><text x="25" y="143" text-anchor="middle" class="page8-scale-value">0</text>
+          <line x1="190" y1="80" x2="190" y2="104" class="page8-scale-tick" /><text x="190" y="143" text-anchor="middle" class="page8-scale-value">100</text>
+          <line x1="355" y1="80" x2="355" y2="104" class="page8-scale-tick" /><text x="355" y="143" text-anchor="middle" class="page8-scale-value">200</text>
+          <line x1="446" y1="80" x2="446" y2="104" class="page8-scale-tick" /><text x="446" y="143" text-anchor="middle" class="page8-scale-value">255</text>
+          <text x="107.5" y="54" text-anchor="middle" class="page8-scale-delta" data-scale-delta="0">+100</text>
+          <text x="272.5" y="54" text-anchor="middle" class="page8-scale-delta" data-scale-delta="1">+100</text>
+          <text x="400.5" y="54" text-anchor="middle" class="page8-scale-delta" data-scale-delta="2">+55</text>
+        </svg>
+      </aside>
+      
+      
+    </div>
+  </div>
+</section>
+<section aria-label="9. 일정한 밝기 간격 찾기" class="slide entry-slide pwm-learning-slide p9-learning">
+<div class="entry-workspace">
+<div class="entry-scene-tabs entry-code-toolbar"><button class="entry-scene-tab active" type="button">장면 2</button><span class="entry-brand">entry</span><b class="entry-lesson-title">[피컴09] 출력장치-LED1</b></div>
+<aside aria-label="엔트리 블록 탭" class="entry-tabs"><div aria-label="자료" class="entry-tab data-tab active-tab" data-tab="data"><img alt="" class="entry-tab-image entry-tab-image-unselected" src="../assets/tab09_data_unselected.png"/><img alt="" class="entry-tab-image entry-tab-image-selected" src="../assets/tab09_data_selected.png"/></div><div aria-label="흐름" class="entry-tab flow-tab" data-tab="flow"><img alt="" class="entry-tab-image entry-tab-image-unselected" src="../assets/tab02_flow_unselected.png"/><img alt="" class="entry-tab-image entry-tab-image-selected" src="../assets/tab02_flow_selected.png"/></div><div aria-label="하드웨어" class="entry-tab hardware-tab" data-tab="hardware"><img alt="" class="entry-tab-image entry-tab-image-unselected" src="../assets/tab14_hardware_unselected.png"/><img alt="" class="entry-tab-image entry-tab-image-selected" src="../assets/tab14_hardware_selected.png"/></div></aside>
+<div class="entry-stage learning-stage">
+<div class="entry-object-info p9-object-info"><span class="page7-object-thumb"><svg aria-hidden="true" class="entry-code-yellow-led entry-led-icon" viewbox="0 0 86 100"><path d="M26 71V43a17 17 0 0 1 34 0v28Z" fill="currentColor"></path><path d="M24 70Q43 80 62 70v10Q43 90 24 80Z" fill="currentColor"></path></svg></span><strong>노란LED</strong><span class="entry-code-page-label">변수: LED밝기</span><h2 class="learning-inline-title">일정한 밝기 간격 찾기</h2></div>
+<aside class="p9-question-area"><strong id="p9Question"><span>기존 코드의 <span class="question-keyword">밝기값</span>은 <span class="question-keyword">같은 간격</span>으로 변할까?</span></strong><div class="p9-support" id="p9Support"></div></aside>
+<div class="p9-board" id="p9Board">
+<div aria-label="밝기값의 간격 비교" class="p9-number-lines" id="p9NumberLines">
+<article class="p9-line-row" data-p9-appear="0" data-p9-line="existing"><h3>① 기존 코드의 밝기값<span class="p9-point-gap-summary"></span></h3><svg aria-label="밝기값 0, 100, 200, 255" class="p9-number-line" role="img"><line class="p9-axis" x1="3.00000%" x2="97.00000%" y1="53" y2="53"></line><circle class="p9-value-point" cx="3.00000%" cy="53" r="8"></circle><text class="p9-value-label" x="3.00000%" y="90">0</text><circle class="p9-value-point" cx="39.86269%" cy="53" r="8"></circle><text class="p9-value-label" x="39.86269%" y="90">100</text><circle class="p9-value-point" cx="76.72549%" cy="53" r="8"></circle><text class="p9-value-label" x="76.72549%" y="90">200</text><circle class="p9-value-point" cx="97.00000%" cy="53" r="8"></circle><text class="p9-value-label" x="97.00000%" y="90">255</text><text class="p9-delta-label" x="21.43140%" y="27">+100</text><g class="p9-gap-mark"><svg height="10" preserveaspectratio="none" viewbox="0 0 100 10" width="34.51269%" x="4.17500%" y="32"><path d="M 0 10 V 0 H 100 V 10"></path></svg><text x="21.43140%" y="23">1</text></g><text class="p9-delta-label" x="58.29409%" y="27">+100</text><g class="p9-gap-mark"><svg height="10" preserveaspectratio="none" viewbox="0 0 100 10" width="34.51281%" x="41.03769%" y="32"><path d="M 0 10 V 0 H 100 V 10"></path></svg><text x="58.29409%" y="23">2</text></g><text class="p9-delta-label" x="86.86269%" y="27">+55</text><g class="p9-gap-mark"><svg height="10" preserveaspectratio="none" viewbox="0 0 100 10" width="17.92451%" x="77.90049%" y="32"><path d="M 0 10 V 0 H 100 V 10"></path></svg><text x="86.86269%" y="23">3</text></g></svg></article>
+<article class="p9-line-row" data-p9-appear="1" data-p9-line="target" hidden=""><h3>② 만들고 싶은 모습<span class="p9-point-gap-summary"></span></h3><svg aria-label="같은 간격의 점 4개, 0과 255" class="p9-number-line" role="img"><line class="p9-axis" x1="3.00000%" x2="97.00000%" y1="53" y2="53"></line><circle class="p9-value-point" cx="3.00000%" cy="53" r="8"></circle><text class="p9-value-label" x="3.00000%" y="90">0</text><circle class="p9-value-point" cx="34.33337%" cy="53" r="8"></circle><circle class="p9-value-point" cx="65.66663%" cy="53" r="8"></circle><circle class="p9-value-point" cx="97.00000%" cy="53" r="8"></circle><text class="p9-value-label" x="97.00000%" y="90">255</text><g class="p9-gap-mark"><svg height="10" preserveaspectratio="none" viewbox="0 0 100 10" width="28.98337%" x="4.17500%" y="32"><path d="M 0 10 V 0 H 100 V 10"></path></svg><text x="18.66663%" y="23">1</text></g><g class="p9-gap-mark"><svg height="10" preserveaspectratio="none" viewbox="0 0 100 10" width="28.98325%" x="35.50837%" y="32"><path d="M 0 10 V 0 H 100 V 10"></path></svg><text x="50.00000%" y="23">2</text></g><g class="p9-gap-mark"><svg height="10" preserveaspectratio="none" viewbox="0 0 100 10" width="28.98337%" x="66.84163%" y="32"><path d="M 0 10 V 0 H 100 V 10"></path></svg><text x="81.33337%" y="23">3</text></g></svg></article>
+
+<article class="p9-line-row" data-p9-appear="7" data-p9-line="divide3" hidden=""><h3>④ 255 ÷ 3 = 85<span class="p9-line-detail">정확히 4단계</span><span class="p9-point-gap-summary"></span></h3><svg aria-label="밝기값 0, 85, 170, 255" class="p9-number-line" role="img"><line class="p9-axis" x1="3.00000%" x2="97.00000%" y1="53" y2="53"></line><circle class="p9-value-point" cx="3.00000%" cy="53" r="8"></circle><text class="p9-value-label" x="3.00000%" y="90">0</text><circle class="p9-value-point" cx="34.33337%" cy="53" r="8"></circle><text class="p9-value-label" x="34.33337%" y="90">85</text><circle class="p9-value-point" cx="65.66663%" cy="53" r="8"></circle><text class="p9-value-label" x="65.66663%" y="90">170</text><circle class="p9-value-point" cx="97.00000%" cy="53" r="8"></circle><text class="p9-value-label" x="97.00000%" y="90">255</text><text class="p9-delta-label" x="18.66663%" y="27">+85</text><g class="p9-gap-mark"><svg height="10" preserveaspectratio="none" viewbox="0 0 100 10" width="28.98337%" x="4.17500%" y="32"><path d="M 0 10 V 0 H 100 V 10"></path></svg><text x="18.66663%" y="23">1</text></g><text class="p9-delta-label" x="50.00000%" y="27">+85</text><g class="p9-gap-mark"><svg height="10" preserveaspectratio="none" viewbox="0 0 100 10" width="28.98325%" x="35.50837%" y="32"><path d="M 0 10 V 0 H 100 V 10"></path></svg><text x="50.00000%" y="23">2</text></g><text class="p9-delta-label" x="81.33337%" y="27">+85</text><g class="p9-gap-mark"><svg height="10" preserveaspectratio="none" viewbox="0 0 100 10" width="28.98337%" x="66.84163%" y="32"><path d="M 0 10 V 0 H 100 V 10"></path></svg><text x="81.33337%" y="23">3</text></g></svg></article>
+<div class="p9-support" hidden="" id="p9Equation">255 ÷ 3 = 85</div></div>
+
+
+</div>
+<div class="learning-controls"><span id="p9StepCount">1 / 20</span></div>
+</div>
+</div>
+</section>
+<section aria-label="10. 4단계 밝기 코드 작성" class="slide entry-slide pwm-learning-slide p9-learning p9-code-learning">
+<div class="entry-workspace">
+<div class="entry-scene-tabs entry-code-toolbar"><button class="entry-scene-tab active" type="button">장면 2</button><span class="entry-brand">entry</span><b class="entry-lesson-title">[피컴09] 출력장치-LED1</b><div class="entry-top-actions"><button class="entry-complete-btn" type="button">학습 완료</button><div class="entry-save-wrap"><button aria-label="저장 메뉴" class="entry-save-btn" type="button"><span class="entry-save-icon">▣</span><span class="entry-save-caret">⌃</span></button><div aria-hidden="true" class="entry-save-menu"><button class="entry-save-item" type="button">저장하기</button><button class="entry-save-item" type="button">내 작품으로 저장하기</button></div></div></div></div>
+<aside aria-label="엔트리 블록 탭" class="entry-tabs"><div aria-label="자료" class="entry-tab data-tab active-tab" data-tab="data"><img alt="" class="entry-tab-image entry-tab-image-unselected" src="../assets/tab09_data_unselected.png"/><img alt="" class="entry-tab-image entry-tab-image-selected" src="../assets/tab09_data_selected.png"/></div><div aria-label="흐름" class="entry-tab flow-tab" data-tab="flow"><img alt="" class="entry-tab-image entry-tab-image-unselected" src="../assets/tab02_flow_unselected.png"/><img alt="" class="entry-tab-image entry-tab-image-selected" src="../assets/tab02_flow_selected.png"/></div><div aria-label="하드웨어" class="entry-tab hardware-tab" data-tab="hardware"><img alt="" class="entry-tab-image entry-tab-image-unselected" src="../assets/tab14_hardware_unselected.png"/><img alt="" class="entry-tab-image entry-tab-image-selected" src="../assets/tab14_hardware_selected.png"/></div></aside>
+<div class="entry-stage learning-stage">
+<div class="entry-object-info p9-object-info"><span class="page7-object-thumb"><svg aria-hidden="true" class="entry-code-yellow-led entry-led-icon" viewbox="0 0 86 100"><path d="M26 71V43a17 17 0 0 1 34 0v28Z" fill="currentColor"></path><path d="M24 70Q43 80 62 70v10Q43 90 24 80Z" fill="currentColor"></path></svg></span><strong>노란LED</strong><span class="entry-code-page-label">변수: 단계</span><h2 class="learning-inline-title">4단계 밝기 코드 작성</h2></div>
+<aside class="p9-question-area"><strong id="p9CodeQuestion"><span>기존 코드의 <span class="question-keyword">밝기값</span>은 <span class="question-keyword">같은 간격</span>으로 변할까?</span></strong><div class="p9-support" id="p9CodeSupport"></div></aside>
+<div class="p9-board" id="p9CodeBoard">
+<div aria-label="4단계 밝기 변화 코드 작성" class="p9-code-scene" id="p9CodeCodeScene">
+<div aria-label="4단계 밝기 변화와 초기화 코드" class="entry-program p9-program" id="p9CodeProgram"></div>
+</div>
+<div class="p9-result-modal" hidden="" id="p9CodeResult">
+<div aria-labelledby="p9CodeResultTitle" aria-modal="true" class="p9-result-card" role="dialog">
+<button aria-label="실행 결과 닫기" class="entry-result-close" id="p9CodeResultClose" type="button">×</button>
+<h3 id="p9CodeResultTitle">실행 결과</h3>
+<div class="p9-led-preview"><div class="p9-lamp-image"><img alt="실제 LED 모듈" class="learning-led-image" src="../assets/LED_white.png"/><span class="learning-led-light" id="p9CodeLedLight"></span></div><b id="p9CodeLedLabel">꺼짐</b></div><div aria-live="polite" class="p9-result-values" id="p9CodeResultValues"></div>
+<p id="p9CodeResultQuestion"></p>
+<button id="p9CodeResultStop" type="button">■ 정지</button>
+</div>
+</div>
+</div>
+<div class="learning-controls"><span id="p9CodeStepCount">1 / 20</span></div>
+</div>
+</div>
+</section>
+<style id="led-pages-8-9-style">
+.entry-code-slide .page7-final-actions .entry-save-menu{display:block!important;opacity:1!important;visibility:visible!important;z-index:1000}
+.entry-code-slide .page7-final-actions .entry-save-item:first-child,.entry-code-slide .page7-final-actions #page7CompleteBtn{outline:5px solid #ffcb35;box-shadow:0 0 0 9px #ffcb3544}
+.entry-code-slide #page7CompleteBtn{position:relative}
+.entry-code-slide .page7-final-hint{position:absolute;z-index:20;left:calc(100% + 14px);top:50%;bottom:auto;transform:translateY(-50%);box-sizing:border-box;width:max-content;max-width:min(460px,34vw);padding:9px 14px;border:3px solid #e4a900;border-radius:16px;background:#fff3a6;color:#332800;font-size:clamp(18px,1.6vw,22px);font-weight:900;line-height:1.2;white-space:nowrap;box-shadow:0 5px 14px #24394a35}
+.entry-code-slide .page7-final-hint::after{content:"";position:absolute;left:auto;right:100%;top:50%;transform:translateY(-50%);border:12px solid transparent;border-right-color:#e4a900}
+</style>
+
+
+
+
+<section class="slide entry-slide pwm-learning-slide p10-learning learning-redesigned" aria-label="10. 밝기 변화 규칙 확장하기">
+  <div class="entry-workspace">
+    <div class="entry-scene-tabs entry-code-toolbar"><button type="button" class="entry-scene-tab active">장면 2</button><span class="entry-brand">entry</span><b class="entry-lesson-title">[피컴09] 출력장치-LED1</b></div>
+    <aside class="entry-tabs" aria-label="엔트리 블록 탭"><div class="entry-tab data-tab active-tab" data-tab="data" aria-label="자료"><img class="entry-tab-image entry-tab-image-unselected" src="../assets/tab09_data_unselected.png" alt=""><img class="entry-tab-image entry-tab-image-selected" src="../assets/tab09_data_selected.png" alt=""></div><div class="entry-tab flow-tab" data-tab="flow" aria-label="흐름"><img class="entry-tab-image entry-tab-image-unselected" src="../assets/tab02_flow_unselected.png" alt=""><img class="entry-tab-image entry-tab-image-selected" src="../assets/tab02_flow_selected.png" alt=""></div><div class="entry-tab hardware-tab" data-tab="hardware" aria-label="하드웨어"><img class="entry-tab-image entry-tab-image-unselected" src="../assets/tab14_hardware_unselected.png" alt=""><img class="entry-tab-image entry-tab-image-selected" src="../assets/tab14_hardware_selected.png" alt=""></div></aside>
+    <div class="entry-stage learning-stage">
+      <div class="entry-object-info"><span class="page7-object-thumb"><svg class="entry-code-yellow-led entry-led-icon" viewBox="0 0 86 100" aria-hidden="true"><path d="M26 71V43a17 17 0 0 1 34 0v28Z" fill="currentColor"/><path d="M24 70Q43 80 62 70v10Q43 90 24 80Z" fill="currentColor"/></svg></span><strong>노란LED</strong><span class="entry-code-page-label">변수: LED밝기</span><h2 class="learning-inline-title">밝기 변화 규칙 확장하기</h2></div>
+      <aside class="entry-guide learning-guide"><strong class="learning-question" id="p10Question"><span><span class="question-keyword">4단계의 규칙</span>에서 시작해 보자.</span></strong><div class="learning-support" id="p10Support"></div></aside>
+      <div class="learning-board" id="p10Board">
+        <div class="learning-concept" data-p10-view="start"><b>4단계 → 3개 간격</b><span>255 ÷ 3 = 85</span><small>간격마다 LED밝기를 85만큼 늘려요.</small></div>
+        <div class="learning-concept" data-p10-view="rule" hidden><b>8단계 → 7개 간격</b><span id="p10Equation">255 ÷ 7</span></div>
+        <div class="entry-program learning-program" data-p10-view="code" hidden aria-label="8번 반복하는 엔트리 코드">
+          <div class="entry-block repeat-block entry-show"><b>계속 반복하기</b></div><div class="repeat-body repeat-show"><div class="entry-block data-block entry-show"><span class="page7-variable-reporter"><span class="page7-variable-name">LED밝기</span></span><span class="number-field">0</span><b>(으)로 정하기</b></div><div class="entry-block repeat-block entry-show"><span class="number-field" data-p10-repeat>4</span><b>번 반복하기</b></div><div class="repeat-body repeat-show">
+            <div class="entry-block hardware-block pwm-set-block entry-show"><b>디지털</b><span class="field">3</span><b>번 핀을</b><span class="page7-variable-reporter"><span class="page7-variable-name">LED밝기</span><span class="page7-variable-value">값</span></span><b>(으)로 정하기</b></div><div class="entry-block wait-block entry-show"><span class="number-field">0.5</span><b>초 기다리기</b></div><div class="entry-block data-block entry-show"><span class="page7-variable-reporter"><span class="page7-variable-name">LED밝기</span></span><b>에</b><span class="number-field" data-p10-increment>85</span><b>만큼 더하기</b></div>
+          </div></div>
+        </div>
+        <div class="learning-concept p10-values" data-p10-view="values" hidden><b>8단계 · 7개 간격</b><div class="p10-result-steps" id="p10ResultSteps"></div><b id="p10Calculated">계산값: 0</b><b id="p10Variable">LED밝기 변수값: 0</b><div class="learning-led-preview"><img class="learning-led-image" src="../assets/LED_white.png" alt="실제 LED 모듈"><span class="learning-led-light" id="p10LedLight"></span></div></div>
+        <div class="learning-concept" data-p10-view="limit" hidden><b>단계 수: 8　·　간격 수: 7</b><span>8번째가 되는 누적 계산값은 255.01이에요.</span><small><span class="question-keyword">LED밝기 변수</span>가 담을 수 있는 <span class="question-keyword">가장 큰 수</span>는?</small></div>
+        <div class="learning-concept p10-answer" data-p10-view="answer" hidden><b>계산한 값은 <span class="question-keyword">255.01</span>인데, LED밝기 변수는 왜 <span class="question-keyword">255</span>일까?</b><div class="p10-chain"><span>단계 변화</span><i>→</i><span>계산값 변화</span><i>→</i><span>LED밝기 변수값 변화</span><i>→</i><span>실제 LED 밝기 변화</span></div><span>LED밝기 변수의 설정 범위: 0~255</span><small>설정한 변수 범위가 0~255이므로, 계산값이 범위를 넘으면 변수값은 최대 255가 돼요.</small></div>
+      </div>
+      <div class="learning-controls"><span id="p10StepCount">1 / 8</span></div>
+    </div>
+  </div>
+</section>
+<section aria-label="13. 8단계 코드 작성" class="slide entry-slide pwm-learning-slide p9-learning p9-code-learning p13-eight-code">
+<div class="entry-workspace">
+<div class="entry-scene-tabs entry-code-toolbar"><button class="entry-scene-tab active" type="button">장면 2</button><span class="entry-brand">entry</span><b class="entry-lesson-title">[피컴09] 출력장치-LED1</b><div class="entry-top-actions"><button class="entry-complete-btn" type="button">학습 완료</button><div class="entry-save-wrap"><button aria-label="저장 메뉴" class="entry-save-btn" type="button"><span class="entry-save-icon">▣</span><span class="entry-save-caret">⌃</span></button><div aria-hidden="true" class="entry-save-menu"><button class="entry-save-item" type="button">저장하기</button><button class="entry-save-item" type="button">내 작품으로 저장하기</button></div></div></div></div>
+<aside aria-label="엔트리 블록 탭" class="entry-tabs"><div aria-label="자료" class="entry-tab data-tab active-tab" data-tab="data"><img alt="" class="entry-tab-image entry-tab-image-unselected" src="../assets/tab09_data_unselected.png"/><img alt="" class="entry-tab-image entry-tab-image-selected" src="../assets/tab09_data_selected.png"/></div><div aria-label="흐름" class="entry-tab flow-tab" data-tab="flow"><img alt="" class="entry-tab-image entry-tab-image-unselected" src="../assets/tab02_flow_unselected.png"/><img alt="" class="entry-tab-image entry-tab-image-selected" src="../assets/tab02_flow_selected.png"/></div><div aria-label="하드웨어" class="entry-tab hardware-tab" data-tab="hardware"><img alt="" class="entry-tab-image entry-tab-image-unselected" src="../assets/tab14_hardware_unselected.png"/><img alt="" class="entry-tab-image entry-tab-image-selected" src="../assets/tab14_hardware_selected.png"/></div></aside>
+<div class="entry-stage learning-stage">
+<div class="entry-object-info p9-object-info"><span class="page7-object-thumb"><svg aria-hidden="true" class="entry-code-yellow-led entry-led-icon" viewbox="0 0 86 100"><path d="M26 71V43a17 17 0 0 1 34 0v28Z" fill="currentColor"></path><path d="M24 70Q43 80 62 70v10Q43 90 24 80Z" fill="currentColor"></path></svg></span><strong>노란LED</strong><span class="entry-code-page-label">변수: 단계</span><h2 class="learning-inline-title">8단계 코드 작성</h2></div>
+<aside class="p9-question-area"><strong id="p13CodeQuestion"><span>기존 코드의 <span class="question-keyword">밝기값</span>은 <span class="question-keyword">같은 간격</span>으로 변할까?</span></strong><div class="p9-support" id="p13CodeSupport"></div></aside>
+<div class="p9-board" id="p13CodeBoard">
+<div aria-label="4단계 밝기 변화 코드 작성" class="p9-code-scene" id="p13CodeCodeScene">
+<div aria-label="4단계 밝기 변화와 초기화 코드" class="entry-program p9-program" id="p13CodeProgram"></div>
+</div>
+<div class="p9-result-modal" hidden="" id="p13CodeResult">
+<div aria-labelledby="p13CodeResultTitle" aria-modal="true" class="p9-result-card" role="dialog">
+<button aria-label="실행 결과 닫기" class="entry-result-close" id="p13CodeResultClose" type="button">×</button>
+<h3 id="p13CodeResultTitle">실행 결과</h3>
+<div class="p9-led-preview"><div class="p9-lamp-image"><img alt="실제 LED 모듈" class="learning-led-image" src="../assets/LED_white.png"/><span class="learning-led-light" id="p13CodeLedLight"></span></div><b id="p13CodeLedLabel">꺼짐</b></div><div aria-live="polite" class="p9-result-values" id="p13CodeResultValues"></div>
+<p id="p13CodeResultQuestion"></p>
+<button id="p13CodeResultStop" type="button">■ 정지</button>
+</div>
+</div>
+</div>
+<div class="learning-controls"><span id="p13CodeStepCount">1 / 20</span></div>
+</div>
+</div>
+</section>
+<section class="slide entry-slide pwm-learning-slide p11-learning learning-redesigned" aria-label="11. 밝기 변화 규칙 비교하기">
+  <div class="entry-workspace">
+    <div class="entry-scene-tabs entry-code-toolbar"><button type="button" class="entry-scene-tab active">장면 2</button><span class="entry-brand">entry</span><b class="entry-lesson-title">[피컴09] 출력장치-LED1</b></div>
+    <aside class="entry-tabs" aria-label="엔트리 블록 탭"><div class="entry-tab data-tab active-tab" data-tab="data" aria-label="자료"><img class="entry-tab-image entry-tab-image-unselected" src="../assets/tab09_data_unselected.png" alt=""><img class="entry-tab-image entry-tab-image-selected" src="../assets/tab09_data_selected.png" alt=""></div><div class="entry-tab flow-tab" data-tab="flow" aria-label="흐름"><img class="entry-tab-image entry-tab-image-unselected" src="../assets/tab02_flow_unselected.png" alt=""><img class="entry-tab-image entry-tab-image-selected" src="../assets/tab02_flow_selected.png" alt=""></div></aside>
+    <div class="entry-stage learning-stage">
+      <div class="entry-object-info"><span class="page7-object-thumb"><svg class="entry-code-yellow-led entry-led-icon" viewBox="0 0 86 100" aria-hidden="true"><path d="M26 71V43a17 17 0 0 1 34 0v28Z" fill="currentColor"/><path d="M24 70Q43 80 62 70v10Q43 90 24 80Z" fill="currentColor"/></svg></span><strong>노란LED</strong><span class="entry-code-page-label">변수: LED밝기</span><h2 class="learning-inline-title">밝기 변화 규칙 비교·일반화하기</h2></div>
+      <aside class="entry-guide learning-guide"><strong class="learning-question" id="p11Question"><span>단계 수에 따라 <span class="question-keyword">간격 수</span>와 <span class="question-keyword">밝기 변화량</span>을 비교해 보자.</span></strong><div class="learning-support" id="p11Support"></div></aside>
+      <div class="learning-board p11-board">
+        <div class="p11-cases">
+          <div class="p11-case" data-p11-case="4"><b>4단계 → <span class="p11-placeholder">___</span><span class="p11-answer" hidden>3</span>개의 간격</b><span>255 ÷ <em>___</em><strong hidden>3</strong> = <em>___</em><strong hidden>85</strong></span></div>
+          <div class="p11-case" data-p11-case="8"><b>8단계 → <span class="p11-placeholder">___</span><span class="p11-answer" hidden>7</span>개의 간격</b><span>255 ÷ <em>___</em><strong hidden>7</strong> ≈ <em>___</em><strong hidden>36.43</strong></span></div>
+          <div class="p11-case" data-p11-case="100"><b>100단계 → <span class="p11-placeholder">___</span><span class="p11-answer" hidden>99</span>개의 간격</b><span>255 ÷ <em>___</em><strong hidden>99</strong> ≈ <em>___</em><strong hidden>2.58</strong></span></div>
+        </div>
+        <div class="p11-summary" hidden><b>4단계 → 3간격 → 85</b><b>8단계 → 7간격 → 약 36.43</b><b>100단계 → 99간격 → 약 2.58</b></div>
+      </div>
+      <div class="learning-controls"><span id="p11StepCount">1 / 14</span></div>
+    </div>
+  </div>
+</section>
+<section class="slide entry-slide pwm-learning-slide p12-learning learning-redesigned" aria-label="12. 밝기 변화 규칙 일반화하기">
+  <div class="entry-workspace">
+    <div class="entry-scene-tabs entry-code-toolbar"><button type="button" class="entry-scene-tab active">장면 2</button><span class="entry-brand">entry</span><b class="entry-lesson-title">[피컴09] 출력장치-LED1</b></div>
+    <aside class="entry-tabs" aria-label="엔트리 블록 탭"><div class="entry-tab data-tab active-tab" data-tab="data" aria-label="자료"><img class="entry-tab-image entry-tab-image-unselected" src="../assets/tab09_data_unselected.png" alt=""><img class="entry-tab-image entry-tab-image-selected" src="../assets/tab09_data_selected.png" alt=""></div><div class="entry-tab flow-tab" data-tab="flow" aria-label="흐름"><img class="entry-tab-image entry-tab-image-unselected" src="../assets/tab02_flow_unselected.png" alt=""><img class="entry-tab-image entry-tab-image-selected" src="../assets/tab02_flow_selected.png" alt=""></div><div class="entry-tab hardware-tab" data-tab="hardware" aria-label="하드웨어"><img class="entry-tab-image entry-tab-image-unselected" src="../assets/tab14_hardware_unselected.png" alt=""><img class="entry-tab-image entry-tab-image-selected" src="../assets/tab14_hardware_selected.png" alt=""></div><div class="entry-tab calculation-tab" data-tab="calculation" aria-label="계산"><img class="entry-tab-image entry-tab-image-unselected" src="../assets/tab08_math_unselected.png" alt=""><img class="entry-tab-image entry-tab-image-selected" src="../assets/tab08_math_selected.png" alt=""></div></aside>
+    <div class="entry-stage learning-stage">
+      <div class="entry-object-info"><span class="page7-object-thumb"><svg class="entry-code-yellow-led entry-led-icon" viewBox="0 0 86 100" aria-hidden="true"><path d="M26 71V43a17 17 0 0 1 34 0v28Z" fill="currentColor"/><path d="M24 70Q43 80 62 70v10Q43 90 24 80Z" fill="currentColor"/></svg></span><strong>노란LED</strong><span class="entry-code-page-label">변수: LED밝기 · 단계</span><h2 class="learning-inline-title">일반화 코드 완성</h2></div>
+      <aside class="entry-guide learning-guide"><strong class="learning-question" id="p12Question">4→3, 8→7, 100→99에서 공통 규칙을 찾아보자.</strong><div class="learning-support" id="p12Support"></div></aside>
+      <div class="learning-board p12-board">
+        <div class="p12-example-list" data-p12-view="examples"><b>4단계 → 3개 간격</b><b>8단계 → 7개 간격</b><b>100단계 → 99개 간격</b></div>
+        <div class="learning-concept p12-answer" data-p12-view="one" hidden><b>1개</b><span>단계 수 − 1 = 간격 수</span></div>
+        <div class="learning-concept p12-equation" data-p12-view="n-blank" hidden><b>n단계 → ___개의 간격</b></div>
+        <div class="learning-concept p12-equation" data-p12-view="n-answer" hidden><b>n단계 → n−1개의 간격</b></div>
+        <div class="learning-concept p12-equation" data-p12-view="formula-blank" hidden><b>밝기 변화 간격 = 255 ÷ ______</b></div>
+        <div class="learning-concept p12-equation" data-p12-view="formula" hidden><b>밝기 변화 간격 = 255 ÷ (n−1)</b></div>
+        <div class="entry-program learning-program p12-program" data-p12-view="code" hidden aria-label="변수와 계산 블록으로 일반화한 엔트리 코드">
+          <div class="entry-block data-block entry-show p12-ask"><span class="p12-question-input">“몇 단계로 나눌까요?”</span><b>라고 묻고 대답 기다리기</b></div>
+          <div class="entry-block data-block entry-show p12-answer-set"><span class="page7-variable-reporter"><span class="page7-variable-name">단계</span></span><b>를</b><span class="page7-variable-reporter"><span class="page7-variable-name">대답</span></span><b>으로 정하기</b></div>
+          <div class="entry-block repeat-block entry-show"><b>계속 반복하기</b></div>
+          <div class="repeat-body repeat-show">
+            <div class="entry-block data-block entry-show"><span class="page7-variable-reporter"><span class="page7-variable-name">LED밝기</span></span><span class="number-field">0</span><b>(으)로 정하기</b></div>
+            <div class="entry-block repeat-block entry-show"><span class="page7-variable-reporter"><span class="page7-variable-name">단계</span></span><b>번 반복하기</b></div>
+            <div class="repeat-body repeat-show">
+              <div class="entry-block hardware-block pwm-set-block entry-show"><b>디지털</b><span class="field">3</span><b>번 핀을</b><span class="page7-variable-reporter"><span class="page7-variable-name">LED밝기</span><span class="page7-variable-value">값</span></span><b>(으)로 정하기</b></div>
+              <div class="entry-block wait-block entry-show"><span class="number-field">0.5</span><b>초 기다리기</b></div>
+              <div class="entry-block data-block entry-show p12-increment"><span class="page7-variable-reporter"><span class="page7-variable-name">LED밝기</span></span><b>에</b><span class="entry-calculation" aria-label="255 나누기 단계 빼기 1 중첩 계산 블록"><span class="number-field">255</span><span class="entry-operator">÷</span><span class="entry-calculation" aria-label="단계 빼기 1 계산 블록"><span class="page7-variable-reporter"><span class="page7-variable-name">단계</span></span><span class="entry-operator">−</span><span class="number-field">1</span></span></span><b>만큼 더하기</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="learning-controls"><span id="p12StepCount">1 / 8</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="slide-nav">
+<button id="prev" disabled aria-label="이전 슬라이드">‹</button>
+<button id="next" aria-label="다음 슬라이드">›</button>
+</div>
+<div class="count" id="slides">1 / 13</div>
+</main>
+<nav class="mobile-nav" aria-label="모바일 페이지 이동">
+<button id="mobilePrev" type="button" disabled aria-label="이전 슬라이드">‹</button>
+<button id="mobileNext" type="button" aria-label="다음 슬라이드">›</button>
+</nav>
+<dialog id="diodeDialog" class="lesson-dialog diode-dialog" aria-labelledby="diodeDialogTitle">
+  <div class="lesson-dialog-card">
+    <button class="lesson-dialog-close" type="button" data-close-dialog aria-label="다이오드 설명 닫기">×</button>
+    <h2 id="diodeDialogTitle">다이오드에서 LED 빛이 만들어지는 과정</h2>
+    <div class="lesson-dialog-content">
+      <div class="diode-process-wrap">
+        <svg class="diode-process" viewBox="0 0 960 430" role="img" aria-labelledby="diodeProcessTitle diodeProcessDesc">
+          <title id="diodeProcessTitle">LED 반도체에서 전자와 정공이 만나 빛을 내는 과정</title>
+          <desc id="diodeProcessDesc">전류 화살표는 왼쪽에서 오른쪽, 전자 이동 화살표는 오른쪽에서 왼쪽을 향합니다. 정공도 전자를 향해 이동합니다. 전자와 정공의 기호가 만나는 위치에서 기호가 사라지고 노란빛이 퍼집니다. 실제 반도체 내부의 모습을 이해하기 쉽게 단순화한 그림입니다.</desc>
+          <defs>
+            <marker id="diodeCurrentArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2875a3"/></marker>
+            <marker id="diodeCarrierArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#536b80"/></marker>
+            <radialGradient id="diodeLightGlow"><stop offset="0" stop-color="#fffde0"/><stop offset=".3" stop-color="#ffe968" stop-opacity=".98"/><stop offset="1" stop-color="#ffc928" stop-opacity="0"/></radialGradient>
+          </defs>
+          <text class="diode-current-label" x="480" y="35" text-anchor="middle">전류 방향</text>
+          <path class="diode-current-line" pathLength="1" d="M120 62 H840" marker-end="url(#diodeCurrentArrow)"/>
+          <rect class="diode-semiconductor" x="52" y="102" width="856" height="280" rx="42"/>
+          <text class="diode-region-label" x="480" y="137" text-anchor="middle">반도체 내부를 단순화해 나타냈어요</text>
+          <text class="diode-carrier-label" x="286" y="194" text-anchor="middle">정공 이동</text>
+          <text class="diode-carrier-label" x="674" y="194" text-anchor="middle">전자 이동</text>
+          <path class="diode-carrier-line" d="M310 218 H426" marker-end="url(#diodeCarrierArrow)"/>
+          <path class="diode-carrier-line" d="M650 218 H534" marker-end="url(#diodeCarrierArrow)"/>
+          <circle class="diode-light-glow" cx="480" cy="279" r="130"/>
+          <g class="diode-light-rays" stroke-linecap="round">
+            <path d="M480 208 V177"/><path d="M480 350 V379"/><path d="M409 279 H376"/><path d="M551 279 H584"/>
+            <path d="M430 229 L407 206"/><path d="M530 229 L553 206"/><path d="M430 329 L407 352"/><path d="M530 329 L553 352"/>
+          </g>
+          <g class="diode-emission-label"><rect x="342" y="345" width="276" height="44" rx="22"/><text x="480" y="375" text-anchor="middle">에너지가 빛으로 방출</text></g>
+          <g class="diode-carrier diode-carrier--hole"><circle cx="310" cy="279" r="43"/><text x="310" y="292" text-anchor="middle">h⁺</text></g>
+          <g class="diode-carrier diode-carrier--electron"><circle cx="650" cy="279" r="43"/><text x="650" y="292" text-anchor="middle">e⁻</text></g>
+        </svg>
+        <p class="diode-simplified-note">반도체 내부를 이해하기 쉽게 단순화한 그림입니다. 동그라미는 전자와 정공의 위치를 나타냅니다.</p>
+      </div>
+      <div class="lesson-dialog-text">
+        <p class="diode-context">다이오드는 전류를 <strong>한쪽 방향으로만</strong> 흐르게 하는 반도체 소자입니다.</p>
+        <p class="diode-explanation">LED에 전류가 한쪽 방향으로 흐르면, 반도체 내부에서 전자와 정공이 만나면서 에너지가 빛으로 방출됩니다.</p>
+        <p class="diode-energy">전기에너지 <span aria-hidden="true">→</span> 빛에너지 <span aria-hidden="true">✨</span></p>
+      </div>
+    </div>
+  </div>
+</dialog>
+<dialog id="pinDialog" class="phycom-pin-window lesson-dialog" data-module-name="LED" data-module-image="../assets/LED_white.png" data-signal-label="IN" data-signal-type="digital" data-lesson-pin="D3" data-voltage-label="VCC" data-lesson-voltage="5V" data-ground-label="GND" aria-labelledby="pinDialogTitle"></dialog>
+<script src="../common/js/lesson-ui.js?v=20261014-sidebar-number1"></script><script src="../common/js/pin-info.js?v=20261005-stage1"></script><script src="../common/js/circuit.js?v=4"></script>
+
+<script src="../common/js/pwm.js?v=3"></script>
+<script src="../common/js/entry-engine/grammar.js?v=20261012-output-status"></script>
+<script src="../common/js/entry-engine/student-info.js"></script>
+<script src="../common/js/entry-engine/tabs.js?v=20261012-popup3"></script>
+<script src="../common/js/entry-engine/renderer.js?v=20261020-layout1"></script>
+<script src="../common/js/entry-engine/execution.js?v=20261012-output-status"></script>
+<script src="../common/js/entry-engine/steps.js?v=20261020-insert1"></script>
+<script src="../common/js/entry-engine/save.js?v=20261012-popup3"></script>
+<script src="./code-data.js?v=20261020-code-rules"></script>
+<script src="./code-results.js?v=20261015-question1"></script>
+<script src="../common/js/coding-setup.js?v=20261019-setup2"></script><script src="./coding-setup-config.js?v=20261015-setup1"></script><script type="application/json" id="deviceConceptData">{"name":"LED","type":"디지털 출력 장치","page":63,"concept":"전기 신호에 따라 빛을 켜고 끄거나 밝기를 조절하는 출력 장치","paragraphs":["LED(Light Emitting Diode, <mark data-key=\"2\">발광 다이오드</mark>)는 <mark data-key=\"1\">전류가 흐르면 빛을 내는 반도체 소자</mark>이다. 빨간색, 노란색, 초록색 등의 다양한 색상이 있으며, 실내조명 기구, 텔레비전, 신호등, 대형 전광판 등 우리 생활의 곳곳에서 사용되고 있다. 또한 백열등이나 형광등과 같은 일반적인 전구에 비해 에너지를 효율적으로 사용하므로 LED 전구를 사용하면 전기 요금을 절약할 수 있고 환경에도 더 친화적이다."],"notes":["LED는 전기 신호를 빛으로 바꾸어 결과를 보여 주는 출력 장치이다.","다이오드는 전류가 한쪽 방향으로 흐르도록 하는 반도체 소자이며, LED는 그중 빛을 내는 다이오드이다."],"subtitle":"개념","supplements":[null,{"title":"다이오드","design":"plain","side":"right","paragraphs":["한쪽 방향으로만 전류가 흐르도록 제어하는 반도체 소자"],"highlights":["한쪽 방향으로만 전류가 흐르도록 제어"],"links":["발광 다이오드"]}],"noteHighlights":[["전기 신호를 빛으로 바꾸어"],["전류가 한쪽 방향으로","빛을 내는 다이오드"]],"noteDisplay":[false,false]}</script>
+<script src="../common/js/device-concept.js?v=20261023-persistent1"></script>
+<script src="./lesson-slides.js?v=20261021-concept1"></script>
+
+<script src="./code-adapter.js?v=20261020-code-rules"></script>
+<script src="./page8.js?v=20261015-question2"></script>
+
+<script src="../common/js/hardware-connect.js?v=20261014-hardware15"></script>
+</body>
+</html>
+

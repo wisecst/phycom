@@ -1,0 +1,86 @@
+.joystick-lesson{--setup-stage-height:40%}
+.joystick-concept>div{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:0;gap:16px}
+.joystick-concept img{width:100%;height:100%;min-height:0;object-fit:contain}
+.joystick-concept .motor-module{flex:1;width:100%;margin:0}
+.joystick-lesson .entry-program:before{display:none}
+.joystick-lesson .entry-code-slide:not(#basic):not(#cursor):has(.ec-popup:not([hidden])) .entry-stage{width:calc(50% - 100px)}
+.joystick-lesson .entry-top-actions{margin-left:auto;display:flex;gap:10px}
+.joystick-lesson .entry-top-actions button{font:inherit}
+.joystick-result{font-size:22px}
+.joystick-result h3{font-size:27px;margin:0 0 8px}
+.joystick-result p{margin:6px 0}
+.joystick-result canvas{display:block;width:100%;height:auto;object-fit:contain;outline:none;border:2px solid #d2bb8b;border-radius:8px}
+.joystick-result canvas:focus{border-color:#e2a42a}
+.joystick-device{display:block;width:210px;height:140px;object-fit:contain;margin:auto}
+.joystick-input{display:flex;flex-direction:column;gap:6px;margin:8px 0}
+.joystick-input label{display:flex;align-items:center;gap:12px}
+.joystick-input input{flex:1;min-width:0;accent-color:#1b998a}
+.joystick-input button{font:inherit;padding:10px;border:2px solid #75a8be;border-radius:12px;background:#edf8ff;touch-action:none}
+.joystick-input button[aria-pressed=true]{background:#ffde63}
+.joystick-lesson .entry-object-icon img,.joystick-lesson .entry-result img.entry-led-icon{object-fit:contain}
+
+
+.joystick-lesson #workspace #board{left:3%;top:14%}
+.joystick-lesson #workspace #module{left:75%;top:18%}
+
+.joystick-stage{position:relative}
+.joystick-stage .entry-stage-variable,.joystick-lesson .entry-setup-slide .entry-stage-variable{left:50%;top:8px;width:max-content;transform:translateX(-50%);z-index:2}
+.joystick-stage .entry-stage-variable span,.joystick-lesson .entry-setup-slide .entry-stage-variable span{max-width:none}
+
+
+
+.joystick-visual{position:relative;width:210px;height:140px;margin:8px auto 20px}
+.joystick-visual>img{display:block;width:100%;height:100%;object-fit:contain}
+.joystick-stick{position:absolute;left:57%;top:40%;width:64px;height:55px;border-radius:48%;background:radial-gradient(ellipse at 40% 30%,#333,#202020 65%,#0f0f0f);box-shadow:0 5px 3px #1119;transform:translate(-50%,-50%)}
+.joystick-arrow{position:absolute;font-size:30px;line-height:32px;color:#b8c3ca;font-weight:900}
+.joystick-arrow[data-direction="왼쪽"]{left:-25px;top:42px}.joystick-arrow[data-direction="오른쪽"]{right:-25px;top:42px}.joystick-arrow[data-direction="위"]{left:104px;top:-20px}.joystick-arrow[data-direction="아래"]{left:104px;bottom:-22px}
+.joystick-push{position:absolute;right:-80px;bottom:16px;font-size:22px;color:#b8c3ca;font-weight:800}
+.joystick-visual .active{color:#ad6500;background:#ffe783;border-radius:6px}
+.joystick-inquiry [data-input-next]{font:inherit;padding:6px 18px;border:2px solid #43817b;border-radius:8px;background:#edf8ff;color:#244153}
+
+#basic .joystick-inquiry [data-readings]{font-size:30px;font-weight:800;line-height:1.4;white-space:pre-line}
+
+.joystick-pin-layout{display:grid;grid-template-columns:320px minmax(0,1fr);gap:32px;align-items:center;flex:1;min-height:0}
+.joystick-pin-table{width:100%;border-collapse:separate;border-spacing:0 14px;text-align:left;font-size:36px;line-height:1.3}
+.joystick-pin-table thead th{font-size:30px;padding:8px 14px;color:#153f58;white-space:nowrap}
+.joystick-pin-table tbody th{width:116px;padding:20px 14px;background:var(--pin-color);color:#fff;border-radius:12px 0 0 12px;font-size:46px;white-space:nowrap}
+.joystick-pin-table td{padding:20px 14px;background:var(--pin-background)}
+.joystick-pin-table td:first-of-type{width:155px;text-align:center;color:#153f58;font-size:48px}
+.joystick-pin-table td:last-child{border-radius:0 12px 12px 0}
+
+#basic .ec-popup{z-index:602}
+#basic .ec-popup-card{inset:8px 8px 8px auto;width:510px;height:calc(100% - 16px);max-height:none;padding:16px;overflow:hidden;display:flex;flex-direction:column}
+#basic .ec-popup-content{flex:1;min-height:0;padding-top:28px}
+#basic .ec-popup-toggle{align-self:center;margin-top:8px;flex:none}
+#basic .joystick-inquiry{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-width:0;height:100%}
+#basic .joystick-visual{width:420px;height:280px;flex:none;margin:40px auto 44px}
+#basic .joystick-stick{left:56%;top:33%;width:36%;height:46%}
+#basic .joystick-arrow{font-size:50px;line-height:52px}
+#basic .joystick-arrow[data-direction="왼쪽"]{left:-24px;top:30%}
+#basic .joystick-arrow[data-direction="오른쪽"]{right:-24px;top:30%}
+#basic .joystick-arrow[data-direction="위"]{left:50%;top:-40px}
+#basic .joystick-arrow[data-direction="아래"]{left:50%;bottom:-40px}
+#basic .joystick-push{right:0;bottom:-38px;font-size:32px;line-height:38px}
+
+.joystick-variable-setup[hidden]{display:none}
+
+#basic .entry-stage>.entry-program{left:340px}
+.joystick-input-monitors{position:absolute;left:10px;top:10px;display:flex;gap:10px;white-space:nowrap;z-index:3}
+.joystick-lesson .joystick-input-monitors>.entry-stage-variable{position:static;transform:none;width:auto;height:auto;min-height:46px}
+.joystick-lesson .joystick-input-monitors>.entry-stage-variable[hidden]{display:none!important}
+.joystick-input-monitors span,.joystick-input-monitors b{font-size:26px;font-weight:800;width:auto;min-width:34px;max-width:none}
+
+.joystick-code-monitors{left:340px;top:0}
+
+#cursor .entry-stage>.entry-program{left:340px}
+#cursor .ec-popup:has(.joystick-inquiry) .ec-popup-card{left:340px;right:12px;top:auto!important;bottom:12px;width:auto;height:330px;max-height:330px!important;overflow:hidden}
+#cursor .ec-popup:has(.joystick-inquiry) .ec-popup-content{height:100%;padding-top:0}
+#cursor .joystick-inquiry{height:100%;display:grid;grid-template-columns:280px minmax(0,1fr);grid-template-rows:30px 140px 24px 50px;column-gap:25px;align-items:center}
+#cursor .joystick-inquiry h3{grid-column:1/-1;font-size:22px}
+#cursor .joystick-inquiry .joystick-visual{grid-column:1;grid-row:2}
+#cursor .joystick-inquiry canvas{grid-column:2;grid-row:2/5;max-height:210px}
+#cursor .joystick-inquiry p{font-size:15px;margin:0}
+#cursor .joystick-inquiry p:last-child{display:none}
+#cursor .joystick-inquiry [data-segment]{grid-column:1;grid-row:3}
+#cursor .joystick-inquiry [data-readings]{grid-column:1;grid-row:4}
+#cursor .ec-popup:has(.joystick-inquiry) .ec-popup-toggle{position:absolute;top:10px;right:52px;margin:0}

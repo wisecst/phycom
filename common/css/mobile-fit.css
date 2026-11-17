@@ -1,0 +1,2 @@
+/* Compatibility stylesheet: the unified Stage owns viewport fitting. */
+@import url("stage-host.css?v=1");

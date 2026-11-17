@@ -1,0 +1,12 @@
+/* Only this document reads the physical browser viewport. */
+html,body{margin:0;width:100%;height:100%;height:100dvh;overflow:hidden;background:#eef5f9}
+#phycomViewport{position:fixed;inset:0;overflow:hidden;--safe-left:env(safe-area-inset-left,0px);--safe-right:env(safe-area-inset-right,0px);--safe-top:env(safe-area-inset-top,0px);--safe-bottom:env(safe-area-inset-bottom,0px)}
+#phycomStage{position:absolute;width:1600px;height:900px;border:0;transform-origin:0 0;visibility:hidden}
+#phycomPortraitNotice{position:fixed;inset:0;display:grid;place-items:center;padding:32px;box-sizing:border-box;text-align:center;background:#eef5f9;color:#243447;font:700 23px/1.5 Arial,"Noto Sans KR",sans-serif}
+#phycomPortraitNotice[hidden]{display:none}
+
+.lesson-navigation.stage-navigation{position:fixed;left:0;right:0;bottom:0;padding-bottom:max(var(--nav-density),env(safe-area-inset-bottom,0px))}
+.stage-navigation[hidden],#phycomViewport[hidden],.stage-module-home[hidden]{display:none}
+.stage-module-home{box-sizing:border-box;width:min(640px,100%);margin:0 auto;padding:40px 24px;color:#215f53;font-family:system-ui}.stage-module-home h1{font-size:28px;margin:0 0 24px}
+
+.stage-navigation>.creator-credit{position:absolute;right:max(10px,env(safe-area-inset-right,0px));bottom:max(3px,env(safe-area-inset-bottom,0px));min-width:0;margin:0;padding:0;color:#617386;font:11px/1.2 system-ui;text-align:right;white-space:nowrap;pointer-events:none}

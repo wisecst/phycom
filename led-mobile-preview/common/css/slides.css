@@ -1,0 +1,2979 @@
+
+* {
+  box-sizing:border-box}
+body {
+  margin:0;
+  font-family:Arial,"Noto Sans KR",sans-serif;
+  background:#eef5f9;
+  color:#243447}
+.wrap {
+  max-width:1000px;
+  margin:auto;
+  padding:28px 16px 50px}
+header{position:relative;padding:22px 28px;color:#fff;background:linear-gradient(135deg,#183b56,#457b9d);border-radius:20px}
+.course-label{position:absolute;top:18px;right:24px;font-size:.78rem;opacity:.82}
+.fullscreen-btn{position:fixed;top:14px;right:14px;z-index:30;width:40px;height:40px;border:1px solid rgba(255,255,255,.35);border-radius:10px;background:rgba(24,59,86,.28);color:#fff;font-size:21px;line-height:1;cursor:pointer;backdrop-filter:blur(5px);opacity:.65}
+.fullscreen-btn:hover{opacity:1}
+
+:fullscreen .wrap{max-width:none;width:100vw;min-height:100vh;padding:18px 70px 24px}
+:fullscreen header{margin:0}
+:fullscreen .slide{min-height:calc(100vh - 190px)}
+:fullscreen .fullscreen-btn{top:12px;right:12px}
+@media(max-width:650px){.fullscreen-btn{width:36px;height:36px;font-size:18px}}
+.device-label{display:block;margin-bottom:2px;font-size:.82rem;opacity:.9}
+.title-row{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap}
+h1{margin:6px 0;font-size:clamp(2rem,5vw,3rem)}
+.title-desc{position:relative;font-size:clamp(.88rem,1.5vw,1.05rem);font-weight:500;opacity:.96;line-height:1.45}
+.title-desc .diode-word{color:#ffd86b}
+h2 {
+  color:#1d5d85}
+.slide {
+  display:none;
+  margin-top:22px;
+  padding:30px;
+  min-height:500px;
+  background:#fff;
+  border-radius:18px;
+  box-shadow:0 5px 20px #0001}
+.slide.active {
+  display:block}
+.lead {
+  padding:18px;
+  background:#fff3c4;
+  border-left:6px solid #f28c28;
+  border-radius:10px;
+  font-size:1.2rem;
+  font-weight:bold}
+.cards {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:14px;
+  margin-top:22px}
+.card {
+  padding:18px;
+  background:#eaf5ff;
+  border-radius:12px}
+.card h3 {
+  margin-top:0;
+  color:#28709f}
+.device-intro {
+  margin-top:22px;
+  padding:20px;
+  background:#fffaf0;
+  border:1px solid #f0d58a;
+  border-radius:14px}
+.device-intro h3 {
+  margin-top:0;
+  color:#9a5a00}
+.definition {
+  margin-top:18px;
+  padding:18px;
+  background:#f4f9ff;
+  border-radius:14px}
+.definition p {
+  margin:8px 0;
+  line-height:1.65}
+.examples {
+  margin-top:18px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:12px}
+.example {
+  padding:15px;
+  border:1px solid #d9e6ef;
+  border-radius:12px;
+  background:#fff}
+.example strong {
+  display:block;
+  color:#1d5d85;
+  margin-bottom:6px}
+.flow {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin:35px 0}
+.flow div {
+  padding:16px 20px;
+  border:3px solid #72a9cf;
+  border-radius:13px;
+  background:#eef8ff;
+  font-weight:bold}
+.flow b {
+  font-size:2rem;
+  color:#f28c28}
+.circuit-demo{position:relative;height:390px;margin-top:8px;overflow:hidden;background:linear-gradient(#f2f5f7 1px,transparent 1px),linear-gradient(90deg,#f2f5f7 1px,transparent 1px);background-size:20px 20px;border-radius:14px}
+.circuit-demo .circuit-component{position:absolute;user-select:none;z-index:2}
+.circuit-demo .component-image{display:block;width:100%;height:100%;object-fit:contain;pointer-events:none;-webkit-user-drag:none}
+.circuit-demo .pin-layer{position:absolute;inset:0;pointer-events:none}
+.circuit-demo .module-component{left:3%;top:30%;width:18vw;max-width:300px;max-height:45vh}
+.circuit-demo .board-component{left:35%;top:12%;width:60%}
+.circuit-demo .pin{position:absolute;width:1px;height:1px;transform:translate(-50%,-50%);pointer-events:none;opacity:0}
+#wireLayer{position:absolute;inset:0;width:100%;height:100%;z-index:5;pointer-events:none}
+#wireLayer .wire{fill:none;stroke-width:calc(5px * var(--circuit-scale,1));stroke-linecap:round;stroke-linejoin:round}
+#wireLabelLayer{position:absolute;inset:0;pointer-events:none;z-index:15}
+.wire-label{position:absolute;transform:translate(-50%,-50%);padding:calc(10px * var(--circuit-scale,1)) calc(16px * var(--circuit-scale,1));border-radius:calc(9px * var(--circuit-scale,1));font-size:calc(18px * var(--circuit-scale,1));font-weight:700;line-height:1;white-space:nowrap;pointer-events:none;box-shadow:0 2px 6px rgba(0,0,0,.30)}
+:fullscreen .circuit-demo{height:calc(100vh - 245px);min-height:430px}
+.pins {
+  width:100%;
+  border-collapse:collapse;
+  margin-top:20px}
+.pins th,.pins td {
+  padding:12px;
+  border-bottom:1px solid #dce6ed;
+  text-align:left}
+.pins th {
+  background:#457b9d;
+  color:white}
+.circuit {
+  position:relative;
+  height:240px;
+  margin:24px 0;
+  border:2px dashed #a7c7dc;
+  border-radius:16px;
+  background:#f8fcff}
+.board,.module {
+  position:absolute;
+  top:85px;
+  padding:20px 10px;
+  border-radius:12px;
+  color:#fff;
+  text-align:center;
+  font-weight:bold}
+.board {
+  left:8%;
+  width:200px;
+  background:#277da1}
+.module {
+  right:8%;
+  width:170px;
+  background:#f28c28}
+.wire {
+  position:absolute;
+  left:28%;
+  top:110px;
+  width:44%;
+  height:5px;
+  background:#f28c28;
+  transform-origin:left;
+  animation:draw 1.3s both}
+.wire:nth-of-type(2) {
+  top:130px;
+  background:#d93838;
+  animation-delay:.5s}
+.wire:nth-of-type(3) {
+  top:150px;
+  background:#333;
+  animation-delay:1s}
+@keyframes draw {
+  from {
+  transform:scaleX(0)}
+to {
+  transform:scaleX(1)}
+}
+.code {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px}
+.blocks,.explain {
+  padding:18px;
+  border-radius:12px}
+.blocks {
+  background:#f5f6fa}
+.explain {
+  background:#fff8e8}
+.block {
+  display:none;
+  padding:12px 18px;
+  margin:8px 0;
+  width:max-content;
+  color:#fff;
+  font-weight:bold}
+.block.show {
+  display:block}
+.start {
+  background:#f3a12f;
+  border-radius:15px 15px 5px 5px}
+.event {
+  background:#d65a9c}
+.wait {
+  background:#249e9e}
+.action {
+  background:#42a447}
+.video {
+  margin-top:18px;
+  padding:22px;
+  text-align:center;
+  border:2px dashed #b9c4cc;
+  border-radius:10px;
+  color:#68737d}
+.nav {
+  text-align:center;
+  margin-top:20px}
+.nav button{padding:11px 18px;margin:3px;border:0;border-radius:8px;background:#457b9d;color:#fff;cursor:pointer}
+.nav button:disabled{opacity:.4}
+.slide-nav{position:fixed;inset:0;pointer-events:none;z-index:15}
+.slide-nav button{position:absolute;top:50%;transform:translateY(-50%);width:54px;height:90px;padding:0;border:0;background:transparent;color:rgba(36,52,71,.34);font-size:64px;font-family:Arial,sans-serif;font-weight:200;line-height:1;cursor:pointer;pointer-events:auto;transition:color .15s,transform .15s}
+.slide-nav button:hover{color:rgba(36,52,71,.68);transform:translateY(-50%) scale(1.08)}
+.slide-nav button:disabled{opacity:.08;cursor:default}
+#prev{left:12px}
+#next{right:12px}
+.count {
+  text-align:center;
+  color:#607080;
+  margin-top:8px}
+@media(max-width:650px) {
+  .code {
+  grid-template-columns:1fr}
+.circuit {
+  height:320px}
+.board {
+  top:35px;
+  left:4%}
+.module {
+  top:210px;
+  right:4%}
+.wire {
+  left:35%;
+  width:28%;
+  top:125px;
+  transform:rotate(38deg)}
+.wire:nth-of-type(2) {
+  top:140px}
+.wire:nth-of-type(3) {
+  top:155px}
+}
+.led-name {
+  color:#e63946;
+  font-weight:800;
+}
+.concept-grid{display:grid;grid-template-columns:46% 54%;gap:22px;align-items:start;margin-top:8px}
+.concept-image{min-width:0}
+.diode-anchor{position:relative;display:inline-block}
+.diode-bubble{position:absolute;left:0;bottom:calc(100% + 7px);transform:none;display:block;width:max-content;max-width:360px;padding:5px 8px;color:#655b70;background:#faf8fc;border:1.5px dashed #c9bdd5;border-radius:9px;font-size:.78rem;font-weight:500;line-height:1.3;white-space:nowrap;z-index:5}
+.diode-bubble::before{content:"";position:absolute;left:3.15em;top:100%;width:1.5px;height:7px;background:#d8c7e6;transform:translateX(-50%)}
+.diode-bubble::after{content:"";position:absolute;left:3.15em;top:calc(100% + 4px);border:4px solid transparent;border-top-color:#d8c7e6;transform:translateX(-50%)}
+.usage-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:12px;background:#f8fbfd;border:1px solid #dce8ef;border-radius:16px}
+.usage-item {
+  padding:10px;
+  border:1px solid #d9e6ef;
+  border-radius:12px;
+  background:#fff;
+  text-align:center;
+}
+.usage-item svg {
+  width:100%;
+  height:68px;
+  display:block;
+  margin:auto;
+}
+.usage-item strong {
+  display:block;
+  margin-top:5px;
+  color:#1d5d85;
+  font-size:.95rem;
+}
+.usage-item span {
+  display:block;
+  margin-top:3px;
+  font-size:.78rem;
+  line-height:1.35;
+}
+@media(max-width:650px) {
+  .usage-grid {
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+.module-photo{display:block;width:100%;height:330px;object-fit:contain;object-position:left top;margin:0}
+@media(max-width:760px){.concept-grid{grid-template-columns:1fr}.diode-bubble{white-space:normal;width:240px}}
+.diode-word {
+  color:#6a4c93;
+  font-weight:800;
+}
+.edit-panel {
+  position:fixed;
+  z-index:20;
+  top:12px;
+  right:12px;
+  width:min(330px,calc(100vw - 24px));
+  max-height:calc(100vh - 24px);
+  overflow:auto;
+  padding:16px;
+  color:#243447;
+  background:#fff;
+  border:2px solid #457b9d;
+  border-radius:14px;
+  box-shadow:0 8px 28px #0003;
+  font-size:.9rem;
+}
+.edit-panel h3 {
+  margin:0 0 8px;
+  color:#1d5d85;
+}
+.edit-panel label {
+  display:block;
+  margin:10px 0 4px;
+  font-weight:bold;
+}
+.edit-panel input[type="color"],
+.edit-panel input[type="range"] {
+  width:100%;
+}
+.edit-panel .edit-actions {
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-top:12px;
+}
+.edit-panel button {
+  padding:8px 10px;
+  border:0;
+  border-radius:7px;
+  color:#fff;
+  background:#457b9d;
+  cursor:pointer;
+}
+.edit-panel .hint {
+  margin:8px 0 0;
+  color:#607080;
+  font-size:.78rem;
+  line-height:1.4;
+}
+
+
+/* Responsive lesson layout */
+.wrap{width:min(100%,calc(100vh * 16 / 9));max-width:none}
+.slide.active{height:min(70vh,calc((100vw - 32px) * 9 / 16));min-height:500px}
+:fullscreen .wrap{width:min(100vw,calc(100vh * 16 / 9));height:100vh;padding:1.8vh 3.5vw 2vh}
+:fullscreen header{height:15vh;padding:2.2vh 2.8vw}
+:fullscreen .slide.active{height:81vh;min-height:0;margin-top:2vh;padding:2.5vh 2.5vw}
+
+/* Slide 1 */
+.slide:first-of-type.active .concept-grid{height:100%;grid-template-columns:52% 48%;gap:2px;align-items:stretch}
+.slide:first-of-type.active .concept-image{display:flex;align-items:center;justify-content:flex-start;min-height:0}
+.slide:first-of-type.active .module-photo{width:100%;height:100%;max-height:none;object-fit:contain;object-position:left center;transform:translateX(-5%) scale(1.08);transform-origin:left center}
+.slide:first-of-type.active .concept-uses{height:100%;min-height:0;display:flex;align-items:stretch;justify-content:flex-end}
+.slide:first-of-type.active .usage-grid{width:92%;height:100%;padding:1px;gap:2px;align-self:stretch}
+.slide:first-of-type.active .usage-item{padding:1px;min-height:0;display:flex;flex-direction:column;justify-content:center}
+.slide:first-of-type.active .usage-item svg{width:100%;height:calc(100% - 2.35rem);min-height:110px;max-height:none;margin:0 auto}
+.slide:first-of-type.active .usage-item strong,.slide:first-of-type.active .usage-item span{margin-top:1px}
+:fullscreen .slide:first-of-type.active .module-photo{transform:translateX(-6%) scale(1.12)}
+:fullscreen .slide:first-of-type.active .usage-item svg{min-height:0}
+
+/* Slide 2: scale the complete circuit as one fixed-ratio composition. */
+#workspace.circuit-demo{width:100%;height:auto;aspect-ratio:724/390;max-height:100%;margin:8px auto 0}
+:fullscreen #workspace.circuit-demo{width:auto;height:calc(100% - 3.2rem);max-width:100%;max-height:calc(100% - 3.2rem);aspect-ratio:724/390;margin:1vh auto 0}
+
+/* Entry step-by-step lesson */
+.entry-slide{position:relative}
+.entry-workspace{height:calc(100% - 95px);min-height:430px;display:grid;grid-template-columns:96px 1fr;border:1px solid #cfe1ee;border-radius:14px;overflow:hidden;background:#f7fcff}
+.entry-tabs{background:#edf7fb;border-right:1px solid #c7dde9;display:flex;flex-direction:column}
+.entry-tab{height:86px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;border-bottom:1px solid #c7dde9;font-size:22px;font-weight:800;color:#44525c;transition:.2s}
+.entry-tab span{font-size:16px}.entry-tab.start-tab.active-tab{background:#00b52b;color:#fff}.entry-tab.hardware-tab.active-tab{background:#00aaa8;color:#fff}.entry-tab.flow-tab.active-tab{background:#20b5dd;color:#fff}
+.entry-stage{position:relative;padding:28px 34px;background-image:radial-gradient(#c9e7f4 1.1px,transparent 1.1px);background-size:10px 10px;overflow:hidden}
+.entry-program{width:min(660px,72%);position:relative}
+.entry-block{display:none;min-height:58px;align-items:center;gap:13px;padding:8px 20px;color:#fff;font-size:23px;font-weight:800;border-radius:0 28px 28px 0;box-shadow:inset 0 -3px rgba(0,0,0,.12);margin-bottom:5px;animation:entryIn .28s ease-out}.start-block{background:#00b52b;border-radius:30px;min-height:64px}.hardware-block{background:#00aaa8}.repeat-block,.wait-block{background:#20b5dd}.repeat-block{width:58%;border-radius:0 28px 28px 0}.repeat-body{margin-left:30px;border-left:12px solid #20b5dd;padding-left:0}.repeat-body .entry-block{margin-left:0}
+.play-dot{width:48px;height:48px;border-radius:50%;background:#fff;color:#00b52b;display:inline-flex;align-items:center;justify-content:center;font-size:25px}
+.field{background:#008f94;border:2px solid rgba(0,0,0,.12);border-radius:22px;padding:6px 16px}.number-field{background:#ffbd2e;color:#111;border:2px solid #f28c00;border-radius:22px;padding:6px 13px}
+.entry-guide{position:absolute;right:3%;top:32px;width:25%;background:#fff;border:1px solid #cfe1ee;border-radius:14px;padding:18px;box-shadow:0 3px 12px rgba(0,0,0,.08)}.entry-guide strong{display:block;color:#17628c;font-size:18px;margin-bottom:7px}.entry-guide span{font-size:15px;color:#465761}
+.entry-controls{margin-top:8px}
+@keyframes entryIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+:fullscreen .entry-workspace{height:calc(100% - 82px)}:fullscreen .entry-block{font-size:calc(23px * min(1.35,100vw/1200));min-height:64px}
+
+/* Circuit board horizontal balance */
+#workspace .board-component{transform:translateX(3.5%)}
+
+/* Entry blocks: geometry matched to Entry workspace blocks */
+.entry-program{width:min(720px,76%);padding-left:18px}
+.entry-block{position:relative;border:2px solid rgba(0,0,0,.13);box-shadow:none;margin:0;font-family:"Noto Sans KR",Arial,sans-serif;letter-spacing:-.03em}
+.start-block{width:max-content;min-width:440px;height:62px;border-radius:31px;padding:0 24px 0 10px;background:#00b52b;border-color:#009c25}
+.start-block:after{content:"";position:absolute;left:22px;bottom:-14px;border-left:14px solid transparent;border-right:14px solid transparent;border-top:14px solid #00b52b;filter:drop-shadow(0 2px 0 #009c25)}
+.play-dot{width:50px;height:50px;flex:0 0 50px}
+.hardware-block{width:max-content;min-width:475px;height:58px;background:#00b6b2;border-color:#008f94;border-radius:0 29px 29px 0;padding-left:28px}
+.hardware-block:before,.wait-block:before{content:"";position:absolute;left:16px;top:-2px;width:20px;height:9px;background:inherit;border-left:2px solid rgba(0,0,0,.13);border-right:2px solid rgba(0,0,0,.13);clip-path:polygon(0 0,100% 0,75% 100%,25% 100%)}
+.hardware-block:after,.wait-block:after{content:"";position:absolute;left:16px;bottom:-9px;width:20px;height:10px;background:inherit;clip-path:polygon(25% 0,75% 0,100% 100%,0 100%);z-index:2}
+.repeat-block{width:260px;height:58px;background:#22b8df;border-color:#0798bf;border-radius:0 29px 29px 0;padding-left:28px}
+.repeat-block:before{content:"";position:absolute;left:16px;top:-2px;width:20px;height:9px;background:inherit;clip-path:polygon(0 0,100% 0,75% 100%,25% 100%)}
+.repeat-body{position:relative;margin-left:0;padding:0 0 0 28px;border-left:28px solid #22b8df;width:max-content}
+.repeat-body:after{content:"";position:absolute;left:-28px;bottom:-30px;width:230px;height:30px;background:#22b8df;border-radius:0 0 20px 0}
+.repeat-body .hardware-block,.repeat-body .wait-block{margin-left:0}
+.wait-block{width:max-content;min-width:330px;height:58px;background:#22b8df;border-color:#0798bf;border-radius:0 29px 29px 0;padding-left:28px}
+.field{background:#009b9b;border:2px solid #007e83;border-radius:24px;padding:5px 15px}
+.number-field{background:#ffca36;border:2px solid #ef8e00;border-radius:24px;padding:5px 13px}
+.entry-block.entry-show{display:flex}
+
+/* Slide 1 example titles: larger and bolder */
+.slide:first-of-type.active .usage-item strong{
+  font-size:clamp(20px,2.1vw,30px);
+  font-weight:900;
+  line-height:1.05;
+  letter-spacing:-.04em;
+}
+:fullscreen .slide:first-of-type.active .usage-item strong{
+  font-size:clamp(24px,2.2vw,34px);
+  font-weight:900;
+}
+
+/* PWM extension slide */
+.pwm-slide{position:relative}.pwm-intro{font-size:21px;margin:4px 0 12px;padding:10px 16px;background:#fff6d8;border-radius:9px}.pwm-demo{display:grid;grid-template-columns:68% 32%;height:calc(100% - 155px);min-height:390px;border:1px solid #d9e4eb;border-radius:14px;overflow:hidden}.pwm-visual{padding:16px 22px;background:#fff}.pwm-status{display:flex;align-items:baseline;gap:14px;color:#33434d}.pwm-status span{font-size:18px}.pwm-status strong{font-size:34px;color:#e33d36}.pwm-graph{width:100%;height:72%}.pwm-graph .axis{stroke:#5b6870;stroke-width:2}.pwm-grid line{stroke:#ccd7dd;stroke-width:1.5;stroke-dasharray:5 5}.pwm-wave{fill:none;stroke:#e33d36;stroke-width:5;stroke-linejoin:round}.pwm-ratio{text-align:center;font-size:21px;font-weight:800;color:#263b49}.pwm-lamp-panel{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:#f7fbfd;border-left:1px solid #d9e4eb}.pwm-bulb-wrap{position:relative;width:190px;height:190px;display:grid;place-items:center}.pwm-glow{position:absolute;left:50%;top:48%;width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,#ffe96a 0%,rgba(255,226,70,.5) 40%,rgba(255,226,70,0) 72%);transform:translate(-50%,-50%);transition:.35s}.pwm-bulb{position:relative;font-size:105px;transition:.35s}.pwm-lamp-panel strong{font-size:26px;color:#1d668e}.pwm-lamp-panel span{font-size:16px}.pwm-controls{display:flex;justify-content:center;gap:8px;margin-top:10px}.pwm-controls button{border:1px solid #b8ccd8;background:#fff;border-radius:22px;padding:8px 17px;font-size:17px;font-weight:800;cursor:pointer}.pwm-controls button.active{background:#1d78c8;color:#fff;border-color:#1d78c8}.pwm-note{text-align:center;margin-top:5px;color:#63747e;font-size:14px}:fullscreen .pwm-intro{font-size:1.25vw}:fullscreen .pwm-demo{height:calc(100% - 150px)}:fullscreen .pwm-status strong{font-size:2.2vw}:fullscreen .pwm-bulb{font-size:7vw}:fullscreen .pwm-bulb-wrap{width:13vw;height:13vw}
+
+/* Slides 2+: maximize teaching content area */
+body.after-intro header{height:112px;padding:18px 28px}
+body.after-intro header h1{font-size:clamp(2.25rem,4.2vw,3.2rem)}
+body.after-intro .slide.active{margin-top:10px;padding:12px 16px 14px}
+body.after-intro .slide.active>h2{display:none}
+body.after-intro #workspace.circuit-demo{margin-top:0;width:100%;max-width:none}
+body.after-intro .entry-workspace{height:calc(100% - 48px);min-height:0;width:100%}
+body.after-intro .entry-stage{padding:18px 22px}
+body.after-intro .entry-program{width:78%;max-width:none}
+body.after-intro .entry-guide{right:1.5%;top:18px;width:20%}
+body.after-intro .pwm-intro{margin-top:0}
+body.after-intro .pwm-demo{width:100%;height:calc(100% - 112px);min-height:0}
+:fullscreen body.after-intro header{height:11vh;padding:1.4vh 2.4vw}
+:fullscreen body.after-intro .slide.active{height:86vh;margin-top:1vh;padding:1.2vh 1.2vw}
+:fullscreen body.after-intro #workspace.circuit-demo{height:100%;width:auto;max-width:100%;max-height:100%;margin:0 auto}
+:fullscreen body.after-intro .entry-workspace{height:calc(100% - 5.5vh);width:100%}
+:fullscreen body.after-intro .entry-stage{padding:1.4vh 1.4vw}
+:fullscreen body.after-intro .entry-program{width:80%}
+:fullscreen body.after-intro .pwm-demo{height:calc(100% - 11vh)}
+
+/* Slides 2+: reclaim exactly the space formerly occupied by the in-body h2 */
+body.after-intro .slide.active{transform:translateY(-48px);height:calc(min(70vh,((100vw - 32px) * 9 / 16)) + 48px);margin-bottom:-48px}
+:fullscreen body.after-intro .slide.active{transform:translateY(-48px);height:calc(86vh + 48px);margin-bottom:-48px}
+
+/* Circuit steps: wire and label appear together, with no drawing/flying transition. */
+#wireLayer .wire.wire-instant{animation:none!important;transition:none!important;stroke-dasharray:none!important;stroke-dashoffset:0!important}
+#wireLabelLayer .wire-label.wire-label-instant{animation:none!important;transition:none!important}
+
+/* Entry flow block: hide the closing C-shape until the repeat block appears. */
+.repeat-body{display:none;margin-left:0!important;padding-left:28px!important}
+.repeat-body.repeat-show{display:block}
+.repeat-body:not(.repeat-show)::after{display:none!important}
+/* Join the repeat body directly to the left wall: no inner gap beside the C-shape. */
+.repeat-body.repeat-show{border-left:28px solid #22b8df!important;padding-left:0!important}
+.repeat-body.repeat-show .entry-block{margin-left:0!important}
+.repeat-body.repeat-show::after{left:-28px!important}
+
+/* Entry: run the digital 13 ON block and show the OrangeBoard result. */
+.entry-block[data-entry-step="2"]{overflow:visible}
+.entry-run-btn{display:none;position:absolute;left:calc(100% + 12px);top:50%;transform:translateY(-50%);border:0;border-radius:22px;padding:9px 16px;background:#244b67;color:#fff;font-weight:900;font-size:15px;white-space:nowrap;cursor:pointer;box-shadow:0 3px 9px #0002}
+.entry-block[data-entry-step="2"].entry-show .entry-run-btn{display:block}
+.entry-result-modal{display:none;position:fixed;inset:0;z-index:100;background:rgba(14,31,43,.38);align-items:center;justify-content:center;backdrop-filter:blur(2px)}
+
+.entry-result-card{position:relative;width:min(680px,78vw);padding:22px 26px 24px;border-radius:18px;background:#fff;box-shadow:0 18px 55px #0005;text-align:center}
+.entry-result-card>strong{display:block;color:#1d5d85}
+.entry-result-close{position:absolute;right:13px;top:9px;border:0;background:transparent;font-size:32px;color:#5c6b73;cursor:pointer}
+.pin13-board-view{position:relative;margin:0 auto}
+.pin13-board-view img{display:block;width:100%;height:auto}
+.pin13-led-glow{position:absolute;left:72.8%;top:10.2%;width:5.2%;aspect-ratio:1;border-radius:50%;background:rgba(255,205,45,.5);box-shadow:0 0 18px 8px rgba(255,202,32,.72),0 0 36px 15px rgba(255,222,80,.32);transform:translate(-50%,-50%);animation:pin13Pulse 1.1s ease-in-out infinite alternate}
+.pin13-led-dot{position:absolute;left:72.8%;top:10.2%;width:2.2%;aspect-ratio:1;border-radius:50%;background:#fff4a8;box-shadow:0 0 8px #ffd43b;transform:translate(-50%,-50%)}
+.entry-result-card p{margin:7px 0 0}
+@keyframes pin13Pulse{from{opacity:.72;transform:translate(-50%,-50%) scale(.86)}to{opacity:1;transform:translate(-50%,-50%) scale(1.15)}}
+:fullscreen .entry-result-card{width:min(760px,70vw)}
+
+/* Header from slide 2: LED left, slide subtitle right, on one row. */
+body.after-intro header{height:auto!important;min-height:104px;padding:18px 28px!important}
+body.after-intro header .course-label{display:block;position:absolute;top:16px;right:24px}
+body.after-intro header .device-label,
+body.after-intro header .title-desc,
+body.after-intro header .diode-bubble{display:none!important}
+body.after-intro header .title-row{display:grid!important;grid-template-columns:auto 1fr;align-items:end;gap:24px;width:100%;margin-top:24px!important}
+body.after-intro header h1{grid-column:1;margin:0!important}
+body.after-intro header .slide-subtitle{grid-column:2;display:block!important;justify-self:end;align-self:center;text-align:right;font-size:clamp(1.35rem,2.5vw,2rem);font-weight:900;color:#fff;line-height:1.1}
+body.after-intro .slide.active{transform:none!important;margin-top:10px!important;height:calc(min(70vh,((100vw - 32px) * 9 / 16)))!important;margin-bottom:0!important}
+:fullscreen body.after-intro header{height:auto!important;min-height:10vh;padding:1.2vh 2.4vw!important}
+:fullscreen body.after-intro header .title-row{margin-top:2.6vh!important}
+:fullscreen body.after-intro .slide.active{transform:none!important;height:86vh!important;margin-top:1vh!important;margin-bottom:0!important}
+
+/* Correct OrangeBoard built-in LED (L / D13) position in execution popup. */
+.pin13-led-glow{left:34.05%!important;top:29.35%!important;width:5.0%!important}
+.pin13-led-dot{left:34.05%!important;top:29.35%!important;width:2.15%!important}
+
+/* Entry result: compact side panel so code remains visible. */
+.entry-result-modal{position:absolute!important;inset:0!important;background:transparent!important;backdrop-filter:none!important;pointer-events:none!important;align-items:flex-start!important;justify-content:flex-end!important;padding:18px 18px 0 0!important}
+.entry-result-modal.show{display:flex!important}
+.entry-result-card{pointer-events:auto!important;width:min(38%,440px)!important;padding:14px 18px 16px!important;margin:0!important;border:2px solid #cbdce7!important;border-radius:15px!important;box-shadow:0 8px 24px #183b5633!important}
+.entry-result-card>strong{font-size:21px!important;margin-bottom:3px!important}
+.pin13-board-view{width:100%!important}
+.entry-result-card p{font-size:17px!important;margin-top:3px!important}
+/* D13 built-in L LED: corrected square immediately to the right of the 13 marking. */
+.pin13-led-glow{left:40.8%!important;top:29.35%!important;width:4.2%!important}
+.pin13-led-dot{left:40.8%!important;top:29.35%!important;width:1.8%!important}
+
+:fullscreen .entry-result-card{width:min(36%,500px)!important}
+
+/* D13 built-in LED: yellow square immediately left of the printed 13. */
+.pin13-led-glow{
+  left:44.0%!important;
+  top:29.35%!important;
+  width:3.4%!important;
+  aspect-ratio:1!important;
+  border-radius:3px!important;
+  background:#fff200!important;
+  box-shadow:0 0 10px 4px rgba(255,242,0,.95),0 0 22px 9px rgba(255,225,0,.62)!important;
+  animation:pin13SquareBlink .72s steps(2,end) infinite!important;
+}
+.pin13-led-dot{
+  left:44.0%!important;
+  top:29.35%!important;
+  width:2.25%!important;
+  aspect-ratio:1!important;
+  border-radius:2px!important;
+  background:#fff86a!important;
+  box-shadow:0 0 5px #fff600!important;
+}
+@keyframes pin13SquareBlink{
+  0%,45%{opacity:1;filter:brightness(1.35)}
+  46%,100%{opacity:.38;filter:brightness(.8)}
+}
+
+/* Final D13 LED position: square immediately left of the printed 13. */
+.pin13-led-glow{left:47.0%!important;top:29.35%!important}
+.pin13-led-dot{left:47.0%!important;top:29.35%!important}
+
+/* Final Entry execution result: LED module blinks every 0.2 s beside the completed code. */
+.entry-final-result{display:none;position:absolute;right:2%;top:15%;width:31%;padding:16px 18px 18px;background:#fff;border:2px solid #cbdce7;border-radius:16px;box-shadow:0 8px 24px #183b5633;text-align:center;z-index:18}
+.entry-final-result.show{display:block}
+.entry-final-result>strong{display:block;font-size:22px;color:#1d5d85;margin-bottom:6px}
+.final-led-module{position:relative;width:100%;max-width:320px;margin:0 auto 4px}
+.final-led-module img{display:block;width:100%;height:auto}
+.final-led-light{position:absolute;left:22%;top:42%;width:18%;aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%);background:#fff76a;box-shadow:0 0 16px 8px rgba(255,244,40,.92),0 0 34px 15px rgba(255,226,60,.48);animation:entryLedBlink .4s steps(2,end) infinite}
+.entry-final-result>b{font-size:17px;color:#263b49}
+@keyframes entryLedBlink{0%,49%{opacity:1;filter:brightness(1.35)}50%,100%{opacity:.08;filter:brightness(.45)}}
+:fullscreen .entry-final-result{right:1.5%;top:12%;width:30%}
+
+/* D13 execution popup: move blink back onto the square immediately left of 13. */
+.pin13-led-glow{left:44.0%!important}
+.pin13-led-dot{left:44.0%!important}
+
+/* Circuit slide: move OrangeBoard right by 5 background grid cells (5 × 20px). */
+#workspace .board-component{transform:translateX(calc(3.5% + 100px))!important}
+
+/* Entry slide: closer to the actual Entry study/code workspace. */
+.entry-slide.active{padding:0!important;overflow:hidden;background:#eef8ff}
+.entry-study-bar{height:48px;background:#00c400;color:#fff;display:flex;align-items:center;gap:14px;padding:0 18px;font-size:18px;font-weight:800}
+.entry-brand{font-family:monospace;font-size:24px;font-weight:900;letter-spacing:3px}
+.entry-study-bar b{font-size:18px}
+.entry-scene-label{margin-left:auto;font-size:15px;background:rgba(255,255,255,.18);padding:6px 12px;border-radius:16px}
+.entry-slide .entry-workspace{height:calc(100% - 48px)!important;border-radius:0!important;border:0!important;background:#eaf7ff}
+.entry-slide .entry-tabs{border-radius:0!important;background:#eef8ff}
+.entry-slide .entry-stage{border-radius:0!important;background-color:#f7fcff;background-image:radial-gradient(#c9e4f3 1.15px,transparent 1.15px);background-size:14px 14px}
+.entry-slide .entry-program{padding-top:42px}
+.entry-slide .entry-program:before{content:"장면 1  ·  엔트리";position:absolute;top:12px;left:22px;font-size:18px;font-weight:800;color:#516d7d}
+.entry-tab{background:#f3f8fb!important}
+.entry-tab.start-tab{color:#00b52b!important}.entry-tab.flow-tab{color:#22b8df!important}.entry-tab.hardware-tab{color:#00a8a5!important}
+.entry-tab.active-tab{color:#fff!important}
+.entry-tab.start-tab.active-tab{background:#00b52b!important}
+.entry-tab.flow-tab.active-tab{background:#22b8df!important}
+.entry-tab.hardware-tab.active-tab{background:#00a8a5!important}
+/* Newly connected block: yellow Entry-style selection outline. */
+.entry-block.entry-current{outline:5px solid #ffd400!important;outline-offset:2px;z-index:7}
+/* Make connected blocks visually continuous instead of separate floating cards. */
+.entry-program .entry-block.entry-show{margin-top:-2px}
+.entry-program .start-block.entry-show{margin-top:0}
+.repeat-body.repeat-show .entry-block.entry-show{margin-top:-2px!important}
+/* Remove lesson-only guide/card chrome so the code canvas fills the page. */
+.entry-slide .entry-guide{display:none!important}
+.entry-slide .entry-controls,.entry-slide>.count{opacity:.18}
+:fullscreen .entry-study-bar{height:5.2vh;font-size:1.15vw}
+:fullscreen .entry-slide .entry-workspace{height:calc(100% - 5.2vh)!important}
+
+/* Slide 3 is a full-height Entry workspace: remove the global LED header entirely. */
+body:has(.entry-slide.active) header{display:none!important}
+body:has(.entry-slide.active) main{height:100vh!important;max-height:none!important;margin:0!important;padding:0!important}
+body:has(.entry-slide.active) .entry-slide.active{height:100vh!important;max-height:none!important;margin:0!important;padding:0!important;border-radius:0!important}
+body:has(.entry-slide.active) .entry-slide>h2{display:none!important}
+body:has(.entry-slide.active) .entry-study-bar{height:52px}
+body:has(.entry-slide.active) .entry-workspace{height:calc(100vh - 52px)!important;min-height:0!important}
+:fullscreen body:has(.entry-slide.active) main,
+:fullscreen body:has(.entry-slide.active) .entry-slide.active{height:100vh!important;margin:0!important}
+:fullscreen body:has(.entry-slide.active) .entry-study-bar{height:5.2vh}
+:fullscreen body:has(.entry-slide.active) .entry-workspace{height:94.8vh!important}
+
+/* Entry object indicator above the code canvas. */
+.entry-object-info{position:absolute;top:10px;left:22px;z-index:9;display:flex;align-items:center;gap:10px;color:#596b77;font-size:20px}
+.entrybot-thumb{width:42px;height:42px;display:grid;place-items:center;background:#fff;border:1px solid #cfe0e9;border-radius:5px;font-size:28px;box-shadow:0 1px 3px #0001}
+.entry-object-info strong{font-weight:500}
+.entry-block-count{padding:6px 13px;background:#fff;border:1px solid #cfe0e9;border-radius:18px;font-size:17px}
+.entry-block-count b{font-weight:800}
+.entry-slide .entry-program{padding-top:70px!important}
+.entry-slide .entry-program:before{display:none!important}
+
+.entrybot-thumb{overflow:hidden;padding:0!important}
+.entrybot-thumb img{display:block;width:100%;height:100%;object-fit:contain}
+
+/* D13 popup: align the blink with the small square LED just left of the printed 13. */
+.pin13-led-glow{left:41.0%!important}
+.pin13-led-dot{left:41.0%!important}
+
+/* Slide 1 diode callout: pale yellow tone with border/arrow matching highlighted diode text. */
+.slide:first-of-type .diode-bubble{
+  background:#fff7d6!important;
+  border:1.5px dashed #ffd86b!important;
+  color:#655b48!important;
+}
+.slide:first-of-type .diode-bubble::before{background:#ffd86b!important}
+.slide:first-of-type .diode-bubble::after{border-top-color:#ffd86b!important}
+.slide:first-of-type .diode-word{color:#ffd86b!important}
+
+
+
+
+
+.entry-slide .entry-tab{min-height:92px!important;padding:8px 3px!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:4px!important;font-size:34px!important;line-height:1!important;font-weight:900!important}.entry-slide .entry-tab span{display:block!important;margin:0!important;font-size:17px!important;line-height:1.05!important;font-weight:900!important;letter-spacing:-.04em!important}:fullscreen .entry-slide .entry-tab{font-size:2.35vw!important;min-height:10.2vh!important}:fullscreen .entry-slide .entry-tab span{font-size:1.15vw!important}
+
+/* Entry PWM transition: keep the previous ON/OFF example to the right while building the new code on the left. */
+.entry-old-code{position:absolute;right:3%;top:30%;width:39%;display:flex;flex-direction:column;align-items:flex-start;opacity:.82}
+.entry-old-code .entry-block{position:relative!important;display:flex!important;visibility:visible!important;opacity:1!important;transform:none!important;margin-top:-2px!important;pointer-events:none}
+.entry-old-code .hardware-block{min-width:100%}
+.entry-program{padding-right:41%!important}
+.entry-program .pwm-set-block{min-width:max-content}
+.entry-program .pwm-set-block .number-field{margin:0 5px}
+
+/* Entry comparison sequence: after the basic ON/OFF result, place both code sets on the same Y baseline. */
+.entry-basic-code,.entry-new-code{position:relative;display:flex;flex-direction:column;align-items:flex-start}
+.entry-basic-code.compare-right{position:absolute;right:2.5%;top:168px;width:40%;z-index:5}
+.entry-new-code.compare-left{position:absolute;left:22px;top:168px;width:53%;z-index:6}
+.entry-basic-code.compare-right .entry-block,.entry-new-code.compare-left .entry-block{margin-top:-2px!important}
+.entry-program:has(.entry-basic-code.compare-right){padding-right:0!important}
+.entry-old-code{display:none!important}
+
+/* FINAL overrides: slide 1 diode callout + D13 popup alignment. */
+body:not(.after-intro) header .diode-bubble{
+  display:block!important;
+  background:#fff7d6!important;
+  border-color:#ffd86b!important;
+  color:#655b48!important;
+}
+body:not(.after-intro) header .diode-bubble::before{background:#ffd86b!important}
+body:not(.after-intro) header .diode-bubble::after{border-top-color:#ffd86b!important}
+body:not(.after-intro) header .diode-word{color:#ffd86b!important}
+.pin13-led-glow{left:38.0%!important}
+.pin13-led-dot{left:38.0%!important}
+
+/* Final Entry comparison geometry: blocks never shift while being built.
+   At comparison step only the original four inner blocks move right;
+   their top edge stays aligned with the new four blocks on the left. */
+#entryBasicFour{position:relative;display:flex;flex-direction:column;align-items:flex-start}
+#entryCompareFour{display:none}
+#entryBasicFour.compare-right{
+  position:absolute!important;
+  left:58%!important;
+  right:auto!important;
+  top:0!important;
+  width:40%!important;
+  z-index:7;
+}
+#entryCompareFour.compare-left{
+  display:flex!important;
+  position:absolute!important;
+  left:0!important;
+  top:0!important;
+  width:55%!important;
+  flex-direction:column;
+  align-items:flex-start;
+  z-index:8;
+}
+.basic-repeat-body{position:relative!important}
+#entryBasicFour.compare-right .entry-block,
+#entryCompareFour.compare-left .entry-block{margin-top:-2px!important}
+
+/* Entry loop run/stop control and post-result comparison layout. */
+.entry-loop-run-btn{margin-left:auto;border:0;border-radius:16px;padding:5px 11px;background:#fff;color:#1699bd;font-weight:900;font-size:.82em;cursor:pointer;box-shadow:inset 0 0 0 2px rgba(0,0,0,.08)}
+#entryBasicFour.compare-right{left:60%!important;top:0!important;width:38%!important}
+#entryCompareFour.compare-left{left:0!important;top:0!important;width:56%!important}
+
+/* Repeat-block run/stop button: same visual/placement as the D13 run button. */
+.entry-loop-run-btn{
+  display:block!important;
+  position:absolute!important;
+  left:calc(100% + 12px)!important;
+  right:auto!important;
+  top:50%!important;
+  transform:translateY(-50%)!important;
+  margin:0!important;
+  border:0!important;
+  border-radius:22px!important;
+  padding:9px 16px!important;
+  background:#244b67!important;
+  color:#fff!important;
+  font-weight:900!important;
+  font-size:15px!important;
+  line-height:1.2!important;
+  white-space:nowrap!important;
+  cursor:pointer!important;
+  box-shadow:0 3px 9px #0002!important;
+}
+
+/* After the first loop execution result, move only the original four blocks right.
+   Keep Start / D13 / Repeat on the left and build the replacement four inside Repeat. */
+#entryBasicFour.compare-right{
+  position:absolute!important;
+  left:61%!important;
+  top:0!important;
+  width:37%!important;
+}
+#entryCompareFour.compare-left{
+  display:flex!important;
+  position:absolute!important;
+  left:0!important;
+  top:0!important;
+  width:57%!important;
+}
+#entryCompareFour.compare-left .entry-block:not(.entry-show){
+  display:none!important;
+}
+#entryCompareFour.compare-left .entry-block.entry-show{
+  display:flex!important;
+}
+
+/* Individual ON/OFF block execution controls. */
+.entry-block-run-btn{
+  position:absolute;left:calc(100% + 12px);top:50%;transform:translateY(-50%);
+  border:0;border-radius:22px;padding:9px 16px;background:#244b67;color:#fff;
+  font-weight:900;font-size:15px;white-space:nowrap;cursor:pointer;box-shadow:0 3px 9px #0002;
+}
+.entry-led-test-modal{display:none;position:absolute;right:2.5%;top:20%;width:34%;z-index:45}
+.entry-led-test-modal.show{display:block}
+.entry-led-test-card{background:#fff;border-radius:24px;padding:18px 20px;text-align:center;box-shadow:0 14px 40px #18364a35;border:2px solid #d7e8f2}
+.entry-led-test-card>strong{font-size:28px;color:#205f83}
+.entry-led-test-module{position:relative;margin:12px auto 6px;width:min(92%,420px)}
+.entry-led-test-module img{display:block;width:100%;height:auto}
+.entry-led-test-light{position:absolute;left:20.8%;top:48.5%;width:27%;aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%);background:#fff8a8;box-shadow:0 0 28px 13px #fff06e,0 0 55px 20px #ffe84d88}
+.entry-led-test-light.off{background:#b9b9a5;box-shadow:none;opacity:.28}
+.entry-led-test-card p{margin:5px 0 0;font-size:21px;font-weight:800;color:#26384a}
+
+/* Entry sequence v2: exact one-block-width comparison shift. */
+.basic-repeat-body{position:relative!important;overflow:visible!important}
+#entryBasicFour.compare-right{
+  position:absolute!important;
+  left:calc(100% + 34px)!important;
+  top:0!important;
+  width:max-content!important;
+  min-width:0!important;
+  z-index:7!important;
+}
+#entryCompareFour.compare-left{
+  display:flex!important;
+  position:relative!important;
+  left:0!important;
+  top:0!important;
+  width:max-content!important;
+  flex-direction:column!important;
+  align-items:flex-start!important;
+}
+#entryCompareFour.compare-left .entry-block:not(.entry-show){display:none!important}
+#entryCompareFour.compare-left .entry-block.entry-show{display:flex!important}
+
+/* After first blink result: leave Repeat shell empty for one presenter step. */
+#entryBasicFour.entry-cleared{
+  display:flex!important;
+  position:absolute!important;
+  left:calc(100% + 34px + 92px)!important;
+  right:auto!important;
+  top:0!important;
+  width:max-content!important;
+  min-width:0!important;
+  z-index:7!important;
+}
+
+/* Keep the completed original four-block stack permanently visible beside
+   the replacement stack, with enough horizontal clearance for run buttons. */
+#entryBasicFour.compare-right,
+#entryBasicFour.entry-cleared{
+  display:flex!important;
+  position:absolute!important;
+  left:calc(100% + 150px)!important;
+  right:auto!important;
+  top:0!important;
+  width:max-content!important;
+  min-width:max-content!important;
+  flex-direction:column!important;
+  align-items:flex-start!important;
+  visibility:visible!important;
+  opacity:1!important;
+  z-index:20!important;
+  pointer-events:auto!important;
+}
+#entryBasicFour.compare-right .entry-block,
+#entryBasicFour.entry-cleared .entry-block{
+  display:flex!important;
+  visibility:visible!important;
+  opacity:1!important;
+}
+#entryCompareFour.compare-left{
+  z-index:10!important;
+  overflow:visible!important;
+}
+
+/* Group-move cue: all four original blocks are selected together. */
+#entryBasicFour.group-selected .entry-block{
+  outline:4px solid #ffd400!important;
+  outline-offset:1px!important;
+  box-shadow:0 0 0 2px rgba(255,212,0,.22)!important;
+}
+#entryBasicFour.group-selected .entry-block.entry-current{
+  outline:4px solid #ffd400!important;
+}
+
+/* While the blinking execution result is open, no last-added block is highlighted. */
+.entry-program.result-running .entry-block.entry-current{
+  outline:none!important;
+  box-shadow:none!important;
+}
+
+/* Compact icon-only Entry execution controls. */
+.entry-run-btn,.entry-loop-run-btn,.entry-block-run-btn{
+  width:36px!important;
+  min-width:36px!important;
+  height:36px!important;
+  padding:0!important;
+  border-radius:50%!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  line-height:1!important;
+}
+
+/* Slide 4: Entry pin-block comparison, retaining the Entry workspace background. */
+.entry-compare-slide .compare-stage{position:relative;overflow:visible}
+.pin-block-compare{position:absolute;left:8%;right:5%;top:28%;display:grid;grid-template-columns:1fr 1fr;gap:8%;align-items:start}
+.pin-compare-item{position:relative;min-height:300px}
+.compare-sample{display:flex!important;position:relative!important;width:max-content!important;max-width:100%;font-size:clamp(18px,1.55vw,28px)!important}
+.pin-dropdown{margin-top:8px;width:max-content;min-width:210px;max-width:360px;padding:8px;background:#fff;border:1px solid #b8c4cc;border-radius:7px;box-shadow:0 8px 20px #18364a28;display:grid;grid-template-columns:repeat(4,minmax(42px,1fr));gap:4px;z-index:20}
+.pin-dropdown span{padding:7px 9px;border-radius:5px;text-align:center;font-weight:800;color:#344b5d;background:#f4f7f9}
+.pin-dropdown span.selected{background:#159ec4;color:#fff}
+.pwm-pins{grid-template-columns:repeat(3,minmax(52px,1fr))}
+
+/* Keep execution controls available for teaching, but visually subordinate to Entry blocks. */
+.entry-run-btn,.entry-loop-run-btn,.entry-block-run-btn{
+  width:26px!important;
+  min-width:26px!important;
+  height:26px!important;
+  font-size:11px!important;
+  opacity:.38!important;
+  background:#607783!important;
+  box-shadow:none!important;
+  border-radius:50%!important;
+  transition:opacity .15s ease,transform .15s ease!important;
+}
+.entry-run-btn:hover,.entry-loop-run-btn:hover,.entry-block-run-btn:hover,
+.entry-run-btn:focus-visible,.entry-loop-run-btn:focus-visible,.entry-block-run-btn:focus-visible{
+  opacity:.75!important;
+}
+.entry-run-btn.running,.entry-loop-run-btn.running,.entry-block-run-btn.running{
+  opacity:.55!important;
+}
+
+/* Slide 4 pin dropdowns: mimic Entry's opened select menu. */
+.entry-compare-slide .pin-compare-item{position:relative}
+.entry-compare-slide .compare-pin-field{
+  position:relative;
+  outline:3px solid #ffe500!important;
+  outline-offset:2px!important;
+  border-radius:16px!important;
+}
+.entry-compare-slide .pin-dropdown{
+  position:absolute!important;
+  left:0!important;
+  top:calc(100% + 8px)!important;
+  margin:0!important;
+  width:184px!important;
+  min-width:184px!important;
+  max-width:184px!important;
+  max-height:248px!important;
+  padding:0 22px 0 14px!important;
+  display:block!important;
+  overflow-y:auto!important;
+  overflow-x:hidden!important;
+  background:#fff!important;
+  border:1px solid #d9dee2!important;
+  border-radius:6px!important;
+  box-shadow:0 5px 14px rgba(0,0,0,.20)!important;
+  z-index:30!important;
+}
+.entry-compare-slide .pin-dropdown span{
+  display:block!important;
+  box-sizing:border-box!important;
+  width:100%!important;
+  padding:11px 4px!important;
+  border-bottom:1px solid #edf0f2!important;
+  border-radius:0!important;
+  background:#fff!important;
+  color:#26333c!important;
+  text-align:left!important;
+  font-weight:800!important;
+  font-size:17px!important;
+}
+.entry-compare-slide .pin-dropdown span.selected{
+  background:#fff!important;
+  color:#26333c!important;
+}
+.entry-compare-slide .pin-dropdown::-webkit-scrollbar{width:8px}
+.entry-compare-slide .pin-dropdown::-webkit-scrollbar-track{background:transparent}
+.entry-compare-slide .pin-dropdown::-webkit-scrollbar-thumb{background:#9fc5d5;border-radius:8px}
+
+/* Entry-style speech-bubble dropdown: attached to and pointing at the 3▼ selector. */
+.entry-compare-slide .pin-compare-item .pin-dropdown{
+  left:58px!important;
+  top:47px!important;
+  overflow:visible!important;
+}
+.entry-compare-slide .pin-compare-item .pin-dropdown::before{
+  content:"";
+  position:absolute;
+  left:24px;
+  top:-10px;
+  width:18px;
+  height:18px;
+  background:#fff;
+  border-left:1px solid #d9dee2;
+  border-top:1px solid #d9dee2;
+  transform:rotate(45deg);
+  z-index:31;
+}
+.entry-compare-slide .pin-compare-item .pin-dropdown::after{
+  content:"";
+  position:absolute;
+  left:15px;
+  right:15px;
+  top:0;
+  height:10px;
+  background:#fff;
+  z-index:32;
+}
+.entry-compare-slide .pin-dropdown span{position:relative;z-index:33}
+
+/* Slide 4 OrangeBoard PWM-pin callout. */
+.pwm-pin-board-popup{display:none;position:absolute;inset:0;z-index:80;background:rgba(22,43,58,.32);align-items:center;justify-content:center}
+.pwm-pin-board-popup.show{display:flex}
+.pwm-pin-board-card{width:min(72vw,980px);background:#fff;border-radius:24px;padding:22px 28px;text-align:center;box-shadow:0 18px 55px rgba(0,0,0,.28)}
+.pwm-pin-board-card>strong{font-size:30px;color:#205f83}
+.pwm-pin-board-image{position:relative;width:min(88%,820px);margin:12px auto 6px}
+.pwm-pin-board-image img{display:block;width:100%;height:auto}
+.pwm-tilde-mark{position:absolute;color:#ffe600;font-size:34px;font-weight:1000;line-height:1;text-shadow:0 0 3px #222,0 0 8px #fff;transform:translate(-50%,-50%)}
+.pwm-tilde-mark.m3{left:79.7%;top:7.1%}.pwm-tilde-mark.m5{left:73.1%;top:7.1%}.pwm-tilde-mark.m6{left:69.8%;top:7.1%}
+.pwm-tilde-mark.m9{left:56.8%;top:7.1%}.pwm-tilde-mark.m10{left:53.5%;top:7.1%}.pwm-tilde-mark.m11{left:50.2%;top:7.1%}
+.pwm-pin-board-card p{margin:8px 0 0;font-size:22px;color:#30495a}
+
+/* Slide 4 dropdown final: Entry-like scroll menu with pointer tip centered in the 3▼ field. */
+.entry-compare-slide .pin-compare-item .pin-dropdown{
+  left:52px!important;
+  top:45px!important;
+  width:184px!important;
+  min-width:184px!important;
+  max-width:184px!important;
+  height:230px!important;
+  max-height:230px!important;
+  padding:8px 22px 8px 14px!important;
+  display:block!important;
+  overflow-y:scroll!important;
+  overflow-x:hidden!important;
+  background:#fff!important;
+  border:1px solid #d9dee2!important;
+  border-radius:6px!important;
+  box-shadow:0 5px 14px rgba(0,0,0,.20)!important;
+}
+/* pointer: tip lands between the 3 glyph and its ▼ inside the teal field */
+.entry-compare-slide .pin-compare-item .pin-dropdown::before{
+  content:""!important;
+  position:absolute!important;
+  left:50px!important;
+  top:-9px!important;
+  width:16px!important;
+  height:16px!important;
+  background:#fff!important;
+  border-left:1px solid #d9dee2!important;
+  border-top:1px solid #d9dee2!important;
+  transform:rotate(45deg)!important;
+  z-index:31!important;
+}
+.entry-compare-slide .pin-compare-item .pin-dropdown::after{display:none!important}
+.entry-compare-slide .pin-dropdown span{
+  display:block!important;
+  padding:10px 4px!important;
+  border-bottom:1px solid #edf0f2!important;
+  background:#fff!important;
+  color:#26333c!important;
+  text-align:left!important;
+}
+.entry-compare-slide .pin-dropdown::-webkit-scrollbar{width:8px!important}
+.entry-compare-slide .pin-dropdown::-webkit-scrollbar-thumb{background:#9fc5d5!important;border-radius:8px!important}
+
+/* PWM popup: highlight the printed vertical ~ marks beside digital pin numbers,
+   not the header holes. OrangeBoard top digital header runs right-to-left. */
+.pwm-pin-board-image .pwm-tilde-mark{
+  top:13.8%!important;
+  font-size:29px!important;
+  transform:translate(-50%,-50%) rotate(90deg)!important;
+  color:#ffe500!important;
+  text-shadow:0 0 2px #111,0 0 7px #fff,0 0 12px #ffe500!important;
+  z-index:12!important;
+}
+.pwm-pin-board-image .pwm-tilde-mark.m3{left:79.0%!important}
+.pwm-pin-board-image .pwm-tilde-mark.m5{left:72.5%!important}
+.pwm-pin-board-image .pwm-tilde-mark.m6{left:69.2%!important}
+.pwm-pin-board-image .pwm-tilde-mark.m9{left:59.4%!important}
+.pwm-pin-board-image .pwm-tilde-mark.m10{left:56.1%!important}
+.pwm-pin-board-image .pwm-tilde-mark.m11{left:52.8%!important}
+
+/* Slide 4 comparison layout refinements. */
+.entry-compare-slide .pin-block-compare{
+  top:20%!important;
+}
+.entry-compare-slide .pin-compare-item .pin-dropdown{
+  top:54px!important;
+  height:auto!important;
+  max-height:320px!important;
+  min-height:0!important;
+  overflow-y:auto!important;
+  overflow-x:visible!important;
+  padding-top:10px!important;
+}
+.entry-compare-slide .pin-dropdown.pwm-pins{
+  height:auto!important;
+  max-height:none!important;
+  overflow-y:visible!important;
+}
+.entry-compare-slide .pin-dropdown span{
+  font-size:21px!important;
+  line-height:1.15!important;
+  padding:10px 6px!important;
+}
+.entry-compare-slide .pin-compare-item .pin-dropdown::before{
+  display:block!important;
+  left:50px!important;
+  top:-10px!important;
+  width:18px!important;
+  height:18px!important;
+  z-index:40!important;
+}
+.entry-compare-slide .pin-dropdown span{z-index:41!important}
+
+/* True Entry selector glyph and visible speech-bubble pointers on both menus. */
+.entry-block .field{white-space:nowrap}
+.entry-compare-slide .pin-dropdown{overflow-y:auto!important;overflow-x:visible!important}
+.entry-compare-slide .pin-dropdown::before{
+  display:block!important;
+  content:""!important;
+  position:absolute!important;
+  left:50px!important;
+  top:-10px!important;
+  width:18px!important;height:18px!important;
+  background:#fff!important;
+  border-left:1px solid #d9dee2!important;
+  border-top:1px solid #d9dee2!important;
+  transform:rotate(45deg)!important;
+  z-index:60!important;
+}
+/* Draggable ~number highlights for final board alignment. */
+.pwm-pin-board-image .pwm-tilde-mark{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  min-width:38px!important;
+  padding:2px 4px!important;
+  border-radius:8px!important;
+  font-size:24px!important;
+  font-weight:1000!important;
+  color:#ffe500!important;
+  background:rgba(31,47,58,.78)!important;
+  transform:translate(-50%,-50%) rotate(90deg)!important;
+  cursor:grab!important;
+  user-select:none!important;
+  touch-action:none!important;
+  text-shadow:0 1px 2px #000!important;
+  box-shadow:0 0 0 2px rgba(255,229,0,.35)!important;
+}
+.pwm-pin-board-image .pwm-tilde-mark:active{cursor:grabbing!important}
+
+/* Align the digital-13 execution result with the standard LED result panel. */
+#pin13Modal{
+  position:absolute!important;
+  left:auto!important;
+  right:2.5%!important;
+  top:20%!important;
+  bottom:auto!important;
+  width:34%!important;
+  transform:none!important;
+  margin:0!important;
+  z-index:45!important;
+}
+
+/* Entry selector arrow: visually subordinate to the field value. */
+.entry-block .select-arrow{
+  display:inline-block!important;
+  margin-left:2px!important;
+  font-size:.5em!important;
+  line-height:1!important;
+  vertical-align:.12em!important;
+}
+
+/* Board is rotated in the popup: rotate ~number labels 180° from current orientation. */
+.pwm-pin-board-image .pwm-tilde-mark{
+  transform:translate(-50%,-50%) rotate(270deg)!important;
+}
+
+/* Pin 13 result: move only; preserve its original card/modal size. */
+#pin13Modal{
+  left:auto!important;
+  right:2.5%!important;
+  top:20%!important;
+  bottom:auto!important;
+  transform:none!important;
+  margin:0!important;
+  width:unset!important;
+}
+
+/* Fine alignment of draggable PWM labels: common top edge; preserve spacing within groups. */
+.pwm-pin-board-image .pwm-tilde-mark.m3,
+.pwm-pin-board-image .pwm-tilde-mark.m5,
+.pwm-pin-board-image .pwm-tilde-mark.m6,
+.pwm-pin-board-image .pwm-tilde-mark.m9,
+.pwm-pin-board-image .pwm-tilde-mark.m10,
+.pwm-pin-board-image .pwm-tilde-mark.m11{top:13.8%!important}
+
+/* 3/5/6 group: shift right together, spacing unchanged. */
+.pwm-pin-board-image .pwm-tilde-mark.m3{left:81.0%!important}
+.pwm-pin-board-image .pwm-tilde-mark.m5{left:74.5%!important}
+.pwm-pin-board-image .pwm-tilde-mark.m6{left:71.2%!important}
+
+/* 9/10/11 group: shift left together, spacing unchanged. */
+.pwm-pin-board-image .pwm-tilde-mark.m9{left:57.4%!important}
+.pwm-pin-board-image .pwm-tilde-mark.m10{left:54.1%!important}
+.pwm-pin-board-image .pwm-tilde-mark.m11{left:50.8%!important}
+
+/* Pin 13 result: large teaching view, positioned immediately beside its run button area. */
+#pin13Modal{
+  position:absolute!important;
+  left:48%!important;
+  right:auto!important;
+  top:18%!important;
+  bottom:auto!important;
+  width:48%!important;
+  max-width:none!important;
+  height:auto!important;
+  transform:none!important;
+  margin:0!important;
+  z-index:45!important;
+}
+#pin13Modal .pin13-card{
+  width:100%!important;
+  max-width:none!important;
+  box-sizing:border-box!important;
+}
+
+/* PowerPoint-like page list outside fullscreen. */
+.slide-sidebar{
+  position:fixed;left:0;top:0;bottom:0;width:190px;
+  box-sizing:border-box;padding:18px 10px;
+  background:#eef3f6;border-right:1px solid #cbd7de;
+  z-index:120;overflow-y:auto;
+}
+.slide-sidebar-title{font-weight:900;font-size:16px;color:#244b67;padding:4px 8px 12px}
+#slideSidebarList{display:flex;flex-direction:column;gap:7px}
+.slide-sidebar-item{
+  width:100%;border:1px solid transparent;background:transparent;border-radius:9px;
+  padding:9px 8px;display:flex;align-items:flex-start;gap:8px;text-align:left;
+  color:#334b5b;font-weight:750;line-height:1.3;cursor:pointer;
+}
+.slide-sidebar-item:hover{background:#fff}
+.slide-sidebar-item.active{background:#fff;border-color:#4d8faf;box-shadow:0 2px 7px #244b6720}
+.sidebar-page-no{flex:0 0 23px;height:23px;border-radius:5px;background:#dbe8ee;display:grid;place-items:center;font-size:12px}
+body:not(:fullscreen) .wrap{margin-left:190px;width:calc(100% - 190px)}
+:fullscreen .wrap{margin-left:auto!important;width:100%!important}
+@media(max-width:900px){.slide-sidebar-item{font-size:12px}body:not(:fullscreen) .wrap{margin-left:150px;width:calc(100% - 150px)}}
+
+/* Pin 13 teaching popup — large enough to cover the four comparison blocks. */
+#pin13Modal.entry-result-modal{
+  position:absolute!important;
+  left:43%!important;
+  right:2%!important;
+  top:12%!important;
+  width:auto!important;
+  height:auto!important;
+  max-width:none!important;
+  max-height:none!important;
+  transform:none!important;
+  margin:0!important;
+  padding:0!important;
+  z-index:70!important;
+}
+#pin13Modal .entry-result-card{
+  width:100%!important;
+  max-width:none!important;
+  min-width:0!important;
+  box-sizing:border-box!important;
+  padding:20px 24px!important;
+}
+#pin13Modal .pin13-board-view{
+  width:100%!important;
+  max-width:none!important;
+  margin:8px auto!important;
+}
+#pin13Modal .pin13-board-view img{
+  display:block!important;
+  width:100%!important;
+  height:auto!important;
+  max-width:none!important;
+}
+
+.pwm-coordinate-tools{margin:10px auto 0;display:flex;align-items:center;justify-content:center;gap:10px;max-width:94%}
+#pwmCoordinateReadout{display:block;flex:1;padding:8px 10px;background:#f3f6f8;border:1px solid #d4dee4;border-radius:7px;font-size:12px;line-height:1.4;text-align:left;white-space:normal;color:#294657}
+#copyPwmCoordinates{border:0;border-radius:7px;padding:8px 12px;background:#547382;color:#fff;font-weight:800;cursor:pointer;white-space:nowrap}
+
+/* Final PWM marker coordinates from visual alignment.
+   Align by top edge so different label widths/heights do not visually drift. */
+.pwm-pin-board-image .pwm-tilde-mark{
+  top:12.89%!important;
+}
+.pwm-pin-board-image .pwm-tilde-mark.m3{left:79.82%!important}
+.pwm-pin-board-image .pwm-tilde-mark.m5{left:73.05%!important}
+.pwm-pin-board-image .pwm-tilde-mark.m6{left:69.39%!important}
+.pwm-pin-board-image .pwm-tilde-mark.m9{left:57.70%!important}
+.pwm-pin-board-image .pwm-tilde-mark.m10{left:54.09%!important}
+.pwm-pin-board-image .pwm-tilde-mark.m11{left:50.59%!important}
+
+/* Entry scene tabs: keep scene area out of the coding workspace; show only tabs normally. */
+.entry-workspace{position:relative!important;padding-top:44px!important}
+.entry-scene-tabs{
+ position:absolute;left:0;right:0;top:0;height:44px;display:flex;align-items:stretch;
+ background:#00b928;border-bottom:1px solid #009c23;z-index:25;padding-left:16px;gap:0;
+}
+.entry-scene-tab,.entry-scene-add{
+ border:0;margin:0;font-weight:900;cursor:default;font-size:14px;
+}
+.entry-scene-tab{
+ min-width:94px;padding:0 16px;background:#25cb3c;color:#fff;border-right:1px solid #0aa72b;
+}
+.entry-scene-tab.active{
+ background:#fff;color:#f29a00;border-top:2px solid #f29a00;border-left:1px solid #f29a00;border-right:1px solid #f29a00;
+}
+.entry-scene-add{
+ width:44px;background:#009f25;color:#fff;font-size:25px;line-height:1;
+}
+.scene-close{margin-left:14px;color:#f29a00;font-size:18px}
+.entry-study-bar .entry-scene-label{display:none!important}
+
+/* PWM milestone controls: pair Entry 0–255 value and duty cycle in one oval. */
+.pwm-controls button[data-duty]{
+  min-width:92px!important;height:54px!important;border-radius:999px!important;
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  gap:7px!important;padding:0 14px!important;
+}
+.pwm-controls button[data-duty] b{font-size:18px!important;line-height:1!important}
+.pwm-controls button[data-duty] span{font-size:13px!important;font-weight:800!important;opacity:.78}
+
+/* =========================================================
+   LED LESSON CONSOLIDATED LAYOUT
+   Single source of truth for sidebar, 16:9 canvas and Entry UI.
+   ========================================================= */
+html,body{width:100%;height:100%;margin:0;overflow:hidden}
+
+/* Sidebar is outside the lesson canvas. */
+.slide-sidebar{width:190px}
+body:not(:fullscreen){padding-left:190px}
+body:not(:fullscreen) .wrap{
+  position:relative;
+  width:min(calc(100vw - 190px),calc(100vh * 16 / 9));
+  height:min(100vh,calc((100vw - 190px) * 9 / 16));
+  max-width:none;
+  margin:0 auto;
+  padding:12px 16px 42px;
+  overflow:hidden;
+}
+@media(max-width:900px){
+  .slide-sidebar{width:150px}
+  body:not(:fullscreen){padding-left:150px}
+  body:not(:fullscreen) .wrap{
+    width:min(calc(100vw - 150px),calc(100vh * 16 / 9));
+    height:min(100vh,calc((100vw - 150px) * 9 / 16));
+  }
+}
+
+/* Fullscreen uses the largest centered 16:9 canvas. */
+:fullscreen body{padding:0;display:grid;place-items:center;background:#eef5f9}
+:fullscreen .slide-sidebar{display:none!important}
+:fullscreen .wrap{
+  position:relative;
+  width:min(100vw,calc(100vh * 16 / 9));
+  height:min(100vh,calc(100vw * 9 / 16));
+  max-width:none;min-height:0;
+  margin:0;padding:12px 18px 42px;
+  overflow:hidden;
+}
+
+/* Slides share one geometry. Bottom navigation/page count never changes position. */
+.wrap{box-sizing:border-box}
+.wrap>header{margin:0 0 8px;padding:12px 22px}
+.wrap>.slide{
+  position:absolute;
+  left:16px;right:16px;
+  top:12px;bottom:42px;
+  width:auto;height:auto;min-height:0;
+  margin:0;padding:14px 20px;
+  overflow:hidden;
+}
+.wrap>header + .slide.active{top:112px}
+body.after-intro .wrap>header{display:none}
+body.after-intro .wrap>.slide.active{top:12px}
+.slide-nav{
+  position:absolute!important;
+  left:50%!important;bottom:8px!important;
+  transform:translateX(-50%)!important;
+  margin:0!important;z-index:100;
+}
+.wrap>#slides{
+  position:absolute!important;
+  right:20px!important;bottom:13px!important;
+  margin:0!important;z-index:100;
+}
+:fullscreen .wrap>.slide{left:18px;right:18px}
+
+/* Entry top toolbar: one row, no loss of coding height. */
+.entry-slide .entry-workspace{position:relative;padding-top:52px!important;height:calc(100% - 42px);overflow:hidden}
+.entry-code-toolbar{
+  position:absolute;left:0;right:0;top:0;height:52px;
+  display:flex;align-items:center;flex-wrap:nowrap;white-space:nowrap;
+  padding:0 12px 0 0;background:#00b928;border-bottom:1px solid #009c23;
+  border-radius:0;z-index:25;
+}
+.entry-code-toolbar .entry-scene-tab{
+  align-self:stretch;width:auto;min-width:0;height:52px;margin:0;padding:0 14px;
+  display:inline-flex;align-items:center;justify-content:center;
+  border-radius:12px 12px 0 0;font-size:17px;font-weight:1000;
+}
+.entry-code-toolbar .entry-scene-add{align-self:stretch;width:42px;height:52px;border-radius:0}
+.entry-code-toolbar .entry-brand{
+  position:relative;display:inline-flex;align-items:center;height:30px;
+  margin:0 10px 0 14px;padding:0 10px;background:#fff;color:#00b928;
+  border-radius:8px;font-size:19px;font-weight:1000;letter-spacing:2px;
+}
+.entry-code-toolbar .entry-brand:before{
+  content:"";position:absolute;left:14px;bottom:-5px;width:10px;height:10px;
+  background:#fff;transform:rotate(45deg);border-radius:1px;
+}
+.entry-code-toolbar .entry-brand:after{display:none}
+.entry-code-toolbar .entry-lesson-title{font-size:19px;font-weight:1000;color:#fff;margin-right:14px}
+
+.entry-code-toolbar .entry-top-actions button{
+  height:32px;padding:0 14px;border:0;border-radius:999px;color:#fff;font-size:13px;font-weight:900
+}
+.entry-goal-btn{background:#28c940}.entry-complete-btn{background:#ffb900}
+
+/* Entry stage fills available space and scales down as a whole on narrow canvases. */
+.entry-slide .entry-stage{height:100%;min-height:0;overflow:hidden}
+.entry-slide .entry-program{max-width:100%;transform-origin:top left}
+@media(max-width:1100px){
+  .entry-slide .entry-program{transform:scale(.9);width:111.12%}
+}
+@media(max-width:900px){
+  .entry-slide .entry-program{transform:scale(.78);width:128.21%}
+}
+
+/* Lesson-step visibility is authoritative. */
+.entry-slide .entry-block[data-entry-step]:not(.entry-show){display:none!important}
+.entry-slide .entry-block[data-entry-step].entry-show{display:flex!important}
+.entry-slide .repeat-body:not(.repeat-show){display:none!important}
+
+/* Keep known-good block bodies. Controls sit inside the right edge. */
+.entry-slide .entry-block{position:relative;white-space:nowrap}
+.entry-run-btn,.entry-loop-run-btn,.entry-block-run-btn{
+  position:static!important;transform:none!important;
+  display:flex;align-items:center;justify-content:center;
+  flex:0 0 26px;width:26px;min-width:26px;height:26px;
+  margin:0 0 0 auto!important;padding:0!important;
+  border:0;border-radius:50%;background:#607783;color:#fff;
+  font-size:11px;line-height:1;opacity:.38;box-shadow:none;cursor:pointer
+}
+.entry-run-btn:hover,.entry-loop-run-btn:hover,.entry-block-run-btn:hover{opacity:.75}
+.entry-run-btn.running,.entry-loop-run-btn.running,.entry-block-run-btn.running{opacity:.55}
+
+/* Repeat C-block: continuous header/spine/foot, no background seam. */
+.entry-program .repeat-block{
+  width:360px;min-width:360px;min-height:58px;
+  display:flex;align-items:center;
+  margin:0 0 -1px 0;padding:8px 14px 8px 28px;
+  border-radius:0 28px 28px 0;white-space:nowrap;z-index:3
+}
+.entry-program .repeat-body{
+  position:relative;width:360px;min-width:360px;min-height:44px;
+  margin:-1px 0 0 0;padding:10px 0 20px 28px;
+  border-left:13px solid #20b5dd;background:transparent
+}
+.entry-program .repeat-body:before{
+  content:"";position:absolute;left:-13px;right:0;top:0;height:10px;background:#20b5dd;z-index:0
+}
+.entry-program .repeat-body:after{
+  content:"";position:absolute;left:-13px;right:0;bottom:0;height:18px;
+  background:#20b5dd;border-radius:0 0 22px 0;z-index:0
+}
+.entry-program .repeat-body>*{position:relative;z-index:2}
+
+/* Comparison uses grid tracks, never absolute offsets. */
+.entry-program:has(#entryBasicFour.compare-right) .basic-repeat-body,
+.entry-program:has(#entryBasicFour.entry-cleared) .basic-repeat-body{
+  width:100%;min-width:0;display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  column-gap:36px;align-items:start;padding-right:12px
+}
+#entryCompareFour.compare-left,
+#entryBasicFour.compare-right,
+#entryBasicFour.entry-cleared{
+  position:relative!important;left:auto!important;right:auto!important;top:auto!important;
+  width:100%!important;min-width:0!important;max-width:none!important;
+  display:flex!important;flex-direction:column;align-items:flex-start
+}
+#entryCompareFour.compare-left{grid-column:1}
+#entryBasicFour.compare-right,#entryBasicFour.entry-cleared{grid-column:2}
+#entryCompareFour.compare-left .entry-block,
+#entryBasicFour.compare-right .entry-block,
+#entryBasicFour.entry-cleared .entry-block{max-width:100%;box-sizing:border-box}
+
+/* PWM page fits vertically without hiding its note or controls. */
+.pwm-slide.active{display:flex;flex-direction:column}
+.pwm-slide h2{flex:0 0 auto;margin:0 0 6px}
+.pwm-slide .pwm-intro{flex:0 0 auto;margin:2px 0 6px;padding:7px 13px}
+.pwm-slide .pwm-intro-lines{gap:4px;line-height:1.35}
+.pwm-slide .pwm-demo{flex:1 1 auto;height:auto;min-height:0}
+.pwm-slide .pwm-visual{padding:8px 16px;min-height:0}
+.pwm-slide .pwm-graph{height:58%;min-height:135px}
+.pwm-slide .pwm-lamp-panel{gap:5px}
+.pwm-slide .pwm-bulb-wrap{width:145px;height:145px}
+.pwm-slide .pwm-controls{flex:0 0 auto;margin-top:5px;gap:6px}
+.pwm-slide .pwm-controls button[data-duty]{height:46px}
+.pwm-slide .pwm-note{flex:0 0 auto;margin:3px 0;line-height:1.25}
+.pwm-graph text{font-size:22px;font-weight:900}
+
+/* === Presentation frame corrections === */
+/* Navigation belongs to the viewport edges, not the center of the 16:9 canvas. */
+.slide-nav{
+  position:fixed!important;inset:0!important;
+  transform:none!important;margin:0!important;
+  pointer-events:none!important;z-index:100!important;
+}
+.slide-nav button{
+  position:absolute!important;top:50%!important;transform:translateY(-50%)!important;
+  pointer-events:auto!important;
+}
+#prev{left:12px!important;right:auto!important}
+#next{right:12px!important;left:auto!important}
+
+/* Reserve the footer inside the 16:9 canvas so fullscreen never clips bottom content. */
+:fullscreen .wrap{
+  padding:10px 18px 50px!important;
+}
+:fullscreen .wrap>.slide{
+  left:18px!important;right:18px!important;top:10px!important;bottom:50px!important;
+  height:auto!important;min-height:0!important;
+}
+:fullscreen .wrap>#slides{bottom:14px!important}
+
+/* Restore the final PWM teaching palette and milestone styling. */
+.pwm-slide .entry-value-label,.pwm-slide .entry-value-text{color:#1769aa!important}
+.pwm-slide .duty-label,.pwm-slide .duty-value-text{color:#d56b00!important}
+.pwm-status .pwm-map-arrow{font-weight:1000!important;color:#61717b!important;margin:0 3px!important}
+.pwm-intro-lines{display:flex!important;flex-direction:column!important;gap:9px!important;line-height:1.55!important}
+.pwm-intro-lines>div{display:block!important;color:#263b47!important}
+.pwm-intro-lines mark{
+  color:inherit!important;padding:1px 4px!important;border-radius:4px!important;
+  font-weight:900!important;-webkit-box-decoration-break:clone!important;box-decoration-break:clone!important;
+}
+.pwm-intro-lines>div:first-child mark{background:#d9f2ff!important}
+.pwm-intro-lines>div:nth-child(2) mark{background:#ffd9e6!important}
+.pwm-controls button[data-duty]{
+  min-width:138px!important;height:62px!important;padding:0 13px!important;gap:9px!important;
+  border:2px solid #c9d6dc!important;background:#fff!important;border-radius:999px!important;
+}
+.pwm-controls button[data-duty] .entry-value-text,
+.pwm-controls button[data-duty] .duty-value-text{
+  font-size:21px!important;font-weight:1000!important;line-height:1!important;opacity:1!important;
+}
+.pwm-controls button[data-duty] i{font-size:20px!important;font-weight:1000!important;color:#596b75!important}
+.pwm-controls button[data-duty].active{
+  background:#fff3c4!important;border-color:#e59b00!important;
+  box-shadow:0 0 0 3px rgba(229,155,0,.18)!important;
+}
+.pwm-controls button[data-duty].active .entry-value-text{color:#075a9c!important}
+.pwm-controls button[data-duty].active .duty-value-text{color:#a94b00!important}
+.pwm-controls button[data-duty].active i{color:#3d4d56!important}
+
+/* Page headings are part of the slide content. Keep them visible on every lesson page. */
+body.after-intro .slide.active>h2{
+  display:block!important;
+  flex:0 0 auto!important;
+  margin:0 0 8px!important;
+  line-height:1.15!important;
+}
+/* Reserve heading height instead of letting circuit/PWM content cover it. */
+body.after-intro #workspace.circuit-demo{
+  height:calc(100% - 48px)!important;
+  max-height:calc(100% - 48px)!important;
+}
+body.after-intro .pwm-demo{
+  height:auto!important;
+  flex:1 1 auto!important;
+  min-height:0!important;
+}
+:fullscreen body.after-intro #workspace.circuit-demo{
+  height:calc(100% - 48px)!important;
+  max-height:calc(100% - 48px)!important;
+}
+
+/* Header contract: 1/2/5 use navy LED header; 3/4 Entry pages do not. */
+body.after-intro .wrap>header{display:block!important}
+body.after-intro .wrap>header .device-label,
+body.after-intro .wrap>header .title-desc,
+body.after-intro .wrap>header .diode-bubble{display:none!important}
+body.after-intro .wrap>header .title-row{display:flex!important;align-items:center!important;margin-top:24px!important}
+body.after-intro .wrap>header h1{display:block!important}
+body.after-intro .wrap>header .slide-subtitle{
+ display:block!important;margin-left:auto!important;text-align:right!important;
+ color:#fff!important;font-size:clamp(1.35rem,2.5vw,2rem)!important;font-weight:900!important
+}
+body.after-intro .non-entry-slide>h2.header-page-title{display:none!important}
+body.entry-page .wrap>header{display:none!important}
+body.entry-page .wrap>.slide.active{top:12px!important}
+body.after-intro:not(.entry-page) .wrap>.slide.active{top:112px!important}
+
+/* Fullscreen non-Entry pages: header and body share one 16:9 frame; no overlap/cropping. */
+:fullscreen body:not(.entry-page) .wrap{
+  display:grid!important;
+  grid-template-rows:auto minmax(0,1fr) 42px!important;
+  width:min(100vw,calc(100vh * 16 / 9))!important;
+  height:min(100vh,calc(100vw * 9 / 16))!important;
+  padding:0!important;
+  overflow:hidden!important;
+}
+:fullscreen body:not(.entry-page) .wrap>header{
+  position:relative!important;
+  grid-row:1!important;
+  height:auto!important;min-height:0!important;
+  margin:0!important;padding:12px 24px!important;
+  z-index:5!important;
+}
+:fullscreen body:not(.entry-page) .wrap>.slide.active{
+  position:relative!important;
+  grid-row:2!important;
+  inset:auto!important;
+  width:auto!important;height:auto!important;min-height:0!important;
+  margin:6px 18px 0!important;padding:10px 16px!important;
+  overflow:hidden!important;
+}
+:fullscreen body:not(.entry-page) .wrap>.slide-nav{grid-row:3!important}
+:fullscreen body:not(.entry-page) .wrap>#slides{bottom:12px!important}
+
+/* Page 1 keeps the full navy definition header exactly as its teaching content. */
+:fullscreen body:not(.after-intro) .wrap>header{
+  padding:14px 24px 16px!important;
+}
+:fullscreen body:not(.after-intro) .wrap>header .device-label,
+:fullscreen body:not(.after-intro) .wrap>header .title-desc,
+:fullscreen body:not(.after-intro) .wrap>header .diode-bubble{display:block!important}
+
+/* Pages 2/5 use the compact navy header; fit their complete body below it. */
+:fullscreen body.after-intro:not(.entry-page) .wrap>header{
+  padding:9px 22px!important;
+}
+:fullscreen body.after-intro:not(.entry-page) .wrap>header .title-row{margin-top:18px!important}
+:fullscreen body.after-intro:not(.entry-page) .wrap>.slide.active{top:auto!important}
+
+/* Circuit page scales the editor into the remaining grid row. */
+:fullscreen body.after-intro:not(.entry-page) #workspace.circuit-demo{
+  width:auto!important;height:100%!important;
+  max-width:100%!important;max-height:100%!important;
+  margin:0 auto!important;
+}
+
+/* PWM page: reserve explicit room for milestones + note; shrink only the central demo. */
+:fullscreen .pwm-slide.active{display:flex!important;flex-direction:column!important}
+:fullscreen .pwm-slide .pwm-intro{font-size:17px!important;margin:0 0 4px!important;padding:5px 11px!important}
+:fullscreen .pwm-slide .pwm-intro-lines{gap:3px!important;line-height:1.28!important}
+:fullscreen .pwm-slide .pwm-demo{
+  flex:1 1 0!important;height:auto!important;min-height:0!important;
+  margin:0!important;
+}
+:fullscreen .pwm-slide .pwm-visual{padding:5px 12px!important}
+:fullscreen .pwm-slide .pwm-graph{height:52%!important;min-height:105px!important}
+:fullscreen .pwm-slide .pwm-bulb-wrap{width:115px!important;height:115px!important}
+:fullscreen .pwm-slide .pwm-bulb{font-size:72px!important}
+:fullscreen .pwm-slide .pwm-controls{
+  display:flex!important;flex:0 0 auto!important;
+  margin:4px 0 2px!important;gap:5px!important
+}
+:fullscreen .pwm-slide .pwm-controls button[data-duty]{
+  min-width:112px!important;height:48px!important;padding:0 10px!important
+}
+:fullscreen .pwm-slide .pwm-controls button[data-duty] .entry-value-text,
+:fullscreen .pwm-slide .pwm-controls button[data-duty] .duty-value-text{font-size:18px!important}
+:fullscreen .pwm-slide .pwm-controls button[data-duty] i{font-size:17px!important}
+:fullscreen .pwm-slide .pwm-note{display:block!important;flex:0 0 auto!important;margin:2px 0 0!important;font-size:12px!important}
+
+/* Fullscreen fine tuning */
+
+/* Page 1: keep the complete LED module image inside the left column. */
+:fullscreen body:not(.after-intro) .slide:first-of-type.active .concept-grid{
+  grid-template-columns:48% 52%!important;
+  gap:12px!important;
+  padding-left:8px!important;
+  box-sizing:border-box!important;
+}
+:fullscreen body:not(.after-intro) .slide:first-of-type.active .concept-image{
+  overflow:visible!important;
+  padding-left:6px!important;
+  box-sizing:border-box!important;
+}
+:fullscreen body:not(.after-intro) .slide:first-of-type.active .module-photo{
+  width:96%!important;height:100%!important;
+  max-width:100%!important;
+  object-fit:contain!important;object-position:center center!important;
+  transform:none!important;
+  margin:0 auto!important;
+}
+
+/* Page 5: explanation stays presentation-size. The second sentence should occupy
+   nearly the full available row rather than shrinking with viewport units. */
+:fullscreen .pwm-slide .pwm-intro{
+  font-size:clamp(20px,1.55vw,27px)!important;
+  line-height:1.38!important;
+  padding:7px 13px!important;
+  margin:0 0 4px!important;
+}
+:fullscreen .pwm-slide .pwm-intro-lines{gap:4px!important;line-height:1.38!important}
+:fullscreen .pwm-slide .pwm-intro-lines>div{white-space:nowrap!important}
+
+/* Remove excess vertical air in the demo. Keep the ratio text close to the graph,
+   and keep the milestone ovals immediately below the demo. */
+:fullscreen .pwm-slide .pwm-demo{
+  flex:1 1 auto!important;
+  min-height:0!important;
+  max-height:none!important;
+}
+:fullscreen .pwm-slide .pwm-visual{
+  display:flex!important;
+  flex-direction:column!important;
+  padding:5px 12px 3px!important;
+}
+:fullscreen .pwm-slide .pwm-status{flex:0 0 auto!important}
+:fullscreen .pwm-slide .pwm-graph{
+  flex:1 1 auto!important;
+  height:auto!important;
+  min-height:100px!important;
+  max-height:none!important;
+  margin:0!important;
+}
+:fullscreen .pwm-slide .pwm-ratio{
+  flex:0 0 auto!important;
+  margin:-4px 0 0!important;
+  line-height:1.1!important;
+}
+:fullscreen .pwm-slide .pwm-lamp-panel{
+  justify-content:center!important;
+  gap:3px!important;
+  padding:3px 0!important;
+}
+:fullscreen .pwm-slide .pwm-controls{
+  margin:2px 0 1px!important;
+}
+:fullscreen .pwm-slide .pwm-note{
+  margin:0!important;
+  line-height:1.15!important;
+}
+
+/* Non-Entry LED pages keep the same small device label above LED as page 1. */
+body.after-intro:not(.entry-page) .wrap>header .device-label{
+  display:block!important;
+  position:absolute!important;
+  left:24px!important;
+  top:12px!important;
+  margin:0!important;
+  color:#fff!important;
+  font-size:15px!important;
+  font-weight:800!important;
+  z-index:3!important;
+}
+body.after-intro:not(.entry-page) .wrap>header .title-row{
+  margin-top:26px!important;
+}
+
+/* PWM: give the two-line explanation more visual weight and trade graph height for it. */
+.pwm-slide .pwm-intro{
+  font-size:clamp(22px,1.65vw,29px)!important;
+  line-height:1.48!important;
+  padding:10px 16px!important;
+  margin:0 0 5px!important;
+}
+.pwm-slide .pwm-intro-lines{gap:7px!important;line-height:1.48!important}
+.pwm-slide .pwm-demo{flex:1 1 0!important;min-height:0!important}
+.pwm-slide .pwm-graph{
+  height:48%!important;
+  min-height:105px!important;
+  max-height:220px!important;
+}
+:fullscreen .pwm-slide .pwm-intro{
+  font-size:clamp(23px,1.7vw,30px)!important;
+  line-height:1.5!important;
+  padding:10px 16px!important;
+  margin:0 0 5px!important;
+}
+:fullscreen .pwm-slide .pwm-intro-lines{gap:7px!important;line-height:1.5!important}
+:fullscreen .pwm-slide .pwm-graph{
+  flex:0 1 44%!important;
+  height:44%!important;
+  min-height:95px!important;
+  max-height:190px!important;
+}
+
+/* Entry page labels (LED 기본코드 / 디지털 출력 블록 비교):
+   make them visually distinct beside the block-count label. */
+.entry-code-page-label{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  min-height:30px!important;
+  margin-left:10px!important;
+  padding:3px 14px!important;
+  border:2px solid #5f7784!important;
+  border-radius:999px!important;
+  background:#fff!important;
+  color:#263b47!important;
+  font-size:15px!important;
+  font-weight:1000!important;
+  line-height:1!important;
+  white-space:nowrap!important;
+  box-shadow:0 1px 2px rgba(38,59,71,.08)!important;
+}
+
+/* PWM fullscreen composition from visual review:
+   larger two-line definition, wider graph, narrower lamp panel, no dead vertical gap. */
+:fullscreen .pwm-slide .pwm-intro{
+  font-size:clamp(25px,1.95vw,34px)!important;
+  line-height:1.42!important;
+  padding:10px 16px!important;
+}
+:fullscreen .pwm-slide .pwm-intro-lines>div{
+  white-space:nowrap!important;
+  letter-spacing:-.02em!important;
+}
+:fullscreen .pwm-slide .pwm-demo{
+  display:grid!important;
+  grid-template-columns:78% 22%!important;
+  flex:1 1 0!important;
+  min-height:0!important;
+}
+:fullscreen .pwm-slide .pwm-visual{
+  display:grid!important;
+  grid-template-rows:auto minmax(0,1fr) auto!important;
+  min-height:0!important;
+  padding:6px 14px 4px!important;
+}
+:fullscreen .pwm-slide .pwm-graph{
+  width:100%!important;
+  height:100%!important;
+  min-height:0!important;
+  max-height:none!important;
+  align-self:stretch!important;
+}
+:fullscreen .pwm-slide .pwm-ratio{
+  align-self:end!important;
+  margin:0!important;
+  padding:0 0 2px!important;
+  line-height:1!important;
+}
+:fullscreen .pwm-slide .pwm-lamp-panel{
+  width:auto!important;
+  min-width:0!important;
+  padding:4px 6px!important;
+  gap:2px!important;
+}
+:fullscreen .pwm-slide .pwm-bulb-wrap{
+  width:100px!important;height:100px!important;
+}
+:fullscreen .pwm-slide .pwm-bulb{font-size:64px!important}
+:fullscreen .pwm-slide .pwm-controls{
+  margin:1px 0 0!important;
+}
+
+/* Slide 3 comparison transition:
+   the old four-block stack moves exactly one stack-width to the right.
+   The replacement stack occupies the vacated slot with no horizontal gap. */
+.entry-program:has(#entryBasicFour.compare-right) .basic-repeat-body,
+.entry-program:has(#entryBasicFour.entry-cleared) .basic-repeat-body{
+  --entry-stack-w:min(46%,520px);
+  display:grid!important;
+  grid-template-columns:var(--entry-stack-w) var(--entry-stack-w)!important;
+  column-gap:0!important;
+  justify-content:start!important;
+  padding-right:0!important;
+}
+#entryCompareFour.compare-left{
+  grid-column:1!important;
+  width:100%!important;
+  margin:0!important;
+}
+#entryBasicFour.compare-right,
+#entryBasicFour.entry-cleared{
+  grid-column:2!important;
+  width:100%!important;
+  margin:0!important;
+}
+#entryCompareFour.compare-left .entry-block,
+#entryBasicFour.compare-right .entry-block,
+#entryBasicFour.entry-cleared .entry-block{
+  width:100%!important;
+  max-width:100%!important;
+  margin-left:0!important;
+  box-sizing:border-box!important;
+}
+
+/* Repeat block geometry correction:
+   '계속 반복하기' is the TOP of one continuous C block.
+   The element below it draws only the left spine + bottom foot (ㄴ), not another C. */
+.entry-program .repeat-block{
+  position:relative!important;
+  width:360px!important;min-width:360px!important;
+  min-height:58px!important;
+  margin:0!important;
+  padding:8px 14px 8px 28px!important;
+  display:flex!important;align-items:center!important;
+  background:#20b5dd!important;
+  border-radius:0 26px 26px 0!important;
+  z-index:3!important;
+}
+/* overlap by 2px so header and spine are visually one solid piece */
+.entry-program .repeat-body{
+  position:relative!important;
+  width:360px!important;min-width:360px!important;
+  min-height:46px!important;
+  margin:-2px 0 0 0!important;
+  padding:8px 0 20px 28px!important;
+  border:0!important;
+  border-left:13px solid #20b5dd!important;
+  background:transparent!important;
+  box-sizing:border-box!important;
+  overflow:visible!important;
+}
+/* No top horizontal bar: the header itself is already the C-block top. */
+.entry-program .repeat-body:before{
+  display:none!important;
+  content:none!important;
+}
+/* Only the bottom foot of the ㄴ body. It joins directly to the left spine. */
+.entry-program .repeat-body:after{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  left:-13px!important;right:0!important;bottom:0!important;
+  height:20px!important;
+  background:#20b5dd!important;
+  border-radius:0 0 24px 0!important;
+  z-index:0!important;
+}
+/* Nested commands sit in the open cavity of the single C-shaped repeat block. */
+.entry-program .repeat-body>.entry-basic-four,
+.entry-program .repeat-body>.entry-compare-four{
+  position:relative!important;
+  z-index:2!important;
+}
+
+/* Repeat lifecycle:
+   step 3 starts as an EMPTY C; commands fill it flush.
+   After the first four-command set moves right, the C contracts again and
+   grows naturally with each newly revealed replacement command. */
+.entry-program .repeat-body{
+  min-height:42px!important;
+  padding:0 0 20px 13px!important; /* no cavity gap between spine and nested blocks */
+}
+.entry-program .repeat-body>.entry-basic-four,
+.entry-program .repeat-body>.entry-compare-four{
+  margin:0!important;
+  padding:0!important;
+}
+/* Empty repeat: visible immediately with just enough open cavity to read as C. */
+.entry-program .repeat-body.repeat-show:not(:has(.entry-block.entry-show)){
+  min-height:46px!important;
+}
+/* Filled commands begin directly beside the left spine. */
+.entry-program .repeat-body.repeat-show:has(.entry-block.entry-show){
+  min-height:0!important;
+  padding-top:0!important;
+}
+/* Transition: old blinking set moves farther than its longest block width. */
+.entry-program:has(#entryBasicFour.compare-right) .basic-repeat-body,
+.entry-program:has(#entryBasicFour.entry-cleared) .basic-repeat-body{
+  --entry-stack-w:min(46%,520px)!important;
+  --entry-stack-gap:24px!important;
+  grid-template-columns:var(--entry-stack-w) var(--entry-stack-w)!important;
+  column-gap:var(--entry-stack-gap)!important;
+}
+/* The new stack starts at the original cavity position; old set occupies the
+   second track, i.e. one longest-block width + a small safety gap to the right. */
+#entryCompareFour.compare-left{grid-column:1!important}
+#entryBasicFour.compare-right,
+#entryBasicFour.entry-cleared{grid-column:2!important}
+
+/* In the cleared moment no replacement command is visible yet:
+   contract the repeat shell back to its initial empty-C height. */
+.entry-program:has(#entryBasicFour.entry-cleared) .basic-repeat-body{
+  min-height:46px!important;
+  padding-bottom:20px!important;
+}
+/* As replacement commands are revealed, normal content height expands the C
+   exactly with the stack instead of preserving the old four-block height. */
+.entry-program:has(#entryCompareFour.compare-left) .basic-repeat-body{
+  height:auto!important;
+}
+
+/* Repeat C final geometry: nested commands touch the left spine, the bottom jaw
+   matches the rounded/thick header, and the whole empty C is highlighted on arrival. */
+.entry-program .repeat-body{
+  padding-left:0!important;
+}
+.entry-program .repeat-body>.entry-basic-four,
+.entry-program .repeat-body>.entry-compare-four{
+  margin-left:-1px!important;
+  width:calc(100% + 1px)!important;
+}
+.entry-program .repeat-body:after{
+  left:-13px!important;
+  right:0!important;
+  height:30px!important;
+  bottom:0!important;
+  border-radius:0 22px 22px 0!important;
+}
+/* Step 3: one continuous yellow outline around header + left spine + bottom jaw.
+   The internal cavity stays open; outline disappears when the next command is added. */
+.entry-program .repeat-block.entry-current{
+  outline:4px solid #ffd400!important;
+  outline-offset:2px!important;
+  box-shadow:0 0 0 2px rgba(255,212,0,.18)!important;
+}
+.entry-program .repeat-block.entry-current + .repeat-body.repeat-show{
+  border-left-color:#20b5dd!important;
+}
+.entry-program .repeat-block.entry-current + .repeat-body.repeat-show:after{
+  box-shadow:
+    -4px 0 0 #ffd400,
+    0 4px 0 #ffd400,
+    4px 0 0 #ffd400!important;
+}
+/* bridge the highlight down the outside of the left spine */
+.entry-program .repeat-block.entry-current + .repeat-body.repeat-show{
+  box-shadow:-4px 0 0 #ffd400!important;
+}
+/* hide the header's lower yellow edge where the C body continues, so it reads
+   as one selected C rather than two separately selected rectangles */
+.entry-program .repeat-block.entry-current:after{
+  content:""!important;
+  position:absolute!important;
+  left:0!important;bottom:-6px!important;
+  width:18px!important;height:10px!important;
+  background:#20b5dd!important;
+  z-index:5!important;
+}
+
+/* Repeat C outline + connector alignment refinements */
+.entry-program{
+  --repeat-thickness:30px;
+  --repeat-yellow:#ffd400;
+}
+/* left spine thickness exactly matches the bottom jaw thickness */
+.entry-program .repeat-body{
+  border-left-width:var(--repeat-thickness)!important;
+}
+.entry-program .repeat-body:after{
+  left:calc(-1 * var(--repeat-thickness))!important;
+  height:var(--repeat-thickness)!important;
+}
+/* nested commands start flush at the inside edge of the spine */
+.entry-program .repeat-body>.entry-basic-four,
+.entry-program .repeat-body>.entry-compare-four{
+  margin-left:0!important;
+  width:100%!important;
+}
+
+/* Selection follows only the OUTER coloured C perimeter.
+   No yellow seam is drawn where header joins the vertical spine. */
+.entry-program .repeat-block.entry-current{
+  outline:0!important;
+  box-shadow:
+    inset 0 4px 0 var(--repeat-yellow),
+    inset -4px 0 0 var(--repeat-yellow)!important;
+}
+.entry-program .repeat-block.entry-current:before{
+  filter:drop-shadow(0 -4px 0 var(--repeat-yellow))!important;
+}
+.entry-program .repeat-block.entry-current:after{
+  display:none!important;
+}
+.entry-program .repeat-block.entry-current + .repeat-body.repeat-show{
+  box-shadow:-4px 0 0 var(--repeat-yellow)!important;
+}
+.entry-program .repeat-block.entry-current + .repeat-body.repeat-show:after{
+  box-shadow:
+    -4px 0 0 var(--repeat-yellow),
+    0 4px 0 var(--repeat-yellow),
+    4px 0 0 var(--repeat-yellow)!important;
+}
+
+/* Blocks connected below Start align to the start block's connector axis.
+   Their top-left corner no longer protrudes left of the V connection. */
+.entry-program>.entry-block:not(.start-block),
+.entry-program>.repeat-block{
+  margin-left:22px!important;
+}
+/* The repeat cavity remains relative to its own C spine, not double-indented. */
+.entry-program .repeat-body{
+  margin-left:22px!important;
+}
+.entry-program .repeat-body .entry-block{
+  margin-left:0!important;
+}
+
+/* Nested-current block highlight must sit above the repeat header/body.
+   Its yellow perimeter cannot be hidden by the '계속 반복하기' header. */
+.entry-program .repeat-body{z-index:4!important}
+.entry-program .repeat-body>.entry-basic-four,
+.entry-program .repeat-body>.entry-compare-four{z-index:6!important}
+.entry-program .repeat-body .entry-block.entry-current{
+  position:relative!important;
+  z-index:20!important;
+  outline:5px solid #ffd400!important;
+  outline-offset:2px!important;
+}
+/* Preserve the yellow top edge even where the nested block tucks into the C opening. */
+.entry-program .repeat-body .entry-block.entry-current::after{
+  z-index:21!important;
+}
+.entry-program .repeat-block{z-index:5!important}
+.entry-program .repeat-block.entry-current{z-index:22!important}
+
+/* Slide 3 replacement phase.
+   The old blinking set leaves the C completely; the repeat shell contracts to
+   its original empty state; replacement commands alone determine its new height. */
+.entry-program:has(#entryBasicFour.compare-right) .basic-repeat-body,
+.entry-program:has(#entryBasicFour.entry-cleared) .basic-repeat-body{
+  position:relative!important;
+  display:block!important;
+  width:360px!important;
+  min-width:360px!important;
+  min-height:46px!important;
+  height:auto!important;
+  padding:0 0 var(--repeat-thickness) 0!important;
+  overflow:visible!important;
+}
+/* New PWM commands stay in the original C cavity. */
+.entry-program:has(#entryBasicFour.compare-right) #entryCompareFour.compare-left,
+.entry-program:has(#entryBasicFour.entry-cleared) #entryCompareFour.compare-left{
+  position:relative!important;
+  left:0!important;top:auto!important;
+  width:100%!important;
+  margin:0!important;
+  display:flex!important;
+  flex-direction:column!important;
+}
+/* Old four-command set is no longer part of the C layout.
+   Move it beyond the repeat body's full width + safety gap. */
+.entry-program:has(#entryBasicFour.compare-right) #entryBasicFour.compare-right,
+.entry-program:has(#entryBasicFour.entry-cleared) #entryBasicFour.entry-cleared{
+  position:absolute!important;
+  left:calc(100% + 42px)!important;
+  top:0!important;
+  width:max-content!important;
+  min-width:0!important;
+  margin:0!important;
+  display:flex!important;
+  flex-direction:column!important;
+  z-index:8!important;
+}
+/* When no replacement command has appeared yet, the C is exactly the initial
+   compact empty-C height. It grows only as visible replacement blocks arrive. */
+.entry-program:has(#entryBasicFour.entry-cleared) .basic-repeat-body{
+  min-height:46px!important;
+}
+.entry-program:has(#entryBasicFour.entry-cleared) #entryCompareFour{
+  min-height:0!important;
+}
+
+/* Slide 4 PWM-pin popup: always fit completely inside the visible lesson frame. */
+.pwm-pin-board-popup{
+  position:absolute!important;
+  inset:0!important;
+  padding:14px!important;
+  box-sizing:border-box!important;
+  overflow:hidden!important;
+}
+.pwm-pin-board-card{
+  width:min(82%,900px)!important;
+  height:min(88%,640px)!important;
+  max-width:900px!important;
+  max-height:calc(100% - 28px)!important;
+  padding:12px 20px!important;
+  box-sizing:border-box!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+  overflow:hidden!important;
+}
+.pwm-pin-board-card>strong{
+  flex:0 0 auto!important;
+  font-size:clamp(22px,2vw,30px)!important;
+  line-height:1.15!important;
+}
+.pwm-pin-board-image{
+  flex:1 1 auto!important;
+  width:auto!important;
+  max-width:92%!important;
+  min-height:0!important;
+  margin:7px auto 3px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+}
+.pwm-pin-board-image img{
+  width:auto!important;
+  height:auto!important;
+  max-width:100%!important;
+  max-height:100%!important;
+  object-fit:contain!important;
+}
+.pwm-pin-board-card p{
+  flex:0 0 auto!important;
+  margin:4px 0 0!important;
+  font-size:clamp(16px,1.45vw,22px)!important;
+  line-height:1.2!important;
+}
+:fullscreen .pwm-pin-board-popup{padding:10px!important}
+:fullscreen .pwm-pin-board-card{
+  width:min(76%,880px)!important;
+  height:min(86%,610px)!important;
+  max-height:calc(100% - 20px)!important;
+}
+
+/* Slide 3 compare spacing: once the wider PWM-value block (255) is introduced,
+   park the old blinking stack beyond that new block's full width plus clearance. */
+.entry-program:has(#entryCompareFour.compare-left) #entryBasicFour.compare-right,
+.entry-program:has(#entryCompareFour.compare-left) #entryBasicFour.entry-cleared{
+  left:calc(100% + 72px)!important;
+}
+/* At the exact 255-introduction state, use extra clearance so the long
+   '디지털 3번 핀을 255로 정하기' block never covers the moved stack. */
+.entry-program:has([data-entry-step="8"].entry-show) #entryBasicFour.compare-right{
+  left:calc(100% + 110px)!important;
+}
+
+/* During blinking execution-result popup, the last 0.2s wait block is no longer
+   being added, so remove its yellow 'current block' selection perimeter. */
+.entry-program.result-running .repeat-body .entry-block.entry-current{
+  outline:none!important;
+  box-shadow:none!important;
+}
+.entry-program.result-running .repeat-body .entry-block.entry-current::before,
+.entry-program.result-running .repeat-body .entry-block.entry-current::after{
+  filter:none!important;
+  box-shadow:none!important;
+}
+
+/* Slide 3: old four-block stack must clear the NEW widest PWM block.
+   Previous left:calc(100% + ...) was relative to the 360px repeat body and was
+   too short. Anchor the parked stack beyond the actual 255-block width. */
+.entry-program:has(#entryCompareFour.compare-left) #entryBasicFour.compare-right,
+.entry-program:has(#entryCompareFour.compare-left) #entryBasicFour.entry-cleared{
+  left:760px!important;
+  right:auto!important;
+  width:520px!important;
+  max-width:520px!important;
+}
+/* Keep the replacement stack in the C cavity and cap its long value block so
+   it ends before the parked stack begins. */
+.entry-program:has(#entryCompareFour.compare-left) #entryCompareFour.compare-left{
+  width:660px!important;
+  max-width:660px!important;
+}
+.entry-program:has(#entryCompareFour.compare-left) #entryCompareFour.compare-left .entry-block{
+  max-width:660px!important;
+  box-sizing:border-box!important;
+}
+/* On narrower lesson frames scale both columns together instead of allowing overlap. */
+@media (max-width:1500px){
+  .entry-program:has(#entryCompareFour.compare-left){
+    transform-origin:left top!important;
+  }
+  .entry-program:has(#entryCompareFour.compare-left) #entryBasicFour.compare-right,
+  .entry-program:has(#entryCompareFour.compare-left) #entryBasicFour.entry-cleared{
+    left:700px!important;
+    width:470px!important;
+    max-width:470px!important;
+  }
+  .entry-program:has(#entryCompareFour.compare-left) #entryCompareFour.compare-left{
+    width:610px!important;
+    max-width:610px!important;
+  }
+}
+
+/* Entry block sizing rule:
+   every command block is only as wide as its one-line contents + run button.
+   Same command => same width everywhere, regardless of left/right stack. */
+.entry-slide .entry-program .entry-block.hardware-block,
+.entry-slide .entry-program .entry-block.wait-block,
+.entry-slide .entry-program #entryBasicFour .entry-block,
+.entry-slide .entry-program #entryCompareFour .entry-block{
+  width:max-content!important;
+  min-width:0!important;
+  max-width:none!important;
+  flex:0 0 auto!important;
+  white-space:nowrap!important;
+  padding-right:10px!important;
+  box-sizing:border-box!important;
+}
+.entry-slide .entry-program .entry-block.wait-block{
+  padding-right:20px!important;
+}
+.entry-slide .entry-program .entry-block .entry-run-btn,
+.entry-slide .entry-program .entry-block .entry-block-run-btn{
+  margin-left:8px!important;
+  margin-right:0!important;
+  flex:0 0 26px!important;
+}
+/* Containers must not stretch their child blocks to the stack width. */
+.entry-slide .entry-program #entryBasicFour,
+.entry-slide .entry-program #entryCompareFour{
+  align-items:flex-start!important;
+}
+.entry-slide .entry-program #entryBasicFour.compare-right .entry-block,
+.entry-slide .entry-program #entryBasicFour.entry-cleared .entry-block,
+.entry-slide .entry-program #entryCompareFour.compare-left .entry-block{
+  width:max-content!important;
+  min-width:0!important;
+  max-width:none!important;
+}
+/* Park the old stack after the actual longest new PWM block plus a small gap.
+   This value is only positioning; it no longer changes individual block widths. */
+.entry-program:has(#entryCompareFour.compare-left) #entryBasicFour.compare-right,
+.entry-program:has(#entryCompareFour.compare-left) #entryBasicFour.entry-cleared{
+  left:720px!important;
+  width:max-content!important;
+  max-width:none!important;
+}
+
+@media (max-width:1500px){
+  .entry-program:has(#entryCompareFour.compare-left) #entryBasicFour.compare-right,
+  .entry-program:has(#entryCompareFour.compare-left) #entryBasicFour.entry-cleared{
+    left:680px!important;
+    width:max-content!important;
+    max-width:none!important;
+  }
+  .entry-program:has(#entryCompareFour.compare-left) #entryCompareFour.compare-left{
+    width:max-content!important;
+    max-width:none!important;
+  }
+}
+
+/* Apply the same content-fit width rule to Start and Repeat headers. */
+.entry-slide .entry-program .start-block,
+.entry-slide .entry-program .repeat-block{
+  width:max-content!important;
+  min-width:0!important;
+  max-width:none!important;
+  flex:0 0 auto!important;
+  white-space:nowrap!important;
+  box-sizing:border-box!important;
+}
+/* Start has its play icon on the left; keep only the natural text-side padding. */
+.entry-slide .entry-program .start-block{
+  padding-right:20px!important;
+}
+/* Repeat includes its run button, so its right edge follows the same
+   text -> button -> minimal outer padding rule as command blocks. */
+.entry-slide .entry-program .repeat-block{
+  padding-right:10px!important;
+}
+.entry-slide .entry-program .repeat-block .entry-loop-run-btn{
+  margin-left:8px!important;
+  margin-right:0!important;
+  flex:0 0 26px!important;
+}
+
+/* Slide 4 block comparison: use the exact same content-fit sizing rule as slide 3. */
+.entry-compare-slide .pin-block-compare .entry-block{
+  width:max-content!important;
+  min-width:0!important;
+  max-width:none!important;
+  flex:0 0 auto!important;
+  white-space:nowrap!important;
+  box-sizing:border-box!important;
+  padding-right:10px!important;
+}
+.entry-compare-slide .pin-block-compare .entry-block .entry-run-btn,
+.entry-compare-slide .pin-block-compare .entry-block .entry-block-run-btn{
+  margin-left:8px!important;
+  margin-right:0!important;
+  flex:0 0 26px!important;
+}
+/* Give BOTH dropdowns the same speech-bubble pointer, aligned under the 3 selector. */
+.entry-compare-slide .pin-compare-item .pin-dropdown::before{
+  display:block!important;
+  content:""!important;
+  position:absolute!important;
+  left:50px!important;
+  top:-10px!important;
+  width:18px!important;
+  height:18px!important;
+  background:#fff!important;
+  border-left:1px solid #d9dee2!important;
+  border-top:1px solid #d9dee2!important;
+  transform:rotate(45deg)!important;
+  z-index:60!important;
+}
+.entry-compare-slide .pin-dropdown.all-pins::before{
+  position:sticky!important;
+  float:left!important;
+  margin-top:-20px!important;
+  margin-left:44px!important;
+}
+
+/* Blocks without a run button reserve one full run-button diameter (26px)
+   at the right end, in addition to the normal text-to-button gap. */
+.entry-slide .entry-program .entry-block:not(:has(.entry-run-btn)):not(:has(.entry-block-run-btn)):not(:has(.entry-loop-run-btn)){
+  padding-right:34px!important; /* 8px gap + 26px button diameter */
+}
+.entry-slide .entry-program .wait-block:not(:has(.entry-block-run-btn)){
+  padding-right:34px!important;
+}
+.entry-compare-slide .pin-block-compare .entry-block:not(:has(.entry-run-btn)):not(:has(.entry-block-run-btn)){
+  padding-right:34px!important;
+}
+
+/* Slide 4 left dropdown pointer: keep it outside the scrolling box so it cannot
+   be clipped by overflow-y:auto. */
+.entry-compare-slide .pin-compare-item:first-child{
+  position:relative!important;
+}
+.entry-compare-slide .pin-dropdown.all-pins::before{
+  display:none!important;
+}
+.entry-compare-slide .pin-compare-item:first-child::after{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  left:calc(50% - 102px)!important;
+  top:110px!important;
+  width:18px!important;
+  height:18px!important;
+  background:#fff!important;
+  border-left:1px solid #d9dee2!important;
+  border-top:1px solid #d9dee2!important;
+  transform:rotate(45deg)!important;
+  z-index:80!important;
+  pointer-events:none!important;
+}
+
+/* Wait blocks have no run control: force the same reserved run-button slot.
+   Put this after all legacy wait-block rules so older min-width/padding cannot win. */
+.entry-slide .entry-program .wait-block,
+.entry-slide .entry-program #entryBasicFour .wait-block,
+.entry-slide .entry-program #entryCompareFour .wait-block{
+  width:max-content!important;
+  min-width:0!important;
+  max-width:none!important;
+  padding-right:34px!important;
+  box-sizing:border-box!important;
+}
+
+/* Slide 4 left dropdown pointer: place it on the OUTSIDE top edge of the menu,
+   directly between the 3▼ selector and the first item (0). */
+.entry-compare-slide .pin-compare-item:first-child::after{
+  left:50px!important;
+  top:57px!important;
+  width:18px!important;
+  height:18px!important;
+  margin:0!important;
+  background:#fff!important;
+  border-left:1px solid #d9dee2!important;
+  border-top:1px solid #d9dee2!important;
+  transform:rotate(45deg)!important;
+  z-index:81!important;
+}
+
+/* Slide 3 comparison spacing:
+   after the old four-block set leaves the repeat C, keep only one repeat-wall
+   thickness (30px) between the new left stack and the parked old stack. */
+.entry-program:has(#entryCompareFour.compare-left){
+  --repeat-compare-gap:var(--repeat-thickness,30px);
+}
+.entry-program:has(#entryCompareFour.compare-left) #entryBasicFour.compare-right,
+.entry-program:has(#entryCompareFour.compare-left) #entryBasicFour.entry-cleared{
+  left:calc(100% + var(--repeat-compare-gap))!important;
+  width:max-content!important;
+  max-width:none!important;
+}
+@media (max-width:1500px){
+  .entry-program:has(#entryCompareFour.compare-left) #entryBasicFour.compare-right,
+  .entry-program:has(#entryCompareFour.compare-left) #entryBasicFour.entry-cleared{
+    left:calc(100% + var(--repeat-compare-gap))!important;
+  }
+}
+
+/* Slide 4: align the LEFT dropdown speech-tail horizontally with its 3▼ selector,
+   matching the right dropdown. */
+.entry-compare-slide .pin-compare-item:first-child::after{
+  left:174px!important;
+  transform:translateX(-50%) rotate(45deg)!important;
+}
+
+/* Slide 3 comparison: gap is measured from the ACTUAL right edge of the
+   longest left PWM command, not from the narrow repeat-body width.
+   255-command content width is ~660px; leave one 30px repeat-wall gap. */
+.entry-program:has(#entryCompareFour.compare-left) #entryBasicFour.compare-right,
+.entry-program:has(#entryCompareFour.compare-left) #entryBasicFour.entry-cleared{
+  left:690px!important;
+  right:auto!important;
+  width:max-content!important;
+  max-width:none!important;
+}
+/* Keep both stacks content-sized; never stretch them into each other. */
+.entry-program:has(#entryCompareFour.compare-left) #entryCompareFour.compare-left{
+  width:max-content!important;
+  max-width:none!important;
+}
+@media (max-width:1500px){
+  .entry-program:has(#entryCompareFour.compare-left) #entryBasicFour.compare-right,
+  .entry-program:has(#entryCompareFour.compare-left) #entryBasicFour.entry-cleared{
+    left:690px!important;
+  }
+}
+
+/* Slide 4 dropdowns: ONE shared geometry.
+   Both menus use the same pointer implementation/coordinates.
+   The left menu differs only by vertical scrolling. */
+.entry-compare-slide .pin-compare-item{position:relative!important}
+.entry-compare-slide .pin-compare-item:first-child::after{display:none!important;content:none!important}
+
+.entry-compare-slide .pin-compare-item .pin-dropdown{
+  top:66px!important;
+  overflow:visible!important;
+}
+.entry-compare-slide .pin-compare-item .pin-dropdown::before{
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  left:50px!important;
+  top:-10px!important;
+  width:18px!important;
+  height:18px!important;
+  margin:0!important;
+  background:#fff!important;
+  border-left:1px solid #d9dee2!important;
+  border-top:1px solid #d9dee2!important;
+  transform:rotate(45deg)!important;
+  z-index:80!important;
+  pointer-events:none!important;
+}
+/* Scroll only the LEFT menu's item area; do not put overflow on the speech bubble
+   itself, otherwise its pointer gets clipped/misaligned. */
+.entry-compare-slide .pin-dropdown.all-pins{
+  overflow:visible!important;
+  max-height:none!important;
+}
+.entry-compare-slide .pin-dropdown.all-pins .pin-dropdown-scroll{
+  max-height:300px!important;
+  overflow-y:auto!important;
+  overflow-x:hidden!important;
+}
+
+.entry-compare-slide .pin-dropdown.all-pins:not(:has(.pin-dropdown-scroll)){
+  max-height:300px!important;
+  overflow-y:auto!important;
+  overflow-x:hidden!important;
+}
+.entry-compare-slide .pin-dropdown.all-pins:not(:has(.pin-dropdown-scroll))::before{
+  position:sticky!important;
+  left:50px!important;
+  top:-10px!important;
+}
+
+/* Slide 3 comparison layout — derive the parked stack position from the ACTUAL
+   rendered width of the longest new block, leaving exactly 10px between stacks.
+   CSS anchor positioning is avoided for compatibility; the shared row shrink-wraps
+   both content-sized stacks and uses a 10px column gap. */
+.entry-program:has(#entryCompareFour.compare-left) .basic-repeat-body{
+  display:flex!important;
+  flex-direction:row!important;
+  align-items:flex-start!important;
+  gap:10px!important;
+  width:max-content!important;
+  min-width:0!important;
+  max-width:none!important;
+  overflow:visible!important;
+}
+.entry-program:has(#entryCompareFour.compare-left) #entryCompareFour.compare-left{
+  position:relative!important;
+  flex:0 0 auto!important;
+  width:max-content!important;
+  min-width:0!important;
+  max-width:none!important;
+  left:auto!important;
+  top:auto!important;
+}
+.entry-program:has(#entryCompareFour.compare-left) #entryBasicFour.compare-right,
+.entry-program:has(#entryCompareFour.compare-left) #entryBasicFour.entry-cleared{
+  position:relative!important;
+  flex:0 0 auto!important;
+  width:max-content!important;
+  min-width:0!important;
+  max-width:none!important;
+  left:auto!important;
+  right:auto!important;
+  top:auto!important;
+  margin:0!important;
+}
+/* Never stretch individual blocks: their rendered content determines width. */
+.entry-program:has(#entryCompareFour.compare-left) #entryCompareFour .entry-block,
+.entry-program:has(#entryCompareFour.compare-left) #entryBasicFour .entry-block{
+  width:max-content!important;
+  min-width:0!important;
+  max-width:none!important;
+  flex:0 0 auto!important;
+  white-space:nowrap!important;
+}
+/* Same geometry at narrower viewport sizes; scaling belongs to the lesson frame,
+   not to either code stack. */
+@media (max-width:1500px){
+  .entry-program:has(#entryCompareFour.compare-left) .basic-repeat-body{
+    gap:10px!important;
+    width:max-content!important;
+  }
+  .entry-program:has(#entryCompareFour.compare-left) #entryBasicFour.compare-right,
+  .entry-program:has(#entryCompareFour.compare-left) #entryBasicFour.entry-cleared{
+    left:auto!important;
+    width:max-content!important;
+  }
+}
+
+/* Slide 4 LEFT dropdown: scrolling only.
+   IMPORTANT: do not touch the shared speech-bubble pointer geometry. */
+.entry-compare-slide .pin-compare-item:first-child .pin-dropdown.all-pins{
+  max-height:300px!important;
+  overflow-y:auto!important;
+  overflow-x:hidden!important;
+}
+/* Keep the already-finalized pointer coordinates unchanged while the list scrolls. */
+.entry-compare-slide .pin-compare-item:first-child .pin-dropdown.all-pins::before{
+  left:50px!important;
+  top:-10px!important;
+  transform:rotate(45deg)!important;
+}
+
+/* FIX Slide 3 comparison ownership:
+   NEW PWM blocks stay inside the LEFT repeat C.
+   Only the OLD four-block stack is parked to the right.
+   Keep 10px between the longest new PWM block and the old stack. */
+.entry-program:has(#entryCompareFour.compare-left) .basic-repeat-body{
+  display:block!important;
+  position:relative!important;
+  width:max-content!important;
+  overflow:visible!important;
+}
+.entry-program:has(#entryCompareFour.compare-left) #entryCompareFour.compare-left{
+  display:flex!important;
+  position:relative!important;
+  left:0!important;
+  right:auto!important;
+  top:0!important;
+  flex-direction:column!important;
+  align-items:flex-start!important;
+  width:max-content!important;
+  max-width:none!important;
+  margin:0!important;
+}
+.entry-program:has(#entryCompareFour.compare-left) #entryBasicFour.compare-right,
+.entry-program:has(#entryCompareFour.compare-left) #entryBasicFour.entry-cleared{
+  display:flex!important;
+  position:absolute!important;
+  left:calc(100% + 10px)!important;
+  right:auto!important;
+  top:0!important;
+  flex-direction:column!important;
+  align-items:flex-start!important;
+  width:max-content!important;
+  max-width:none!important;
+  margin:0!important;
+}
+/* No viewport-specific relocation: the lesson frame scales the whole composition. */
+@media (max-width:1500px){
+  .entry-program:has(#entryCompareFour.compare-left) #entryCompareFour.compare-left{
+    left:0!important;
+    width:max-content!important;
+  }
+  .entry-program:has(#entryCompareFour.compare-left) #entryBasicFour.compare-right,
+  .entry-program:has(#entryCompareFour.compare-left) #entryBasicFour.entry-cleared{
+    left:calc(100% + 10px)!important;
+    width:max-content!important;
+  }
+}
+
+/* Slide 4 LEFT pin menu only: actual class is .digital-pins.
+   Add the scrollbar without changing the finalized shared pointer coordinates. */
+.entry-compare-slide .pin-compare-item:first-child .pin-dropdown.digital-pins{
+  height:300px!important;
+  max-height:300px!important;
+  overflow-y:scroll!important;
+  overflow-x:hidden!important;
+  scrollbar-gutter:stable!important;
+}
+/* Pointer geometry intentionally unchanged. */
+.entry-compare-slide .pin-compare-item:first-child .pin-dropdown.digital-pins::before{
+  left:50px!important;
+  top:-10px!important;
+  transform:rotate(45deg)!important;
+}
+
+/* Entry save control — mirrors the reference toolbar: compact circular save
+   control with a white dropdown anchored directly beneath it. */
+.entry-save-wrap{position:relative!important;display:flex!important;align-items:center!important;height:100%!important}
+.entry-save-btn{
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  color:#fff!important;font-weight:900!important;
+}
+.entry-save-icon{font-size:17px!important;line-height:1!important}
+.entry-save-caret{line-height:1!important}
+.entry-save-menu{
+  display:none;position:absolute!important;top:calc(100% + 8px)!important;right:-18px!important;
+  border:1px solid #d8e0e4!important;
+  border-radius:8px!important;box-shadow:0 4px 14px rgba(25,44,55,.22)!important;z-index:120!important;
+}
+.entry-save-menu::before{
+  content:"";position:absolute;right:54px;top:-9px;width:16px;height:16px;
+  border-left:1px solid #d8e0e4;border-top:1px solid #d8e0e4;transform:rotate(45deg);
+}
+.entry-save-menu.show{display:block!important}
+.entry-save-item{
+  position:relative;z-index:1;border:0;
+  font-size:14px;font-weight:800;
+}
+.entry-save-item:hover,.entry-save-item.save-click{background:#eef7f1!important}
+.entry-save-wrap.save-focus .entry-save-btn{box-shadow:0 0 0 4px #ffd800!important}
+.entry-save-item.save-click{box-shadow:inset 4px 0 0 #00b928!important}
+
+/* Entry top toolbar: actions begin 30px after the lesson title, not at far right. */
+.entry-code-toolbar .entry-top-actions{
+  margin-left:30px!important;
+  margin-right:auto!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:10px!important;
+}
+
+/* Save button: recognizable white floppy-disk icon, matching Entry. */
+.entry-save-icon{
+  position:relative!important;
+  display:inline-block!important;
+}
+
+
+
+/* Save dropdown: white speech bubble, black text. */
+
+.entry-save-menu::before{
+  background:#fff!important;
+}
+
+
+
+
+
+/* Entry save dropdown — match reference hierarchy.
+   Two stacked rows stay in one white speech bubble. */
+.entry-save-menu{
+  width:210px!important;
+  padding:8px 0!important;
+  background:#fff!important;
+  color:#111!important;
+}
+.entry-save-item{
+  display:block!important;
+  width:100%!important;
+  height:52px!important;
+  padding:0 16px!important;
+  background:#fff!important;
+  color:#111!important;
+  text-align:left!important;
+  white-space:nowrap!important;
+}
+.entry-save-item:first-child{
+  font-size:18px!important;
+  font-weight:1000!important;
+}
+.entry-save-item:nth-child(2){
+  font-size:14px!important;
+  font-weight:800!important;
+}
+/* Guided save cue: yellow OUTLINE only — no marker fill. */
+.entry-save-item:first-child.save-click{
+  background:#fff!important;
+  color:#111!important;
+  outline:4px solid #ffd800!important;
+  outline-offset:-7px!important;
+  border-radius:9px!important;
+  box-shadow:none!important;
+}
+.entry-save-item:first-child.save-click::after{
+  display:none!important;
+  content:none!important;
+}
+
+
+
+/* Entry save icon — redraw to match the reference floppy:
+   open/rounded top label recess, thick white body, lower rounded inset with slot. */
+.entry-save-icon{
+  width:22px!important;
+  height:24px!important;
+  border:0!important;
+  border-radius:4px!important;
+  background:#fff!important;
+}
+.entry-save-icon::before{
+  content:""!important;
+  position:absolute!important;
+  left:4px!important;
+  top:0!important;
+  width:14px!important;
+  height:8px!important;
+  background:#39d447!important;
+  border-radius:0 0 3px 3px!important;
+  box-shadow:none!important;
+}
+.entry-save-icon::after{
+  content:""!important;
+  position:absolute!important;
+  left:4px!important;
+  right:4px!important;
+  bottom:3px!important;
+  height:9px!important;
+  background:#39d447!important;
+  border-radius:2px!important;
+  border:0!important;
+  box-shadow:inset 0 3px 0 #fff!important;
+}
+/* Reference button is a wider green pill containing disk + white down triangle. */
+.entry-save-btn{
+  height:36px!important;
+  min-width:58px!important;
+  padding:0 9px!important;
+  gap:8px!important;
+  border:2px solid rgba(255,255,255,.38)!important;
+  border-radius:20px!important;
+  background:#39d447!important;
+}
+.entry-save-caret{
+  width:0!important;height:0!important;
+  font-size:0!important;
+  border-left:5px solid transparent!important;
+  border-right:5px solid transparent!important;
+  border-top:7px solid #fff!important;
+}
+
+/* Entry toolbar text hierarchy: match the lesson-title (entry lesson title) size/weight. */
+.entry-code-toolbar .entry-goal-btn,
+.entry-code-toolbar .entry-complete-btn{
+  font-size:18px!important;
+  font-weight:1000!important;
+  line-height:1!important;
+}
+
+/* Mobile lesson viewport: keep the existing 1280×720 teaching canvas intact.
+   Scale the whole canvas so circuit labels, Entry blocks, dialogs and navigation
+   remain in the same coordinate system on narrow screens. */
+@media (max-width:900px){
+  html,body{width:100%;height:100%;overflow:hidden!important}
+  body.mobile-layout{padding:0!important;background:#eef5f9}
+  body.mobile-layout .slide-sidebar{display:none!important}
+  body.mobile-layout .wrap,
+  body.mobile-layout:not(:fullscreen) .wrap,
+  :fullscreen body.mobile-layout .wrap{
+    position:fixed!important;
+    left:50%!important;
+    top:50%!important;
+    transform:translate(-50%,-50%)!important;
+    width:1280px!important;
+    height:720px!important;
+    min-height:0!important;
+    max-height:720px!important;
+    margin:0!important;
+    padding:12px 16px 42px!important;
+    zoom:var(--lesson-scale,1);
+    overflow:hidden!important;
+  }
+  body.mobile-layout .wrap>.slide.active,
+  body.mobile-layout.after-intro .wrap>.slide.active{
+    top:12px!important;
+    bottom:42px!important;
+    height:auto!important;
+    min-height:0!important;
+    margin:0!important;
+    transform:none!important;
+  }
+  body.mobile-layout:not(.after-intro) .wrap>.slide.active{top:112px!important}
+  body.mobile-layout:has(.entry-slide.active) main.wrap,
+  body.mobile-layout:has(.entry-slide.active) .entry-slide.active{
+    height:720px!important;max-height:720px!important;
+  }
+  body.mobile-layout:has(.entry-slide.active) .entry-workspace{
+    height:calc(720px - 52px)!important;
+  }
+  body.mobile-layout .fullscreen-btn{
+    z-index:250;top:calc(env(safe-area-inset-top) + 8px);
+    right:calc(env(safe-area-inset-right) + 8px);
+    width:44px;height:44px;opacity:1;
+    background:#244b67;box-shadow:0 2px 8px #0005;
+  }
+  body.mobile-layout.mobile-presentation .fullscreen-btn{background:#112d42}
+}
+#mobileOrientationHint[hidden]{display:none!important}
+#mobileOrientationHint{
+  display:none;position:fixed;left:50%;bottom:calc(env(safe-area-inset-bottom) + 8px);
+  transform:translateX(-50%);z-index:240;
+  padding:6px 12px;border-radius:18px;background:#153f58;color:#fff;
+  font:600 12px/1.3 sans-serif;white-space:nowrap;pointer-events:none;
+}
+@media(max-width:900px) and (orientation:portrait){
+  body.mobile-layout #mobileOrientationHint{display:block}
+}
+
+/* The native fullscreen grid has higher specificity; preserve the same
+   mobile canvas geometry when a browser does support document fullscreen. */
+@media(max-width:900px){
+  html:fullscreen body.mobile-layout:not(.entry-page) .wrap{
+    display:block!important;grid-template-rows:none!important;
+    width:1280px!important;height:720px!important;
+    padding:12px 16px 42px!important;
+    overflow:hidden!important;
+  }
+  html:fullscreen body.mobile-layout:not(.entry-page) .wrap>header{
+    position:relative!important;height:auto!important;
+    padding:12px 22px!important;
+  }
+  html:fullscreen body.mobile-layout:not(.entry-page) .wrap>.slide.active{
+    position:absolute!important;inset:112px 16px 42px!important;
+    width:auto!important;height:auto!important;margin:0!important;
+    padding:14px 20px!important;
+  }
+  html:fullscreen body.mobile-layout.after-intro:not(.entry-page) .wrap>.slide.active{
+    top:112px!important;
+  }
+}
+
+/* iPhone guidance appears only when the browser denies native fullscreen. */
+.ios-install-tip[hidden]{display:none!important}
+.ios-install-tip{
+  position:fixed;left:max(12px,env(safe-area-inset-left));
+  right:max(12px,env(safe-area-inset-right));
+  bottom:calc(12px + env(safe-area-inset-bottom));
+  z-index:300;display:flex;align-items:center;gap:12px;
+  padding:12px 14px;border-radius:12px;background:#153f58;color:#fff;
+  font:600 14px/1.5 sans-serif;box-shadow:0 5px 20px #0005;
+}
+.ios-install-tip button{
+  flex:none;width:32px;height:32px;border:0;border-radius:8px;
+  background:#fff2;color:#fff;font-size:24px;cursor:pointer;
+}
+
+/* Mobile navigation stays outside the scaled lesson canvas for a full-size touch target. */
+@media(max-width:900px){
+  body.mobile-layout .wrap .slide-nav{visibility:hidden!important}
+  body.mobile-layout .mobile-nav{
+    position:fixed;inset:0;z-index:230;display:flex;
+    align-items:center;justify-content:space-between;
+    padding-left:max(4px,env(safe-area-inset-left));
+    padding-right:max(4px,env(safe-area-inset-right));
+    pointer-events:none;
+  }
+  body.mobile-layout .mobile-nav button{
+    width:58px;height:100px;border:0;border-radius:16px;
+    background:rgba(255,255,255,.86);color:#1b4964;
+    box-shadow:0 2px 14px #153f5833;
+    font:400 46px/1 Arial,sans-serif;
+    pointer-events:auto;touch-action:manipulation;
+  }
+  body.mobile-layout .mobile-nav button:disabled{opacity:.22;pointer-events:none}
+}
+.mobile-nav{display:none}
+
+/* Slide 1: photographed LED uses and two optional teaching popups. */
+button.diode-word{
+  border:0;background:transparent;padding:0;margin:0;
+  font:inherit;cursor:pointer;text-decoration:underline dotted;
+  text-underline-offset:4px;
+}
+.concept-image-button{
+  position:relative;display:block;width:100%;height:100%;
+  padding:0;border:0;background:transparent;cursor:pointer;
+}
+.concept-image-button:focus-visible,button.diode-word:focus-visible{
+  outline:3px solid #1c79c5;outline-offset:3px;
+}
+.pin-open-hint{
+  position:absolute;right:18px;bottom:2px;z-index:2;
+  padding:9px 14px;border-radius:20px;background:#153f58;
+  color:#fff;font-size:18px;font-weight:800;
+}
+.slide:first-of-type.active .usage-item .usage-photo{
+  display:block;flex:1 1 auto;width:100%;height:calc(100% - 2.35rem);
+  min-height:0;margin:0;border-radius:8px;
+  background-image:url("../../assets/led-usage-photos.webp");
+  background-size:200% 200%;background-repeat:no-repeat;
+}
+.usage-photo--traffic{background-position:0 0}
+.usage-photo--brake{background-position:100% 0}
+.usage-photo--power{background-position:0 100%}
+.usage-photo--display{background-position:100% 100%}
+.lesson-dialog{
+  width:min(870px,calc(100vw - 28px));max-height:calc(100dvh - 28px);
+  margin:auto;padding:0;border:0;border-radius:20px;
+  background:#fff;color:#263b49;box-shadow:0 18px 55px #071e3799;
+}
+.lesson-dialog::backdrop{background:rgba(12,28,43,.72)}
+.lesson-dialog-card{padding:24px 28px 30px;overflow:auto;max-height:calc(100dvh - 28px)}
+.lesson-dialog-card h2{margin:0 48px 18px 0;font-size:30px;color:#153f58}
+.lesson-dialog-close{
+  float:right;width:46px;height:46px;border:0;border-radius:50%;
+  background:#e8f1f7;color:#1a455e;font-size:32px;cursor:pointer;
+}
+.lesson-dialog-content{display:grid;grid-template-columns:48% minmax(0,1fr);gap:24px;align-items:center}
+.lesson-dialog-content img{
+  display:block;width:100%;height:330px;object-fit:contain;
+  border-radius:12px;background:#f2f5f7;
+}
+.lesson-dialog-text{font-size:21px;line-height:1.55}
+.lesson-dialog-text p{margin:0 0 15px}
+.lesson-dialog-text strong{color:#175f89}
+.lesson-dialog-text small{display:block;margin-top:16px;font-size:16px;color:#526471}
+.pin-role-list p{padding:12px 14px;border-radius:10px;background:#f3f8fb}
+.pin-role-list strong,.pin-role-list span{display:block}
+@media(max-width:650px){
+  .lesson-dialog-card{padding:18px}
+  .lesson-dialog-card h2{font-size:22px}
+  .lesson-dialog-content{grid-template-columns:1fr;gap:12px}
+  .lesson-dialog-content img{height:min(33dvh,220px)}
+  .lesson-dialog-text{font-size:16px;line-height:1.45}
+  .lesson-dialog-text p{margin-bottom:8px}
+  .lesson-dialog-text small{font-size:13px}
+}
+
+/* Keep the PWM explanation proportional to the fixed mobile lesson canvas. */
+@media(max-width:900px){
+  html{ -webkit-text-size-adjust:100%;text-size-adjust:100% }
+  body.mobile-layout .pwm-slide .pwm-intro{
+    font-size:22px!important;line-height:1.42!important;
+  }
+  body.mobile-layout .pwm-slide .pwm-intro-lines>div{
+    white-space:normal!important;
+  }
+}
+
+/* Sixth slide: one scene action per presentation step. */
+.entry-scene-slide .entry-scene-tab[hidden]{display:none!important}
+.entry-scene-slide .scene-add-focus{outline:4px solid #f6c443;outline-offset:3px;box-shadow:0 0 0 7px #f6c44355}
