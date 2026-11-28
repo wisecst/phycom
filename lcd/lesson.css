@@ -1,0 +1,64 @@
+#concept .module-photo{max-width:560px;margin-inline:auto;object-position:center}
+#concept .lcd-examples{display:block;width:100%;height:100%;min-height:0;object-fit:contain}
+#lcdPinRoles .pin-role-card[hidden]{display:none}
+#lcdPinRoles .lcd-pin-image{position:relative;width:100%}
+#lcdPinRoles .pin-module-image{width:100%;height:auto}
+#lcdPinRoles .lcd-pin-focus{position:absolute;left:1.8%;width:9%;height:10%;border:5px solid #ffe65e;border-radius:12px;transform:translate(-25%,-50%);box-shadow:0 0 0 4px #b7790080}
+#concept .lcd-signal-animation{width:100%;height:100%;min-height:0;display:grid;grid-template-rows:auto auto minmax(220px,1fr) auto auto auto auto;gap:8px}
+#concept .lcd-signal-animation h3{margin:0;font-size:30px;line-height:1.3}
+#concept .lcd-data{min-height:39px;margin:8px 0;font:700 32px/1.2 monospace}
+#concept .lcd-data [hidden],#concept .lcd-signal-animation svg [hidden]{display:none}
+#concept [data-bit-status]{margin-left:12px;font-size:24px}
+#concept .lcd-signal-animation svg{display:block;width:100%;height:100%;min-height:0;font:16px sans-serif;fill:#23394a}
+#concept [data-sda-wave]{fill:none;stroke:#267bc1;stroke-width:4}
+#concept [data-scl-wave]{fill:none;stroke:#d78b16;stroke-width:4}
+#concept [data-sda-label],#concept [data-sda-level]{fill:#1769aa}
+#concept [data-scl-label],#concept [data-scl-level]{fill:#a45d00}
+#concept [data-data-token]{fill:#1769aa}
+#concept .lcd-display-frame{fill:#28622d}
+#concept .lcd-display-title{font-weight:700}
+#concept .lcd-display-screen{fill:#adc835}
+#concept .lcd-process{fill:#e1eaf0;stroke:#94aebb;stroke-width:1}
+#concept .lcd-process.active{fill:#ffe65e;stroke:#ab7800;stroke-width:2}
+#concept .lcd-process-arrow{fill:none;stroke:#65849a;stroke-width:2}
+#concept .lcd-small{font-size:12px}
+#concept .lcd-dot-label{font-size:9px}
+#concept .lcd-dot{fill:#a0bb2e}
+#concept .lcd-dot.on{fill:#203d10}
+#concept .lcd-animation-caption{min-height:35px;margin:8px 0;font-size:26px;line-height:1.35}
+#concept .lcd-animation-note{margin:0;font-size:18px;line-height:1.35}
+
+/* LCD circuit presentation; shared circuit.js owns pins, paths and progression. */
+#circuit .lcd-board{left:0;top:12%}
+#circuit .module-component{left:55.4%;top:12%;min-width:600px;min-height:calc(600px * 843 / 1864)}
+
+#lcdPinRoles{position:fixed;inset:0;z-index:300}
+
+#setup .lcd-ai-import>button{padding:14px 20px;border:2px solid #5085ff;border-radius:8px;background:#fff;color:#315ec1;font:700 24px sans-serif}
+#setup .lcd-ai-options{display:grid;gap:24px;padding:28px 0;font-size:28px}
+#setup .lcd-ai-options input{width:24px;height:24px;vertical-align:middle}
+#setup .lcd-ai-import>p{font-size:26px;line-height:1.5}
+
+/* Pages 4 and 6 LCD output; lifecycle and result controls use the shared Execution. */
+#basic .lcd-code-preview{position:absolute;right:16px;top:16px;width:min(62%,800px);padding:18px;background:#fff;border-radius:12px}
+#basic .lcd-code-preview[hidden]{display:none}
+:is(#basic,#ai-code) .lcd-coordinate-frame{--lcd-border:14px;--lcd-pad-x:16px;--lcd-pad-y:22px;display:grid;grid-template-columns:24px minmax(0,1fr);gap:4px;color:#244153}
+:is(#basic,#ai-code) .lcd-column-numbers{grid-column:2;display:grid;grid-template-columns:repeat(16,minmax(0,1fr));gap:4px;padding-inline:calc(var(--lcd-border) + var(--lcd-pad-x));font:700 18px/1.5 monospace;text-align:center}
+:is(#basic,#ai-code) .lcd-row-numbers{grid-column:1;grid-row:2;display:grid;grid-template-rows:repeat(2,minmax(0,1fr));align-items:center;padding-block:calc(var(--lcd-border) + var(--lcd-pad-y));font:700 18px/1 monospace;text-align:center}
+:is(#basic,#ai-code) .lcd-output-result .lcd-coordinate-frame{--lcd-border:10px;--lcd-pad-x:10px;--lcd-pad-y:16px}
+:is(#basic,#ai-code) .lcd-code-display{grid-column:2;grid-row:2;min-width:0;padding:var(--lcd-pad-y) var(--lcd-pad-x);border:var(--lcd-border) solid #28622d;border-radius:10px;background:#adc835;color:#203d10}
+:is(#basic,#ai-code) .lcd-code-display output{display:grid;grid-template-columns:repeat(16,minmax(0,1fr));gap:4px;white-space:pre;font:700 44px/1.7 monospace;text-align:center}
+:is(#basic,#ai-code) .lcd-code-display output>span{min-width:0;background:#a1be32}
+:is(#basic,#ai-code) .lcd-output-result p{margin:10px 0 0;font-size:18px;line-height:1.3}
+:is(#basic,#ai-code) .lcd-output-result .lcd-auto-input{margin:0 0 18px;text-align:left;overflow-wrap:anywhere;font-size:32px;font-weight:800}
+
+#concept [data-bits]{display:inline-flex;gap:6px}
+#concept [data-bits] span{padding:4px 8px;border-radius:5px;background:#e8eef4}
+#concept [data-bits] .received{background:#d2efe1;color:#16634b}
+#concept [data-bits] .current{background:#ffe65e;outline:3px solid #bc8500}
+#concept .lcd-transfer-state{display:flex;justify-content:space-between;gap:16px;margin:0;font-size:26px;font-weight:700}
+#concept .lcd-transfer-controls:not([hidden]){display:flex;justify-content:center;gap:18px}
+#concept .lcd-transfer-controls button{padding:9px 18px;font:700 24px sans-serif;border:2px solid #7195a7;border-radius:9px;background:#edf6fc;color:#23394a}
+
+/* Keep native code scrolling inside these two workspaces. */
+:is(#basic,#ai-code) .entry-program{overflow:auto;overscroll-behavior:contain;touch-action:pan-x pan-y}

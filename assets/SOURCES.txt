@@ -1,0 +1,30 @@
+Entry standard assets, retrieved 2026-10-20 from entrylabs/entry-offline:
+https://github.com/entrylabs/entry-offline/tree/master/src/renderer/resources
+The db/sprites.json entries are 쓰레기통, 쓰레기, 우주(3), and 소리 (six costumes).
+The db/sounds.json entry is 대포발사음1 (filename xliv3oeillupfg6f00sv7ec049coxsum).
+Original PNG/MP3 bytes are retained. The module reuses the existing RotationSensor.png visualization.
+Textbook block structures and settings were read directly from printed pages 48,49,52,53 of the supplied 2022 physical computing textbook.
+
+Moon assignment assets (2026-11-15): original Entry offline PNGs, unchanged.
+Source: entrylabs/entry-offline/src/renderer/resources/uploads/{first 2 filename characters}/{next 2}/image/{filename}.png
+날씨_밤: 06793970e2e425a86248209bb4279dc8 → weather-night.png
+달_1..달_8: 22edf87c2ee80052f1942b18c0f904d1, 2a95324355606800a420db30ddece5b1, 70bbaaa68e1e3052a20cb492d23a6e0b, c11668f45635af1f4ee51e8ab0cd88b5, d1cd45c2b66026cde2ae507ee091d2b2, 1d102c38e5bcc4d34b4a0532001c5a66, b21b66962cf8fc11d5df3d41aef03d76, 1f897b0cea1c2bb88779bf4b9349403c → moon-1.png..moon-8.png.
+
+Ultrasonic textbook pp.40–41: original Entry lamp(1), piano background/key costumes and piano C4–B4 sounds. Unmodified files from entrylabs/entry-offline src/renderer/resources; sprite and sound metadata db/sprites.json, db/sounds.json.
+images/05n83wwkk6rg45ab00104f8197fddxz7.svg : https://raw.githubusercontent.com/entrylabs/entry-offline/master/src/renderer/resources/uploads/05/n8/image/05n83wwkk6rg45ab00104f8197fddxz7.svg
+images/3jel7cdnk6rg45ab00104f8197fdbifh.svg : https://raw.githubusercontent.com/entrylabs/entry-offline/master/src/renderer/resources/uploads/3j/el/image/3jel7cdnk6rg45ab00104f8197fdbifh.svg
+images/5d25401b0783d8bc1c49f6f8495a35a5.png : https://raw.githubusercontent.com/entrylabs/entry-offline/master/src/renderer/resources/uploads/5d/25/image/5d25401b0783d8bc1c49f6f8495a35a5.png
+images/34e18124c225d52a04ed5e9bf71670e4.png : https://raw.githubusercontent.com/entrylabs/entry-offline/master/src/renderer/resources/uploads/34/e1/image/34e18124c225d52a04ed5e9bf71670e4.png
+images/c10e25a5aee89a217692487e21bb9c42.png : https://raw.githubusercontent.com/entrylabs/entry-offline/master/src/renderer/resources/uploads/c1/0e/image/c10e25a5aee89a217692487e21bb9c42.png
+images/f6f7698a7b9a5785e79f9dcc4715dda3.png : https://raw.githubusercontent.com/entrylabs/entry-offline/master/src/renderer/resources/uploads/f6/f7/image/f6f7698a7b9a5785e79f9dcc4715dda3.png
+images/385b09785cb71a6b4cd86fe4f06d9268.png : https://raw.githubusercontent.com/entrylabs/entry-offline/master/src/renderer/resources/uploads/38/5b/image/385b09785cb71a6b4cd86fe4f06d9268.png
+images/84c3ea26b2228344ed74d36af02f3421.png : https://raw.githubusercontent.com/entrylabs/entry-offline/master/src/renderer/resources/uploads/84/c3/image/84c3ea26b2228344ed74d36af02f3421.png
+images/ac2c780cbdfef670d4681cfd6563eb0c.png : https://raw.githubusercontent.com/entrylabs/entry-offline/master/src/renderer/resources/uploads/ac/2c/image/ac2c780cbdfef670d4681cfd6563eb0c.png
+images/2b4a5bc2206ad69e7d3672b7e21c0df7.png : https://raw.githubusercontent.com/entrylabs/entry-offline/master/src/renderer/resources/uploads/2b/4a/image/2b4a5bc2206ad69e7d3672b7e21c0df7.png
+sounds/a990f6e67bbf5900550dcd6e355fb7e9.mp3 : 피아노 08_솔 (Entry original)
+sounds/cab518023468685c4eea095bb0efb2fe.mp3 : 피아노 07_파 (Entry original)
+sounds/3800131bcd2bcbb775c8b4836447a5f3.mp3 : 피아노 04_도 (Entry original)
+sounds/06cf00c066c71f60527980e92035cd92.mp3 : 피아노 05_레 (Entry original)
+sounds/8ccbf325e1177002fbe59957ed16000a.mp3 : 피아노 09_라 (Entry original)
+sounds/f1d9f129c4dc515bbdf9aaf48aeae27e.mp3 : 피아노 06_미 (Entry original)
+sounds/99755720f84fca71efb7ad9d76942212.mp3 : 피아노 10_시 (Entry original)

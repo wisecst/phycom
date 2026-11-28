@@ -1,0 +1,209 @@
+@import url("./heading-font.css?v=20261022-explanation1");
+.device-concept-layout{display:grid;grid-template-columns:1fr 1fr;gap:30px;flex:1;min-height:0}.device-concept-copy{font-size:25px;line-height:1.55;min-height:0}.device-concept-copy h3{font-size:33px;margin:0}.device-concept-copy p{margin:12px 0}.device-concept-modules{display:flex;align-items:center;justify-content:space-around;gap:20px}.device-concept-modules figure{margin:0;text-align:center;font-size:20px}.device-concept-modules img{width:220px;height:145px;object-fit:contain}.device-concept-modules button{border:0;background:transparent;cursor:pointer}.device-concept-examples{display:grid;grid-template-rows:auto repeat(3,1fr);gap:14px;min-height:0}.device-concept-examples h3{font-size:29px;margin:0}.device-concept-example{display:flex;align-items:center;gap:26px;padding:20px 28px;border-radius:18px;background:#eef7fc;font-size:28px;font-weight:800}.device-concept-example svg{width:120px;height:95px;flex:none}.device-concept-copy>[data-device-pins]{font:inherit;font-size:21px;font-weight:800;padding:10px 20px;border:2px solid #b8d7e9;border-radius:12px;background:#edf7ff;color:#205778}
+
+.device-concept .ec-popup[data-result="pins"] .ec-popup-toggle{display:none}
+
+/* Explicitly configured explanation pages share the established title frame. */
+html[data-lesson-stage] body main.wrap:has(>.device-explanation.active)>header{display:none!important}
+html[data-lesson-stage] body main.wrap>.device-explanation.active{top:12px;display:flex!important;flex-direction:column;padding:12px 24px!important;gap:14px}
+.device-explanation>.device-concept-header{flex:none;margin:0;padding:8px 22px;color:#fff;background:linear-gradient(135deg,#183b56,#457b9d);border-radius:20px}
+.device-concept-meta{display:flex;justify-content:space-between;align-items:center;font-size:22px;color:#fff;line-height:1.2}
+.device-concept-title{display:flex;align-items:center;gap:24px;margin-top:5px}
+.device-explanation .device-concept-title h1{font-size:48px;line-height:1.18;white-space:nowrap;margin:0;color:#fff}
+.device-concept-title>button{font:inherit;font-size:24px;line-height:1.15;text-align:left;color:#fff;background:none;border:0;padding:0;flex:1;min-width:0;max-width:none;cursor:pointer;text-decoration:underline dotted #c2dbe9;text-underline-offset:6px}
+.device-concept-title>button:hover{color:#fff;text-decoration-color:#fff}
+.device-concept>h2{display:none!important}
+.device-concept>.concept-grid,.device-concept>.motor-concept-layout,.device-concept>.device-concept-layout{flex:1;min-height:0;margin-top:0!important}
+.device-concept-reading{position:absolute;inset:12px 24px;background:#fff;border:2px solid #bbd3e1;border-radius:22px;box-shadow:0 8px 36px #26455933;z-index:95;padding:18px 22px;box-sizing:border-box;display:flex;flex-direction:column}
+.device-concept-reading[hidden]{display:none}
+.device-concept-reading>h2{font-size:30px;margin:0 48px 16px 0;color:#315875}
+.device-concept-reading-grid{display:block;flex:1;min-height:0;overflow:auto}
+.device-concept-reading article{display:flow-root;font-size:34px;line-height:1.65;color:#23394a;min-width:0}
+.device-concept-reading article p{margin:0 0 16px}
+.device-concept-reading mark{background:transparent;color:inherit;border-radius:4px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.device-concept-reading mark.past{background:#fff5c6}
+.device-concept-reading mark.current{background:#ffe65e;box-shadow:0 2px 0 #e8bc22;font-size:1.06em;font-weight:700}
+.device-concept-reading mark.current.connected{background:#b9eaf2;box-shadow:0 2px 0 #64b9ca}
+.device-concept-reading mark.past[data-link]{background:#e5f4f7}
+.device-concept-source.source-left{float:left;margin:0 24px 16px 0}
+.device-concept-source{float:right;width:min(40%,24ch);box-sizing:border-box;margin:0 0 16px 24px;font-size:34px;line-height:1.5;background:#f0f6fa;padding:16px;border-radius:16px;min-width:0}
+.device-concept-source h3{font-size:26px;color:#315875;margin:0 0 12px}
+.device-concept-source p{margin:0 0 14px}
+.device-concept-source p:last-child{margin-bottom:0}
+.device-concept-source img{display:block;width:100%;max-height:200px;object-fit:contain;margin:0 0 14px}
+/* Opt-in source designs verified against the textbook margins. */
+.device-concept-source[data-design="plain"]{background:#fff;border-radius:0}
+.device-concept-source[data-design="plain"] h3{color:#198fae}
+.device-concept-source[data-design="important"]{position:relative;margin-top:52px;padding-top:32px;background:#fff7c9;border:2px dashed #0f75ba;border-radius:32px}
+.device-concept-source[data-design="important"] h3{position:absolute;top:-51px;left:32px;width:176px;margin:0}
+.device-concept-source[data-design="important"] h3 img{max-height:none;margin:0}
+.device-concept-source[data-design="important"] .source-accent{color:#0f75ba}
+.device-concept-lesson{flex:none;margin-top:10px;padding:10px 16px;border-left:5px solid #72a7c7;background:#edf6fc;font-size:34px;line-height:1.5}
+.device-concept-lesson strong{font-size:26px;color:#315875}
+.device-concept-lesson p{margin:4px 0 0;white-space:pre-line}
+.device-concept-reading [hidden]{display:none!important}
+.device-concept-close{position:absolute;right:20px;top:14px;border:0;background:none;font-size:38px;cursor:pointer;color:#39586d}
+.device-concept-explore-next{align-self:flex-end;font:inherit;font-size:24px;border:1px solid #b8d4e5;border-radius:10px;background:#edf6fc;padding:10px 22px;cursor:pointer}
+/* Keep the shared presenter arrows reachable beside legacy demonstration cards. */
+body:has(.device-concept.active) .dc-principle-overlay{pointer-events:none}
+body:has(.device-concept.active) .dc-principle-overlay>section{pointer-events:auto}
+
+.device-concept-subtitle{margin-left:auto;flex:none;font-size:30px;line-height:1.2;white-space:nowrap;color:#fff}
+html[data-lesson-stage] body main.wrap>.device-explanation:not(.device-concept).active{padding:0 16px!important;gap:8px}
+.device-explanation>h2{display:none!important}
+.device-explanation-body{display:flex;flex-direction:column;flex:1;min-width:0;min-height:0}
+.device-explanation-body>.circuit-demo{flex:1;min-height:0;margin:0!important}
+.device-explanation-body>.explanation-context{flex:none;margin:0 0 8px;font-size:20px;line-height:1.4}
+
+/* DeviceConcept marks only its active operation dialog; other popup kinds retain their layout. */
+.device-operation-popup.ec-popup-card{display:flex;flex-direction:column}
+.device-operation-popup.ec-popup-card>.ec-popup-content{flex:1;min-height:0;display:flex;align-items:center;justify-content:center}
+.device-operation-popup.ec-popup-card>.ec-popup-toggle{align-self:center;flex:none}
+
+/* Established reference presentation, shared by opt-in device lessons. */
+/* Potentiometer sidebar: icon → page number → title. */
+
+.device-reference #slideSidebarList .pot-sidebar-icon{display:inline-flex;align-items:center;justify-content:center;flex:0 0 32px;width:32px;height:32px;line-height:1}.device-reference #slideSidebarList .pot-sidebar-icon svg{display:block;width:24px;height:24px}
+.device-reference #slideSidebarList .sidebar-page-no{flex:0 0 24px;width:24px;height:24px;display:grid;place-items:center;border:1px solid #a9bbd2;border-radius:6px;background:#f8fbff;color:#17294c;font-weight:800;text-align:center}
+.device-reference .slide-sidebar{background:#eef3f6}
+.device-reference #slideSidebarList>button{display:flex;align-items:center;gap:9px;background:#e7f1fc;border:1px solid #dce8f6;border-radius:12px;box-shadow:none;color:#17264b}
+.device-reference #slideSidebarList>button.active{background:#fff;border-color:#2468d9;box-shadow:0 1px 4px #1a4e9215;color:#1354b8}
+.device-reference #slideSidebarList>button.active .sidebar-page-no{background:#f8fbff;border-color:#9db5d6;color:#17294c}
+
+@font-face{font-family:PotConceptJua;src:url('../../fonts/Jua-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+.device-reference .device-explanation{border:1px solid #ceddf3;border-radius:24px;background:linear-gradient(135deg,#e7f3ff,#e3edff);box-shadow:0 6px 20px #29477612}
+.device-reference #concept>.pot-concept-heading{font-family:PotConceptJua,'Malgun Gothic',sans-serif;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:24px;padding:12px 18px;border:0;border-radius:20px;background:transparent}
+.device-reference #concept .pot-concept-heading .device-concept-title{display:flex;flex-direction:column;align-items:flex-start;gap:12px;margin:0;min-width:0}
+.device-reference #concept .pot-device-kind{padding:5px 12px;border-radius:12px;background:#dff0ff;color:#235c8e;font-family:PotConceptJua,'Malgun Gothic',sans-serif;font-size:20px;line-height:1.5}
+.device-reference #concept .pot-concept-heading h1{margin:0;color:#080d38;font-family:PotConceptJua,'Malgun Gothic',sans-serif;font-size:46px;line-height:1.15;white-space:nowrap}
+.device-reference #concept .pot-title-context{display:flex;flex-direction:column;align-items:flex-end;gap:12px;text-align:right;color:#102c59}
+
+.device-reference #concept .pot-textbook-page::before,.device-reference .device-explanation:not(.device-concept) .device-concept-meta span:last-child:not([hidden])::before{content:'📖';font-size:24px;line-height:1}
+.device-reference #concept .pot-concept-heading .device-concept-subtitle{margin:0;font-family:PotConceptJua,'Malgun Gothic',sans-serif;font-size:26px;line-height:1.3;white-space:nowrap;color:#102c59}
+/* Page 2 uses the same title and card frame; circuit assets and pin routing stay shared. */
+.device-reference .device-explanation:not(.device-concept)>.device-concept-header{font-family:PotConceptJua,'Malgun Gothic',sans-serif;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:24px;border:0;border-radius:20px;background:transparent;row-gap:4px;padding:4px 18px}
+.device-reference .device-explanation:not(.device-concept) .device-concept-meta,.device-reference .device-explanation:not(.device-concept) .device-concept-title{display:contents}
+.device-reference .device-explanation:not(.device-concept) .device-concept-meta span:first-child{padding:5px 12px;border-radius:12px;background:#dff0ff;color:#235c8e;font-family:PotConceptJua,'Malgun Gothic',sans-serif;font-size:20px;line-height:1.5;grid-area:1 / 1;justify-self:start}
+.device-reference .device-explanation:not(.device-concept) .device-concept-meta span:last-child:not([hidden]){display:inline-flex;align-items:center;gap:10px;padding:8px 18px;border:1px solid #a9cce4;border-radius:999px;background:#eaf5ff;color:#123b61;font-size:25px;line-height:1.3;font-weight:800;white-space:nowrap;grid-area:1 / 2;justify-self:end}
+.device-reference .device-explanation:not(.device-concept) .device-concept-title h1{margin:0;color:#080d38;font-family:PotConceptJua,'Malgun Gothic',sans-serif;font-size:46px;line-height:1.15;white-space:nowrap;grid-area:2 / 1}
+.device-reference .device-explanation:not(.device-concept) .device-concept-subtitle{margin:0;font-family:PotConceptJua,'Malgun Gothic',sans-serif;font-size:26px;line-height:1.3;white-space:nowrap;color:#102c59;grid-area:2 / 2;justify-self:end}
+.device-reference .device-explanation:not(.device-concept)>.device-explanation-body{padding:18px;border-radius:26px;background:#fff;box-shadow:0 4px 12px #25477512;font-family:PotConceptJua,'Malgun Gothic',sans-serif}
+.device-reference #concept>.pot-concept-main{position:relative;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:18px;align-items:stretch;padding:18px;border-radius:26px;background:#fff;box-shadow:0 4px 12px #25477512}
+
+.device-reference #concept .pot-concept-uses>h3{display:flex;align-items:center;gap:12px;margin:0;padding:0;color:#102c59;font-family:PotConceptJua,'Malgun Gothic',sans-serif;font-size:30px;font-weight:400;line-height:1.3}
+.device-reference #concept .pot-concept-explanation{display:block;margin:0;color:#0d143a;font-size:30px;font-weight:800;line-height:1.55;word-break:keep-all}
+.device-reference #concept .pot-concept-explanation mark{padding:2px 4px;border-radius:8px;background:#ffe85f;color:inherit}
+
+.device-reference #concept .pot-concept-device{display:grid;grid-template-rows:minmax(0,1fr) auto;gap:12px;min-height:0;max-height:100%;margin:0}
+.device-reference #concept .pot-concept-device figcaption{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:10px 8px;border:2px solid #77a8ee;border-radius:38px;background:linear-gradient(#fff,#e5f1ff);color:#0066ca;font-family:PotConceptJua,'Malgun Gothic',sans-serif;font-size:29px;line-height:1.15;box-shadow:0 3px 5px #1b72c224}
+.device-reference #concept .pot-concept-device figcaption small{font-family:'Malgun Gothic',sans-serif;font-size:20px;font-weight:700;color:#0c163c}
+.device-reference #concept .pot-concept-device>[data-device-pins]{display:grid;place-items:center;min-height:0;width:auto;max-width:100%;aspect-ratio:1;height:100%;justify-self:center;padding:10px;border:0;border-radius:50%;background:radial-gradient(circle at 35% 25%,#e3f1ff,#c5defe);cursor:pointer}
+.device-reference #concept .pot-concept-device>[data-device-pins]>img{display:block;width:100%;height:100%;min-height:0;object-fit:contain}
+
+.device-reference #concept .pot-usage-card h4{display:flex;align-items:center;gap:8px;justify-self:start;margin:0;padding:5px 12px 5px 5px;border:1px solid currentColor;border-radius:999px;background:transparent;color:#9e1952;--usage-icon-color:#e64c88;font:400 26px/1.2 PotConceptJua,'Malgun Gothic',sans-serif;white-space:nowrap}
+.device-reference #concept .pot-usage-card:nth-child(2) h4{color:#168c34;--usage-icon-color:#49bc65}
+.device-reference #concept .pot-usage-card:nth-child(3) h4{color:#1169b5;--usage-icon-color:#49a8ed}
+.device-reference #concept .pot-usage-card:nth-child(4) h4{color:#873c78;--usage-icon-color:#c77ab8}
+.device-reference #concept .pot-usage-icon{box-sizing:border-box;flex:none;width:32px;height:32px;padding:3px;border-radius:50%;background:var(--usage-icon-color)}
+.device-reference #concept .pot-usage-card img{display:block;width:100%;height:100%;min-height:0;object-fit:cover;border-radius:12px}
+
+.device-reference #concept .pot-click-target{position:relative;cursor:pointer;transition:box-shadow .15s,filter .15s}
+.device-reference #concept .pot-click-target:not(.pot-concept-definition)::after,#concept .pot-concept-definition-title::after{content:'✦';position:absolute;right:9px;top:6px;color:#ffd029;font:900 23px/1 sans-serif;pointer-events:none;text-shadow:0 1px 1px #ab790044}
+.device-reference #concept .pot-concept-main .pot-concept-definition-title{justify-self:start;margin:0;padding:8px 24px;border-radius:30px;background:linear-gradient(#00adef,#0078db);color:#fff;font-family:PotConceptJua,'Malgun Gothic',sans-serif;font-size:30px;font-weight:400;line-height:1.2;position:relative;padding-right:40px}
+.device-reference #concept .pot-concept-device>.pot-click-target::after{right:17%;top:17%}
+.device-reference #concept .pot-click-target:hover{box-shadow:0 0 0 3px #72b5ef55;filter:brightness(1.025)}
+.device-reference #concept .pot-click-target:focus-visible{outline:3px solid #f0bd32;outline-offset:3px}
+.device-reference #concept .pot-textbook-page{display:inline-flex;align-items:center;gap:10px;padding:8px 18px;border:1px solid #a9cce4;border-radius:999px;background:#eaf5ff;color:#123b61;font-size:25px;line-height:1.3;font-weight:800;white-space:nowrap;padding-right:35px}
+
+.device-reference #concept>.pot-concept-main:has(>.pot-principle){display:block;min-height:0;overflow:auto}
+
+/* Page 1: shared friendly type and blue palette across concept and its dialogs. */
+.device-reference #concept{--pot-main-ink:#102c59;--pot-main-blue:#235c8e;--pot-main-pale:#eaf5ff}
+.device-reference #concept .pot-concept-main,.device-reference #concept .pot-concept-heading,.device-reference #concept .ec-popup:not(.ec-pin13) .ec-popup-card *{font-family:PotConceptJua,'Malgun Gothic',sans-serif}.device-reference #concept .pot-concept-module{display:grid;min-height:0;min-width:0;gap:18px;grid-template-rows:auto minmax(0,1fr);font-family:PotConceptJua,'Malgun Gothic',sans-serif}
+.device-reference #concept .pot-concept-uses{display:grid;min-height:0;min-width:0;grid-template-rows:auto minmax(0,1fr);gap:10px;align-self:stretch;box-sizing:border-box;padding:12px;border:1px solid #cbd2dd;border-radius:22px;background:#fff;font-family:PotConceptJua,'Malgun Gothic',sans-serif}
+.device-reference #concept .pot-concept-devices{display:grid;grid-template-columns:repeat(var(--device-count,2),minmax(0,1fr));gap:14px;align-items:center;min-height:0;font-family:PotConceptJua,'Malgun Gothic',sans-serif}
+.device-reference #concept .pot-usage-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:12px;min-height:0;font-family:PotConceptJua,'Malgun Gothic',sans-serif}
+.device-reference #concept .pot-usage-card{display:grid;grid-template-rows:auto minmax(0,1fr);gap:8px;min-width:0;min-height:0;padding:10px;border:1px solid #cbd2dd;border-radius:20px;background:#fff;font-family:PotConceptJua,'Malgun Gothic',sans-serif}
+.device-reference #concept .pot-concept-definition{display:grid;justify-items:start;gap:18px;width:100%;padding:0;border:0;background:transparent;text-align:left;font:inherit;color:inherit;cursor:pointer;border-radius:18px;font-family:PotConceptJua,'Malgun Gothic',sans-serif}
+.device-reference #concept .device-concept-reading{font-family:PotConceptJua,'Malgun Gothic',sans-serif;border-color:#a9cce4;background:#f8fbff;color:#102c59}
+.device-reference #concept .device-concept-reading>h2{color:#102c59}
+.device-reference .phycom-pin-window{border:3px solid #a9cce4;border-radius:18px;background:#f8fbff;color:#102c59;box-shadow:0 8px 24px #183a4b55}
+
+.device-reference #concept .pot-principle-summary>p{grid-column:1/-1;margin:0;font-size:19px;line-height:1.4;text-align:center;color:#3a5675}
+.device-reference #concept .pot-principle-summary li:first-child strong{color:#6d08b8}
+.device-reference #concept .pot-principle-summary li:before{content:counter(principle);position:absolute;left:5px;top:2px;display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:#155d8c;color:#fff;font-weight:900}
+.device-reference #concept .pot-principle-summary li{position:relative;counter-increment:principle;padding:6px 10px 6px 42px;font-size:25px;line-height:1.4;font-weight:700;border-left:1px solid #ead9a6}
+.device-reference #concept .pot-principle-summary ol{display:grid;grid-template-columns:1.15fr 1fr 1.1fr;gap:12px;list-style:none;counter-reset:principle;margin:0;padding:0}
+.device-reference #concept .pot-principle-summary h4 svg{width:40px;height:50px;flex-shrink:0}
+.device-reference #concept .pot-principle-summary h4{display:flex;align-items:center;justify-content:center;gap:8px;margin:0;padding:6px 10px;border-radius:24px;background:#13547c;color:white;font-size:29px;white-space:nowrap}
+.device-reference #concept .pot-principle-summary:not([hidden]){box-sizing:border-box;font-size:24px;color:#102647;display:grid;grid-template-columns:180px 1fr;align-items:center;gap:14px 18px;min-height:210px;padding:18px 20px;border-radius:22px;background:linear-gradient(110deg,#fff9e1,#fffdf0)}
+.device-reference #concept .pot-principle-heading p{margin:0;padding:8px 12px;color:#102647;font-size:22px;font-weight:800;line-height:1.5}
+.device-reference #concept .pot-principle-heading h3{margin:0;padding:16px 24px;border-radius:28px;background:linear-gradient(130deg,#318fe3,#092d58);color:#fff;white-space:nowrap;font-size:32px}
+.device-reference #concept .pot-principle-heading{display:flex;align-items:center;gap:20px;width:100%;padding:0;background:linear-gradient(100deg,#d5eaff,#f7faff);border-radius:26px;box-shadow:none;border:0}
+.device-reference #concept .pot-concept-uses>img{display:block;width:100%;height:100%;min-height:0;object-fit:contain}
+
+.device-reference #concept .ec-popup:not(.ec-pin13) .ec-popup-card{font-family:PotConceptJua,'Malgun Gothic',sans-serif;border:3px solid #a9cce4;border-radius:18px;background:#f8fbff;color:#102c59;box-shadow:0 8px 24px #183a4b55;width:84%;right:8%;padding:20px;top:24px;max-height:calc(100% - 48px)}
+
+/* Task observation, progressive reveal and student-code comparison. */
+.pot-moon-task{display:grid;grid-template-columns:minmax(0,68fr) minmax(0,32fr);gap:12px;margin:0;height:100%;min-height:0}
+.pot-moon-task>section{display:flex;flex-direction:column;gap:8px;min-width:0;min-height:0;color:#17375e}
+.pot-moon-task h3{font-size:32px;margin:0}
+.pot-moon-task p{font-size:28px;line-height:1.35;margin:0}
+.pot-moon-task strong{font-size:26px;line-height:1.4}
+.pot-moon-observation{flex:0 0 150px;min-height:0}
+.pot-moon-reveal{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;width:100%;height:100%;padding:12px;border:2px solid #b4cae5;border-radius:14px;background:#f5f9ff;color:#17375e;font-family:inherit;font-size:28px;font-weight:800;line-height:1.3;word-break:keep-all;cursor:pointer}
+.pot-moon-reveal span{font-size:28px;font-weight:800;line-height:1.3}
+.pot-moon-task .pot-moon-reveal strong{font-size:34px;line-height:1.2;color:#145bc0}
+.pot-moon-reveal [hidden]{display:none}
+.pot-moon-task .pot-moon-products:not([hidden]){display:flex;justify-content:space-around;gap:12px;width:100%;font-size:28px}
+.pot-moon-products>span{display:flex;flex-direction:column;gap:4px;font:inherit}
+.pot-moon-products small{font-size:22px;color:#17375e}
+.pot-moon-products b{font:inherit;white-space:nowrap}
+
+.pot-moon-reveal .pot-moon-axis-x{display:inline;padding:2px 5px;border-radius:6px;font:inherit;box-decoration-break:clone;background:#e0f2fe;color:#075985}
+.pot-moon-reveal .pot-moon-axis-y{display:inline;padding:2px 5px;border-radius:6px;font:inherit;box-decoration-break:clone;background:#ffe4e6;color:#9f1239}
+.pot-moon-coordinate-list{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:repeat(8,minmax(0,1fr));gap:4px;flex:1;min-height:0}
+.pot-moon-coordinate-list figure{display:flex;align-items:center;gap:8px;margin:0;padding:4px 8px;min-height:0;border:2px solid transparent;background:#edf4ff;border-radius:14px}
+.pot-moon-coordinate-list img{width:46px;height:46px;flex:none;object-fit:contain}
+.pot-moon-coordinate-list figcaption{display:flex;align-items:center;gap:8px;font-size:28px;white-space:nowrap}
+.pot-moon-coordinate-list .previous{border-color:#9cc9ef}
+.pot-moon-coordinate-list .current{border-color:#f5c343;background:#fff6d7}
+.pot-moon-examples>.device-explanation-body{display:grid;grid-template-rows:minmax(0,1fr) auto;gap:10px;color:#17375e}
+.pot-moon-comparison{display:grid;grid-template-columns:1fr 1fr;gap:14px;min-height:0}
+.pot-moon-comparison>section{display:flex;flex-direction:column;gap:8px;min-width:0;min-height:0;background:#fff;padding:10px;border:1px solid #ceddf3;border-radius:22px}
+.pot-moon-comparison h3{margin:0;font-size:32px;line-height:1.3}
+.pot-moon-student-image{flex:1;min-height:0;display:flex;justify-content:center;overflow:hidden;border-radius:10px}
+.pot-moon-student-image img{display:block;max-width:100%;height:100%;width:auto;object-fit:contain}
+.pot-moon-question{margin:0;padding:12px 16px;border-radius:14px;background:#fff6d7;font-size:26px;font-weight:700;line-height:1.4}
+.operation-footer-nav:has(.device-operation-popup:not([hidden])) .slide-nav button{top:auto!important;bottom:20px;transform:none!important;width:auto;min-width:100px;height:43px;padding:6px 18px;font-size:21px;font-weight:800;border:2px solid #9bbadd;border-radius:24px;background:#eff6ff;color:#184b78}
+
+/* Data-configured module pin table; legacy class names preserve existing lessons. */
+.device-reference .phycom-pin-window .pin-dual-pot{--pot-main-ink:#102c59;--pot-main-blue:#235c8e;--pot-main-pale:#eaf5ff;color:var(--pot-main-ink)}
+.device-reference .phycom-pin-window .pin-dual-pot .pin-title{background:linear-gradient(130deg,#318fe3,#092d58)}
+.device-reference .pin-dual-head>span{border-color:#a9cce4;background:var(--pot-main-pale);color:var(--pot-main-ink)}
+.device-reference .pin-dual-images figure{border-color:#d3def1;background:linear-gradient(135deg,#f6f8ff,#f1f7fd)}
+.device-reference .pin-dual-images figcaption{color:var(--pot-main-blue)}
+.device-reference .pin-dual-summary{background:linear-gradient(100deg,#d5eaff,#f7faff)}
+.device-reference .pin-dual-summary strong{background:linear-gradient(130deg,#318fe3,#092d58)}
+.phycom-pin-window .pin-dual-pot{font-family:PotConceptJua,'Malgun Gothic',sans-serif;gap:16px;padding:24px}
+.phycom-pin-window .pin-dual-pot .pin-title{flex:none;align-self:flex-start;max-width:calc(100% - 62px);box-sizing:border-box;margin:0;padding:16px 24px;border-radius:28px;color:#fff;font-size:40px;line-height:1.2}
+.phycom-pin-window .pin-dual-pot .pin-layout{grid-template-columns:27% minmax(0,1fr);gap:18px;align-items:stretch}
+.pin-dual-images{display:grid;grid-template-rows:repeat(var(--pin-image-count,2),1fr);gap:12px;min-height:0}
+.pin-dual-images figure{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:0;margin:0;padding:8px;border:3px solid #d6e3ff;border-radius:20px;background:#edf3ff}
+.pin-dual-images figcaption{font-size:33px;font-weight:900;color:#1644a1}
+.pin-dual-images img{display:block;max-width:98%;height:calc(100% - 46px);min-height:0;object-fit:contain}
+.pin-dual-details{display:grid;grid-template-rows:80px 1.1fr 1.3fr .9fr;gap:12px;min-height:0}
+.pin-dual-head{display:grid;grid-template-columns:155px minmax(0,1fr) 150px;align-items:center;gap:12px;border:0;border-radius:0;background:transparent;color:#142c68;text-align:center;font-size:29px;font-weight:900}
+.pin-dual-head>span{display:grid;place-items:center;box-sizing:border-box;height:100%;padding:4px 6px;line-height:1.2;white-space:nowrap;border:3px solid #9bb8f6;border-radius:16px;background:#dce7fc}
+.pin-dual-row{display:grid;grid-template-columns:155px minmax(0,1fr) 150px;align-items:center;gap:12px;padding:10px;border:3px solid var(--row-color);border-radius:20px;min-height:0;background:#fff}
+.pin-dual-row>b{display:flex;flex-direction:column;justify-content:center;align-items:center;height:100%;border-radius:14px;background:var(--row-color);color:#fff;font-size:44px}
+.pin-dual-row>b small{font-size:26px}
+.pin-dual-row>div{min-width:0}
+.pin-dual-row strong{font-size:31px;line-height:1.2;color:#16264c}
+.pin-dual-row p{margin:10px 0 0;font-size:27px;font-weight:900;line-height:1.25}
+.pin-dual-row em{display:inline-block;padding:3px 10px;border:2px solid var(--row-color);border-radius:14px;font-size:31px;font-style:normal;white-space:nowrap}
+.pin-dual-row div>small{display:block;margin-top:6px;font-size:23px;font-weight:750;line-height:1.2;color:#46556b}
+.pin-dual-row output{display:grid;place-items:center;min-height:94px;border-radius:16px;background:var(--row-bg);font-size:58px;font-weight:900;color:var(--row-color)}
+.pin-dual-summary{display:grid;grid-template-columns:190px repeat(var(--pin-row-count,3),1fr);gap:14px;align-items:center;flex:none;min-height:110px;padding:12px 16px;border-radius:20px;background:#e2e9ff;text-align:center}
+.pin-dual-summary>*{padding:18px 6px;border-radius:28px;font-size:43px;font-weight:900;background:#fff}
+.pin-dual-summary strong{background:#1643c2;color:#fff}
